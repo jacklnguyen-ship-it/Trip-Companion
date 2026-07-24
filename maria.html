@@ -174,6 +174,9 @@ body:has(#page-opera:target) a.navlink[href="#page-opera"]{ background:rgba(164,
 body:has(#page-paris_drinks:target) a.navlink[href="#page-paris_drinks"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-food:target) a.navlink[href="#page-food"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
+body:has(#page-home:target) a.navlink[href="#page-home"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
+body:not(:has(.page:target)) a.navlink[href="#page-home"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
+body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:transparent; color:var(--sidebar-muted); font-weight:400; }
 
 /* ---------- Content ---------- */
 .content-wrap{
@@ -183,6 +186,9 @@ body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:rgba(
 }
 .page{ display:none; }
 .page:target{ display:block; }
+#page-home{display:block}
+body:has(.page:target) #page-home{display:none}
+#page-home:target{display:block}
 /* Show the itinerary by default using a classic, universally-supported technique:
    the itinerary section is placed LAST in the DOM (see page order below), so any
    other .page being :target hides it via the general sibling combinator. This works
@@ -407,6 +413,12 @@ body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:rgba(
 .day-schedule,.day-food{border:1px solid var(--line);background:var(--parchment-card);border-radius:12px;padding:1rem;margin-bottom:1rem}.day-schedule h2{font-size:1rem!important;margin:.85rem 0 .45rem!important;padding:0!important;border:0!important}.day-schedule h2:first-child{margin-top:0!important}.food-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}.food-card{padding:.8rem;border:1px solid var(--line-soft);border-radius:9px;background:#fff}.food-card strong{display:block;color:var(--ink)}.food-card span{display:block;color:var(--slate);font-size:.82rem;margin:.2rem 0}.food-card a{font-size:.78rem}
 .day-research details{border:1px solid var(--line);border-radius:10px;background:var(--parchment-card);margin:.65rem 0;overflow:hidden}.day-research summary{cursor:pointer;padding:.85rem 1rem;font-weight:700;color:var(--ink-soft)}.day-research-content{padding:0 1rem 1rem}.day-research-content h2{font-size:1.25rem;margin:1rem 0 .6rem}body.day-modal-open{overflow:hidden}
 @media(max-width:620px){.itinerary-day-heading{font-size:1.12rem!important;padding-right:1rem!important}.itinerary-day-heading::after{position:static;display:block;transform:none;margin-top:.35rem}.food-grid{grid-template-columns:1fr}.day-modal{padding:0}.day-sheet{max-height:95vh}.day-sheet-body{padding:1rem}}
+.home-hero{padding:1.35rem;border-radius:16px;background:linear-gradient(135deg,var(--ink),var(--ink-soft));color:#fff;margin-bottom:1rem;box-shadow:0 10px 30px rgba(16,28,39,.16)}
+.home-hero h1{color:#fff!important;border:0!important;margin:0 0 .45rem!important;padding:0!important}.home-hero p{color:#d8e3ed!important;margin:.35rem 0!important}.home-kicker{color:var(--brass)!important;font:700 .7rem ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase}
+.home-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:1rem 0}.home-action{display:block;padding:.85rem;border:1px solid var(--line);border-radius:11px;background:var(--parchment-card);text-decoration:none!important;font-weight:700;text-align:center}
+.home-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.home-day{appearance:none;width:100%;text-align:left;padding:.9rem;border:1px solid var(--line);border-radius:11px;background:var(--parchment-card);color:var(--ink);cursor:pointer;font:inherit}.home-day:hover,.home-day:focus{border-color:var(--brass);outline:none;transform:translateY(-1px)}.home-day time{display:block;color:var(--wax);font:700 .68rem ui-monospace,monospace;text-transform:uppercase}.home-day strong{display:block;margin:.2rem 0;font-size:.98rem}.home-day span{color:var(--slate);font-size:.8rem}
+.archive-box{margin-top:1.25rem;border:1px solid var(--line);border-radius:11px;background:var(--parchment-card)}.archive-box summary{cursor:pointer;padding:.9rem 1rem;font-weight:700}.archive-box div{padding:0 1rem .9rem}.updated-note{margin-top:1rem!important;color:var(--slate)!important;font-size:.78rem!important}
+@media(max-width:620px){.home-actions{grid-template-columns:1fr}.home-days{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -428,8 +440,9 @@ body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:rgba(
       <div style="margin-top:.6rem; font-size:.72rem; color:#e4b876; font-style:italic;">A few evenings are surprises 🎁</div>
     </div>
     <div class="nav-group-label">Plan</div>
-    <a class="navlink" href="#page-itinerary"><span class="num">01</span> Day-by-Day Itinerary</a>
-    <a class="navlink" href="#page-logistics"><span class="num">02</span> Logistics & Bookings</a>
+    <a class="navlink" href="#page-home"><span class="num">01</span> Home</a>
+    <a class="navlink" href="#page-itinerary"><span class="num">02</span> Day-by-Day Itinerary</a>
+    <a class="navlink" href="#page-logistics"><span class="num">03</span> Logistics & Bookings</a>
     <div class="nav-group-label">London Leg</div>
     <a class="navlink" href="#page-london"><span class="num">03</span> London Places Guide</a>
     <a class="navlink" href="#page-bath"><span class="num">04</span> Bath / Celtic Tour Day</a>
@@ -444,6 +457,38 @@ body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:rgba(
   </nav>
 
   <main class="content-wrap">
+<section class="page" id="page-home">
+  <div class="home-hero">
+    <p class="home-kicker">Your trip at a glance</p>
+    <h1>London &amp; Paris</h1>
+    <p>September 7–17, 2026 · 11 days · 2 travelers</p>
+    <p>Open a day below for its schedule, tickets, nearby food and detailed research.</p>
+  </div>
+  <div class="home-actions">
+    <a class="home-action" href="#page-itinerary">View all days →</a>
+    <a class="home-action" href="#page-logistics">Travel essentials →</a>
+    <a class="home-action" href="#page-food">Food &amp; drink →</a>
+  </div>
+  <h2>Day by day</h2>
+  <div class="home-days">
+    <button class="home-day" data-open-day="0"><time>Mon · Sept 7</time><strong>Depart Los Angeles</strong><span>Overnight flight to London</span></button>
+    <button class="home-day" data-open-day="1"><time>Tue · Sept 8</time><strong>Arrive in London</strong><span>Hotel check-in and an easy evening</span></button>
+    <button class="home-day" data-open-day="2"><time>Wed · Sept 9</time><strong>Chatsworth House</strong><span>Pemberley-inspired day trip</span></button>
+    <button class="home-day" data-open-day="3"><time>Thu · Sept 10</time><strong>Wimbledon &amp; Borough Market</strong><span>Tower sights and evening plans</span></button>
+    <button class="home-day" data-open-day="4"><time>Fri · Sept 11</time><strong>Winchester &amp; Bath</strong><span>Jane Austen, Roman Baths and dinner</span></button>
+    <button class="home-day" data-open-day="5"><time>Sat · Sept 12</time><strong>Tottenham match day</strong><span>Free morning and stadium hospitality</span></button>
+    <button class="home-day" data-open-day="6"><time>Sun · Sept 13</time><strong>London to Paris</strong><span>Eurostar and first evening in Paris</span></button>
+    <button class="home-day" data-open-day="7"><time>Mon · Sept 14</time><strong>Marais &amp; historic Paris</strong><span>Museums, Left Bank and evening plans</span></button>
+    <button class="home-day" data-open-day="8"><time>Tue · Sept 15</time><strong>Versailles</strong><span>Palace, gardens and Trianon Estate</span></button>
+    <button class="home-day" data-open-day="9"><time>Wed · Sept 16</time><strong>Parks &amp; Paris evening</strong><span>Belleville, picnic stops and a surprise</span></button>
+    <button class="home-day" data-open-day="10"><time>Thu · Sept 17</time><strong>Depart Paris</strong><span>Free morning and flight home</span></button>
+  </div>
+  <details class="archive-box">
+    <summary>Archive · earlier or skipped plans</summary>
+    <div><ul><li>The earlier September 16 return plan was replaced by the September 17 flight.</li><li>The Louvre and Eiffel Tower are intentionally skipped because they were visited previously.</li><li>Rejected ideas can remain here without cluttering the active itinerary.</li></ul></div>
+  </details>
+  <p class="updated-note">Last organized July 23, 2026 · Private confirmation details are stored separately.</p>
+</section>
 <section class="page" id="page-logistics">
 <h1>London &amp; Paris Trip — Logistics Plan</h1>
 <p><strong>Sept 7–17, 2026 | 2 travelers</strong></p>
@@ -2544,6 +2589,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
   function findBlocks(pageId,starts){var page=document.getElementById(pageId),out=[];if(!page)return out;if(starts.indexOf('*')>-1){var full=page.cloneNode(true);full.removeAttribute('id');out.push({label:(page.querySelector('h1')||{}).textContent||'Full guide',node:full});return out}Array.prototype.slice.call(page.querySelectorAll('h2')).forEach(function(h){if(starts.some(function(s){return h.textContent.trim().indexOf(s)===0})){var wrap=document.createElement('div');wrap.appendChild(h.cloneNode(true));var n=h.nextElementSibling;while(n&&n.tagName!=='H2'){wrap.appendChild(n.cloneNode(true));n=n.nextElementSibling}out.push({label:h.textContent.trim(),node:wrap})}});return out}
   function openDay(i){var d=days[i],schedule=blockAfter(headings[i]),food=d.food.map(function(f){return '<div class="food-card"><strong>'+f[0]+'</strong><span>'+f[1]+'</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(f[2])+'">Open in Maps →</a></div>'}).join('');body.innerHTML='<section class="day-priority"><h3>Tickets & reservations first</h3>'+d.tickets+'</section><section class="day-schedule"><h3>Today’s itinerary</h3>'+schedule.innerHTML+'</section><section class="day-food"><h3>Nearby food & drinks</h3><div class="food-grid">'+food+'</div></section><h3 class="day-research-title">Research from your guides</h3><div class="day-research"></div>';var research=body.querySelector('.day-research');d.research.forEach(function(r){findBlocks(r[0],r[1]).forEach(function(b){var det=document.createElement('details'),sum=document.createElement('summary'),content=document.createElement('div');sum.textContent=b.label;content.className='day-research-content';content.appendChild(b.node);det.appendChild(sum);det.appendChild(content);research.appendChild(det)})});title.textContent=headings[i].textContent.trim();modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('day-modal-open');modal.querySelector('.day-close').focus()}
   headings.forEach(function(h,i){h.classList.add('itinerary-day-heading');h.tabIndex=0;h.setAttribute('role','button');h.setAttribute('aria-label','Open complete guide for '+h.textContent.trim());h.addEventListener('click',function(){openDay(i)});h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openDay(i)}})});
+  Array.prototype.slice.call(document.querySelectorAll('[data-open-day]')).forEach(function(button){button.addEventListener('click',function(){openDay(parseInt(button.getAttribute('data-open-day'),10))})});
   function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('day-modal-open')}modal.querySelector('.day-close').addEventListener('click',close);modal.addEventListener('click',function(e){if(e.target===modal)close()});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))close()});
 })();
 </script>
