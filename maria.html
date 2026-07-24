@@ -188,14 +188,7 @@ body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:trans
 .page:target{ display:block; }
 #page-home{display:block}
 body:has(.page:target) #page-home{display:none}
-#page-home:target{display:block}
-/* Show the itinerary by default using a classic, universally-supported technique:
-   the itinerary section is placed LAST in the DOM (see page order below), so any
-   other .page being :target hides it via the general sibling combinator. This works
-   in every browser that supports :target (all of them, for well over a decade) and
-   does not depend on newer selectors like :has(). */
-#page-itinerary{ display:block; }
-.page:target ~ #page-itinerary{ display:none; }
+body:has(.page:target) #page-home:target{display:block}
 
 .page h1{
   font-family: Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
