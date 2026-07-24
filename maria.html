@@ -418,6 +418,7 @@ body:has(.page:target) #page-home{display:none}
 .home-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem;margin:1rem 0}.home-action{display:block;padding:.85rem;border:1px solid var(--line);border-radius:11px;background:var(--parchment-card);text-decoration:none!important;font-weight:700;text-align:center}
 .home-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.home-day{appearance:none;width:100%;text-align:left;padding:.9rem;border:1px solid var(--line);border-radius:11px;background:var(--parchment-card);color:var(--ink);cursor:pointer;font:inherit}.home-day:hover,.home-day:focus{border-color:var(--brass);outline:none;transform:translateY(-1px)}.home-day time{display:block;color:var(--wax);font:700 .68rem ui-monospace,monospace;text-transform:uppercase}.home-day strong{display:block;margin:.2rem 0;font-size:.98rem}.home-day span{color:var(--slate);font-size:.8rem}
 .archive-box{margin-top:1.25rem;border:1px solid var(--line);border-radius:11px;background:var(--parchment-card)}.archive-box summary{cursor:pointer;padding:.9rem 1rem;font-weight:700}.archive-box div{padding:0 1rem .9rem}.updated-note{margin-top:1rem!important;color:var(--slate)!important;font-size:.78rem!important}
+.guide-search{margin:1rem 0 1.35rem;padding:1rem;border:1px solid var(--line);border-radius:14px;background:var(--parchment-card)}.guide-search label{display:block;font-weight:700;color:var(--ink);margin-bottom:.45rem}.guide-search input{box-sizing:border-box;width:100%;padding:.8rem .9rem;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font:inherit}.guide-search input:focus{outline:2px solid var(--brass);outline-offset:1px}.filter-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.65rem 0}.filter-chip{padding:.42rem .68rem;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--ink-soft);font:700 .7rem ui-monospace,monospace;cursor:pointer}.filter-chip.active{background:var(--ink);border-color:var(--ink);color:#fff}.search-results{display:grid;gap:.45rem}.search-result{display:block;padding:.7rem .8rem;border:1px solid var(--line-soft);border-radius:8px;background:#fff;text-decoration:none!important}.search-result strong{display:block;color:var(--ink)}.search-result span{display:block;color:var(--slate);font-size:.78rem;margin-top:.12rem}.search-empty{color:var(--slate);font-size:.84rem;margin:.4rem 0!important}
 @media(max-width:620px){.home-actions{grid-template-columns:1fr}.home-days{grid-template-columns:1fr}}
 </style>
 </head>
@@ -468,6 +469,19 @@ body:has(.page:target) #page-home{display:none}
     <a class="home-action" href="#page-itinerary">View all days →</a>
     <a class="home-action" href="#page-logistics">Travel essentials →</a>
     <a class="home-action" href="#page-food">Food &amp; drink →</a>
+  </div>
+  <div class="guide-search">
+    <label for="guide-search-input">Find anything in your trip</label>
+    <input id="guide-search-input" type="search" placeholder="Try “Borough Market,” “pastries” or “Eurostar”" autocomplete="off">
+    <div class="filter-chips" aria-label="Filter search results">
+      <button class="filter-chip active" data-search-filter="all">All</button>
+      <button class="filter-chip" data-search-filter="days">Days</button>
+      <button class="filter-chip" data-search-filter="london">London</button>
+      <button class="filter-chip" data-search-filter="paris">Paris</button>
+      <button class="filter-chip" data-search-filter="food">Food &amp; drink</button>
+      <button class="filter-chip" data-search-filter="travel">Travel essentials</button>
+    </div>
+    <div class="search-results" id="guide-search-results" aria-live="polite"><p class="search-empty">Search the complete itinerary and all curated guides.</p></div>
   </div>
   <h2>Day by day</h2>
   <div class="home-days">
@@ -2595,6 +2609,40 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 </script>
 
 <script>
+  // ---------- Guide search and content filters ----------
+  (function(){
+    var input=document.getElementById('guide-search-input'),results=document.getElementById('guide-search-results');
+    if(!input||!results)return;
+    var active='all',categoryMap={
+      'page-itinerary':'days','page-logistics':'travel','page-london':'london','page-bath':'london',
+      'page-chatsworth':'london','page-london_pubs':'london','page-paris':'paris','page-versailles':'paris',
+      'page-paris_drinks':'paris','page-food':'food'
+    },items=[];
+    Object.keys(categoryMap).forEach(function(pageId){
+      var page=document.getElementById(pageId);if(!page)return;
+      Array.prototype.slice.call(page.querySelectorAll('h1,h2,h3')).forEach(function(heading,i){
+        if(heading.closest('.audio-stop'))return;
+        var text=heading.textContent.trim(),next=heading.nextElementSibling,snippet='';
+        if(next)snippet=next.textContent.replace(/\s+/g,' ').trim().slice(0,130);
+        items.push({title:text,snippet:snippet,page:pageId,category:categoryMap[pageId],heading:heading,index:i});
+      });
+    });
+    function render(){
+      var query=input.value.trim().toLowerCase(),matches=items.filter(function(item){
+        var categoryMatch=active==='all'||item.category===active||(active==='food'&&(item.category==='london'||item.category==='paris')&&/(food|drink|pub|bar|café|cafe|bakery|pastr|tea|restaurant|market|wine|cocktail)/i.test(item.title+' '+item.snippet));
+        return categoryMatch&&(!query||(item.title+' '+item.snippet).toLowerCase().indexOf(query)>-1);
+      }).slice(0,12);
+      if(!query&&active==='all'){results.innerHTML='<p class="search-empty">Search the complete itinerary and all curated guides.</p>';return;}
+      if(!matches.length){results.innerHTML='<p class="search-empty">No matches yet. Try another word or choose All.</p>';return;}
+      results.innerHTML=matches.map(function(item){return '<a class="search-result" href="#'+item.page+'" data-result-index="'+items.indexOf(item)+'"><strong>'+item.title+'</strong><span>'+item.snippet+'</span></a>';}).join('');
+    }
+    input.addEventListener('input',render);
+    Array.prototype.slice.call(document.querySelectorAll('[data-search-filter]')).forEach(function(button){
+      button.addEventListener('click',function(){active=button.getAttribute('data-search-filter');document.querySelectorAll('[data-search-filter]').forEach(function(b){b.classList.toggle('active',b===button)});render();});
+    });
+    results.addEventListener('click',function(e){var link=e.target.closest('.search-result');if(!link)return;var item=items[parseInt(link.getAttribute('data-result-index'),10)];if(item)setTimeout(function(){item.heading.scrollIntoView({behavior:'smooth',block:'start'});},80);});
+  })();
+
   // ---------- Audio Guide (Web Speech API) ----------
   (function(){
     function showAudioError(wrapper, message){
