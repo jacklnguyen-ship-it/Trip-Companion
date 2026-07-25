@@ -210,7 +210,7 @@
   {
     "query": "The Pump Room Bath",
     "title": "The Pump Room",
-    "category": "food",
+    "category": "afternoontea",
     "lat": 51.3811312,
     "lng": -2.3600164,
     "address": "The Pump Room, Abbey Churchyard, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1NA, United Kingdom"
@@ -1134,5 +1134,109 @@
     "lat": 51.3847701,
     "lng": -2.3615685,
     "address": "Fat Giraffe Gifts, 25 Milsom St, Bath BA1 1DG, UK"
+  },
+  {
+    "query": "Carette patisserie Place des Vosges Paris",
+    "title": "Carette",
+    "category": "afternoontea",
+    "lat": 48.8563302,
+    "lng": 2.3655661,
+    "address": "Carette, 25 Pl. des Vosges, 75003 Paris, France"
+  },
+  {
+    "query": "La Baguette du Relais Marais Paris steak frites",
+    "title": "La Baguette du Relais",
+    "category": "food",
+    "lat": 48.8575675,
+    "lng": 2.3544852,
+    "address": "La Baguette du Relais, 10 Rue des Archives, 75004 Paris, France"
+  },
+  {
+    "query": "Repetto boutique 22 Rue de la Paix Paris",
+    "title": "Repetto",
+    "category": "shopping",
+    "lat": 48.869779,
+    "lng": 2.331953,
+    "address": "Repetto, 22 Rue de la Paix, 75002 Paris, France"
+  },
+  {
+    "query": "Simple Rainbow ballet flats Paris",
+    "title": "Simple Rainbow",
+    "category": "shopping",
+    "lat": 48.862431,
+    "lng": 2.360008,
+    "address": "SimpleRainbow Paris, 21 Rue Pastourelle, 75003 Paris, France"
+  },
+  {
+    "query": "Merci concept store Paris",
+    "title": "Merci",
+    "category": "shopping",
+    "lat": 48.8607214,
+    "lng": 2.3668319,
+    "address": "Merci, 111 Bd Beaumarchais, 75003 Paris, France"
+  },
+  {
+    "query": "The Consortium Winchester shop",
+    "title": "The Consortium",
+    "category": "shopping",
+    "lat": 51.0640229,
+    "lng": -1.3158732,
+    "address": "The Consortium, 39 Jewry St, Winchester SO23 8RY, UK"
+  },
+  {
+    "query": "Swoon gelato Bath",
+    "title": "Swoon",
+    "category": "icecream",
+    "lat": 51.3815269,
+    "lng": -2.3633226,
+    "address": "Swoon Gelato, 15 Kingsmead Square, Bath BA1 2AE, UK"
+  },
+  {
+    "query": "La Slow Galerie Paris",
+    "title": "La Slow Galerie",
+    "category": "art",
+    "lat": 48.8649843,
+    "lng": 2.3663977,
+    "address": "Slow Galerie, 5 Rue Jean-Pierre Timbaud, 75011 Paris, France"
+  },
+  {
+    "query": "Carre d'Artistes Marais Paris",
+    "title": "Carré d'Artistes",
+    "category": "art",
+    "lat": 48.8573864,
+    "lng": 2.357338,
+    "address": "Carré d'artistes Marais, 29 Rue Vieille du Temple, 75004 Paris, France"
+  },
+  {
+    "query": "Marche de la Creation Edgar Quinet Paris art market",
+    "title": "Marché de la Création",
+    "category": "art",
+    "lat": 48.8408683,
+    "lng": 2.324886,
+    "address": "Marché de la Création, 11 Bd Edgar Quinet, 75014 Paris, France"
+  },
+  {
+    "query": "Print Club London screen prints",
+    "title": "Print Club London",
+    "category": "art",
+    "lat": 51.5524401,
+    "lng": -0.0744335,
+    "address": "Print Club London, 10, 28 Millers Ave., London E8 2DS, UK"
+  },
+  {
+    "query": "Bankside Gallery London",
+    "title": "Bankside Gallery",
+    "category": "art",
+    "lat": 51.5081673,
+    "lng": -0.1012398,
+    "address": "Bankside Gallery, 48 Hopton St, London SE1 9JB, UK"
+  },
+  {
+    "query": "Southbank Printmakers Gabriel's Wharf London",
+    "title": "Southbank Printmakers",
+    "category": "art",
+    "lat": 51.5066,
+    "lng": -0.1098,
+    "address": "Southbank Printmakers, Gabriel's Wharf, 56 Upper Ground, London SE1 9PP, UK (approximate — Places API returned an inconsistent Fitzrovia address for this listing; verify before relying on it)"
   }
 ]
