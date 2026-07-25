@@ -8,7 +8,7 @@
 }
 .trip-map-button{cursor:pointer;background:var(--accent);color:#fff;border-color:transparent;font-weight:700}
 .trip-map-button.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
-#trip-map{height:min(62vh,590px);min-height:430px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#dbe7ec}
+#trip-map{position:relative;z-index:0;height:min(62vh,590px);min-height:430px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#dbe7ec}
 .trip-map-status{margin:0;color:var(--muted);font-size:.9rem}
 .trip-map-privacy{padding:.8rem 1rem;border-left:3px solid var(--accent);background:var(--soft);font-size:.9rem}
 .trip-map-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid #18354f;box-shadow:0 3px 10px rgba(0,0,0,.24);font-size:16px}
