@@ -18,7 +18,7 @@
   {
     "query": "Bath Cider House 7 Bladud Buildings Bath",
     "title": "Bath Cider House",
-    "category": "attractions",
+    "category": "drinks",
     "lat": 51.385464,
     "lng": -2.3604124,
     "address": "Bath Cider House, 7, The Paragon, Walcot, Bath, Bath and North East Somerset, West of England, England, BA1 5LS, United Kingdom"
@@ -34,7 +34,7 @@
   {
     "query": "The Cork Bath",
     "title": "The Cork",
-    "category": "attractions",
+    "category": "drinks",
     "lat": 51.3805254,
     "lng": -2.3625165,
     "address": "The Cork, 11-12, Westgate Buildings, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1EB, United Kingdom"
@@ -90,7 +90,7 @@
   {
     "query": "The Beehive Tottenham",
     "title": "The Beehive",
-    "category": "attractions",
+    "category": "drinks",
     "lat": 51.5922434,
     "lng": -0.0692684,
     "address": "The Beehive, Stoneleigh Road, Tottenham Hale, West Green, Tottenham, Greater London, England, N17 9BQ, United Kingdom"
@@ -146,7 +146,7 @@
   {
     "query": "Padella (Shoreditch) London",
     "title": "Padella (Shoreditch)",
-    "category": "attractions",
+    "category": "food",
     "lat": 51.5233156,
     "lng": -0.0819958,
     "address": "Padella, New North Place, Shoreditch, London Borough of Hackney, Greater London, England, EC2A 4JA, United Kingdom"
@@ -154,15 +154,7 @@
   {
     "query": "Pizza Pilgrims Shoreditch High Street",
     "title": "Pizza Pilgrims",
-    "category": "attractions",
-    "lat": 51.526351,
-    "lng": -0.0782004,
-    "address": "Pizza Pilgrims, 136, Shoreditch High Street, Shoreditch, London Borough of Hackney, Greater London, England, E1 6JE, United Kingdom"
-  },
-  {
-    "query": "Pizza Pilgrims Shoreditch",
-    "title": "Pizza Pilgrims",
-    "category": "attractions",
+    "category": "food",
     "lat": 51.526351,
     "lng": -0.0782004,
     "address": "Pizza Pilgrims, 136, Shoreditch High Street, Shoreditch, London Borough of Hackney, Greater London, England, E1 6JE, United Kingdom"
@@ -210,7 +202,7 @@
   {
     "query": "Sub 13 Bath",
     "title": "Sub 13",
-    "category": "attractions",
+    "category": "drinks",
     "lat": 51.3850601,
     "lng": -2.3621595,
     "address": "Sub 13, 4, George Street, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 2EE, United Kingdom"
@@ -218,7 +210,7 @@
   {
     "query": "The Pump Room Bath",
     "title": "The Pump Room",
-    "category": "attractions",
+    "category": "food",
     "lat": 51.3811312,
     "lng": -2.3600164,
     "address": "The Pump Room, Abbey Churchyard, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1NA, United Kingdom"
@@ -226,7 +218,7 @@
   {
     "query": "The Huntsman Bath",
     "title": "The Huntsman",
-    "category": "attractions",
+    "category": "drinks",
     "lat": 51.3807683,
     "lng": -2.3580821,
     "address": "The Huntsman, 1, Terrace Walk, Widcombe, Bath, Bath and North East Somerset, West of England, England, BA1 1LJ, United Kingdom"
@@ -258,7 +250,7 @@
   {
     "query": "Bartlett Street Antiques Centre Bath",
     "title": "Bartlett Street Antiques Centre",
-    "category": "drinks",
+    "category": "shopping",
     "lat": 51.3855765,
     "lng": -2.3617298,
     "address": "Bartlett Street Antiques Centre, 8, Bartlett Street, Walcot, Bath, Bath and North East Somerset, West of England, England, BA1 2QZ, United Kingdom"
@@ -338,7 +330,7 @@
   {
     "query": "Padella Borough Market",
     "title": "Padella",
-    "category": "shopping",
+    "category": "food",
     "lat": 51.505138,
     "lng": -0.0899124,
     "address": "Padella, 6, Southwark Street, Borough Market, Bermondsey Village, The Borough, London Borough of Southwark, Greater London, England, SE1 1TQ, United Kingdom"
@@ -360,14 +352,6 @@
     "address": "Rabot 1745, 2-4, Bedale Street, Borough Market, Bermondsey Village, The Borough, London Borough of Southwark, Greater London, England, SE1 9AL, United Kingdom"
   },
   {
-    "query": "Padella 6 Southwark Street",
-    "title": "Padella",
-    "category": "attractions",
-    "lat": 51.505138,
-    "lng": -0.0899124,
-    "address": "Padella, 6, Southwark Street, Borough Market, Bermondsey Village, The Borough, London Borough of Southwark, Greater London, England, SE1 1TQ, United Kingdom"
-  },
-  {
     "query": "Utobeer Borough Market",
     "title": "Utobeer",
     "category": "shopping",
@@ -377,7 +361,7 @@
   },
   {
     "query": "St Dunstan in the East Church Garden London",
-    "title": "Open in Maps →",
+    "title": "St Dunstan in the East Church Garden",
     "category": "attractions",
     "lat": 51.5096815,
     "lng": -0.0824802,
@@ -782,5 +766,373 @@
     "lat": 48.8617812,
     "lng": 2.3514536,
     "address": "58 Rue Rambuteau, 75004 Paris"
+  },
+  {
+    "query": "Noci Shoreditch London",
+    "title": "Noci",
+    "category": "food",
+    "lat": 51.5261922,
+    "lng": -0.0886829,
+    "address": "Noci, 211-207 Old St, London EC1V 9NR, UK"
+  },
+  {
+    "query": "Poppies Fish and Chips Spitalfields London",
+    "title": "Poppies Fish & Chips",
+    "category": "food",
+    "lat": 51.5202041,
+    "lng": -0.074035,
+    "address": "Poppies Fish & Chips, 6-8 Hanbury St, London E1 6QR, UK"
+  },
+  {
+    "query": "Beigel Bake Brick Lane London",
+    "title": "Beigel Bake",
+    "category": "food",
+    "lat": 51.5244985,
+    "lng": -0.0717608,
+    "address": "Beigel Bake, 159 Brick Ln, London E1 6SB, UK"
+  },
+  {
+    "query": "F Cooke Eel and Pie House Hoxton Street London",
+    "title": "F. Cooke Eel & Pie House",
+    "category": "food",
+    "lat": 51.532289,
+    "lng": -0.080029,
+    "address": "F Cooke Pie & Mash, 150 Hoxton St, London N1 6SH, UK"
+  },
+  {
+    "query": "The Yellow Bittern Kings Cross London",
+    "title": "The Yellow Bittern",
+    "category": "food",
+    "lat": 51.5315458,
+    "lng": -0.1206921,
+    "address": "The Yellow Bittern, 20 Caledonian Rd, London N1 9DU, UK"
+  },
+  {
+    "query": "Camille restaurant Borough Market London",
+    "title": "Camille",
+    "category": "food",
+    "lat": 51.5050373,
+    "lng": -0.0908082,
+    "address": "Camille, 2-3 Stoney St, London SE1 9AA, UK"
+  },
+  {
+    "query": "St John Restaurant St John Street London",
+    "title": "St John",
+    "category": "food",
+    "lat": 51.5204534,
+    "lng": -0.1014304,
+    "address": "St. John, 26 St John St, Barbican, London EC1M 4AY, UK"
+  },
+  {
+    "query": "Rochelle Canteen Shoreditch London",
+    "title": "Rochelle Canteen",
+    "category": "food",
+    "lat": 51.5257669,
+    "lng": -0.0742918,
+    "address": "Rochelle Canteen, 16 Playground Gardens, London E2 7FA, UK"
+  },
+  {
+    "query": "Juma Kitchen Yuma Borough Market London",
+    "title": "Juma Kitchen (Yuma)",
+    "category": "food",
+    "lat": 51.5057688,
+    "lng": -0.0906895,
+    "address": "JUMA Kitchen, Borough Market Kitchen, Jubilee, Winchester Walk, London SE1 9AG, UK"
+  },
+  {
+    "query": "Brindisa Chorizo Grill Borough Market London",
+    "title": "Brindisa Chorizo Grill",
+    "category": "food",
+    "lat": 51.5056314,
+    "lng": -0.0912602,
+    "address": "Brindisa, The Floral Hall, Borough Market, Stoney St, London SE1 9AF, UK"
+  },
+  {
+    "query": "Gourmet Goat Borough Market London",
+    "title": "Gourmet Goat",
+    "category": "food",
+    "lat": 51.5056314,
+    "lng": -0.091052,
+    "address": "Gourmet Goat, Rochester Walk, London SE1 9AF, UK"
+  },
+  {
+    "query": "Furness Food Hut Borough Market London",
+    "title": "Furness Food Hut",
+    "category": "food",
+    "lat": 51.5055818,
+    "lng": -0.0904328,
+    "address": "Furness Fish Grill, 6 Southwark St, London SE1 1TL, UK"
+  },
+  {
+    "query": "Richard Haward's Oysters Borough Market London",
+    "title": "Richard Haward's Oysters",
+    "category": "food",
+    "lat": 51.5053861,
+    "lng": -0.091019,
+    "address": "Richard Haward's Oysters, 35 Stoney St, London SE1 9AA, UK"
+  },
+  {
+    "query": "Humble Crumble Borough Market London",
+    "title": "Humble Crumble",
+    "category": "food",
+    "lat": 51.5061462,
+    "lng": -0.0909449,
+    "address": "Humble Crumble, Borough Market Kitchens, Jubilee, Winchester Walk, London SE1 9AG, UK"
+  },
+  {
+    "query": "Wright Brothers Oyster and Porter House Borough Market London",
+    "title": "Wright Brothers Oyster & Porter House",
+    "category": "food",
+    "lat": 51.5056055,
+    "lng": -0.0915883,
+    "address": "Wright Brothers, Borough Market, Stoney St, London SE1 9AD, UK"
+  },
+  {
+    "query": "Tapas Brindisa Borough Market London",
+    "title": "Tapas Brindisa",
+    "category": "food",
+    "lat": 51.5049869,
+    "lng": -0.090488,
+    "address": "Tapas Brindisa, 18-20 Southwark St, London SE1 1TJ, UK"
+  },
+  {
+    "query": "The Southwark Tavern Borough Market London",
+    "title": "The Southwark Tavern",
+    "category": "drinks",
+    "lat": 51.504919,
+    "lng": -0.0908,
+    "address": "The Southwark Tavern, 22 Southwark St, London SE1 1TU, UK"
+  },
+  {
+    "query": "Olivier's Bakery Borough Market London",
+    "title": "Olivier's Bakery",
+    "category": "food",
+    "lat": 51.505337,
+    "lng": -0.0906282,
+    "address": "Olivier's Bakery, 9 Stoney St, London SE1 9AA, UK"
+  },
+  {
+    "query": "Maltby Street Market London",
+    "title": "Maltby Street Market",
+    "category": "shopping",
+    "lat": 51.4994579,
+    "lng": -0.0759299,
+    "address": "Maltby Street Market, Arch 46, Ropewalk, Maltby St, London SE1 3PA, UK"
+  },
+  {
+    "query": "Cassandra's Cup Chawton",
+    "title": "Cassandra's Cup",
+    "category": "food",
+    "lat": 51.1329534,
+    "lng": -0.9887855,
+    "address": "Cassandras Cup, The Hollies, Winchester Rd, Chawton, Alton GU34 1SB, UK"
+  },
+  {
+    "query": "The Old Kitchen Tearoom Chawton House",
+    "title": "The Old Kitchen Tearoom",
+    "category": "food",
+    "lat": 51.1281759,
+    "lng": -0.9882927,
+    "address": "The Old Kitchen Tea Room, North Wing, Chawton House, Alton GU34 1SJ, UK"
+  },
+  {
+    "query": "Rick Stein Winchester restaurant",
+    "title": "Rick Stein, Winchester",
+    "category": "food",
+    "lat": 51.0618028,
+    "lng": -1.311455,
+    "address": "Rick Stein, Winchester, 8 High St, Winchester SO23 9JX, UK"
+  },
+  {
+    "query": "The Chesil Rectory Winchester",
+    "title": "The Chesil Rectory",
+    "category": "food",
+    "lat": 51.0607567,
+    "lng": -1.3070044,
+    "address": "The Chesil Rectory, 1 Chesil St, Winchester SO23 0HU, UK"
+  },
+  {
+    "query": "The Ivy Bath Brasserie Bath",
+    "title": "The Ivy Bath Brasserie",
+    "category": "food",
+    "lat": 51.3838937,
+    "lng": -2.3612707,
+    "address": "The Ivy Bath Brasserie & Garden, 39 Milsom St, Bath BA1 1DS, UK"
+  },
+  {
+    "query": "Chatsworth Farm Shop Cafe Bakewell",
+    "title": "Chatsworth Farm Shop Café",
+    "category": "food",
+    "lat": 53.234137,
+    "lng": -1.6381553,
+    "address": "Chatsworth Estate Farm Shop, Pilsley, Bakewell DE45 1UF, UK"
+  },
+  {
+    "query": "Poilane bakery Paris",
+    "title": "Poilâne",
+    "category": "food",
+    "lat": 48.8512944,
+    "lng": 2.3289972,
+    "address": "Boulangerie Poilâne, 8 Rue du Cherche-Midi, 75006 Paris, France"
+  },
+  {
+    "query": "Le Grenier a Pain 38 Rue des Abbesses Montmartre Paris",
+    "title": "Le Grenier à Pain",
+    "category": "food",
+    "lat": 48.885322,
+    "lng": 2.3367393,
+    "address": "Le Grenier à Pain, 38 Rue des Abbesses, 75018 Paris, France"
+  },
+  {
+    "query": "Les Deux Colombes 4 Rue de la Colombe Paris",
+    "title": "Les Deux Colombes",
+    "category": "food",
+    "lat": 48.8546874,
+    "lng": 2.3504347,
+    "address": "Les Deux Colombes, 4 Rue de la Colombe, 75004 Paris, France"
+  },
+  {
+    "query": "Les Deux Palais 3 Boulevard du Palais Paris",
+    "title": "Les Deux Palais",
+    "category": "food",
+    "lat": 48.8551937,
+    "lng": 2.3460531,
+    "address": "Les Deux Palais, 3 Bd du Palais, 75004 Paris, France"
+  },
+  {
+    "query": "Cafe de la Paix Paris Place de l'Opera",
+    "title": "Café de la Paix",
+    "category": "food",
+    "lat": 48.8708719,
+    "lng": 2.3317623,
+    "address": "Café de la Paix, 5 Pl. de l'Opéra, 75009 Paris, France"
+  },
+  {
+    "query": "Grand Cafe Capucines Paris",
+    "title": "Grand Café Capucines",
+    "category": "food",
+    "lat": 48.8711033,
+    "lng": 2.33364,
+    "address": "Grand Café Capucines, 4 Bd des Capucines, 75009 Paris, France"
+  },
+  {
+    "query": "La Fontaine Gaillon Paris",
+    "title": "La Fontaine Gaillon",
+    "category": "food",
+    "lat": 48.8690639,
+    "lng": 2.3344017,
+    "address": "La Fontaine Gaillon, 1 Rue de la Michodière, 75002 Paris, France"
+  },
+  {
+    "query": "Le Patio Opera Paris restaurant",
+    "title": "Le Patio Opéra",
+    "category": "food",
+    "lat": 48.8717696,
+    "lng": 2.3333676,
+    "address": "Le Patio Opéra, 5 Rue Meyerbeer, 75009 Paris, France"
+  },
+  {
+    "query": "Shakespeare and Company bookstore Paris",
+    "title": "Shakespeare and Company",
+    "category": "shopping",
+    "lat": 48.8525632,
+    "lng": 2.3471303,
+    "address": "Shakespeare and Company, 37 Rue de la Bûcherie, 75005 Paris, France"
+  },
+  {
+    "query": "STORE STORE Coal Drops Yard London",
+    "title": "STORE STORE (Coal Drops Yard)",
+    "category": "shopping",
+    "lat": 51.5360313,
+    "lng": -0.1265524,
+    "address": "Coal Drops Yard, Stable St, London N1C 4LW, UK"
+  },
+  {
+    "query": "Beyond Retro Kings Cross London",
+    "title": "Beyond Retro",
+    "category": "shopping",
+    "lat": 51.5359031,
+    "lng": -0.1263357,
+    "address": "Beyond Retro Coal Drops, Unit 52-54, London N1C 4DQ, UK"
+  },
+  {
+    "query": "Alain Ducasse au Chocolat Coal Drops Yard London",
+    "title": "Alain Ducasse au Chocolat",
+    "category": "shopping",
+    "lat": 51.5354244,
+    "lng": -0.1269033,
+    "address": "Le Chocolat Alain Ducasse, Le Comptoir Coal Drops Yard, Unit 15 Bagley Walk, London N1C 4DH, UK"
+  },
+  {
+    "query": "A. Gold deli Spitalfields London",
+    "title": "A. Gold",
+    "category": "shopping",
+    "lat": 51.5189764,
+    "lng": -0.0768056,
+    "address": "A.Gold - Cundall & Garcia, 42 Brushfield St, London E1 6AG, UK"
+  },
+  {
+    "query": "GB Gifts and Souvenirs Tower Hill London",
+    "title": "GB Gifts and Souvenirs",
+    "category": "shopping",
+    "lat": 51.5097321,
+    "lng": -0.0800383,
+    "address": "GB Gifts and Souvenirs, Byward St, London EC3R 5AS, UK"
+  },
+  {
+    "query": "Oliver Bonas Winchester",
+    "title": "Oliver Bonas, Winchester",
+    "category": "shopping",
+    "lat": 51.062736,
+    "lng": -1.314887,
+    "address": "Oliver Bonas, 31 High St, Winchester SO23 9BL, UK"
+  },
+  {
+    "query": "Bramley's Shires Yard Bath",
+    "title": "Bramley's",
+    "category": "shopping",
+    "lat": 51.3840484,
+    "lng": -2.3612414,
+    "address": "Bramley Products, Unit 11, 41 Milsom St, Milsom Place, Bath BA1 1DN, UK"
+  },
+  {
+    "query": "Paxton and Whitfield Bath",
+    "title": "Paxton & Whitfield",
+    "category": "shopping",
+    "lat": 51.3832943,
+    "lng": -2.3607951,
+    "address": "Paxton & Whitfield, 20 Green St, Bath BA1 2JZ, UK"
+  },
+  {
+    "query": "Mr B's Emporium of Reading Delights Bath",
+    "title": "Mr B's Emporium of Reading Delights",
+    "category": "shopping",
+    "lat": 51.3835238,
+    "lng": -2.3622967,
+    "address": "Mr B's Emporium of Reading Delights, 14-15 John St, Bath BA1 2JL, UK"
+  },
+  {
+    "query": "Meticulous Ink Bath",
+    "title": "Meticulous Ink",
+    "category": "shopping",
+    "lat": 51.388076,
+    "lng": -2.3589959,
+    "address": "Meticulous Ink, 134 Walcot St, Bath BA1 5BG, UK"
+  },
+  {
+    "query": "Wood and Burr wooden gifts Milsom Place Bath",
+    "title": "Wood & Burr",
+    "category": "shopping",
+    "lat": 51.3814353,
+    "lng": -2.3578038,
+    "address": "Wood & Burr (Hide of Bath), 3 Orange Grove, Bath BA1 1LP, UK"
+  },
+  {
+    "query": "Fat Giraffe Gifts Bath",
+    "title": "Fat Giraffe Gifts",
+    "category": "shopping",
+    "lat": 51.3847701,
+    "lng": -2.3615685,
+    "address": "Fat Giraffe Gifts, 25 Milsom St, Bath BA1 1DG, UK"
   }
 ]
