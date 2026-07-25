@@ -42,7 +42,7 @@
   {
     "query": "Tayer + Elementary London",
     "title": "Tayēr + Elementary",
-    "category": "attractions",
+    "category": "drinks",
     "lat": 51.5250193,
     "lng": -0.0915052,
     "address": "Tayēr + Elementary, 152, Old Street, St Luke's, Angel, Finsbury, London Borough of Islington, Greater London, England, EC1V 9BW, United Kingdom"
@@ -50,7 +50,7 @@
   {
     "query": "Passione Vino Leonard Street London",
     "title": "Passione Vino",
-    "category": "attractions",
+    "category": "drinks",
     "lat": 51.52477,
     "lng": -0.082389,
     "address": "Passione Vino, 85, Leonard Street, Shoreditch, London Borough of Hackney, Greater London, England, EC2A 4QU, United Kingdom"
@@ -138,7 +138,7 @@
   {
     "query": "Grounded London Whitechapel Road",
     "title": "Grounded London",
-    "category": "attractions",
+    "category": "coffee",
     "lat": 51.5164355,
     "lng": -0.0693842,
     "address": "Grounded, 9, Whitechapel Road, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 1DU, United Kingdom"
@@ -466,7 +466,7 @@
   {
     "query": "Du Pain et des Idees Paris",
     "title": "Du Pain et des Idées",
-    "category": "attractions",
+    "category": "food",
     "lat": 48.8712472,
     "lng": 2.3629042,
     "address": "Du Pain et des Idées, Rue de Marseille, Quartier de la Porte-Saint-Martin, 10th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75010, France"
@@ -482,7 +482,7 @@
   {
     "query": "Aux Folies Rue de Belleville Paris",
     "title": "Aux Folies",
-    "category": "attractions",
+    "category": "drinks",
     "lat": 48.872264,
     "lng": 2.3780426,
     "address": "Aux Folies, Rue Dénoyez, Quartier de Belleville, 20th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75020, France"
@@ -506,7 +506,7 @@
   {
     "query": "Hotel de Sens Paris",
     "title": "Hôtel de Sens",
-    "category": "hotel",
+    "category": "attractions",
     "lat": 48.8535251,
     "lng": 2.3587512,
     "address": "Hôtel de Sens, Rue du Figuier, Quartier Saint-Gervais, 4th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75004, France"
@@ -570,7 +570,7 @@
   {
     "query": "Stohrer Paris",
     "title": "Stohrer",
-    "category": "attractions",
+    "category": "food",
     "lat": 48.8652493,
     "lng": 2.3468171,
     "address": "Stohrer, 51, Rue Montorgueil, Quartier du Mail, 2nd Arrondissement, Paris, Ile-de-France, Metropolitan France, 75002, France"
@@ -578,7 +578,7 @@
   {
     "query": "Pierre Herme Saint Germain Paris",
     "title": "Pierre Hermé",
-    "category": "attractions",
+    "category": "food",
     "lat": 48.8524337,
     "lng": 2.3396253,
     "address": "Café Pierre Hermé, Boulevard Saint-Germain, Quartier de la Monnaie, 6th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75006, France"
@@ -650,7 +650,7 @@
   {
     "query": "Gelupo London",
     "title": "Gelupo",
-    "category": "attractions",
+    "category": "icecream",
     "lat": 51.5115864,
     "lng": -0.1337003,
     "address": "Gelupo, 7, Archer Street, Soho, City of Westminster, Greater London, England, W1D 7AS, United Kingdom"
@@ -670,5 +670,117 @@
     "lat": 48.8531498,
     "lng": 2.3830555,
     "address": "Folderol, Rue Jean Macé, Quartier Sainte-Marguerite, 11th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75011, France"
+  },
+  {
+    "query": "Fortnum & Mason 181 Piccadilly London",
+    "title": "Fortnum & Mason Afternoon Tea",
+    "category": "afternoontea",
+    "lat": 51.5081856,
+    "lng": -0.1381409,
+    "address": "Fortnum & Mason, 181–184 Piccadilly, London W1A 1ER"
+  },
+  {
+    "query": "Swan at Shakespeare Globe 21 New Globe Walk London",
+    "title": "Swan at Shakespeare’s Globe",
+    "category": "afternoontea",
+    "lat": 51.5082399,
+    "lng": -0.0965963,
+    "address": "21 New Globe Walk, Bankside, London SE1 9DT"
+  },
+  {
+    "query": "Pan Pacific London 80 Houndsditch",
+    "title": "Pan Pacific London Afternoon Tea",
+    "category": "afternoontea",
+    "lat": 51.5162102,
+    "lng": -0.0802346,
+    "address": "80 Houndsditch, London EC3A 7AB"
+  },
+  {
+    "query": "Mariage Freres 30 Rue du Bourg-Tibourg Paris",
+    "title": "Mariage Frères, Le Marais",
+    "category": "afternoontea",
+    "lat": 48.857691,
+    "lng": 2.3564926,
+    "address": "30 Rue du Bourg Tibourg, 75004 Paris"
+  },
+  {
+    "query": "Bontemps 57 Rue de Bretagne Paris",
+    "title": "Bontemps Tea Salon",
+    "category": "afternoontea",
+    "lat": 48.8638993,
+    "lng": 2.3606178,
+    "address": "57 Rue de Bretagne, 75003 Paris"
+  },
+  {
+    "query": "Un The Dans Le Jardin Musee de la Vie Romantique Paris",
+    "title": "Un Thé Dans Le Jardin",
+    "category": "afternoontea",
+    "lat": 48.8813455,
+    "lng": 2.3335217,
+    "address": "Musée de la Vie Romantique, 16 Rue Chaptal, 75009 Paris"
+  },
+  {
+    "query": "Little Red Door 60 Rue Charlot Paris",
+    "title": "Little Red Door",
+    "category": "drinks",
+    "lat": 48.8636541,
+    "lng": 2.3635309,
+    "address": "60 Rue Charlot, 75003 Paris"
+  },
+  {
+    "query": "Laurent Dubois fromagerie Paris",
+    "title": "Laurent Dubois Fromagerie",
+    "category": "food",
+    "lat": 48.849828,
+    "lng": 2.3482673,
+    "address": "Boulevard Saint-Germain, 75005 Paris"
+  },
+  {
+    "query": "Castor Club 14 Rue Hautefeuille Paris",
+    "title": "Castor Club",
+    "category": "drinks",
+    "lat": 48.8519888,
+    "lng": 2.3423483,
+    "address": "14 Rue Hautefeuille, 75006 Paris"
+  },
+  {
+    "query": "FreePStar 61 Rue de la Verrerie Paris",
+    "title": "Free’P’Star",
+    "category": "shopping",
+    "lat": 48.8580107,
+    "lng": 2.3526699,
+    "address": "61 Rue de la Verrerie, 75004 Paris"
+  },
+  {
+    "query": "Thanx God Im a VIP 12 Rue de Lancry Paris",
+    "title": "Thanx God I’m a V.I.P.",
+    "category": "shopping",
+    "lat": 48.869347,
+    "lng": 2.3604344,
+    "address": "12 Rue de Lancry, 75010 Paris"
+  },
+  {
+    "query": "KB CafeShop 53 Avenue Trudaine Paris",
+    "title": "KB Coffee Roasters",
+    "category": "coffee",
+    "lat": 48.8806699,
+    "lng": 2.340791,
+    "address": "53 Avenue Trudaine, 75009 Paris"
+  },
+  {
+    "query": "Quartz Cafe 36 Rue de Bellechasse Paris",
+    "title": "Quartz Café",
+    "category": "coffee",
+    "lat": 48.8580791,
+    "lng": 2.322645,
+    "address": "36 Rue de Bellechasse, 75007 Paris"
+  },
+  {
+    "query": "Bachir 58 Rue Rambuteau Paris",
+    "title": "Bachir",
+    "category": "icecream",
+    "lat": 48.8617812,
+    "lng": 2.3514536,
+    "address": "58 Rue Rambuteau, 75004 Paris"
   }
 ]
