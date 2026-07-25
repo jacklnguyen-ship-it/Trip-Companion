@@ -441,8 +441,10 @@ body.day-modal-open{overflow:hidden}
 .phrase-intro{padding:1rem;border-left:4px solid var(--brass);background:var(--parchment-card);border-radius:0 10px 10px 0}.phrase-group{margin:1rem 0;border:1px solid var(--line);border-radius:12px;background:var(--parchment-card);overflow:hidden}.phrase-group summary{cursor:pointer;padding:1rem;font-weight:700;color:var(--ink)}.phrase-list{display:grid;gap:.55rem;padding:0 1rem 1rem}.phrase-card{display:grid;grid-template-columns:1fr auto;gap:.5rem;padding:.8rem;border:1px solid var(--line-soft);border-radius:9px;background:#fff}.phrase-fr{display:block;color:var(--ink);font-size:1rem}.phrase-en{display:block;color:var(--slate);font-size:.82rem;margin:.15rem 0}.phrase-pron{display:block;color:var(--wax);font-size:.74rem;font-style:italic}.phrase-play{align-self:center;width:42px;height:42px;border:1px solid var(--brass);border-radius:50%;background:var(--parchment);color:var(--wax);cursor:pointer;font-size:1rem}.phrase-play.playing{background:var(--wax);color:#fff}.phrase-note{font-size:.8rem!important;color:var(--slate)!important}
 @media(max-width:620px){.home-actions{grid-template-columns:1fr}.home-days{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="guide-map.css">
 </head>
-<body>
+<body data-map-data="map-places-index.json">
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
 
@@ -476,9 +478,10 @@ body.day-modal-open{overflow:hidden}
     <a class="navlink" href="#page-paris_drinks"><span class="num">07</span> Paris Drinks Guide</a>
     <a class="navlink" href="#page-food"><span class="num">08</span> Food Guide</a>
     <a class="navlink" href="#page-french"><span class="num">09</span> French Cheat Sheet</a>
-    <a class="navlink" href="#page-vintage"><span class="num">10</span> Vintage Guide</a>
-    <a class="navlink" href="#page-coffee"><span class="num">11</span> Coffee Guide</a>
-    <a class="navlink" href="#page-icecream"><span class="num">12</span> Ice Cream Guide</a>
+    <a class="navlink" href="#page-map"><span class="num">10</span> Map &amp; Near Me</a>
+    <a class="navlink" href="#page-vintage"><span class="num">11</span> Vintage Guide</a>
+    <a class="navlink" href="#page-coffee"><span class="num">12</span> Coffee Guide</a>
+    <a class="navlink" href="#page-icecream"><span class="num">13</span> Ice Cream Guide</a>
   </nav>
 
   <main class="content-wrap">
@@ -2593,6 +2596,22 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <hr />
 <p><em>This guide complements, not replaces, the detailed day-by-day food recommendations already built into "London_Leg_Places_Guide.md" and "Paris_Leg_Places_Guide.md."</em></p>
 </section>
+<section class="page" id="page-map">
+<h1>Map &amp; Near Me</h1>
+<p><strong>See the guide’s curated places together, find what is closest, and open walking directions.</strong></p>
+<div class="trip-map-privacy">Your live location stays in this browser. It is used only to place the blue “you are here” marker and calculate straight-line distance.</div>
+<div class="trip-map-shell">
+  <div class="trip-map-toolbar">
+    <label class="trip-map-field"><span>Area</span><select id="map-city-filter"><option value="all">All areas</option><option value="london">London</option><option value="paris">Paris</option><option value="daytrips">Bath &amp; day trips</option></select></label>
+    <label class="trip-map-field"><span>Category</span><select id="map-category-filter"><option value="all">Everything</option><option value="attractions">Attractions</option><option value="food">Food &amp; bakeries</option><option value="coffee">Coffee</option><option value="drinks">Pubs &amp; drinks</option><option value="shopping">Vintage &amp; shopping</option><option value="icecream">Ice cream</option><option value="hotel">Hotel</option></select></label>
+    <button class="trip-map-button" id="map-locate" type="button">Use my location</button>
+    <button class="trip-map-button secondary" id="map-show-all" type="button">Show all</button>
+  </div>
+  <p class="trip-map-status" id="trip-map-status">Loading curated places…</p>
+  <div id="trip-map" role="application" aria-label="Interactive map of curated trip places"></div>
+  <div><h2>Closest to you</h2><div class="nearby-place-list" id="nearby-place-list"><p>Tap <strong>Use my location</strong> to sort places by distance.</p></div></div>
+</div>
+</section>
 <section class="page" id="page-vintage">
 <h1>Vintage Guide</h1>
 <p><strong>Curated for character, value and visual appeal—not just a directory of secondhand shops.</strong></p>
@@ -2854,7 +2873,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
       'page-itinerary':'days','page-logistics':'travel','page-london':'london','page-bath':'london',
       'page-chatsworth':'london','page-london_pubs':'london','page-paris':'paris','page-versailles':'paris',
       'page-opera':'paris','page-paris_drinks':'paris','page-food':'food','page-french':'travel',
-      'page-vintage':'travel','page-coffee':'food','page-icecream':'food'
+      'page-map':'travel','page-vintage':'travel','page-coffee':'food','page-icecream':'food'
     },items=[];
     Object.keys(categoryMap).forEach(function(pageId){
       var page=document.getElementById(pageId);if(!page)return;
@@ -3015,5 +3034,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     }, false);
   })();
 </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="guide-map.js"></script>
 </body>
 </html>

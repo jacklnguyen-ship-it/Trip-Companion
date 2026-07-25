@@ -1,0 +1,22 @@
+.trip-map-shell{display:grid;gap:1rem}
+.trip-map-toolbar{display:flex;flex-wrap:wrap;gap:.65rem;align-items:end}
+.trip-map-field{display:grid;gap:.3rem;min-width:150px;flex:1}
+.trip-map-field span{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.trip-map-field select,.trip-map-button{
+  min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--paper);
+  color:var(--ink);padding:.65rem .8rem;font:inherit
+}
+.trip-map-button{cursor:pointer;background:var(--accent);color:#fff;border-color:transparent;font-weight:700}
+.trip-map-button.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+#trip-map{height:min(62vh,590px);min-height:430px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#dbe7ec}
+.trip-map-status{margin:0;color:var(--muted);font-size:.9rem}
+.trip-map-privacy{padding:.8rem 1rem;border-left:3px solid var(--accent);background:var(--soft);font-size:.9rem}
+.trip-map-icon{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#fff;border:2px solid #18354f;box-shadow:0 3px 10px rgba(0,0,0,.24);font-size:16px}
+.trip-map-icon.you{background:#56b5f5;border-color:#fff}
+.trip-map-popup h3{margin:.1rem 0 .35rem;font-size:1rem}.trip-map-popup p{margin:.2rem 0;font-size:.82rem}
+.trip-map-popup a{display:inline-block;margin-top:.45rem;padding:.45rem .65rem;border-radius:8px;background:#18354f;color:#fff;text-decoration:none;font-weight:700}
+.nearby-place-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.65rem;margin-top:.7rem}
+.nearby-place{display:block;padding:.8rem;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);text-decoration:none}
+.nearby-place strong,.nearby-place span{display:block}.nearby-place span{margin-top:.2rem;color:var(--muted);font-size:.82rem}
+body:has(#page-map:target) a.navlink[href="#page-map"]{background:rgba(164,118,60,.22);color:#fff;font-weight:600}
+@media(max-width:620px){#trip-map{height:55vh;min-height:390px}.trip-map-toolbar{display:grid;grid-template-columns:1fr 1fr}.trip-map-field{min-width:0}.trip-map-button{width:100%}}

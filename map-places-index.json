@@ -1,0 +1,674 @@
+[
+  {
+    "query": "Pulteney Bridge Bath",
+    "title": "Pulteney Bridge",
+    "category": "attractions",
+    "lat": 51.3830427,
+    "lng": -2.3579221,
+    "address": "Pulteney Bridge, Argyle Street, Bathwick, Bath, Bath and North East Somerset, West of England, England, BA2 4BA, United Kingdom"
+  },
+  {
+    "query": "Bath Abbey",
+    "title": "Bath Abbey",
+    "category": "attractions",
+    "lat": 51.3814544,
+    "lng": -2.3588659,
+    "address": "Bath Abbey, Abbey Churchyard, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1LT, United Kingdom"
+  },
+  {
+    "query": "Bath Cider House 7 Bladud Buildings Bath",
+    "title": "Bath Cider House",
+    "category": "attractions",
+    "lat": 51.385464,
+    "lng": -2.3604124,
+    "address": "Bath Cider House, 7, The Paragon, Walcot, Bath, Bath and North East Somerset, West of England, England, BA1 5LS, United Kingdom"
+  },
+  {
+    "query": "The Raven pub Bath",
+    "title": "The Raven",
+    "category": "drinks",
+    "lat": 51.3831213,
+    "lng": -2.3619746,
+    "address": "The Raven, 6-7, Queen Street, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1HE, United Kingdom"
+  },
+  {
+    "query": "The Cork Bath",
+    "title": "The Cork",
+    "category": "attractions",
+    "lat": 51.3805254,
+    "lng": -2.3625165,
+    "address": "The Cork, 11-12, Westgate Buildings, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1EB, United Kingdom"
+  },
+  {
+    "query": "Tayer + Elementary London",
+    "title": "Tayēr + Elementary",
+    "category": "attractions",
+    "lat": 51.5250193,
+    "lng": -0.0915052,
+    "address": "Tayēr + Elementary, 152, Old Street, St Luke's, Angel, Finsbury, London Borough of Islington, Greater London, England, EC1V 9BW, United Kingdom"
+  },
+  {
+    "query": "Passione Vino Leonard Street London",
+    "title": "Passione Vino",
+    "category": "attractions",
+    "lat": 51.52477,
+    "lng": -0.082389,
+    "address": "Passione Vino, 85, Leonard Street, Shoreditch, London Borough of Hackney, Greater London, England, EC2A 4QU, United Kingdom"
+  },
+  {
+    "query": "Callooh Callay Shoreditch",
+    "title": "Callooh Callay",
+    "category": "drinks",
+    "lat": 51.5262894,
+    "lng": -0.0798841,
+    "address": "Callooh Callay, 65, Rivington Street, Shoreditch, London Borough of Hackney, Greater London, England, EC2A 3QQ, United Kingdom"
+  },
+  {
+    "query": "Princess of Prussia Prescot Street London",
+    "title": "Princess of Prussia",
+    "category": "attractions",
+    "lat": 51.511537,
+    "lng": -0.0705399,
+    "address": "Princess Of Prussia, 15, Prescot Street, East Smithfield, Tower Hill, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 8AZ, United Kingdom"
+  },
+  {
+    "query": "PocketSquare Skyline Bar Whitechapel Road London",
+    "title": "PocketSquare Skyline Bar & Terrace",
+    "category": "drinks",
+    "lat": 51.5169491,
+    "lng": -0.0683607,
+    "address": "Pocketsquare skyline bar and terrace, 45, Whitechapel Road, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 1DU, United Kingdom"
+  },
+  {
+    "query": "Bedales of Borough",
+    "title": "Bedales of Borough",
+    "category": "drinks",
+    "lat": 51.5054026,
+    "lng": -0.0902409,
+    "address": "Bedales, 5, Bedale Street, Borough Market, Bermondsey Village, The Borough, London Borough of Southwark, Greater London, England, SE1 9AL, United Kingdom"
+  },
+  {
+    "query": "The Beehive Tottenham",
+    "title": "The Beehive",
+    "category": "attractions",
+    "lat": 51.5922434,
+    "lng": -0.0692684,
+    "address": "The Beehive, Stoneleigh Road, Tottenham Hale, West Green, Tottenham, Greater London, England, N17 9BQ, United Kingdom"
+  },
+  {
+    "query": "Brick Lane London",
+    "title": "Brick Lane",
+    "category": "attractions",
+    "lat": 51.5183472,
+    "lng": -0.0713471,
+    "address": "Brick Lane, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 6PU, United Kingdom"
+  },
+  {
+    "query": "Old Spitalfields Market London",
+    "title": "Old Spitalfields Market",
+    "category": "shopping",
+    "lat": 51.5196,
+    "lng": -0.075363,
+    "address": "Old Spitalfields Market, Spitalfields Market, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 6EW, United Kingdom"
+  },
+  {
+    "query": "Dough restaurant Goodmans Fields London",
+    "title": "Dough",
+    "category": "food",
+    "lat": 51.5134029,
+    "lng": -0.0694592,
+    "address": "Dough, 8, Piazza Walk, Goodmans Fields, St. George in the East, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 8FU, United Kingdom"
+  },
+  {
+    "query": "Amber Restaurant Goodmans Fields London",
+    "title": "Amber Restaurant",
+    "category": "food",
+    "lat": 51.5138414,
+    "lng": -0.0686357,
+    "address": "Amber London, 21, Piazza Walk, Goodmans Fields, St. George in the East, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 8QH, United Kingdom"
+  },
+  {
+    "query": "Hotto Potto Leman Street London",
+    "title": "Hotto Potto",
+    "category": "food",
+    "lat": 51.5142946,
+    "lng": -0.070815,
+    "address": "Hotto Potto, 17, Leman Street, East Smithfield, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 8EJ, United Kingdom"
+  },
+  {
+    "query": "Grounded London Whitechapel Road",
+    "title": "Grounded London",
+    "category": "attractions",
+    "lat": 51.5164355,
+    "lng": -0.0693842,
+    "address": "Grounded, 9, Whitechapel Road, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 1DU, United Kingdom"
+  },
+  {
+    "query": "Padella (Shoreditch) London",
+    "title": "Padella (Shoreditch)",
+    "category": "attractions",
+    "lat": 51.5233156,
+    "lng": -0.0819958,
+    "address": "Padella, New North Place, Shoreditch, London Borough of Hackney, Greater London, England, EC2A 4JA, United Kingdom"
+  },
+  {
+    "query": "Pizza Pilgrims Shoreditch High Street",
+    "title": "Pizza Pilgrims",
+    "category": "attractions",
+    "lat": 51.526351,
+    "lng": -0.0782004,
+    "address": "Pizza Pilgrims, 136, Shoreditch High Street, Shoreditch, London Borough of Hackney, Greater London, England, E1 6JE, United Kingdom"
+  },
+  {
+    "query": "Pizza Pilgrims Shoreditch",
+    "title": "Pizza Pilgrims",
+    "category": "attractions",
+    "lat": 51.526351,
+    "lng": -0.0782004,
+    "address": "Pizza Pilgrims, 136, Shoreditch High Street, Shoreditch, London Borough of Hackney, Greater London, England, E1 6JE, United Kingdom"
+  },
+  {
+    "query": "Chick King Tottenham",
+    "title": "Chick King",
+    "category": "food",
+    "lat": 51.6044732,
+    "lng": -0.0682232,
+    "address": "Chick King, High Road, West Green, Tottenham, Greater London, England, N17 8AG, United Kingdom"
+  },
+  {
+    "query": "St Pancras International Station",
+    "title": "St Pancras International",
+    "category": "attractions",
+    "lat": 51.5319308,
+    "lng": -0.1266072,
+    "address": "St Pancras International Station, Euston Road, King's Cross, London Borough of Camden, Greater London, England, N1C 4QP, United Kingdom"
+  },
+  {
+    "query": "Guildhall Market Bath",
+    "title": "Guildhall Market",
+    "category": "shopping",
+    "lat": 51.3824607,
+    "lng": -2.358386,
+    "address": "Gillards Of Bath Ltd, High Street, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA2 4AW, United Kingdom"
+  },
+  {
+    "query": "Royal Crescent Bath",
+    "title": "Royal Crescent",
+    "category": "attractions",
+    "lat": 51.3872718,
+    "lng": -2.3682297,
+    "address": "Royal Crescent, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 2LS, United Kingdom"
+  },
+  {
+    "query": "No 1 Royal Crescent museum Bath",
+    "title": "No. 1 Royal Crescent",
+    "category": "attractions",
+    "lat": 51.3866287,
+    "lng": -2.3671302,
+    "address": "No.1 Royal Crescent Museum, 1, Royal Crescent, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 2LR, United Kingdom"
+  },
+  {
+    "query": "Sub 13 Bath",
+    "title": "Sub 13",
+    "category": "attractions",
+    "lat": 51.3850601,
+    "lng": -2.3621595,
+    "address": "Sub 13, 4, George Street, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 2EE, United Kingdom"
+  },
+  {
+    "query": "The Pump Room Bath",
+    "title": "The Pump Room",
+    "category": "attractions",
+    "lat": 51.3811312,
+    "lng": -2.3600164,
+    "address": "The Pump Room, Abbey Churchyard, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1NA, United Kingdom"
+  },
+  {
+    "query": "The Huntsman Bath",
+    "title": "The Huntsman",
+    "category": "attractions",
+    "lat": 51.3807683,
+    "lng": -2.3580821,
+    "address": "The Huntsman, 1, Terrace Walk, Widcombe, Bath, Bath and North East Somerset, West of England, England, BA1 1LJ, United Kingdom"
+  },
+  {
+    "query": "Landrace Bakery Walcot Street Bath",
+    "title": "Landrace Bakery",
+    "category": "food",
+    "lat": 51.3859151,
+    "lng": -2.359915,
+    "address": "Landrace Bakery, 61, Walcot Street, Walcot, Bath, Bath and North East Somerset, West of England, England, BA1 5BN, United Kingdom"
+  },
+  {
+    "query": "The Silver Shop Bath",
+    "title": "The Silver Shop",
+    "category": "shopping",
+    "lat": 51.3818618,
+    "lng": -2.3600686,
+    "address": "The Silver Gift Shop, 25, Union Passage, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1RD, United Kingdom"
+  },
+  {
+    "query": "Walcot Street Bath",
+    "title": "Walcot Street",
+    "category": "attractions",
+    "lat": 51.3862157,
+    "lng": -2.3596076,
+    "address": "Walcot Street, Walcot, Bath, Bath and North East Somerset, West of England, England, BA1 5LX, United Kingdom"
+  },
+  {
+    "query": "Bartlett Street Antiques Centre Bath",
+    "title": "Bartlett Street Antiques Centre",
+    "category": "drinks",
+    "lat": 51.3855765,
+    "lng": -2.3617298,
+    "address": "Bartlett Street Antiques Centre, 8, Bartlett Street, Walcot, Bath, Bath and North East Somerset, West of England, England, BA1 2QZ, United Kingdom"
+  },
+  {
+    "query": "Bath Retro Store Abbey Green",
+    "title": "Bath Retro Store",
+    "category": "shopping",
+    "lat": 51.3804148,
+    "lng": -2.3590723,
+    "address": "Bath Retro Store, 9, Abbey Green, Kingsmead, Bath, Bath and North East Somerset, West of England, England, BA1 1NW, United Kingdom"
+  },
+  {
+    "query": "Stourhead Wiltshire",
+    "title": "Stourhead",
+    "category": "attractions",
+    "lat": 51.108029,
+    "lng": -2.3190822,
+    "address": "Stourhead House, Warminster, Stourton, Wiltshire, England, BA12 6QF, United Kingdom"
+  },
+  {
+    "query": "St Nicholas Church Chawton",
+    "title": "St Nicholas' Church, Chawton",
+    "category": "attractions",
+    "lat": 51.1281908,
+    "lng": -0.9897066,
+    "address": "Saint Nicholas, Winchester Road, Chawton, East Hampshire, Hampshire, England, GU34 1SH, United Kingdom"
+  },
+  {
+    "query": "Winchester Cathedral",
+    "title": "Winchester Cathedral",
+    "category": "attractions",
+    "lat": 51.0607326,
+    "lng": -1.3132458,
+    "address": "Winchester Cathedral, Cathedral Close, The Close, Winchester, Hampshire, England, SO23 9LS, United Kingdom"
+  },
+  {
+    "query": "Kappacasein Dairy Borough Market",
+    "title": "Kappacasein Dairy",
+    "category": "shopping",
+    "lat": 51.504981,
+    "lng": -0.0909769,
+    "address": "Kappacasein Dairy, 1, Stoney Street, Borough Market, Bankside, The Borough, London Borough of Southwark, Greater London, England, SE1 9AA, United Kingdom"
+  },
+  {
+    "query": "Bread Ahead Bakery Borough Market",
+    "title": "Bread Ahead Bakery",
+    "category": "shopping",
+    "lat": 51.5059679,
+    "lng": -0.090417,
+    "address": "Bread Ahead, Cathedral Street, Borough Market, Bankside, The Borough, London Borough of Southwark, Greater London, England, SE1 9DE, United Kingdom"
+  },
+  {
+    "query": "Neal's Yard Dairy Borough Market",
+    "title": "Neal's Yard Dairy",
+    "category": "shopping",
+    "lat": 51.505449,
+    "lng": -0.091633,
+    "address": "Neal's Yard Dairy, 8, Park Street, Borough Market, Bankside, The Borough, London Borough of Southwark, Greater London, England, SE1 9AB, United Kingdom"
+  },
+  {
+    "query": "Spice Mountain Borough Market",
+    "title": "Spice Mountain",
+    "category": "shopping",
+    "lat": 51.5051664,
+    "lng": -0.0902882,
+    "address": "Spice  Mountain, Southwark Street, Borough Market, Bankside, The Borough, London Borough of Southwark, Greater London, England, SE1 1YB, United Kingdom"
+  },
+  {
+    "query": "Shuk Borough Market",
+    "title": "Shuk",
+    "category": "shopping",
+    "lat": 51.5060858,
+    "lng": -0.0907587,
+    "address": "Shuk;, 8, Southwark Street, Borough Market, Bankside, The Borough, London Borough of Southwark, Greater London, England, SE1 9AH, United Kingdom"
+  },
+  {
+    "query": "Padella Borough Market",
+    "title": "Padella",
+    "category": "shopping",
+    "lat": 51.505138,
+    "lng": -0.0899124,
+    "address": "Padella, 6, Southwark Street, Borough Market, Bermondsey Village, The Borough, London Borough of Southwark, Greater London, England, SE1 1TQ, United Kingdom"
+  },
+  {
+    "query": "Porteña Borough Market",
+    "title": "Porteña",
+    "category": "shopping",
+    "lat": 51.5052768,
+    "lng": -0.0912367,
+    "address": "Porteña, Southwark Street, Borough Market, Bankside, The Borough, London Borough of Southwark, Greater London, England, SE1 9AH, United Kingdom"
+  },
+  {
+    "query": "Rabot 1745 Borough Market",
+    "title": "Rabot 1745",
+    "category": "shopping",
+    "lat": 51.5053783,
+    "lng": -0.0901397,
+    "address": "Rabot 1745, 2-4, Bedale Street, Borough Market, Bermondsey Village, The Borough, London Borough of Southwark, Greater London, England, SE1 9AL, United Kingdom"
+  },
+  {
+    "query": "Padella 6 Southwark Street",
+    "title": "Padella",
+    "category": "attractions",
+    "lat": 51.505138,
+    "lng": -0.0899124,
+    "address": "Padella, 6, Southwark Street, Borough Market, Bermondsey Village, The Borough, London Borough of Southwark, Greater London, England, SE1 1TQ, United Kingdom"
+  },
+  {
+    "query": "Utobeer Borough Market",
+    "title": "Utobeer",
+    "category": "shopping",
+    "lat": 51.5054981,
+    "lng": -0.0908787,
+    "address": "Utobeer, Borough High Street, Borough Market, Bankside, The Borough, London Borough of Southwark, Greater London, England, SE1 9AH, United Kingdom"
+  },
+  {
+    "query": "St Dunstan in the East Church Garden London",
+    "title": "Open in Maps →",
+    "category": "attractions",
+    "lat": 51.5096815,
+    "lng": -0.0824802,
+    "address": "St Dunstan in the East Church Garden, Monument, City of London, Greater London, England, United Kingdom"
+  },
+  {
+    "query": "Dennis Severs House Spitalfields",
+    "title": "Dennis Severs' House",
+    "category": "attractions",
+    "lat": 51.520943,
+    "lng": -0.0777904,
+    "address": "Dennis Severs' House, Folgate Street, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 6RS, United Kingdom"
+  },
+  {
+    "query": "Leake Street Tunnel London",
+    "title": "Leake Street Tunnel",
+    "category": "attractions",
+    "lat": 51.5013532,
+    "lng": -0.1147409,
+    "address": "Leake Street, South Bank, Waterloo, London Borough of Lambeth, Greater London, England, SE1 7NN, United Kingdom"
+  },
+  {
+    "query": "Lounge Bohemia London",
+    "title": "Lounge Bohemia",
+    "category": "drinks",
+    "lat": 51.522809,
+    "lng": -0.0780469,
+    "address": "Lounge Bohemia, 1, Great Eastern Street, Shoreditch, London Borough of Hackney, Greater London, England, EC2A 3EJ, United Kingdom"
+  },
+  {
+    "query": "Place des Vosges Paris",
+    "title": "Place des Vosges",
+    "category": "attractions",
+    "lat": 48.8550655,
+    "lng": 2.3653311,
+    "address": "Place des Vosges, Quartier de l'Arsenal, 4th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75004, France"
+  },
+  {
+    "query": "Le Mary Celeste Paris",
+    "title": "Le Mary Celeste",
+    "category": "drinks",
+    "lat": 48.861735,
+    "lng": 2.3650034,
+    "address": "Le Mary Celeste, Rue Commines, Quartier des Enfants-Rouges, 3rd Arrondissement, Paris, Ile-de-France, Metropolitan France, 75003, France"
+  },
+  {
+    "query": "Candelaria 52 Rue de Saintonge Paris",
+    "title": "Candelaria",
+    "category": "drinks",
+    "lat": 48.8629856,
+    "lng": 2.3640177,
+    "address": "Candelaria, 52, Rue de Saintonge, Quartier des Enfants-Rouges, 3rd Arrondissement, Paris, Ile-de-France, Metropolitan France, 75003, France"
+  },
+  {
+    "query": "Place Saint-Michel Paris",
+    "title": "Place Saint-Michel",
+    "category": "attractions",
+    "lat": 48.8533212,
+    "lng": 2.3437596,
+    "address": "Place Saint-Michel, Quartier de la Monnaie, 6th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75006, France"
+  },
+  {
+    "query": "Parc des Buttes-Chaumont Paris",
+    "title": "Parc des Buttes-Chaumont",
+    "category": "attractions",
+    "lat": 48.8795551,
+    "lng": 2.3820982,
+    "address": "Parc des Buttes Chaumont, Paris, Ile-de-France, Metropolitan France, France"
+  },
+  {
+    "query": "Parc de Belleville Paris",
+    "title": "Parc de Belleville",
+    "category": "attractions",
+    "lat": 48.8715484,
+    "lng": 2.384229,
+    "address": "Parc de Belleville, 20th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75020, France"
+  },
+  {
+    "query": "Butte-aux-Cailles Paris",
+    "title": "Butte-aux-Cailles",
+    "category": "attractions",
+    "lat": 48.8277114,
+    "lng": 2.3496759,
+    "address": "Butte-aux-Cailles, 13th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75013, France"
+  },
+  {
+    "query": "Du Pain et des Idees Paris",
+    "title": "Du Pain et des Idées",
+    "category": "attractions",
+    "lat": 48.8712472,
+    "lng": 2.3629042,
+    "address": "Du Pain et des Idées, Rue de Marseille, Quartier de la Porte-Saint-Martin, 10th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75010, France"
+  },
+  {
+    "query": "Combat bar Belleville Paris",
+    "title": "Combat",
+    "category": "drinks",
+    "lat": 48.8734467,
+    "lng": 2.3822958,
+    "address": "Combat, Rue de Belleville, Quartier du Combat, 19th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75020, France"
+  },
+  {
+    "query": "Aux Folies Rue de Belleville Paris",
+    "title": "Aux Folies",
+    "category": "attractions",
+    "lat": 48.872264,
+    "lng": 2.3780426,
+    "address": "Aux Folies, Rue Dénoyez, Quartier de Belleville, 20th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75020, France"
+  },
+  {
+    "query": "Village Saint-Paul Paris",
+    "title": "Village Saint-Paul",
+    "category": "attractions",
+    "lat": 48.8527132,
+    "lng": 2.360881,
+    "address": "Village Saint-Paul, Rue Saint-Paul, Quartier de l'Arsenal, 4th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75004, France"
+  },
+  {
+    "query": "Jardin Anne Frank Paris",
+    "title": "Jardin Anne Frank",
+    "category": "attractions",
+    "lat": 48.8616552,
+    "lng": 2.3550536,
+    "address": "Jardin Anne Frank, 3rd Arrondissement, Paris, Ile-de-France, Metropolitan France, 75003, France"
+  },
+  {
+    "query": "Hotel de Sens Paris",
+    "title": "Hôtel de Sens",
+    "category": "hotel",
+    "lat": 48.8535251,
+    "lng": 2.3587512,
+    "address": "Hôtel de Sens, Rue du Figuier, Quartier Saint-Gervais, 4th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75004, France"
+  },
+  {
+    "query": "Musee Cognacq-Jay Paris",
+    "title": "Musée Cognacq-Jay",
+    "category": "attractions",
+    "lat": 48.8581209,
+    "lng": 2.3616824,
+    "address": "Musée Cognacq-Jay, 8, Rue Elzévir, Quartier des Archives, 3rd Arrondissement, Paris, Ile-de-France, Metropolitan France, 75003, France"
+  },
+  {
+    "query": "Lavomatic Bar Paris",
+    "title": "LAVOMATIC",
+    "category": "drinks",
+    "lat": 48.8684507,
+    "lng": 2.3618395,
+    "address": "Lavomatic, Rue René Boulanger, Quartier de la Porte-Saint-Martin, 10th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75010, France"
+  },
+  {
+    "query": "The Culpeper London",
+    "title": "The Culpeper",
+    "category": "drinks",
+    "lat": 51.5168631,
+    "lng": -0.0729435,
+    "address": "The Culpeper, 40, Commercial Street, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 6LP, United Kingdom"
+  },
+  {
+    "query": "Fortitude Bakehouse London",
+    "title": "Fortitude Bakehouse, Bloomsbury",
+    "category": "food",
+    "lat": 51.4897397,
+    "lng": -0.1630233,
+    "address": "Fortitude Bakehouse, 55, King's Road, Chelsea, Royal Borough of Kensington and Chelsea, Greater London, England, SW3 4XB, United Kingdom"
+  },
+  {
+    "query": "Rinkoff Bakery Whitechapel",
+    "title": "Rinkoff Bakery, Whitechapel",
+    "category": "food",
+    "lat": 51.5198691,
+    "lng": -0.0529095,
+    "address": "Rinkoff Bakery, 224, Jubilee Street, Ratcliffe, Stepney, London Borough of Tower Hamlets, Greater London, England, E1 3BS, United Kingdom"
+  },
+  {
+    "query": "Landrace Bakery Bath",
+    "title": "Landrace Bakery, Bath",
+    "category": "food",
+    "lat": 51.3859151,
+    "lng": -2.359915,
+    "address": "Landrace Bakery, 61, Walcot Street, Walcot, Bath, Bath and North East Somerset, West of England, England, BA1 5BN, United Kingdom"
+  },
+  {
+    "query": "Bontemps Paris Rue de Bretagne",
+    "title": "Bontemps",
+    "category": "food",
+    "lat": 48.8638694,
+    "lng": 2.3606299,
+    "address": "Bontemps, Rue de Bretagne, Quartier des Enfants-Rouges, 3rd Arrondissement, Paris, Ile-de-France, Metropolitan France, 75003, France"
+  },
+  {
+    "query": "Stohrer Paris",
+    "title": "Stohrer",
+    "category": "attractions",
+    "lat": 48.8652493,
+    "lng": 2.3468171,
+    "address": "Stohrer, 51, Rue Montorgueil, Quartier du Mail, 2nd Arrondissement, Paris, Ile-de-France, Metropolitan France, 75002, France"
+  },
+  {
+    "query": "Pierre Herme Saint Germain Paris",
+    "title": "Pierre Hermé",
+    "category": "attractions",
+    "lat": 48.8524337,
+    "lng": 2.3396253,
+    "address": "Café Pierre Hermé, Boulevard Saint-Germain, Quartier de la Monnaie, 6th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75006, France"
+  },
+  {
+    "query": "ATIKA London",
+    "title": "ATIKA",
+    "category": "shopping",
+    "lat": 51.5203664,
+    "lng": -0.0708914,
+    "address": "Atika, 55,59, Hanbury Street, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 5JP, United Kingdom"
+  },
+  {
+    "query": "Brick Lane Vintage Market",
+    "title": "Brick Lane Vintage Market",
+    "category": "shopping",
+    "lat": 51.5207536,
+    "lng": -0.0719854,
+    "address": "Brick Lane Vintage Market, Brick Lane, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 6QL, United Kingdom"
+  },
+  {
+    "query": "Rokit Brick Lane London",
+    "title": "Rokit, Brick Lane",
+    "category": "shopping",
+    "lat": 51.522275,
+    "lng": -0.0717979,
+    "address": "Rokit Vintage, 101, Brick Lane, Spitalfields, Whitechapel, London Borough of Tower Hamlets, Greater London, England, E1 6SE, United Kingdom"
+  },
+  {
+    "query": "Kilo Shop Le Marais Paris",
+    "title": "Kilo Shop, Le Marais",
+    "category": "shopping",
+    "lat": 48.8581694,
+    "lng": 2.3521738,
+    "address": "Kilo-Shop, 67, Rue de la Verrerie, Quartier Saint-Merri, 4th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75004, France"
+  },
+  {
+    "query": "Monmouth Coffee Borough Market",
+    "title": "Monmouth Coffee, Borough Market",
+    "category": "coffee",
+    "lat": 51.5055145,
+    "lng": -0.0914602,
+    "address": "Monmouth Coffee Company, 2, Park Street, Borough Market, Bankside, The Borough, London Borough of Southwark, Greater London, England, SE1 9AB, United Kingdom"
+  },
+  {
+    "query": "Boot Cafe Paris",
+    "title": "Boot Café",
+    "category": "coffee",
+    "lat": 48.8611678,
+    "lng": 2.3653264,
+    "address": "Boot Café, 19, Rue du Pont aux Choux, Quartier des Archives, 3rd Arrondissement, Paris, Ile-de-France, Metropolitan France, 75003, France"
+  },
+  {
+    "query": "Motors Coffee Paris",
+    "title": "Motors Coffee",
+    "category": "coffee",
+    "lat": 48.8592792,
+    "lng": 2.3469661,
+    "address": "Motors Coffee, 7, Rue des Halles, Quartier Les Halles, 1st Arrondissement, Paris, Ile-de-France, Metropolitan France, 75001, France"
+  },
+  {
+    "query": "Chin Chin Ice Cream London",
+    "title": "Chin Chin",
+    "category": "icecream",
+    "lat": 51.5143305,
+    "lng": -0.1312003,
+    "address": "Chin Chin Dessert Club, 54, Greek Street, Soho, City of Westminster, Greater London, England, W1D 3DS, United Kingdom"
+  },
+  {
+    "query": "Gelupo London",
+    "title": "Gelupo",
+    "category": "attractions",
+    "lat": 51.5115864,
+    "lng": -0.1337003,
+    "address": "Gelupo, 7, Archer Street, Soho, City of Westminster, Greater London, England, W1D 7AS, United Kingdom"
+  },
+  {
+    "query": "Berthillon Paris",
+    "title": "Berthillon",
+    "category": "icecream",
+    "lat": 48.8517084,
+    "lng": 2.356718,
+    "address": "Berthillon, 31, Rue Saint-Louis en l'Île, Quartier Les Îles, 4th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75004, France"
+  },
+  {
+    "query": "Folderol Paris",
+    "title": "Folderol",
+    "category": "icecream",
+    "lat": 48.8531498,
+    "lng": 2.3830555,
+    "address": "Folderol, Rue Jean Macé, Quartier Sainte-Marguerite, 11th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75011, France"
+  }
+]
