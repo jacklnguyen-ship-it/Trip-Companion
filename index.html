@@ -173,6 +173,7 @@ body:has(#page-versailles:target) a.navlink[href="#page-versailles"]{ background
 body:has(#page-opera:target) a.navlink[href="#page-opera"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-paris_drinks:target) a.navlink[href="#page-paris_drinks"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-food:target) a.navlink[href="#page-food"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
+body:has(#page-french:target) a.navlink[href="#page-french"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-home:target) a.navlink[href="#page-home"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:not(:has(.page:target)) a.navlink[href="#page-home"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
@@ -434,6 +435,7 @@ body.day-modal-open{overflow:hidden}
 .home-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}.home-day{appearance:none;width:100%;text-align:left;padding:.9rem;border:1px solid var(--line);border-radius:11px;background:var(--parchment-card);color:var(--ink);cursor:pointer;font:inherit}.home-day:hover,.home-day:focus{border-color:var(--brass);outline:none;transform:translateY(-1px)}.home-day time{display:block;color:var(--wax);font:700 .68rem ui-monospace,monospace;text-transform:uppercase}.home-day strong{display:block;margin:.2rem 0;font-size:.98rem}.home-day span{color:var(--slate);font-size:.8rem}
 .archive-box{margin-top:1.25rem;border:1px solid var(--line);border-radius:11px;background:var(--parchment-card)}.archive-box summary{cursor:pointer;padding:.9rem 1rem;font-weight:700}.archive-box div{padding:0 1rem .9rem}.updated-note{margin-top:1rem!important;color:var(--slate)!important;font-size:.78rem!important}
 .guide-search{margin:1rem 0 1.35rem;padding:1rem;border:1px solid var(--line);border-radius:14px;background:var(--parchment-card)}.guide-search label{display:block;font-weight:700;color:var(--ink);margin-bottom:.45rem}.guide-search input{box-sizing:border-box;width:100%;padding:.8rem .9rem;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);font:inherit}.guide-search input:focus{outline:2px solid var(--brass);outline-offset:1px}.filter-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.65rem 0}.filter-chip{padding:.42rem .68rem;border:1px solid var(--line);border-radius:99px;background:#fff;color:var(--ink-soft);font:700 .7rem ui-monospace,monospace;cursor:pointer}.filter-chip.active{background:var(--ink);border-color:var(--ink);color:#fff}.search-results{display:grid;gap:.45rem}.search-result{display:block;padding:.7rem .8rem;border:1px solid var(--line-soft);border-radius:8px;background:#fff;text-decoration:none!important}.search-result strong{display:block;color:var(--ink)}.search-result span{display:block;color:var(--slate);font-size:.78rem;margin-top:.12rem}.search-empty{color:var(--slate);font-size:.84rem;margin:.4rem 0!important}
+.phrase-intro{padding:1rem;border-left:4px solid var(--brass);background:var(--parchment-card);border-radius:0 10px 10px 0}.phrase-group{margin:1rem 0;border:1px solid var(--line);border-radius:12px;background:var(--parchment-card);overflow:hidden}.phrase-group summary{cursor:pointer;padding:1rem;font-weight:700;color:var(--ink)}.phrase-list{display:grid;gap:.55rem;padding:0 1rem 1rem}.phrase-card{display:grid;grid-template-columns:1fr auto;gap:.5rem;padding:.8rem;border:1px solid var(--line-soft);border-radius:9px;background:#fff}.phrase-fr{display:block;color:var(--ink);font-size:1rem}.phrase-en{display:block;color:var(--slate);font-size:.82rem;margin:.15rem 0}.phrase-pron{display:block;color:var(--wax);font-size:.74rem;font-style:italic}.phrase-play{align-self:center;width:42px;height:42px;border:1px solid var(--brass);border-radius:50%;background:var(--parchment);color:var(--wax);cursor:pointer;font-size:1rem}.phrase-play.playing{background:var(--wax);color:#fff}.phrase-note{font-size:.8rem!important;color:var(--slate)!important}
 @media(max-width:620px){.home-actions{grid-template-columns:1fr}.home-days{grid-template-columns:1fr}}
 </style>
 </head>
@@ -470,6 +472,7 @@ body.day-modal-open{overflow:hidden}
     <a class="navlink sub" href="#page-paris_drinks"><span class="num">·</span> Paris Drinks Guide</a>
     <div class="nav-group-label">Reference</div>
     <a class="navlink" href="#page-food"><span class="num">06</span> Food Guide</a>
+    <a class="navlink" href="#page-french"><span class="num">07</span> French Cheat Sheet</a>
   </nav>
 
   <main class="content-wrap">
@@ -2576,6 +2579,56 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <hr />
 <p><em>This guide complements, not replaces, the detailed day-by-day food recommendations already built into "London_Leg_Places_Guide.md" and "Paris_Leg_Places_Guide.md."</em></p>
 </section>
+<section class="page" id="page-french">
+<h1>French Travel Cheat Sheet</h1>
+<p><strong>Tap 🔊 to hear each phrase in French.</strong></p>
+<div class="phrase-intro"><strong>Start every interaction with “Bonjour” or “Bonsoir.”</strong><p>Even if you switch to English afterward, this small courtesy makes a meaningful difference in France. The pronunciation guides below are approximations for English speakers—use the audio as your primary model.</p></div>
+
+<details class="phrase-group" open><summary>👋 Polite essentials</summary><div class="phrase-list">
+<div class="phrase-card"><div><strong class="phrase-fr">Bonjour</strong><span class="phrase-en">Hello / good morning</span><span class="phrase-pron">bohn-zhoor</span></div><button class="phrase-play" data-french="Bonjour" aria-label="Hear Bonjour">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Bonsoir</strong><span class="phrase-en">Good evening</span><span class="phrase-pron">bohn-swahr</span></div><button class="phrase-play" data-french="Bonsoir" aria-label="Hear Bonsoir">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">S’il vous plaît</strong><span class="phrase-en">Please</span><span class="phrase-pron">seel voo play</span></div><button class="phrase-play" data-french="S’il vous plaît" aria-label="Hear S’il vous plaît">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Merci beaucoup</strong><span class="phrase-en">Thank you very much</span><span class="phrase-pron">mehr-see boh-koo</span></div><button class="phrase-play" data-french="Merci beaucoup" aria-label="Hear Merci beaucoup">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Excusez-moi</strong><span class="phrase-en">Excuse me</span><span class="phrase-pron">ex-kew-zay mwah</span></div><button class="phrase-play" data-french="Excusez-moi" aria-label="Hear Excusez-moi">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Parlez-vous anglais ?</strong><span class="phrase-en">Do you speak English?</span><span class="phrase-pron">par-lay voo ahn-glay</span></div><button class="phrase-play" data-french="Parlez-vous anglais ?" aria-label="Hear Parlez-vous anglais">🔊</button></div>
+</div></details>
+
+<details class="phrase-group"><summary>🥐 Bakeries, cafés and markets</summary><div class="phrase-list">
+<div class="phrase-card"><div><strong class="phrase-fr">Je voudrais deux croissants, s’il vous plaît.</strong><span class="phrase-en">I would like two croissants, please.</span><span class="phrase-pron">zhuh voo-dray duh krwah-sahn, seel voo play</span></div><button class="phrase-play" data-french="Je voudrais deux croissants, s’il vous plaît." aria-label="Hear bakery order">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Un café crème, s’il vous plaît.</strong><span class="phrase-en">A coffee with milk, please.</span><span class="phrase-pron">uhn kah-fay krem, seel voo play</span></div><button class="phrase-play" data-french="Un café crème, s’il vous plaît." aria-label="Hear coffee order">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Sur place ou à emporter ?</strong><span class="phrase-en">For here or to go?</span><span class="phrase-pron">sewr plahs oo ah ahm-por-tay</span></div><button class="phrase-play" data-french="Sur place ou à emporter ?" aria-label="Hear for here or to go">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">À emporter, s’il vous plaît.</strong><span class="phrase-en">To go, please.</span><span class="phrase-pron">ah ahm-por-tay, seel voo play</span></div><button class="phrase-play" data-french="À emporter, s’il vous plaît." aria-label="Hear to go please">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Qu’est-ce que vous recommandez ?</strong><span class="phrase-en">What do you recommend?</span><span class="phrase-pron">kess kuh voo ruh-koh-mahn-day</span></div><button class="phrase-play" data-french="Qu’est-ce que vous recommandez ?" aria-label="Hear what do you recommend">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Je peux goûter ?</strong><span class="phrase-en">May I taste it?</span><span class="phrase-pron">zhuh puh goo-tay</span></div><button class="phrase-play" data-french="Je peux goûter ?" aria-label="Hear may I taste it">🔊</button></div>
+</div></details>
+
+<details class="phrase-group"><summary>🍷 Restaurants and wine</summary><div class="phrase-list">
+<div class="phrase-card"><div><strong class="phrase-fr">Nous avons une réservation pour deux.</strong><span class="phrase-en">We have a reservation for two.</span><span class="phrase-pron">noo zah-vohn ewn ray-zehr-vah-see-ohn poor duh</span></div><button class="phrase-play" data-french="Nous avons une réservation pour deux." aria-label="Hear reservation phrase">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Une table pour deux, s’il vous plaît.</strong><span class="phrase-en">A table for two, please.</span><span class="phrase-pron">ewn tah-bluh poor duh, seel voo play</span></div><button class="phrase-play" data-french="Une table pour deux, s’il vous plaît." aria-label="Hear table for two">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Je prendrai le menu du jour.</strong><span class="phrase-en">I’ll have today’s set menu.</span><span class="phrase-pron">zhuh prahn-dray luh muh-new dew zhoor</span></div><button class="phrase-play" data-french="Je prendrai le menu du jour." aria-label="Hear menu order">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Quel vin conseillez-vous ?</strong><span class="phrase-en">Which wine do you recommend?</span><span class="phrase-pron">kel van kohn-say-yay voo</span></div><button class="phrase-play" data-french="Quel vin conseillez-vous ?" aria-label="Hear wine recommendation">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Une carafe d’eau, s’il vous plaît.</strong><span class="phrase-en">A carafe of tap water, please.</span><span class="phrase-pron">ewn kah-rahf doh, seel voo play</span></div><button class="phrase-play" data-french="Une carafe d’eau, s’il vous plaît." aria-label="Hear water request">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">L’addition, s’il vous plaît.</strong><span class="phrase-en">The bill, please.</span><span class="phrase-pron">lah-dee-see-ohn, seel voo play</span></div><button class="phrase-play" data-french="L’addition, s’il vous plaît." aria-label="Hear bill please">🔊</button></div>
+</div></details>
+
+<details class="phrase-group"><summary>🚇 Metro, directions and tickets</summary><div class="phrase-list">
+<div class="phrase-card"><div><strong class="phrase-fr">Où est la station de métro la plus proche ?</strong><span class="phrase-en">Where is the nearest Metro station?</span><span class="phrase-pron">oo ay lah stah-see-ohn duh may-troh lah plew prosh</span></div><button class="phrase-play" data-french="Où est la station de métro la plus proche ?" aria-label="Hear nearest Metro question">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Quelle ligne pour aller à… ?</strong><span class="phrase-en">Which line should I take to…?</span><span class="phrase-pron">kel leen-yuh poor ah-lay ah</span></div><button class="phrase-play" data-french="Quelle ligne pour aller à ?" aria-label="Hear which line question">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Deux billets, s’il vous plaît.</strong><span class="phrase-en">Two tickets, please.</span><span class="phrase-pron">duh bee-yay, seel voo play</span></div><button class="phrase-play" data-french="Deux billets, s’il vous plaît." aria-label="Hear two tickets">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Ce train va à Versailles ?</strong><span class="phrase-en">Does this train go to Versailles?</span><span class="phrase-pron">suh tran vah ah vehr-sigh</span></div><button class="phrase-play" data-french="Ce train va à Versailles ?" aria-label="Hear Versailles train question">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">C’est loin à pied ?</strong><span class="phrase-en">Is it far on foot?</span><span class="phrase-pron">say lwan ah pyay</span></div><button class="phrase-play" data-french="C’est loin à pied ?" aria-label="Hear is it far">🔊</button></div>
+</div></details>
+
+<details class="phrase-group"><summary>🏨 Hotels, museums and help</summary><div class="phrase-list">
+<div class="phrase-card"><div><strong class="phrase-fr">Nous avons une réservation au nom de Nguyen.</strong><span class="phrase-en">We have a reservation under the name Nguyen.</span><span class="phrase-pron">noo zah-vohn ewn ray-zehr-vah-see-ohn oh nohm duh Nguyen</span></div><button class="phrase-play" data-french="Nous avons une réservation au nom de Nguyen." aria-label="Hear hotel reservation">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">À quelle heure est la dernière entrée ?</strong><span class="phrase-en">What time is the last admission?</span><span class="phrase-pron">ah kel uhr ay lah dehr-nee-air ahn-tray</span></div><button class="phrase-play" data-french="À quelle heure est la dernière entrée ?" aria-label="Hear last admission question">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Où sont les toilettes ?</strong><span class="phrase-en">Where are the restrooms?</span><span class="phrase-pron">oo sohn lay twah-let</span></div><button class="phrase-play" data-french="Où sont les toilettes ?" aria-label="Hear restroom question">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Je ne comprends pas.</strong><span class="phrase-en">I don’t understand.</span><span class="phrase-pron">zhuh nuh kohn-prahn pah</span></div><button class="phrase-play" data-french="Je ne comprends pas." aria-label="Hear I do not understand">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">Pouvez-vous parler plus lentement ?</strong><span class="phrase-en">Can you speak more slowly?</span><span class="phrase-pron">poo-vay voo par-lay plew lahn-tuh-mahn</span></div><button class="phrase-play" data-french="Pouvez-vous parler plus lentement ?" aria-label="Hear speak more slowly">🔊</button></div>
+<div class="phrase-card"><div><strong class="phrase-fr">J’ai besoin d’aide.</strong><span class="phrase-en">I need help.</span><span class="phrase-pron">zhay buh-zwan ded</span></div><button class="phrase-play" data-french="J’ai besoin d’aide." aria-label="Hear I need help">🔊</button></div>
+</div></details>
+<p class="phrase-note">Audio uses the French voice installed on your phone or computer. If nothing plays, make sure the device is not muted and try opening the guide directly in Safari or Chrome.</p>
+</section>
 <section class="page" id="page-itinerary">
 <h1>Day-by-Day Itinerary</h1>
 <p><strong>Sept 7–17, 2026 | 2 Travelers</strong></p>
@@ -2722,7 +2775,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     var active='all',categoryMap={
       'page-itinerary':'days','page-logistics':'travel','page-london':'london','page-bath':'london',
       'page-chatsworth':'london','page-london_pubs':'london','page-paris':'paris','page-versailles':'paris',
-      'page-opera':'paris','page-paris_drinks':'paris','page-food':'food'
+      'page-opera':'paris','page-paris_drinks':'paris','page-food':'food','page-french':'travel'
     },items=[];
     Object.keys(categoryMap).forEach(function(pageId){
       var page=document.getElementById(pageId);if(!page)return;
@@ -2747,6 +2800,18 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
       button.addEventListener('click',function(){active=button.getAttribute('data-search-filter');document.querySelectorAll('[data-search-filter]').forEach(function(b){b.classList.toggle('active',b===button)});render();});
     });
     results.addEventListener('click',function(e){var link=e.target.closest('.search-result');if(!link)return;var item=items[parseInt(link.getAttribute('data-result-index'),10)];if(item)setTimeout(function(){item.heading.scrollIntoView({behavior:'smooth',block:'start'});},80);});
+  })();
+
+  // ---------- French phrasebook audio ----------
+  (function(){
+    document.addEventListener('click',function(e){
+      var button=e.target.closest?e.target.closest('.phrase-play'):null;if(!button)return;
+      if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined'){alert('French audio is not available in this browser. Try Safari or Chrome.');return;}
+      window.speechSynthesis.cancel();document.querySelectorAll('.phrase-play.playing').forEach(function(b){b.classList.remove('playing')});
+      var utterance=new SpeechSynthesisUtterance(button.getAttribute('data-french'));utterance.lang='fr-FR';utterance.rate=.82;
+      var voices=window.speechSynthesis.getVoices(),voice=voices.find(function(v){return v.lang&&v.lang.toLowerCase().indexOf('fr')===0});if(voice)utterance.voice=voice;
+      button.classList.add('playing');utterance.onend=utterance.onerror=function(){button.classList.remove('playing')};window.speechSynthesis.speak(utterance);
+    });
   })();
 
   // ---------- Audio Guide (Web Speech API) ----------
