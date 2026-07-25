@@ -1,6 +1,6 @@
 (function(){
   var map, places=[], markers, userMarker, userLocation, initialized=false;
-  var icons={attractions:'📍',food:'🍽️',coffee:'☕',drinks:'🍸',shopping:'🛍️',icecream:'🍦',hotel:'🏨'};
+  var icons={attractions:'📍',food:'🍽️',coffee:'☕',drinks:'🍸',shopping:'🛍️',icecream:'🍦',afternoontea:'🫖',hotel:'🏨'};
   function milesBetween(a,b){
     var r=3958.8,toRad=Math.PI/180,dLat=(b.lat-a.lat)*toRad,dLng=(b.lng-a.lng)*toRad;
     var x=Math.sin(dLat/2)**2+Math.cos(a.lat*toRad)*Math.cos(b.lat*toRad)*Math.sin(dLng/2)**2;
