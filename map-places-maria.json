@@ -1334,5 +1334,21 @@
     "lat": 48.8426219,
     "lng": 2.3519269,
     "address": "Pharmacie Monge Notre Dame, 1 Pl. Monge, 75005 Paris, France"
+  },
+  {
+    "query": "Cortado 31 Rue Charlot Paris",
+    "title": "Cortado",
+    "category": "coffee",
+    "lat": 48.8624609,
+    "lng": 2.3619539,
+    "address": "Cortado, 31 Rue Charlot, 75003 Paris, France"
+  },
+  {
+    "query": "Huddle Coffee 61 Rue Notre Dame de Nazareth Paris",
+    "title": "Huddle Coffee",
+    "category": "coffee",
+    "lat": 48.8677365,
+    "lng": 2.3558909,
+    "address": "Huddle Coffee, 61 Rue Notre Dame de Nazareth, 75003 Paris, France"
   }
 ]
