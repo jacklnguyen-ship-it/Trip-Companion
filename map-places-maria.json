@@ -1238,5 +1238,21 @@
     "lat": 51.5066,
     "lng": -0.1098,
     "address": "Southbank Printmakers, Gabriel's Wharf, 56 Upper Ground, London SE1 9PP, UK (approximate — Places API returned an inconsistent Fitzrovia address for this listing; verify before relying on it)"
+  },
+  {
+    "query": "Wombats City Hostel London 7 Dock Street",
+    "title": "Wombat's City Hostel (London base)",
+    "category": "hotel",
+    "lat": 51.5105056,
+    "lng": -0.068171,
+    "address": "Wombat's City Hostel London, 7 Dock St, London E1 8LL, UK"
+  },
+  {
+    "query": "8 Rue du Pont aux Choux Paris",
+    "title": "Airbnb — Tiny Duplex heart of Marais (Paris base)",
+    "category": "hotel",
+    "lat": 48.8611867,
+    "lng": 2.3662102,
+    "address": "8 Rue du Pont aux Choux, 75003 Paris, France"
   }
 ]
