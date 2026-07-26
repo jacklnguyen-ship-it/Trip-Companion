@@ -1254,5 +1254,85 @@
     "lat": 48.8611867,
     "lng": 2.3662102,
     "address": "8 Rue du Pont aux Choux, 75003 Paris, France"
+  },
+  {
+    "query": "Buddy Buddy Nut Butter Coffee Bar 15 Rue de Marseille Paris",
+    "title": "Buddy Buddy (Nut Butter Coffee Bar)",
+    "category": "food",
+    "lat": 48.8716396,
+    "lng": 2.3634048,
+    "address": "15 Rue de Marseille, 75010 Paris, France"
+  },
+  {
+    "query": "Ake Table et Vin 8 Rue Marie et Louise Paris",
+    "title": "Åke",
+    "category": "food",
+    "lat": 48.8719807,
+    "lng": 2.3668728,
+    "address": "Åke - Table & Vin, 8 Rue Marie et Louise, 75010 Paris, France"
+  },
+  {
+    "query": "Jip restaurant 112 Rue de la Roquette Paris",
+    "title": "Jip",
+    "category": "food",
+    "lat": 48.8569152,
+    "lng": 2.3783946,
+    "address": "jip.paris, 112 Rue de la Roquette, 75011 Paris, France"
+  },
+  {
+    "query": "Holybelly 5 Rue Lucien Sampaix Paris",
+    "title": "HolyBelly",
+    "category": "food",
+    "lat": 48.8710383,
+    "lng": 2.3596596,
+    "address": "HolyBelly, 5 Rue Lucien Sampaix, 75010 Paris, France"
+  },
+  {
+    "query": "Patate frites 36 Rue Saint-Andre des Arts Paris",
+    "title": "Patate",
+    "category": "food",
+    "lat": 48.8534197,
+    "lng": 2.3417508,
+    "address": "Patate, 36 Rue Saint-André des Arts, 75006 Paris, France"
+  },
+  {
+    "query": "Ambassade d'Auvergne 22 Rue du Grenier Saint-Lazare Paris",
+    "title": "L'Ambassade d'Auvergne",
+    "category": "food",
+    "lat": 48.8630446,
+    "lng": 2.3534095,
+    "address": "Ambassade d'Auvergne, 22 Rue du Grenier-Saint-Lazare, 75003 Paris, France"
+  },
+  {
+    "query": "Balzac Paris boutique Rue Malher Marais",
+    "title": "Balzac Paris",
+    "category": "shopping",
+    "lat": 48.8563612,
+    "lng": 2.3616321,
+    "address": "Balzac, 18 Rue Malher, 75004 Paris, France"
+  },
+  {
+    "query": "La Bonne Pioche 69 Rue de la Fontaine au Roi Paris",
+    "title": "La Bonne Pioche",
+    "category": "shopping",
+    "lat": 48.8686172,
+    "lng": 2.3752401,
+    "address": "Boutique La Bonne Pioche, 69 Rue de la Fontaine au Roi, 75011 Paris, France"
+  },
+  {
+    "query": "Antinomie parfum 99 Rue du Bac Paris",
+    "title": "Antinomie",
+    "category": "shopping",
+    "lat": 48.8531486,
+    "lng": 2.3238859,
+    "address": "Antinomie, 99 Rue du Bac, 75007 Paris, France"
+  },
+  {
+    "query": "Pharmacie Monge 78 rue Monge Paris",
+    "title": "Pharmacie Monge",
+    "category": "shopping",
+    "lat": 48.8426219,
+    "lng": 2.3519269,
+    "address": "Pharmacie Monge Notre Dame, 1 Pl. Monge, 75005 Paris, France"
   }
 ]
