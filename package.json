@@ -1,0 +1,10 @@
+{
+  "name": "trip-companion-guides",
+  "private": true,
+  "scripts": {
+    "test": "npm run test:prepublish",
+    "test:checks": "node scripts/prepublish-check.mjs",
+    "test:negative": "node scripts/negative-self-test.mjs",
+    "test:prepublish": "npm run test:checks && npm run test:negative"
+  }
+}
