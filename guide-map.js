@@ -57,7 +57,9 @@
     });
     if(userMarker){userMarker.addTo(map);bounds.push([userLocation.lat,userLocation.lng]);}
     if(fit&&bounds.length)map.fitBounds(bounds,{padding:[28,28],maxZoom:14});
-    document.getElementById('trip-map-status').textContent=list.length+' curated places shown'+(userLocation?' · nearest places sorted below':'');
+    document.getElementById('trip-map-status').textContent=list.length
+      ? list.length+' curated places shown'+(userLocation?' · nearest places sorted below':'')
+      : 'No curated places match these filters. Try another category or tap “Show all”.';
     updateNearest(list);
   }
   function useLocation(){
