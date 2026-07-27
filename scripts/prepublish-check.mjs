@@ -73,7 +73,7 @@ function pngDimensions(file) {
 }
 
 const htmlFiles = ["index.html", "maria.html"];
-const requiredPages = ["page-home", "page-itinerary", "page-logistics", "page-food", "page-map"];
+const requiredPages = ["page-home", "page-itinerary", "page-logistics", "page-emergency", "page-food", "page-map"];
 const weekdayLabels = [
   "Mon · Sept 7",
   "Tue · Sept 8",
@@ -110,6 +110,24 @@ for (const file of htmlFiles) {
 
   for (const page of requiredPages) {
     check(html.includes(`id="${page}"`), `${file} is missing required section #${page}`);
+  }
+  for (const readinessText of [
+    "French cheat sheet →",
+    "Emergency &amp; help →",
+    "+44 20 7499 9000",
+    "+33 1 43 12 22 22",
+    "+1 202 501 4444",
+    "Travel insurance",
+    "Transit quick card · 2026 fares",
+    "£8.90",
+    "£44.70",
+    "€2.55",
+    "€2.05",
+    "€14",
+    "€12.30",
+    "€32.40",
+  ]) {
+    check(html.includes(readinessText), `${file} is missing Batch 2 travel-readiness content: ${readinessText}`);
   }
   for (const label of weekdayLabels) {
     check(html.includes(label), `${file} is missing or has changed the date label “${label}”`);
@@ -283,6 +301,10 @@ for (const behavior of [
 const homeCss = read("home-intelligence.css");
 for (const selector of [".home-next-up", ".kickoff-alert", ".home-day.is-today", ".today-badge"]) {
   check(homeCss.includes(selector), `home-intelligence.css is missing required style: ${selector}`);
+}
+const readinessCss = read("travel-readiness.css");
+for (const selector of [".readiness-grid", ".readiness-alert", ".transit-card", ".transit-columns"]) {
+  check(readinessCss.includes(selector), `travel-readiness.css is missing required style: ${selector}`);
 }
 
 if (failures.length) {

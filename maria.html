@@ -427,6 +427,7 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <link rel="stylesheet" href="guide-map.css?v=20260725-5">
 <link rel="stylesheet" href="home-intelligence.css?v=20260726-1">
+<link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
 </head>
 <body data-map-data="map-places-maria.json?v=20260725-8">
 
@@ -450,6 +451,7 @@ body:has(.page:target) #page-home:target{display:block}
     <a class="navlink" href="#page-home"><span class="num">01</span> Home</a>
     <a class="navlink" href="#page-itinerary"><span class="num">02</span> Day-by-Day Itinerary</a>
     <a class="navlink" href="#page-logistics"><span class="num">03</span> Logistics & Bookings</a>
+    <a class="navlink" href="#page-emergency"><span class="num">!</span> Emergency &amp; Help</a>
     <div class="nav-group-label">London Leg</div>
     <a class="navlink" href="#page-london"><span class="num">03</span> London Places Guide</a>
     <a class="navlink" href="#page-bath"><span class="num">04</span> Bath / Celtic Tour Day</a>
@@ -516,6 +518,8 @@ body:has(.page:target) #page-home:target{display:block}
     <a class="home-action" href="#page-itinerary">View all days →</a>
     <a class="home-action" href="#page-logistics">Travel essentials →</a>
     <a class="home-action" href="#page-food">Food &amp; drink →</a>
+    <a class="home-action" href="#page-french">French cheat sheet →</a>
+    <a class="home-action" href="#page-emergency">Emergency &amp; help →</a>
   </div>
   <div class="guide-search">
     <label for="guide-search-input">Find anything in your trip</label>
@@ -550,10 +554,91 @@ body:has(.page:target) #page-home:target{display:block}
   </details>
   <p class="updated-note">Last organized July 23, 2026 · Private confirmation details are stored separately.</p>
 </section>
+<section class="page" id="page-emergency">
+<h1>Emergency &amp; Logistics</h1>
+<p>Keep this page available offline. Call local emergency services first when there is immediate danger, then contact the embassy or insurer as needed.</p>
+<div class="readiness-grid">
+  <article class="readiness-card readiness-alert">
+    <h2>London emergency numbers</h2>
+    <p><strong>999 or 112</strong> — police, ambulance or fire in a life-threatening emergency.</p>
+    <p><strong>111</strong> — urgent medical advice when it is not life-threatening; NHS 111 is available 24/7.</p>
+    <a class="readiness-call" href="tel:999">Call 999</a><a class="readiness-call secondary" href="tel:111">Call NHS 111</a>
+  </article>
+  <article class="readiness-card readiness-alert">
+    <h2>Paris emergency numbers</h2>
+    <p><strong>112</strong> — European emergency number. <strong>15</strong> ambulance, <strong>17</strong> police, <strong>18</strong> fire.</p>
+    <p><strong>114</strong> — SMS/app service for deaf or hard-of-hearing users.</p>
+    <a class="readiness-call" href="tel:112">Call 112</a>
+  </article>
+  <article class="readiness-card">
+    <h2>U.S. Embassy London</h2>
+    <p>33 Nine Elms Lane, London SW11 7US</p>
+    <p><strong>+44 20 7499 9000</strong> — main and after-hours emergency number.</p>
+    <a class="readiness-call" href="tel:+442074999000">Call embassy</a><a class="readiness-call secondary" href="https://www.google.com/maps/search/?api=1&amp;query=US+Embassy+London+33+Nine+Elms+Lane">Open map</a>
+  </article>
+  <article class="readiness-card">
+    <h2>U.S. Embassy Paris</h2>
+    <p>2 Avenue Gabriel, 75008 Paris</p>
+    <p><strong>+33 1 43 12 22 22</strong> — for after-hours help, follow the recording for the duty officer.</p>
+    <a class="readiness-call" href="tel:+33143122222">Call embassy</a><a class="readiness-call secondary" href="https://www.google.com/maps/search/?api=1&amp;query=US+Embassy+Paris+2+Avenue+Gabriel">Open map</a>
+  </article>
+  <article class="readiness-card readiness-card-wide">
+    <h2>Lost or stolen passport</h2>
+    <ol>
+      <li>If stolen, report it to local police and keep the report.</li>
+      <li>Contact the nearest U.S. embassy and follow its emergency-passport instructions.</li>
+      <li>Have a passport photo, identification or a copy, travel itinerary, and payment method ready if available.</li>
+      <li>From overseas, the U.S. State Department emergency line is <strong>+1 202 501 4444</strong>.</li>
+    </ol>
+    <a class="readiness-call" href="tel:+12025014444">Call State Department</a>
+  </article>
+  <article class="readiness-card">
+    <h2>Pharmacy &amp; medicine</h2>
+    <p><strong>London:</strong> ask a pharmacy first for minor illness or urgent medicine; NHS 111 can direct you after hours.</p>
+    <p><strong>Paris:</strong> search for <em>pharmacie de garde</em> for the duty pharmacy outside normal hours.</p>
+    <a class="readiness-call secondary" href="#page-map">Find nearby on the map</a>
+  </article>
+  <article class="readiness-card">
+    <h2>Travel insurance</h2>
+    <p><strong>Provider:</strong> ____________________</p>
+    <p><strong>Policy:</strong> ____________________</p>
+    <p><strong>Emergency phone:</strong> ____________________</p>
+    <p class="readiness-note">Complete this before departure and keep a second copy outside the guide.</p>
+  </article>
+</div>
+<p class="readiness-note">Verified July 26, 2026: <a href="https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-call-999/">NHS emergency guidance</a> · <a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/UnitedKingdom.html">U.S. Embassy London</a> · <a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/France.html">U.S. Embassy Paris and French emergency numbers</a>.</p>
+</section>
 <section class="page" id="page-logistics">
 <h1>London &amp; Paris Trip — Logistics Plan</h1>
 <p><strong>Sept 7–17, 2026 | 2 travelers</strong></p>
 <p><em>Updated: return flight extended from Sept 16 to Sept 17 — converts a previously dead arrival-only day into a full extra day in Paris.</em></p>
+<section class="transit-card">
+  <h2>Transit quick card · 2026 fares</h2>
+  <p class="transit-intro">The simple choices for this itinerary, based on current official fares.</p>
+  <div class="transit-columns">
+    <article class="transit-city">
+      <h3>London · tap contactless</h3>
+      <ul>
+        <li>Use the same contactless card or the same phone/watch for every touch in and out.</li>
+        <li>Do not mix an iPhone, Apple Watch and physical card; TfL treats them as different cards.</li>
+        <li>Zones 1–2 daily cap: <strong>£8.90</strong>. Monday–Sunday cap: <strong>£44.70</strong>.</li>
+        <li>Each traveler needs a separate card or device.</li>
+      </ul>
+      <strong class="transit-pick">Best fit: use contactless pay as you go. No Oyster purchase needed.</strong>
+    </article>
+    <article class="transit-city">
+      <h3>Paris · Navigo Easy or phone</h3>
+      <ul>
+        <li>Navigo Easy card: <strong>€2</strong>; each traveler needs a separate pass.</li>
+        <li>Metro–Train–RER ticket: <strong>€2.55</strong>; Bus–Tram: <strong>€2.05</strong>.</li>
+        <li>Airport ticket: <strong>€14</strong>. Navigo Day: <strong>€12.30</strong>, airports excluded.</li>
+        <li>Navigo Week: <strong>€32.40</strong>, Monday–Sunday.</li>
+      </ul>
+      <strong class="transit-pick">Best fit: use Navigo Easy/phone and single tickets unless Monday–Thursday travel exceeds about 13 Metro/RER rides each.</strong>
+    </article>
+  </div>
+  <p class="transit-intro">Official references: <a href="https://content.tfl.gov.uk/adult-fares.pdf">TfL 2026 fares</a> · <a href="https://tfl.gov.uk/fares/pay-the-right-fare">TfL contactless rules</a> · <a href="https://www.iledefrance-mobilites.fr/en/tarifs-titre-de-transport-en-commun-2026">Île-de-France Mobilités 2026 fares</a>.</p>
+</section>
 <hr />
 <h2>Trip Overview</h2>
 <table>
