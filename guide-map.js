@@ -1,6 +1,7 @@
 (function(){
   var map, places=[], markers, userMarker, userLocation, initialized=false, markersByTitle={}, lastSearchedPlace=null;
   var icons={attractions:'📍',food:'🍽️',coffee:'☕',drinks:'🍸',shopping:'🛍️',icecream:'🍦',afternoontea:'🫖',hotel:'🏨',art:'🎨'};
+  var categoryLabels={attractions:'Attractions',food:'Food & bakeries',coffee:'Coffee',drinks:'Pubs & drinks',shopping:'Vintage & shopping',art:'Art & prints',icecream:'Ice cream',afternoontea:'Afternoon tea',hotel:'Hotel'};
   function milesBetween(a,b){
     var r=3958.8,toRad=Math.PI/180,dLat=(b.lat-a.lat)*toRad,dLng=(b.lng-a.lng)*toRad;
     var x=Math.sin(dLat/2)**2+Math.cos(a.lat*toRad)*Math.cos(b.lat*toRad)*Math.sin(dLng/2)**2;
@@ -96,7 +97,7 @@
       distanceHtml='<p class="map-search-hint">Tap “Use my location” above to see distance and direction to this pin.</p>';
     }
     result.hidden=false;
-    result.innerHTML='<div class="map-search-found"><strong>✓ Already on your list</strong><h4>'+(icons[p.category]||'📍')+' '+p.title+'</h4><p>'+p.address+'</p>'+distanceHtml+'</div>';
+    result.innerHTML='<div class="map-search-found"><strong>✓ Already on your list</strong><h4>'+(icons[p.category]||'📍')+' '+p.title+'</h4><p class="map-search-category">'+(categoryLabels[p.category]||p.category)+'</p><p>'+p.address+'</p>'+distanceHtml+'</div>';
     var marker=markersByTitle[p.title];
     if(marker&&map){
       map.setView([p.lat,p.lng],16);

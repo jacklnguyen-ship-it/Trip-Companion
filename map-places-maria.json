@@ -648,12 +648,12 @@
     "address": "Berthillon, 31, Rue Saint-Louis en l'Île, Quartier Les Îles, 4th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75004, France"
   },
   {
-    "query": "Folderol Paris",
+    "query": "Folderol 10 Rue du Grand Prieure Paris",
     "title": "Folderol",
     "category": "icecream",
-    "lat": 48.8531498,
-    "lng": 2.3830555,
-    "address": "Folderol, Rue Jean Macé, Quartier Sainte-Marguerite, 11th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75011, France"
+    "lat": 48.8652388,
+    "lng": 2.3690636,
+    "address": "Folderol, 10 Rue du Grand Prieuré, 75011 Paris, France"
   },
   {
     "query": "Fortnum & Mason 181 Piccadilly London",
@@ -1366,5 +1366,21 @@
     "lat": 51.5153646,
     "lng": -0.1515619,
     "address": "Panadera, 7 Picton Pl, London W1U 1BN, UK"
+  },
+  {
+    "query": "Fortnum and Mason Royal Exchange Courtyard London",
+    "title": "Fortnum & Mason (Royal Exchange)",
+    "category": "afternoontea",
+    "lat": 51.5137231,
+    "lng": -0.0869732,
+    "address": "Fortnum & Mason at The Royal Exchange, The Courtyard, London EC3V 3LR, UK"
+  },
+  {
+    "query": "Enzo et Lily glacier 2 rue Auguste Maquet Paris",
+    "title": "Enzo & Lily",
+    "category": "icecream",
+    "lat": 48.8398432,
+    "lng": 2.2662386,
+    "address": "Enzo & Lily, 2 Rue Auguste Maquet, 75016 Paris, France"
   }
 ]
