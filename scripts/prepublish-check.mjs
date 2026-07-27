@@ -46,6 +46,22 @@ function localAssetReferences(html) {
   return refs;
 }
 
+function applicationJson(html, id, file) {
+  const pattern = new RegExp(
+    `<script[^>]+id=["']${id}["'][^>]*>([\\s\\S]*?)<\\/script>`,
+    "i",
+  );
+  const match = html.match(pattern);
+  check(Boolean(match), `${file} is missing application data #${id}`);
+  if (!match) return null;
+  try {
+    return JSON.parse(match[1]);
+  } catch (error) {
+    failures.push(`${file} contains malformed #${id} JSON: ${error.message}`);
+    return null;
+  }
+}
+
 function pngDimensions(file) {
   const buffer = fs.readFileSync(path.join(root, file));
   check(buffer.length >= 24, `${file} is too small to be a valid PNG`);
@@ -80,6 +96,17 @@ for (const file of htmlFiles) {
   check(html.includes('id="map-search-input"'), `${file} is missing map search`);
   check(html.includes('id="map-city-filter"'), `${file} is missing the map city filter`);
   check(html.includes('id="map-category-filter"'), `${file} is missing the map category filter`);
+  for (const id of [
+    "kickoff-alert",
+    "kickoff-dismiss",
+    "home-next-up",
+    "home-next-countdown",
+    "home-next-title",
+    "home-next-time",
+    "home-events",
+  ]) {
+    check(html.includes(`id="${id}"`), `${file} is missing Batch 1 home element #${id}`);
+  }
 
   for (const page of requiredPages) {
     check(html.includes(`id="${page}"`), `${file} is missing required section #${page}`);
@@ -94,6 +121,20 @@ for (const file of htmlFiles) {
   const ids = [...html.matchAll(/\bid=["']([^"']+)["']/gi)].map((match) => match[1]);
   const duplicates = [...new Set(ids.filter((id, index) => ids.indexOf(id) !== index))];
   check(duplicates.length === 0, `${file} contains duplicate HTML IDs: ${duplicates.join(", ")}`);
+
+  const homeEvents = applicationJson(html, "home-events", file);
+  if (homeEvents) {
+    check(Array.isArray(homeEvents) && homeEvents.length >= 11, `${file} needs timed events across all trip days`);
+    let previous = 0;
+    for (const [index, event] of homeEvents.entries()) {
+      const timestamp = Date.parse(event.at);
+      check(Number.isFinite(timestamp), `${file} home event ${index} has an invalid date`);
+      check(timestamp >= Date.parse("2026-09-07T00:00:00") && timestamp < Date.parse("2026-09-18T00:00:00"), `${file} home event ${index} falls outside the trip`);
+      check(timestamp >= previous, `${file} home events are not chronological`);
+      check(typeof event.title === "string" && event.title.trim(), `${file} home event ${index} has no title`);
+      previous = timestamp;
+    }
+  }
 }
 
 const maria = read("maria.html");
@@ -221,6 +262,28 @@ check(
   /#trip-map\{[^}]*position:relative[^}]*z-index:0[^}]*overflow:hidden/.test(mapCss),
   "guide-map.css is missing map containment rules",
 );
+
+const homeScript = read("home-intelligence.js");
+try {
+  new Function(homeScript);
+} catch (error) {
+  failures.push(`home-intelligence.js has a syntax error: ${error.message}`);
+}
+for (const behavior of [
+  "__TRIP_COMPANION_TEST_NOW__",
+  "testDate",
+  "aria-current",
+  "is-today",
+  "setInterval",
+  "sessionStorage",
+  "Schedule unavailable",
+]) {
+  check(homeScript.includes(behavior), `home-intelligence.js is missing required behavior: ${behavior}`);
+}
+const homeCss = read("home-intelligence.css");
+for (const selector of [".home-next-up", ".kickoff-alert", ".home-day.is-today", ".today-badge"]) {
+  check(homeCss.includes(selector), `home-intelligence.css is missing required style: ${selector}`);
+}
 
 if (failures.length) {
   console.error(`\nPre-publish QA failed: ${failures.length} issue(s) across ${assertions} checks.\n`);

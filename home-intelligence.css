@@ -1,0 +1,22 @@
+.home-next-up{margin:1rem 0;padding:1rem 1.1rem;border:1px solid var(--line);border-left:5px solid var(--brass);border-radius:14px;background:var(--parchment-card);box-shadow:0 6px 18px rgba(28,43,58,.08)}
+.home-next-up[hidden]{display:none}
+.home-next-up-head{display:flex;align-items:center;justify-content:space-between;gap:.7rem;margin-bottom:.5rem}
+.home-next-up-kicker{margin:0;color:var(--wax);font:700 .68rem ui-monospace,monospace;text-transform:uppercase;letter-spacing:.09em}
+.home-next-up-countdown{display:inline-flex;padding:.28rem .55rem;border-radius:99px;background:var(--ink);color:#fff;font:700 .72rem ui-monospace,monospace;white-space:nowrap}
+.home-next-up h2{margin:.1rem 0 .25rem!important;padding:0!important;border:0!important;color:var(--ink)!important;font-size:1.18rem!important}
+.home-next-up p{margin:.2rem 0;color:var(--slate)}
+.home-next-up-time{font-weight:700;color:var(--ink)!important}
+.kickoff-alert{position:relative;margin:1rem 0;padding:1rem 3rem 1rem 1rem;border:2px solid #b84c36;border-radius:14px;background:#fff0e8;color:#572216;box-shadow:0 7px 20px rgba(140,58,46,.14)}
+.kickoff-alert[hidden]{display:none}
+.kickoff-alert strong{display:block;margin-bottom:.25rem;color:#7d2e20}
+.kickoff-alert p{margin:.3rem 0;font-size:.9rem}
+.kickoff-alert a{font-weight:700;color:#7d2e20}
+.kickoff-dismiss{position:absolute;top:.55rem;right:.55rem;width:36px;height:36px;border:1px solid rgba(125,46,32,.35);border-radius:50%;background:transparent;color:#7d2e20;cursor:pointer;font-size:1.2rem;line-height:1}
+.home-day{position:relative}
+.home-day.is-today{border:2px solid var(--forest);background:#f3fbf4;box-shadow:0 0 0 3px rgba(76,107,83,.12)}
+.home-day.is-today time{padding-right:4.4rem;color:var(--forest)}
+.today-badge{position:absolute;top:.65rem;right:.65rem;padding:.2rem .48rem;border-radius:99px;background:var(--forest);color:#fff!important;font:700 .62rem ui-monospace,monospace!important;text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:620px){
+  .home-next-up-head{align-items:flex-start;flex-direction:column}
+  .home-next-up-countdown{white-space:normal}
+}

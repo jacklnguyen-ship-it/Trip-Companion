@@ -448,6 +448,7 @@ body.day-modal-open{overflow:hidden}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <link rel="stylesheet" href="guide-map.css?v=20260725-5">
+<link rel="stylesheet" href="home-intelligence.css?v=20260726-1">
 </head>
 <body data-map-data="map-places-index.json?v=20260725-8">
 
@@ -498,6 +499,40 @@ body.day-modal-open{overflow:hidden}
     <p>September 7–17, 2026 · 11 days · 2 travelers</p>
     <p>Open a day below for its schedule, tickets, nearby food and detailed research.</p>
   </div>
+  <aside class="kickoff-alert" id="kickoff-alert" role="alert">
+    <button class="kickoff-dismiss" id="kickoff-dismiss" type="button" aria-label="Dismiss Tottenham kickoff warning">&times;</button>
+    <strong>⚠ Tottenham kickoff time needs verification</strong>
+    <p>P1 Travel shows 08:30, while official fixture listings show 17:30 on September 12. Confirm directly before finalizing match-day timing.</p>
+    <a href="#page-itinerary">Review the match-day itinerary →</a>
+  </aside>
+  <section class="home-next-up" id="home-next-up" aria-live="polite" hidden>
+    <div class="home-next-up-head"><p class="home-next-up-kicker">Next up</p><span class="home-next-up-countdown" id="home-next-countdown"></span></div>
+    <h2 id="home-next-title"></h2>
+    <p class="home-next-up-time" id="home-next-time"></p>
+    <p id="home-next-detail"></p>
+  </section>
+  <script type="application/json" id="home-events">[
+    {"at":"2026-09-07T23:15:00","title":"Virgin Atlantic VS0024 departs","detail":"LAX Terminal 2 · allow time for check-in, security and the lounge."},
+    {"at":"2026-09-08T17:35:00","title":"Arrive at London Heathrow","detail":"Continue to the hotel, check in and keep the first evening easy."},
+    {"at":"2026-09-09T07:00:00","title":"Chatsworth day trip","detail":"Start early for the long rail and bus journey."},
+    {"at":"2026-09-10T09:00:00","title":"Leave for Wimbledon","detail":"Museum and tour first, then Borough Market and the Tower area."},
+    {"at":"2026-09-10T19:30:00","title":"Witness for the Prosecution","detail":"County Hall · arrive with enough time to find your seats."},
+    {"at":"2026-09-11T07:03:00","title":"Train to Winchester","detail":"Waterloo departure for the Winchester, Chawton and Bath tour."},
+    {"at":"2026-09-11T16:45:00","title":"Roman Baths entry","detail":"Timed admission before dinner."},
+    {"at":"2026-09-11T18:15:00","title":"Dinner at Sally Lunn’s","detail":"Confirmed dinner reservation."},
+    {"at":"2026-09-11T21:13:00","title":"Return train to London","detail":"Bath Spa to London Paddington."},
+    {"at":"2026-09-12T17:30:00","title":"Tottenham v Everton kickoff","detail":"Time must be verified because the P1 confirmation conflicts with official listings."},
+    {"at":"2026-09-13T11:31:00","title":"Eurostar to Paris","detail":"Depart London St Pancras · arrive early for international check-in."},
+    {"at":"2026-09-13T14:59:00","title":"Arrive at Paris Gare du Nord","detail":"Continue to the Marais accommodation."},
+    {"at":"2026-09-14T09:30:00","title":"Musée Picasso","detail":"Timed morning visit in the Marais."},
+    {"at":"2026-09-14T16:15:00","title":"Conciergerie","detail":"Arrive in time to use the HistoPad before closing."},
+    {"at":"2026-09-14T20:00:00","title":"Sainte-Chapelle evening concert","detail":"Tentative · plan to arrive by 19:30."},
+    {"at":"2026-09-15T09:00:00","title":"Versailles day trip","detail":"Allow a full day for the palace, gardens and Trianon Estate."},
+    {"at":"2026-09-16T09:30:00","title":"Musée de la Vie Romantique","detail":"Begin the final full Paris day with the museum and garden."},
+    {"at":"2026-09-16T19:30:00","title":"Perle Noire at Palais Garnier","detail":"Arrive by 19:00 for the final-night performance."},
+    {"at":"2026-09-17T11:00:00","title":"Airbnb checkout","detail":"Store bags or move the free morning earlier."},
+    {"at":"2026-09-17T16:00:00","title":"Delta DL291 departs CDG","detail":"Allow at least three hours at the airport."}
+  ]</script>
   <div class="home-actions">
     <a class="home-action" href="#page-map">Map &amp; near me →</a>
     <a class="home-action" href="#page-itinerary">View all days →</a>
@@ -3106,5 +3141,6 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="guide-map.js?v=20260725-5"></script>
+<script src="home-intelligence.js?v=20260726-1"></script>
 </body>
 </html>

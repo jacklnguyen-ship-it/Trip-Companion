@@ -9,6 +9,8 @@ const fixtureFiles = [
   "maria.html",
   "guide-map.css",
   "guide-map.js",
+  "home-intelligence.css",
+  "home-intelligence.js",
   "map-places-index.json",
   "map-places-maria.json",
   "manifest.json",
@@ -69,6 +71,29 @@ const scenarios = [
       const places = JSON.parse(fs.readFileSync(file, "utf8"));
       places.push({ ...places[0] });
       fs.writeFileSync(file, JSON.stringify(places));
+    },
+  },
+  {
+    name: "malformed home event schedule",
+    expected: "contains malformed #home-events JSON",
+    mutate(dir) {
+      const file = path.join(dir, "index.html");
+      const html = fs.readFileSync(file, "utf8");
+      fs.writeFileSync(
+        file,
+        html.replace(
+          /(<script type="application\/json" id="home-events">)[\s\S]*?(<\/script>)/,
+          "$1{not valid json$2",
+        ),
+      );
+    },
+  },
+  {
+    name: "missing Next Up component",
+    expected: "is missing Batch 1 home element #home-next-up",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('id="home-next-up"', 'id="removed-next-up"'));
     },
   },
 ];
