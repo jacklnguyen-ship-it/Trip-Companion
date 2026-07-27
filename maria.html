@@ -425,9 +425,9 @@ body:has(.page:target) #page-home:target{display:block}
 @media(max-width:620px){.home-actions{grid-template-columns:1fr}.home-days{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-<link rel="stylesheet" href="guide-map.css?v=20260725-2">
+<link rel="stylesheet" href="guide-map.css?v=20260725-3">
 </head>
-<body data-map-data="map-places-maria.json?v=20260725-6">
+<body data-map-data="map-places-maria.json?v=20260725-7">
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
 
@@ -2523,6 +2523,15 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     <button class="trip-map-button" id="map-locate" type="button">Use my location</button>
     <button class="trip-map-button secondary" id="map-show-all" type="button">Show all</button>
   </div>
+  <div class="trip-map-search">
+    <label class="trip-map-field"><span>Search the list</span>
+      <div class="map-search-wrap">
+        <input type="text" id="map-search-input" placeholder="Type a place name…" autocomplete="off">
+        <div class="map-search-suggestions" id="map-search-suggestions" hidden></div>
+      </div>
+    </label>
+    <div class="map-search-result" id="map-search-result" hidden></div>
+  </div>
   <p class="trip-map-status" id="trip-map-status">Loading curated places…</p>
   <div id="trip-map" role="application" aria-label="Interactive map of curated trip places"></div>
   <div><h2>Closest to you</h2><div class="nearby-place-list" id="nearby-place-list"><p>Tap <strong>Use my location</strong> to sort places by distance.</p></div></div>
@@ -2947,6 +2956,6 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
   })();
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script src="guide-map.js?v=20260725-2"></script>
+<script src="guide-map.js?v=20260725-3"></script>
 </body>
 </html>

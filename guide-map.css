@@ -19,4 +19,22 @@
 .nearby-place{display:block;padding:.8rem;border:1px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink);text-decoration:none}
 .nearby-place strong,.nearby-place span{display:block}.nearby-place span{margin-top:.2rem;color:var(--muted);font-size:.82rem}
 body:has(#page-map:target) a.navlink[href="#page-map"]{background:rgba(164,118,60,.22);color:#fff;font-weight:600}
+.trip-map-search{position:relative}
+.map-search-wrap{position:relative}
+.map-search-wrap input{width:100%;min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:.65rem .8rem;font:inherit;box-sizing:border-box}
+.map-search-suggestions{position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:20;background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.18);max-height:260px;overflow-y:auto}
+.map-search-item{display:block;width:100%;text-align:left;padding:.6rem .8rem;border:none;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.map-search-item:last-child{border-bottom:none}
+.map-search-item:hover,.map-search-item:focus{background:var(--soft)}
+.map-search-empty{padding:.6rem .8rem;color:var(--muted);font-size:.85rem}
+.map-search-result{margin-top:.6rem}
+.map-search-found,.map-search-notfound{padding:.7rem 1rem;border-radius:12px;background:var(--soft)}
+.map-search-found{border-left:3px solid var(--forest)}
+.map-search-found strong{color:var(--forest)}
+.map-search-notfound{border-left:3px solid var(--wax)}
+.map-search-notfound strong{color:var(--wax)}
+.map-search-found h4,.map-search-found p,.map-search-notfound p{margin:.3rem 0}
+.map-search-hint{color:var(--muted);font-size:.85rem;margin:.3rem 0 0}
+.trip-map-highlight{animation:tripMapPulse 1.3s ease-in-out 2}
+@keyframes tripMapPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
 @media(max-width:620px){#trip-map{height:55vh;min-height:390px}.trip-map-toolbar{display:grid;grid-template-columns:1fr 1fr}.trip-map-field{min-width:0}.trip-map-button{width:100%}}

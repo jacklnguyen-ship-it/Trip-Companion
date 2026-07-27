@@ -1350,5 +1350,21 @@
     "lat": 48.8677365,
     "lng": 2.3558909,
     "address": "Huddle Coffee, 61 Rue Notre Dame de Nazareth, 75003 Paris, France"
+  },
+  {
+    "query": "Panadera 3 Hopkins Street Soho London",
+    "title": "Panadera (Soho)",
+    "category": "food",
+    "lat": 51.5133387,
+    "lng": -0.1350283,
+    "address": "Panadera Soho, 3 Hopkins St, London W1F 0HS, UK"
+  },
+  {
+    "query": "Panadera 7 Picton Place Marylebone London",
+    "title": "Panadera (Marylebone)",
+    "category": "food",
+    "lat": 51.5153646,
+    "lng": -0.1515619,
+    "address": "Panadera, 7 Picton Pl, London W1U 1BN, UK"
   }
 ]
