@@ -91,8 +91,13 @@
     render(false);
     var distanceHtml;
     if(userLocation){
-      var dist=milesBetween(userLocation,p),dir=bearingBetween(userLocation,p);
-      distanceHtml='<p><strong>'+dist.toFixed(dist<10?1:0)+' miles '+dir+'</strong> of where you are now</p>';
+      var dist=milesBetween(userLocation,p);
+      if(dist>300){
+        distanceHtml='<p class="map-search-hint">You are currently about '+Math.round(dist).toLocaleString()+' miles away — distance and direction will be meaningful once you are actually near London or Paris.</p>';
+      }else{
+        var dir=bearingBetween(userLocation,p);
+        distanceHtml='<p><strong>'+dist.toFixed(dist<10?1:0)+' miles '+dir+'</strong> of where you are now</p>';
+      }
     }else{
       distanceHtml='<p class="map-search-hint">Tap “Use my location” above to see distance and direction to this pin.</p>';
     }
@@ -112,8 +117,18 @@
     result.hidden=false;
     result.innerHTML='<div class="map-search-notfound"><strong>✗ Not on your list yet</strong><p>No saved place matches “'+query+'”. Ask to have it researched and added.</p></div>';
   }
+  function performSearch(input){
+    var q=input.value.trim();
+    if(!q)return;
+    var qLower=q.toLowerCase();
+    var exact=places.find(function(p){return p.title.toLowerCase()===qLower;});
+    var partial=places.filter(function(p){return p.title.toLowerCase().indexOf(qLower)!==-1;});
+    if(exact)selectPlace(exact);
+    else if(partial.length===1)selectPlace(partial[0]);
+    else if(partial.length===0)showNotFound(q);
+  }
   function initSearch(){
-    var input=document.getElementById('map-search-input'),suggestions=document.getElementById('map-search-suggestions');
+    var input=document.getElementById('map-search-input'),suggestions=document.getElementById('map-search-suggestions'),searchBtn=document.getElementById('map-search-btn');
     if(!input||input.dataset.bound)return;
     input.dataset.bound='1';
     input.addEventListener('input',function(){
@@ -130,15 +145,9 @@
     });
     input.addEventListener('keydown',function(e){
       if(e.key!=='Enter')return;
-      var q=input.value.trim();
-      if(!q)return;
-      var qLower=q.toLowerCase();
-      var exact=places.find(function(p){return p.title.toLowerCase()===qLower;});
-      var partial=places.filter(function(p){return p.title.toLowerCase().indexOf(qLower)!==-1;});
-      if(exact)selectPlace(exact);
-      else if(partial.length===1)selectPlace(partial[0]);
-      else if(partial.length===0)showNotFound(q);
+      performSearch(input);
     });
+    if(searchBtn)searchBtn.addEventListener('click',function(){performSearch(input);});
     document.addEventListener('click',function(e){
       if(e.target!==input&&!suggestions.contains(e.target))suggestions.hidden=true;
     });

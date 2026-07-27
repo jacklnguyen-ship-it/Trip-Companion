@@ -425,7 +425,7 @@ body:has(.page:target) #page-home:target{display:block}
 @media(max-width:620px){.home-actions{grid-template-columns:1fr}.home-days{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-<link rel="stylesheet" href="guide-map.css?v=20260725-4">
+<link rel="stylesheet" href="guide-map.css?v=20260725-5">
 </head>
 <body data-map-data="map-places-maria.json?v=20260725-8">
 
@@ -2527,6 +2527,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     <label class="trip-map-field"><span>Search the list</span>
       <div class="map-search-wrap">
         <input type="text" id="map-search-input" placeholder="Type a place name…" autocomplete="off">
+        <button type="button" class="trip-map-button map-search-btn" id="map-search-btn">Search</button>
         <div class="map-search-suggestions" id="map-search-suggestions" hidden></div>
       </div>
     </label>
@@ -2956,6 +2957,6 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
   })();
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script src="guide-map.js?v=20260725-4"></script>
+<script src="guide-map.js?v=20260725-5"></script>
 </body>
 </html>
