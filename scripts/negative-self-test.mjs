@@ -11,6 +11,7 @@ const fixtureFiles = [
   "guide-map.js",
   "home-intelligence.css",
   "home-intelligence.js",
+  "travel-readiness.css",
   "map-places-index.json",
   "map-places-maria.json",
   "manifest.json",
@@ -94,6 +95,22 @@ const scenarios = [
     mutate(dir) {
       const file = path.join(dir, "maria.html");
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('id="home-next-up"', 'id="removed-next-up"'));
+    },
+  },
+  {
+    name: "missing emergency page",
+    expected: "is missing required section #page-emergency",
+    mutate(dir) {
+      const file = path.join(dir, "index.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('id="page-emergency"', 'id="removed-emergency"'));
+    },
+  },
+  {
+    name: "missing Paris airport fare",
+    expected: "is missing Batch 2 travel-readiness content: €14",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replaceAll("€14", "airport fare unavailable"));
     },
   },
 ];
