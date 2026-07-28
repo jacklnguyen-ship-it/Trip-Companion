@@ -359,6 +359,10 @@ for (const behavior of [
 }
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
+check(
+  serviceWorker.includes("trip-companion-20260727-2"),
+  "service-worker.js has not advanced to the Batch 4 cache version",
+);
 for (const asset of [
   "./index.html",
   "./maria.html",
