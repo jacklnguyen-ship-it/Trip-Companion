@@ -97,6 +97,9 @@ for (const file of htmlFiles) {
   check(html.includes('id="map-search-clear"'), `${file} is missing the map search clear control`);
   check(html.includes('id="map-city-filter"'), `${file} is missing the map city filter`);
   check(html.includes('id="map-category-filter"'), `${file} is missing the map category filter`);
+  check(html.includes("document.body.dataset.mapData"), `${file} home search does not load the curated map dataset`);
+  check(html.includes("trip-map-pending-search"), `${file} home search cannot hand a selected location to the map`);
+  check(html.includes("escapeSearchHtml"), `${file} home search does not safely render map results`);
   for (const id of [
     "kickoff-alert",
     "kickoff-dismiss",
@@ -287,6 +290,8 @@ for (const requiredBehavior of [
   "function searchText",
   "function searchScore",
   "function searchMatches",
+  "function consumePendingSearch",
+  "trip-map-pending-search",
   "function escapeHtml",
   "map-search-clear",
   "p.tags||[]",
@@ -362,7 +367,7 @@ for (const behavior of [
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
 check(
-  serviceWorker.includes("trip-companion-20260727-4"),
+  serviceWorker.includes("trip-companion-20260727-5"),
   "service-worker.js has not advanced to the Batch 4 cache version",
 );
 for (const asset of [

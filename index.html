@@ -3080,30 +3080,38 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
       'page-opera':'paris','page-paris_drinks':'paris','page-food':'food','page-french':'travel',
       'page-map':'travel','page-vintage':'travel','page-coffee':'food','page-icecream':'food',
       'page-boutique':'travel'
-    },items=[];
+    },items=[],mapCategories={food:1,coffee:1,drinks:1,icecream:1,afternoontea:1};
+    function escapeSearchHtml(value){return String(value).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
     Object.keys(categoryMap).forEach(function(pageId){
       var page=document.getElementById(pageId);if(!page)return;
       Array.prototype.slice.call(page.querySelectorAll('h1,h2,h3')).forEach(function(heading,i){
         if(heading.closest('.audio-stop'))return;
         var text=heading.textContent.trim(),next=heading.nextElementSibling,snippet='';
         if(next)snippet=next.textContent.replace(/\s+/g,' ').trim().slice(0,130);
-        items.push({title:text,snippet:snippet,page:pageId,category:categoryMap[pageId],heading:heading,index:i});
+        items.push({title:text,snippet:snippet,page:pageId,category:categoryMap[pageId],heading:heading,index:i,foodish:false});
       });
     });
+    fetch(document.body.dataset.mapData).then(function(response){if(!response.ok)throw new Error('map data');return response.json();}).then(function(places){
+      places.forEach(function(place){
+        var city=place.lat>51.2&&place.lat<51.8&&place.lng>-.65&&place.lng<.35?'london':place.lat>48.7&&place.lat<49.05&&place.lng>2.05&&place.lng<2.65?'paris':'travel';
+        items.push({title:place.title,snippet:[place.address].concat(place.tags||[]).join(' · '),page:'page-map',category:city,heading:null,mapTitle:place.title,foodish:Boolean(mapCategories[place.category])});
+      });
+      render();
+    }).catch(function(){});
     function render(){
       var query=input.value.trim().toLowerCase(),matches=items.filter(function(item){
-        var categoryMatch=active==='all'||item.category===active||(active==='food'&&(item.category==='london'||item.category==='paris')&&/(food|drink|pub|bar|café|cafe|bakery|pastr|tea|restaurant|market|wine|cocktail)/i.test(item.title+' '+item.snippet));
+        var categoryMatch=active==='all'||item.category===active||(active==='food'&&(item.foodish||(item.category==='london'||item.category==='paris')&&/(food|drink|pub|bar|café|cafe|bakery|pastr|tea|restaurant|market|wine|cocktail)/i.test(item.title+' '+item.snippet)));
         return categoryMatch&&(!query||(item.title+' '+item.snippet).toLowerCase().indexOf(query)>-1);
       }).slice(0,12);
       if(!query&&active==='all'){results.innerHTML='<p class="search-empty">Search the complete itinerary and all curated guides.</p>';return;}
       if(!matches.length){results.innerHTML='<p class="search-empty">No matches yet. Try another word or choose All.</p>';return;}
-      results.innerHTML=matches.map(function(item,n){return '<a class="search-result" href="#'+item.page+'" data-result-index="'+items.indexOf(item)+'"><strong>'+item.title+'</strong><span>'+item.snippet+'</span></a>';}).join('');
+      results.innerHTML=matches.map(function(item){return '<a class="search-result'+(item.mapTitle?' map-location':'')+'" href="#'+item.page+'" data-result-index="'+items.indexOf(item)+'"><strong>'+escapeSearchHtml(item.title)+'</strong><span>'+escapeSearchHtml(item.snippet)+(item.mapTitle?' · Open saved map pin':'')+'</span></a>';}).join('');
     }
     input.addEventListener('input',render);
     Array.prototype.slice.call(document.querySelectorAll('[data-search-filter]')).forEach(function(button){
       button.addEventListener('click',function(){active=button.getAttribute('data-search-filter');document.querySelectorAll('[data-search-filter]').forEach(function(b){b.classList.toggle('active',b===button)});render();});
     });
-    results.addEventListener('click',function(e){var link=e.target.closest('.search-result');if(!link)return;var item=items[parseInt(link.getAttribute('data-result-index'),10)];if(item)setTimeout(function(){item.heading.scrollIntoView({behavior:'smooth',block:'start'});},80);});
+    results.addEventListener('click',function(e){var link=e.target.closest('.search-result');if(!link)return;var item=items[parseInt(link.getAttribute('data-result-index'),10)];if(!item)return;if(item.mapTitle){try{sessionStorage.setItem('trip-map-pending-search',item.mapTitle);}catch(error){}return;}setTimeout(function(){if(item.heading)item.heading.scrollIntoView({behavior:'smooth',block:'start'});},80);});
   })();
 
   // ---------- French phrasebook audio ----------

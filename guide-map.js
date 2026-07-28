@@ -195,6 +195,13 @@
       if(e.target!==input&&!suggestions.contains(e.target))suggestions.hidden=true;
     });
   }
+  function consumePendingSearch(){
+    var title='';
+    try{title=sessionStorage.getItem('trip-map-pending-search')||'';sessionStorage.removeItem('trip-map-pending-search');}catch(error){}
+    if(!title)return;
+    var match=places.find(function(p){return p.title===title;});
+    if(match)selectPlace(match);
+  }
   async function initialize(){
     if(initialized||!document.getElementById('trip-map'))return;
     if(typeof L==='undefined'){
@@ -209,6 +216,7 @@
       var response=await fetch(document.body.dataset.mapData);
       places=await response.json();
       render(true);
+      consumePendingSearch();
     }catch(error){document.getElementById('trip-map-status').textContent='The saved place map could not be loaded. Please refresh while online.';}
     document.getElementById('map-locate').addEventListener('click',useLocation);
     document.getElementById('map-show-all').addEventListener('click',function(){
@@ -218,6 +226,6 @@
     document.getElementById('map-category-filter').addEventListener('change',function(){render(true);});
     initSearch();
   }
-  function onRoute(){if(location.hash==='#page-map')setTimeout(function(){initialize();if(map)map.invalidateSize();},50);}
+  function onRoute(){if(location.hash==='#page-map')setTimeout(function(){initialize();if(map){map.invalidateSize();consumePendingSearch();}},50);}
   window.addEventListener('hashchange',onRoute);document.addEventListener('DOMContentLoaded',onRoute);
 })();
