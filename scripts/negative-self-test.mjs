@@ -12,6 +12,9 @@ const fixtureFiles = [
   "home-intelligence.css",
   "home-intelligence.js",
   "travel-readiness.css",
+  "trip-tools.css",
+  "trip-tools.js",
+  "service-worker.js",
   "map-places-index.json",
   "map-places-maria.json",
   "manifest.json",
@@ -91,7 +94,7 @@ const scenarios = [
   },
   {
     name: "missing Next Up component",
-    expected: "is missing Batch 1 home element #home-next-up",
+    expected: "is missing interactive guide element #home-next-up",
     mutate(dir) {
       const file = path.join(dir, "maria.html");
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('id="home-next-up"', 'id="removed-next-up"'));
@@ -111,6 +114,38 @@ const scenarios = [
     mutate(dir) {
       const file = path.join(dir, "maria.html");
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replaceAll("€14", "airport fare unavailable"));
+    },
+  },
+  {
+    name: "missing currency widget",
+    expected: "is missing interactive guide element #currency-tool",
+    mutate(dir) {
+      const file = path.join(dir, "index.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('id="currency-tool"', 'id="removed-currency-tool"'));
+    },
+  },
+  {
+    name: "unsafe custom task rendering",
+    expected: "renders custom task text as unsafe HTML",
+    mutate(dir) {
+      const file = path.join(dir, "trip-tools.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("text.textContent=task.text", "text.innerHTML=task.text"));
+    },
+  },
+  {
+    name: "incomplete offline cache",
+    expected: "does not cache ./maria.html",
+    mutate(dir) {
+      const file = path.join(dir, "service-worker.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("'./maria.html',", "").replace("?'./maria.html':", "?'./missing-maria.html':"));
+    },
+  },
+  {
+    name: "missing offline map fallback",
+    expected: "has no offline fallback when Leaflet is unavailable",
+    mutate(dir) {
+      const file = path.join(dir, "guide-map.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("typeof L==='undefined'", "false"));
     },
   },
 ];
