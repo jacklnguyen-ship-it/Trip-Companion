@@ -183,6 +183,14 @@ const scenarios = [
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("escapeHtml(query)", "query"));
     },
   },
+  {
+    name: "stale Batch 4 offline cache",
+    expected: "has not advanced to the Batch 4 cache version",
+    mutate(dir) {
+      const file = path.join(dir, "service-worker.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-2", "trip-companion-20260727-1"));
+    },
+  },
 ];
 
 let failed = false;
