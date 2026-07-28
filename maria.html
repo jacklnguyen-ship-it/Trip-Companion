@@ -429,19 +429,21 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="home-intelligence.css?v=20260726-1">
 <link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
 <link rel="stylesheet" href="trip-tools.css?v=20260727-1">
+<link rel="stylesheet" href="final-polish.css?v=20260728-1">
 </head>
 <body data-map-data="map-places-maria.json?v=20260725-8">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
 
 <div class="topbar">
-  <label class="hamburger" for="menu-toggle" aria-label="Open menu"></label>
+  <label class="hamburger" for="menu-toggle" tabindex="0" role="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open menu"></label>
   <div class="brand">London &amp; Paris</div>
 </div>
 
 <div class="shell">
-  <label class="scrim" for="menu-toggle" id="scrim"></label>
-  <nav class="sidebar" id="sidebar">
+  <label class="scrim" for="menu-toggle" id="scrim" aria-hidden="true"></label>
+  <nav class="sidebar" id="sidebar" aria-label="Trip guide navigation">
     <div class="sidebar-header">
       <p class="sidebar-eyebrow">Trip Companion</p>
       <h1 class="sidebar-title">London &amp; Paris</h1>
@@ -472,7 +474,7 @@ body:has(.page:target) #page-home:target{display:block}
     <a class="navlink" href="#page-boutique"><span class="num">14</span> Boutique Guide</a>
   </nav>
 
-  <main class="content-wrap">
+  <main class="content-wrap" id="main-content" tabindex="-1">
 <section class="page" id="page-home">
   <div class="home-hero">
     <p class="home-kicker">Your trip at a glance</p>
@@ -1679,6 +1681,7 @@ body:has(.page:target) #page-home:target{display:block}
 <hr />
 <h2>Winchester (Tour Stop 1)</h2>
 <p>Visit Austen's grave and memorial at <strong>Winchester Cathedral</strong>, plus 8 College Street where she spent her final weeks.</p>
+<blockquote class="austen-quote"><p>“Know your own happiness.”</p><cite>— Jane Austen, <em>Sense and Sensibility</em></cite></blockquote>
 <p><strong>Shopping:</strong> <strong>Oliver Bonas</strong> — UK fashion/homeware/design store, right on the main high street, directly opposite Winchester Cathedral.</p>
 <div class="audio-guide" id="audioguide-winchester" data-stops='[{"title": "Welcome to Winchester", "script": "Welcome to Winchester, England&#39;s ancient capital, and a royal seat of power centuries before London ever was. This was the capital of the Anglo-Saxon kingdom of Wessex, and its most famous resident, Alfred the Great, made it his seat of government after defeating the Danes in the ninth century. Under Alfred, Winchester became a genuine center of learning, and the city&#39;s street plan today still follows the original Saxon layout he established. It remained England&#39;s most important city for centuries afterward, even after the Norman Conquest."}, {"title": "Winchester Cathedral and Jane Austen&#39;s Grave", "script": "Winchester Cathedral has the longest medieval nave of any cathedral in Europe, and it&#39;s here that Jane Austen is buried, in the north aisle of the nave. Austen came to Winchester in her final weeks specifically to be close to her doctor, hoping for treatment that, in the end, couldn&#39;t save her. A memorial brass and a later stained glass window were added afterward, once her novels had made her famous, since her original gravestone doesn&#39;t even mention that she was a writer at all."}, {"title": "8 College Street", "script": "A short walk from the Cathedral stands 8 College Street, the house where Jane Austen spent the final six weeks of her life, and where she died on July 18th, 1817. It&#39;s a private residence today, not open to the public, but it remains a place of quiet pilgrimage for readers making exactly the kind of literary trail you&#39;re on right now."}]'>
 <h2>🎧 Audio Guide: Winchester</h2>
@@ -1712,6 +1715,7 @@ body:has(.page:target) #page-home:target{display:block}
 <hr />
 <h2>Chawton House (Tour Stop 2)</h2>
 <p>The "Great House," owned by Jane's brother Edward, where she frequently dined. Now a research center for early women's writing — first editions by Austen, Mary Wollstonecraft, George Eliot, plus the Knight family dining table Austen herself sat at. Many believe it inspired Donwell Abbey in <em>Emma</em>.</p>
+<blockquote class="austen-quote"><p>“Ah! There is nothing like staying at home, for real comfort.”</p><cite>— Jane Austen, <em>Emma</em></cite></blockquote>
 <hr />
 <h2>Jane Austen's House, Chawton (Tour Stop 3)</h2>
 <p>The cottage where Jane Austen lived for the last 8 years of her life and wrote/revised most of her published novels, including <em>Pride and Prejudice</em> and <em>Emma</em>.</p>
@@ -1731,6 +1735,7 @@ body:has(.page:target) #page-home:target{display:block}
 - Chawton House gift shop — books tied to early women writers</p>
 <hr />
 <h2>Bath (Tour Ends Here — Your Free Evening)</h2>
+<blockquote class="austen-quote"><p>“If adventures will not befall a young lady in her own village, she must seek them abroad.”</p><cite>— Jane Austen, <em>Northanger Abbey</em></cite></blockquote>
 <h3>Confirmed Evening Plan</h3>
 <p>See "The Day at a Glance" table above for the full sequence. Key notes:</p>
 <ul>
@@ -1790,6 +1795,7 @@ body:has(.page:target) #page-home:target{display:block}
 <h2>Why It's Worth the Journey</h2>
 <p>Chatsworth has been the seat of the Cavendish family — the Dukes and Duchesses of Devonshire — for over 450 years and 16 generations, set deep in the Peak District National Park. It's one of England's grandest stately homes, and genuinely earns the description: over 25 rooms open to the public, one of the largest private art collections in Europe, and gardens that regularly top "best in England" lists.</p>
 <p>For your trip specifically, Chatsworth carries an extra layer of meaning: it's widely regarded as the real-world inspiration for <strong>Pemberley</strong>, Mr. Darcy's estate in <em>Pride and Prejudice</em>. Both the 1995 BBC miniseries and the 2005 film adaptation used Chatsworth for exterior and gallery scenes — so this is a genuine Austen pilgrimage stop, not just a nice house.</p>
+<blockquote class="austen-quote"><p>“To sit in the shade on a fine day and look upon verdure is the most perfect refreshment.”</p><cite>— Jane Austen, <em>Mansfield Park</em></cite></blockquote>
 <hr />
 <h2>A Brief History</h2>
 <p>The story starts with <strong>Bess of Hardwick</strong>, one of the most formidable women of the Elizabethan age, who built the original Tudor mansion here in 1549 with her second husband, William Cavendish. Bess would go on to marry four times, growing wealthier with each marriage, and eventually built Hardwick Hall nearby after separating from a later husband — but Chatsworth remained the Cavendish family seat.</p>
@@ -2782,6 +2788,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <section class="page" id="page-french">
 <h1>French Travel Cheat Sheet</h1>
 <p><strong>Tap 🔊 to hear each phrase in French.</strong></p>
+<p class="french-audio-status" id="french-audio-status" role="status" aria-live="polite">Checking French audio…</p>
 <div class="phrase-intro"><strong>Start every interaction with “Bonjour” or “Bonsoir.”</strong><p>Even if you switch to English afterward, this small courtesy makes a meaningful difference in France. The pronunciation guides are approximations—use the audio as your primary model.</p></div>
 <div id="french-phrase-groups"></div>
 <p class="phrase-note">Audio uses the French voice installed on your phone or computer. If nothing plays, make sure the device is not muted and open the guide directly in Safari or Chrome.</p>
@@ -2968,14 +2975,6 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
         ['Nous avons une réservation au nom de Nguyen.','We have a reservation under the name Nguyen.','noo zah-vohn ewn ray-zehr-vah-see-ohn oh nohm duh Nguyen'],['À quelle heure est la dernière entrée ?','What time is the last admission?','ah kel uhr ay lah dehr-nee-air ahn-tray'],['Où sont les toilettes ?','Where are the restrooms?','oo sohn lay twah-let'],['Je ne comprends pas.','I don’t understand.','zhuh nuh kohn-prahn pah'],['Pouvez-vous parler plus lentement ?','Can you speak more slowly?','poo-vay voo par-lay plew lahn-tuh-mahn'],['J’ai besoin d’aide.','I need help.','zhay buh-zwan ded']]]
     ],mount=document.getElementById('french-phrase-groups');
     if(mount)mount.innerHTML=groups.map(function(group,groupIndex){return '<details class="phrase-group"'+(groupIndex===0?' open':'')+'><summary>'+group[0]+'</summary><div class="phrase-list">'+group[1].map(function(p){return '<div class="phrase-card"><div><strong class="phrase-fr">'+p[0]+'</strong><span class="phrase-en">'+p[1]+'</span><span class="phrase-pron">'+p[2]+'</span></div><button class="phrase-play" data-french="'+p[0].replace(/"/g,'&quot;')+'" aria-label="Hear '+p[0].replace(/"/g,'&quot;')+'">🔊</button></div>';}).join('')+'</div></details>';}).join('');
-    document.addEventListener('click',function(e){
-      var button=e.target.closest?e.target.closest('.phrase-play'):null;if(!button)return;
-      if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined'){alert('French audio is not available in this browser. Try Safari or Chrome.');return;}
-      window.speechSynthesis.cancel();document.querySelectorAll('.phrase-play.playing').forEach(function(b){b.classList.remove('playing')});
-      var utterance=new SpeechSynthesisUtterance(button.getAttribute('data-french'));utterance.lang='fr-FR';utterance.rate=.82;
-      var voices=window.speechSynthesis.getVoices(),voice=voices.find(function(v){return v.lang&&v.lang.toLowerCase().indexOf('fr')===0});if(voice)utterance.voice=voice;
-      button.classList.add('playing');utterance.onend=utterance.onerror=function(){button.classList.remove('playing')};window.speechSynthesis.speak(utterance);
-    });
   })();
 
   // ---------- Audio Guide (Web Speech API) ----------
@@ -3104,5 +3103,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <script src="guide-map-v2.js?v=20260727-1"></script>
 <script src="home-intelligence.js?v=20260726-1"></script>
 <script src="trip-tools.js?v=20260727-1"></script>
+<script src="final-polish.js?v=20260728-1"></script>
+<script src="french-audio-v2.js?v=20260728-1"></script>
 </body>
 </html>

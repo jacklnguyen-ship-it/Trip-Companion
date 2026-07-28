@@ -14,6 +14,9 @@ const fixtureFiles = [
   "travel-readiness.css",
   "trip-tools.css",
   "trip-tools.js",
+  "final-polish.css",
+  "final-polish.js",
+  "french-audio-v2.js",
   "service-worker.js",
   "map-places-index.json",
   "map-places-maria.json",
@@ -184,11 +187,11 @@ const scenarios = [
     },
   },
   {
-    name: "stale Batch 4 offline cache",
-    expected: "has not advanced to the Batch 4 cache version",
+    name: "stale Batch 6 offline cache",
+    expected: "has not advanced to the Batch 6 cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-7", "trip-companion-20260727-1"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260728-1", "trip-companion-20260727-7"));
     },
   },
   {
@@ -230,6 +233,37 @@ const scenarios = [
       const file = path.join(dir, "guide-map-v2.js");
       const script = fs.readFileSync(file, "utf8");
       fs.writeFileSync(file, script.replace("if(match){\n      try{sessionStorage.removeItem('trip-map-pending-search');}catch(error){}", "try{sessionStorage.removeItem('trip-map-pending-search');}catch(error){}\n    if(match){"));
+    },
+  },
+  {
+    name: "missing keyboard skip link",
+    expected: "is missing its keyboard skip link",
+    mutate(dir) {
+      const file = path.join(dir, "index.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('class="skip-link"', 'class="removed-skip-link"'));
+    },
+  },
+  {
+    name: "missing Maria Austen personality",
+    expected: "needs four Austen quotation touches",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('class="austen-quote"', 'class="removed-austen-quote"'));
+    },
+  },
+  {
+    name: "missing reduced motion support",
+    expected: "is missing accessibility behavior: prefers-reduced-motion",
+    mutate(dir) {
+      const file = path.join(dir, "final-polish.css");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("prefers-reduced-motion", "removed-reduced-motion"));
+    },
+  },
+  {
+    name: "disruptive French audio alert",
+    expected: "uses a disruptive browser alert",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "french-audio-v2.js"), "\nalert('audio error');\n");
     },
   },
 ];

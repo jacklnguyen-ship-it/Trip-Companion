@@ -92,6 +92,13 @@ for (const file of htmlFiles) {
   const html = read(file);
   check(/<!doctype html>/i.test(html), `${file} is missing its HTML doctype`);
   check(/<meta[^>]+name=["']viewport["']/i.test(html), `${file} is missing its mobile viewport`);
+  check(html.includes('class="skip-link"'), `${file} is missing its keyboard skip link`);
+  check(html.includes('id="main-content"'), `${file} is missing its main-content landmark`);
+  check(html.includes('aria-label="Trip guide navigation"'), `${file} is missing its navigation label`);
+  check(html.includes('id="french-audio-status"'), `${file} is missing its French audio status region`);
+  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js"]) {
+    check(html.includes(asset), `${file} is missing Batch 6 asset: ${asset}`);
+  }
   check(html.includes('href="#page-map"'), `${file} has no link to Map & Near Me`);
   check(html.includes('id="map-search-input"'), `${file} is missing map search`);
   check(html.includes('id="map-search-clear"'), `${file} is missing the map search clear control`);
@@ -166,6 +173,8 @@ for (const file of htmlFiles) {
 }
 
 const maria = read("maria.html");
+check((maria.match(/class="austen-quote"/g) || []).length === 4, "maria.html needs four Austen quotation touches");
+check(!(read("index.html").match(/class="austen-quote"/g) || []).length, "index.html should not include Maria's Austen quotation touches");
 const mariaRestrictedTerms = [
   "Witness for the Prosecution",
   "Perle Noire",
@@ -345,7 +354,7 @@ const readinessCss = read("travel-readiness.css");
 for (const selector of [".readiness-grid", ".readiness-alert", ".transit-card", ".transit-columns"]) {
   check(readinessCss.includes(selector), `travel-readiness.css is missing required style: ${selector}`);
 }
-for (const scriptFile of ["trip-tools.js", "service-worker.js"]) {
+for (const scriptFile of ["trip-tools.js", "service-worker.js", "final-polish.js", "french-audio-v2.js"]) {
   const script = read(scriptFile);
   try {
     new Function(script);
@@ -366,10 +375,7 @@ for (const behavior of [
 }
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
-check(
-  serviceWorker.includes("trip-companion-20260727-7"),
-  "service-worker.js has not advanced to the Batch 4 cache version",
-);
+check(serviceWorker.includes("trip-companion-20260728-1"), "service-worker.js has not advanced to the Batch 6 cache version");
 for (const asset of [
   "./index.html",
   "./maria.html",
@@ -377,6 +383,9 @@ for (const asset of [
   "./trip-tools.js",
   "./map-places-index.json",
   "./map-places-maria.json",
+  "./final-polish.css",
+  "./final-polish.js",
+  "./french-audio-v2.js",
 ]) {
   check(serviceWorker.includes(`'${asset}'`), `service-worker.js does not cache ${asset}`);
 }
@@ -397,6 +406,15 @@ for (const file of htmlFiles) {
   check(html.includes("speechSynthesis"), `${file} is missing French phrase audio support`);
   check(html.includes('data-french="') || html.includes("data-french="), `${file} has no playable French phrases`);
 }
+const polishCss = read("final-polish.css");
+for (const behavior of [":focus-visible", "prefers-reduced-motion", "prefers-contrast", ".skip-link", "overflow-wrap"]) {
+  check(polishCss.includes(behavior), `final-polish.css is missing accessibility behavior: ${behavior}`);
+}
+const frenchAudio = read("french-audio-v2.js");
+for (const behavior of ["aria-pressed", "speechSynthesis.cancel", "fr-FR", "pagehide", "button.disabled"]) {
+  check(frenchAudio.includes(behavior), `french-audio-v2.js is missing refined audio behavior: ${behavior}`);
+}
+check(!frenchAudio.includes("alert("), "french-audio-v2.js uses a disruptive browser alert");
 
 if (failures.length) {
   console.error(`\nPre-publish QA failed: ${failures.length} issue(s) across ${assertions} checks.\n`);
