@@ -188,7 +188,7 @@ const scenarios = [
     expected: "has not advanced to the Batch 4 cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-5", "trip-companion-20260727-1"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-6", "trip-companion-20260727-1"));
     },
   },
   {
@@ -221,6 +221,15 @@ const scenarios = [
     mutate(dir) {
       const file = path.join(dir, "maria.html");
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replaceAll("trip-map-pending-search", "removed-map-handoff"));
+    },
+  },
+  {
+    name: "premature map handoff clearing",
+    expected: "clears the Home search handoff before its map place is available",
+    mutate(dir) {
+      const file = path.join(dir, "guide-map.js");
+      const script = fs.readFileSync(file, "utf8");
+      fs.writeFileSync(file, script.replace("if(match){\n      try{sessionStorage.removeItem('trip-map-pending-search');}catch(error){}", "try{sessionStorage.removeItem('trip-map-pending-search');}catch(error){}\n    if(match){"));
     },
   },
 ];
