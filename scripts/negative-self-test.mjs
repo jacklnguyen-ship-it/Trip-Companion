@@ -188,7 +188,7 @@ const scenarios = [
     expected: "has not advanced to the Batch 4 cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-4", "trip-companion-20260727-1"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-5", "trip-companion-20260727-1"));
     },
   },
   {
@@ -205,6 +205,22 @@ const scenarios = [
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
       fs.appendFileSync(file, "\n// return cached||network\n");
+    },
+  },
+  {
+    name: "home search missing map data",
+    expected: "home search does not load the curated map dataset",
+    mutate(dir) {
+      const file = path.join(dir, "index.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replaceAll("document.body.dataset.mapData", "'removed-map-data'"));
+    },
+  },
+  {
+    name: "home search missing map handoff",
+    expected: "home search cannot hand a selected location to the map",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replaceAll("trip-map-pending-search", "removed-map-handoff"));
     },
   },
 ];
