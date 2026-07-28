@@ -197,10 +197,13 @@
   }
   function consumePendingSearch(){
     var title='';
-    try{title=sessionStorage.getItem('trip-map-pending-search')||'';sessionStorage.removeItem('trip-map-pending-search');}catch(error){}
+    try{title=sessionStorage.getItem('trip-map-pending-search')||'';}catch(error){}
     if(!title)return;
     var match=places.find(function(p){return p.title===title;});
-    if(match)selectPlace(match);
+    if(match){
+      try{sessionStorage.removeItem('trip-map-pending-search');}catch(error){}
+      selectPlace(match);
+    }
   }
   async function initialize(){
     if(initialized||!document.getElementById('trip-map'))return;

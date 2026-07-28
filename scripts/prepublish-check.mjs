@@ -367,7 +367,7 @@ for (const behavior of [
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
 check(
-  serviceWorker.includes("trip-companion-20260727-5"),
+  serviceWorker.includes("trip-companion-20260727-6"),
   "service-worker.js has not advanced to the Batch 4 cache version",
 );
 for (const asset of [
@@ -384,6 +384,10 @@ for (const behavior of ["install", "activate", "fetch", "caches.match", "ignoreS
   check(serviceWorker.includes(behavior), `service-worker.js is missing offline behavior: ${behavior}`);
 }
 check(!serviceWorker.includes("return cached||network"), "service-worker.js still serves stale assets before checking the network");
+check(
+  /if\(match\)\{[\s\S]{0,140}removeItem\('trip-map-pending-search'\)/.test(mapScript),
+  "guide-map.js clears the Home search handoff before its map place is available",
+);
 const toolsCss = read("trip-tools.css");
 for (const selector of [".currency-tool", ".todo-tools", ".todo-progress", ".offline-status"]) {
   check(toolsCss.includes(selector), `trip-tools.css is missing required style: ${selector}`);
