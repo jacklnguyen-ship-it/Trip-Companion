@@ -285,6 +285,8 @@ for (const requiredBehavior of [
   "The saved place map could not be loaded",
   "No curated places match",
   "function searchText",
+  "function searchScore",
+  "function searchMatches",
   "function escapeHtml",
   "map-search-clear",
   "p.tags||[]",
@@ -360,7 +362,7 @@ for (const behavior of [
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
 check(
-  serviceWorker.includes("trip-companion-20260727-2"),
+  serviceWorker.includes("trip-companion-20260727-3"),
   "service-worker.js has not advanced to the Batch 4 cache version",
 );
 for (const asset of [

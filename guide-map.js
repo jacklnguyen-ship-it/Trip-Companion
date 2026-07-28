@@ -36,6 +36,21 @@
   function searchText(p){
     return[p.title,p.query,p.address].concat(p.tags||[]).join(' ').toLowerCase();
   }
+  function searchScore(p,query){
+    var title=p.title.toLowerCase(),tags=(p.tags||[]).map(function(tag){return tag.toLowerCase();});
+    if(title===query)return 100;
+    if(tags.indexOf(query)!==-1)return 90;
+    if(title.indexOf(query)!==-1)return 70;
+    if(tags.some(function(tag){return tag.indexOf(query)!==-1;}))return 60;
+    if((p.query||'').toLowerCase().indexOf(query)!==-1)return 30;
+    if((p.address||'').toLowerCase().indexOf(query)!==-1)return 10;
+    return 0;
+  }
+  function searchMatches(query){
+    return places.filter(function(p){return searchText(p).indexOf(query)!==-1;}).sort(function(a,b){
+      return searchScore(b,query)-searchScore(a,query)||a.title.localeCompare(b.title);
+    });
+  }
   function tagsFor(p){
     if(!p.tags||!p.tags.length)return'';
     return'<div class="map-specialty-tags">'+p.tags.slice(0,7).map(function(tag){
@@ -138,7 +153,7 @@
     if(!q)return;
     var qLower=q.toLowerCase();
     var exact=places.find(function(p){return p.title.toLowerCase()===qLower;});
-    var partial=places.filter(function(p){return searchText(p).indexOf(qLower)!==-1;});
+    var partial=searchMatches(qLower);
     if(exact)selectPlace(exact);
     else if(partial.length===1)selectPlace(partial[0]);
     else if(partial.length>1)showSuggestions(partial.slice(0,8),q);
@@ -163,7 +178,7 @@
       var q=input.value.trim().toLowerCase();
       document.getElementById('map-search-result').hidden=true;
       if(q.length<2){suggestions.hidden=true;suggestions.innerHTML='';return;}
-      var matches=places.filter(function(p){return searchText(p).indexOf(q)!==-1;}).slice(0,8);
+      var matches=searchMatches(q).slice(0,8);
       showSuggestions(matches,input.value.trim());
     });
     input.addEventListener('keydown',function(e){
