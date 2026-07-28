@@ -275,13 +275,13 @@ for (const [file, expected] of [
   check(size.width === expected && size.height === expected, `${file} should be ${expected}×${expected}`);
 }
 
-const mapScript = read("guide-map.js");
+const mapScript = read("guide-map-v2.js");
 try {
   new Function(mapScript);
 } catch (error) {
-  failures.push(`guide-map.js has a syntax error: ${error.message}`);
+  failures.push(`guide-map-v2.js has a syntax error: ${error.message}`);
 }
-check(mapScript.includes("typeof L==='undefined'"), "guide-map.js has no offline fallback when Leaflet is unavailable");
+check(mapScript.includes("typeof L==='undefined'"), "guide-map-v2.js has no offline fallback when Leaflet is unavailable");
 for (const requiredBehavior of [
   "navigator.geolocation",
   "Location permission was declined",
@@ -296,9 +296,9 @@ for (const requiredBehavior of [
   "map-search-clear",
   "p.tags||[]",
 ]) {
-  check(mapScript.includes(requiredBehavior), `guide-map.js is missing negative-state handling: ${requiredBehavior}`);
+  check(mapScript.includes(requiredBehavior), `guide-map-v2.js is missing negative-state handling: ${requiredBehavior}`);
 }
-check(!mapScript.includes("matches “'+query+'”"), "guide-map.js inserts an unescaped search query into HTML");
+check(!mapScript.includes("matches “'+query+'”"), "guide-map-v2.js inserts an unescaped search query into HTML");
 const mapCss = read("guide-map.css");
 for (const file of htmlFiles) {
   const html = read(file);
@@ -367,7 +367,7 @@ for (const behavior of [
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
 check(
-  serviceWorker.includes("trip-companion-20260727-6"),
+  serviceWorker.includes("trip-companion-20260727-7"),
   "service-worker.js has not advanced to the Batch 4 cache version",
 );
 for (const asset of [
@@ -386,7 +386,7 @@ for (const behavior of ["install", "activate", "fetch", "caches.match", "ignoreS
 check(!serviceWorker.includes("return cached||network"), "service-worker.js still serves stale assets before checking the network");
 check(
   /if\(match\)\{[\s\S]{0,140}removeItem\('trip-map-pending-search'\)/.test(mapScript),
-  "guide-map.js clears the Home search handoff before its map place is available",
+  "guide-map-v2.js clears the Home search handoff before its map place is available",
 );
 const toolsCss = read("trip-tools.css");
 for (const selector of [".currency-tool", ".todo-tools", ".todo-progress", ".offline-status"]) {
