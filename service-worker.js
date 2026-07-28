@@ -1,7 +1,7 @@
-const CACHE_NAME='trip-companion-20260727-6';
+const CACHE_NAME='trip-companion-20260727-7';
 const CORE=[
   './','./index.html','./maria.html','./manifest.json','./manifest-maria.json',
-  './guide-map.css','./guide-map.js','./home-intelligence.css','./home-intelligence.js',
+  './guide-map.css','./guide-map-v2.js','./home-intelligence.css','./home-intelligence.js',
   './travel-readiness.css','./trip-tools.css','./trip-tools.js',
   './map-places-index.json','./map-places-maria.json',
   './apple-touch-icon.png','./favicon-32.png','./icon-192.png','./icon-512.png'

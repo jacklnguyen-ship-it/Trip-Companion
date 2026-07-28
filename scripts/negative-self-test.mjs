@@ -8,7 +8,7 @@ const fixtureFiles = [
   "index.html",
   "maria.html",
   "guide-map.css",
-  "guide-map.js",
+  "guide-map-v2.js",
   "home-intelligence.css",
   "home-intelligence.js",
   "travel-readiness.css",
@@ -144,7 +144,7 @@ const scenarios = [
     name: "missing offline map fallback",
     expected: "has no offline fallback when Leaflet is unavailable",
     mutate(dir) {
-      const file = path.join(dir, "guide-map.js");
+      const file = path.join(dir, "guide-map-v2.js");
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("typeof L==='undefined'", "false"));
     },
   },
@@ -179,7 +179,7 @@ const scenarios = [
     name: "unsafe map search rendering",
     expected: "inserts an unescaped search query into HTML",
     mutate(dir) {
-      const file = path.join(dir, "guide-map.js");
+      const file = path.join(dir, "guide-map-v2.js");
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("escapeHtml(query)", "query"));
     },
   },
@@ -188,14 +188,14 @@ const scenarios = [
     expected: "has not advanced to the Batch 4 cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-6", "trip-companion-20260727-1"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-7", "trip-companion-20260727-1"));
     },
   },
   {
     name: "missing specialty relevance ranking",
-    expected: "guide-map.js is missing negative-state handling: function searchScore",
+    expected: "guide-map-v2.js is missing negative-state handling: function searchScore",
     mutate(dir) {
-      const file = path.join(dir, "guide-map.js");
+      const file = path.join(dir, "guide-map-v2.js");
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("function searchScore", "function removedSearchScore"));
     },
   },
@@ -227,7 +227,7 @@ const scenarios = [
     name: "premature map handoff clearing",
     expected: "clears the Home search handoff before its map place is available",
     mutate(dir) {
-      const file = path.join(dir, "guide-map.js");
+      const file = path.join(dir, "guide-map-v2.js");
       const script = fs.readFileSync(file, "utf8");
       fs.writeFileSync(file, script.replace("if(match){\n      try{sessionStorage.removeItem('trip-map-pending-search');}catch(error){}", "try{sessionStorage.removeItem('trip-map-pending-search');}catch(error){}\n    if(match){"));
     },
