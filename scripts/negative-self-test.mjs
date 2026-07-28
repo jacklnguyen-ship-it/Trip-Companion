@@ -188,7 +188,15 @@ const scenarios = [
     expected: "has not advanced to the Batch 4 cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-2", "trip-companion-20260727-1"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260727-3", "trip-companion-20260727-1"));
+    },
+  },
+  {
+    name: "missing specialty relevance ranking",
+    expected: "guide-map.js is missing negative-state handling: function searchScore",
+    mutate(dir) {
+      const file = path.join(dir, "guide-map.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("function searchScore", "function removedSearchScore"));
     },
   },
 ];

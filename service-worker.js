@@ -1,4 +1,4 @@
-const CACHE_NAME='trip-companion-20260727-2';
+const CACHE_NAME='trip-companion-20260727-3';
 const CORE=[
   './','./index.html','./maria.html','./manifest.json','./manifest-maria.json',
   './guide-map.css','./guide-map.js','./home-intelligence.css','./home-intelligence.js',
