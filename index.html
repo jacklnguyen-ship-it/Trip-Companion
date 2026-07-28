@@ -451,19 +451,21 @@ body.day-modal-open{overflow:hidden}
 <link rel="stylesheet" href="home-intelligence.css?v=20260726-1">
 <link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
 <link rel="stylesheet" href="trip-tools.css?v=20260727-1">
+<link rel="stylesheet" href="final-polish.css?v=20260728-1">
 </head>
 <body data-map-data="map-places-index.json?v=20260725-8">
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
 
 <div class="topbar">
-  <label class="hamburger" for="menu-toggle" aria-label="Open menu"></label>
+  <label class="hamburger" for="menu-toggle" tabindex="0" role="button" aria-controls="sidebar" aria-expanded="false" aria-label="Open menu"></label>
   <div class="brand">London &amp; Paris</div>
 </div>
 
 <div class="shell">
-  <label class="scrim" for="menu-toggle" id="scrim"></label>
-  <nav class="sidebar" id="sidebar">
+  <label class="scrim" for="menu-toggle" id="scrim" aria-hidden="true"></label>
+  <nav class="sidebar" id="sidebar" aria-label="Trip guide navigation">
     <div class="sidebar-header">
       <p class="sidebar-eyebrow">Trip Companion</p>
       <h1 class="sidebar-title">London &amp; Paris</h1>
@@ -494,7 +496,7 @@ body.day-modal-open{overflow:hidden}
     <a class="navlink" href="#page-boutique"><span class="num">14</span> Boutique Guide</a>
   </nav>
 
-  <main class="content-wrap">
+  <main class="content-wrap" id="main-content" tabindex="-1">
 <section class="page" id="page-home">
   <div class="home-hero">
     <p class="home-kicker">Your trip at a glance</p>
@@ -2883,6 +2885,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <section class="page" id="page-french">
 <h1>French Travel Cheat Sheet</h1>
 <p><strong>Tap 🔊 to hear each phrase in French.</strong></p>
+<p class="french-audio-status" id="french-audio-status" role="status" aria-live="polite">Checking French audio…</p>
 <div class="phrase-intro"><strong>Start every interaction with “Bonjour” or “Bonsoir.”</strong><p>Even if you switch to English afterward, this small courtesy makes a meaningful difference in France. The pronunciation guides below are approximations for English speakers—use the audio as your primary model.</p></div>
 
 <details class="phrase-group" open><summary>👋 Polite essentials</summary><div class="phrase-list">
@@ -3116,14 +3119,6 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 
   // ---------- French phrasebook audio ----------
   (function(){
-    document.addEventListener('click',function(e){
-      var button=e.target.closest?e.target.closest('.phrase-play'):null;if(!button)return;
-      if(!('speechSynthesis' in window)||typeof SpeechSynthesisUtterance==='undefined'){alert('French audio is not available in this browser. Try Safari or Chrome.');return;}
-      window.speechSynthesis.cancel();document.querySelectorAll('.phrase-play.playing').forEach(function(b){b.classList.remove('playing')});
-      var utterance=new SpeechSynthesisUtterance(button.getAttribute('data-french'));utterance.lang='fr-FR';utterance.rate=.82;
-      var voices=window.speechSynthesis.getVoices(),voice=voices.find(function(v){return v.lang&&v.lang.toLowerCase().indexOf('fr')===0});if(voice)utterance.voice=voice;
-      button.classList.add('playing');utterance.onend=utterance.onerror=function(){button.classList.remove('playing')};window.speechSynthesis.speak(utterance);
-    });
   })();
 
   // ---------- Audio Guide (Web Speech API) ----------
@@ -3252,5 +3247,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <script src="guide-map-v2.js?v=20260727-1"></script>
 <script src="home-intelligence.js?v=20260726-1"></script>
 <script src="trip-tools.js?v=20260727-1"></script>
+<script src="final-polish.js?v=20260728-1"></script>
+<script src="french-audio-v2.js?v=20260728-1"></script>
 </body>
 </html>
