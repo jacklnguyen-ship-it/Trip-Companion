@@ -1,4 +1,4 @@
-const CACHE_NAME='trip-companion-20260727-3';
+const CACHE_NAME='trip-companion-20260727-4';
 const CORE=[
   './','./index.html','./maria.html','./manifest.json','./manifest-maria.json',
   './guide-map.css','./guide-map.js','./home-intelligence.css','./home-intelligence.js',
@@ -20,11 +20,8 @@ self.addEventListener('fetch',event=>{
     }).catch(()=>caches.match(event.request).then(match=>match||caches.match(event.request.url.indexOf('maria.html')>-1?'./maria.html':'./index.html'))));
     return;
   }
-  event.respondWith(caches.match(event.request,{ignoreSearch:true}).then(cached=>{
-    var network=fetch(event.request).then(response=>{
-      if(response.ok){var copy=response.clone();caches.open(CACHE_NAME).then(cache=>cache.put(event.request,copy));}
-      return response;
-    }).catch(()=>cached);
-    return cached||network;
-  }));
+  event.respondWith(fetch(event.request).then(response=>{
+    if(response.ok){var copy=response.clone();caches.open(CACHE_NAME).then(cache=>cache.put(event.request,copy));}
+    return response;
+  }).catch(()=>caches.match(event.request,{ignoreSearch:true})));
 });
