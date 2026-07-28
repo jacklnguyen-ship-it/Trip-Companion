@@ -28,13 +28,27 @@
   function directionsUrl(p){
     return'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(p.lat+','+p.lng)+'&travelmode=walking';
   }
+  function escapeHtml(value){
+    return String(value).replace(/[&<>"']/g,function(character){
+      return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character];
+    });
+  }
+  function searchText(p){
+    return[p.title,p.query,p.address].concat(p.tags||[]).join(' ').toLowerCase();
+  }
+  function tagsFor(p){
+    if(!p.tags||!p.tags.length)return'';
+    return'<div class="map-specialty-tags">'+p.tags.slice(0,7).map(function(tag){
+      return'<span class="map-specialty-tag">'+escapeHtml(tag)+'</span>';
+    }).join('')+'</div>';
+  }
   function filteredPlaces(){
     var city=document.getElementById('map-city-filter').value,category=document.getElementById('map-category-filter').value;
     return places.filter(function(p){return(city==='all'||cityFor(p)===city)&&(category==='all'||p.category===category);});
   }
   function popupFor(p){
     var distance=userLocation?'<p><strong>'+milesBetween(userLocation,p).toFixed(1)+' miles from you</strong></p>':'';
-    return'<div class="trip-map-popup"><h3>'+p.title+'</h3><p>'+p.address+'</p>'+distance+'<a href="'+directionsUrl(p)+'" target="_blank" rel="noopener">Walking directions</a></div>';
+    return'<div class="trip-map-popup"><h3>'+escapeHtml(p.title)+'</h3><p>'+escapeHtml(p.address)+'</p>'+tagsFor(p)+distance+'<a href="'+directionsUrl(p)+'" target="_blank" rel="noopener">Walking directions</a></div>';
   }
   function updateNearest(list){
     var box=document.getElementById('nearby-place-list');
@@ -104,7 +118,7 @@
       distanceHtml='<p class="map-search-hint">Tap “Use my location” above to see distance and direction to this pin.</p>';
     }
     result.hidden=false;
-    result.innerHTML='<div class="map-search-found"><strong>✓ Already on your list</strong><h4>'+(icons[p.category]||'📍')+' '+p.title+'</h4><p class="map-search-category">'+(categoryLabels[p.category]||p.category)+'</p><p>'+p.address+'</p>'+distanceHtml+'</div>';
+    result.innerHTML='<div class="map-search-found"><strong>✓ Already on your list</strong><h4>'+(icons[p.category]||'📍')+' '+escapeHtml(p.title)+'</h4><p class="map-search-category">'+escapeHtml(categoryLabels[p.category]||p.category)+'</p><p>'+escapeHtml(p.address)+'</p>'+tagsFor(p)+distanceHtml+'</div>';
     var marker=markersByTitle[p.title];
     if(marker&&map){
       map.setView([p.lat,p.lng],16);
@@ -117,39 +131,51 @@
     var result=document.getElementById('map-search-result');
     document.getElementById('map-search-suggestions').hidden=true;
     result.hidden=false;
-    result.innerHTML='<div class="map-search-notfound"><strong>✗ Not on your list yet</strong><p>No saved place matches “'+query+'”. Ask to have it researched and added.</p></div>';
+    result.innerHTML='<div class="map-search-notfound"><strong>✗ Not on your list yet</strong><p>No saved place matches “'+escapeHtml(query)+'”. Ask to have it researched and added.</p></div>';
   }
   function performSearch(input){
     var q=input.value.trim();
     if(!q)return;
     var qLower=q.toLowerCase();
     var exact=places.find(function(p){return p.title.toLowerCase()===qLower;});
-    var partial=places.filter(function(p){return p.title.toLowerCase().indexOf(qLower)!==-1;});
+    var partial=places.filter(function(p){return searchText(p).indexOf(qLower)!==-1;});
     if(exact)selectPlace(exact);
     else if(partial.length===1)selectPlace(partial[0]);
+    else if(partial.length>1)showSuggestions(partial.slice(0,8),q);
     else if(partial.length===0)showNotFound(q);
   }
+  function showSuggestions(matches,query){
+    var suggestions=document.getElementById('map-search-suggestions');
+    suggestions.hidden=false;
+    if(!matches.length){suggestions.innerHTML='<div class="map-search-empty">No match found in your saved places.</div>';return;}
+    suggestions.innerHTML='<div class="map-search-summary">'+matches.length+(matches.length===8?' top':'')+' matches for “'+escapeHtml(query)+'”</div>'+matches.map(function(p,i){
+      return'<button type="button" class="map-search-item" data-idx="'+i+'"><span>'+(icons[p.category]||'📍')+' '+escapeHtml(p.title)+'</span><small>'+escapeHtml((p.tags||[]).slice(0,3).join(' · '))+'</small></button>';
+    }).join('');
+    Array.prototype.forEach.call(suggestions.querySelectorAll('.map-search-item'),function(btn,i){
+      btn.addEventListener('click',function(){selectPlace(matches[i]);});
+    });
+  }
   function initSearch(){
-    var input=document.getElementById('map-search-input'),suggestions=document.getElementById('map-search-suggestions'),searchBtn=document.getElementById('map-search-btn');
+    var input=document.getElementById('map-search-input'),suggestions=document.getElementById('map-search-suggestions'),searchBtn=document.getElementById('map-search-btn'),clearBtn=document.getElementById('map-search-clear');
     if(!input||input.dataset.bound)return;
     input.dataset.bound='1';
     input.addEventListener('input',function(){
       var q=input.value.trim().toLowerCase();
       document.getElementById('map-search-result').hidden=true;
       if(q.length<2){suggestions.hidden=true;suggestions.innerHTML='';return;}
-      var matches=places.filter(function(p){return p.title.toLowerCase().indexOf(q)!==-1;}).slice(0,8);
-      suggestions.hidden=false;
-      if(!matches.length){suggestions.innerHTML='<div class="map-search-empty">No match found in your saved places.</div>';return;}
-      suggestions.innerHTML=matches.map(function(p,i){return'<button type="button" class="map-search-item" data-idx="'+i+'">'+(icons[p.category]||'📍')+' '+p.title+'</button>';}).join('');
-      Array.prototype.forEach.call(suggestions.querySelectorAll('.map-search-item'),function(btn,i){
-        btn.addEventListener('click',function(){selectPlace(matches[i]);});
-      });
+      var matches=places.filter(function(p){return searchText(p).indexOf(q)!==-1;}).slice(0,8);
+      showSuggestions(matches,input.value.trim());
     });
     input.addEventListener('keydown',function(e){
       if(e.key!=='Enter')return;
       performSearch(input);
     });
     if(searchBtn)searchBtn.addEventListener('click',function(){performSearch(input);});
+    if(clearBtn)clearBtn.addEventListener('click',function(){
+      input.value='';suggestions.hidden=true;suggestions.innerHTML='';
+      var result=document.getElementById('map-search-result');
+      result.hidden=true;result.innerHTML='';lastSearchedPlace=null;input.focus();
+    });
     document.addEventListener('click',function(e){
       if(e.target!==input&&!suggestions.contains(e.target))suggestions.hidden=true;
     });

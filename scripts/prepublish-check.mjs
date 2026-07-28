@@ -94,6 +94,7 @@ for (const file of htmlFiles) {
   check(/<meta[^>]+name=["']viewport["']/i.test(html), `${file} is missing its mobile viewport`);
   check(html.includes('href="#page-map"'), `${file} has no link to Map & Near Me`);
   check(html.includes('id="map-search-input"'), `${file} is missing map search`);
+  check(html.includes('id="map-search-clear"'), `${file} is missing the map search clear control`);
   check(html.includes('id="map-city-filter"'), `${file} is missing the map city filter`);
   check(html.includes('id="map-category-filter"'), `${file} is missing the map category filter`);
   for (const id of [
@@ -210,6 +211,8 @@ for (const { file, data } of maps) {
     check(Number.isFinite(place.lat) && place.lat >= -90 && place.lat <= 90, `${label} has invalid latitude`);
     check(Number.isFinite(place.lng) && place.lng >= -180 && place.lng <= 180, `${label} has invalid longitude`);
     check(typeof place.address === "string" && place.address.trim(), `${label} has no address`);
+    check(Array.isArray(place.tags) && place.tags.length >= 1, `${label} needs at least one searchable specialty tag`);
+    check((place.tags || []).every((tag) => typeof tag === "string" && tag.trim()), `${label} has an invalid specialty tag`);
 
     const titleKey = place.title.trim().toLowerCase();
     const queryKey = place.query.trim().toLowerCase();
@@ -217,6 +220,18 @@ for (const { file, data } of maps) {
     check(!seenQueries.has(queryKey), `${file} contains duplicate map query: ${place.query}`);
     seenTitles.add(titleKey);
     seenQueries.add(queryKey);
+  }
+  const market = data.find((place) => place.title === "Marché des Enfants Rouges");
+  check(Boolean(market), `${file} is missing Marché des Enfants Rouges`);
+  if (market) {
+    check(market.category === "food", `${file} assigns Marché des Enfants Rouges to the wrong category`);
+    check(market.tags.includes("food market"), `${file} is missing Marché des Enfants Rouges specialty tags`);
+  }
+  const carette = data.find((place) => place.title === "Carette");
+  check(Boolean(carette), `${file} is missing Carette`);
+  if (carette) {
+    check(carette.category === "afternoontea", `${file} assigns Carette to the wrong category`);
+    check(carette.tags.includes("hot chocolate"), `${file} is missing Carette specialty tags`);
   }
 }
 
@@ -258,15 +273,25 @@ for (const [file, expected] of [
 }
 
 const mapScript = read("guide-map.js");
+try {
+  new Function(mapScript);
+} catch (error) {
+  failures.push(`guide-map.js has a syntax error: ${error.message}`);
+}
 check(mapScript.includes("typeof L==='undefined'"), "guide-map.js has no offline fallback when Leaflet is unavailable");
 for (const requiredBehavior of [
   "navigator.geolocation",
   "Location permission was declined",
   "The saved place map could not be loaded",
   "No curated places match",
+  "function searchText",
+  "function escapeHtml",
+  "map-search-clear",
+  "p.tags||[]",
 ]) {
   check(mapScript.includes(requiredBehavior), `guide-map.js is missing negative-state handling: ${requiredBehavior}`);
 }
+check(!mapScript.includes("matches “'+query+'”"), "guide-map.js inserts an unescaped search query into HTML");
 const mapCss = read("guide-map.css");
 for (const file of htmlFiles) {
   const html = read(file);

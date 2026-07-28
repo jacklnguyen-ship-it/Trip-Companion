@@ -148,6 +148,41 @@ const scenarios = [
       fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("typeof L==='undefined'", "false"));
     },
   },
+  {
+    name: "missing map clear control",
+    expected: "is missing the map search clear control",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('id="map-search-clear"', 'id="removed-map-search-clear"'));
+    },
+  },
+  {
+    name: "missing specialty tags",
+    expected: "needs at least one searchable specialty tag",
+    mutate(dir) {
+      const file = path.join(dir, "map-places-index.json");
+      const places = JSON.parse(fs.readFileSync(file, "utf8"));
+      places[0].tags = [];
+      fs.writeFileSync(file, JSON.stringify(places));
+    },
+  },
+  {
+    name: "missing curated Paris market",
+    expected: "is missing Marché des Enfants Rouges",
+    mutate(dir) {
+      const file = path.join(dir, "map-places-maria.json");
+      const places = JSON.parse(fs.readFileSync(file, "utf8")).filter((place) => place.title !== "Marché des Enfants Rouges");
+      fs.writeFileSync(file, JSON.stringify(places));
+    },
+  },
+  {
+    name: "unsafe map search rendering",
+    expected: "inserts an unescaped search query into HTML",
+    mutate(dir) {
+      const file = path.join(dir, "guide-map.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("escapeHtml(query)", "query"));
+    },
+  },
 ];
 
 let failed = false;
