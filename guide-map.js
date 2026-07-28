@@ -156,6 +156,10 @@
   }
   async function initialize(){
     if(initialized||!document.getElementById('trip-map'))return;
+    if(typeof L==='undefined'){
+      document.getElementById('trip-map-status').textContent='The written guide is available offline. Connect once to load the interactive map tiles.';
+      return;
+    }
     initialized=true;
     map=L.map('trip-map',{zoomControl:true}).setView([50.35,1.05],6);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);

@@ -428,6 +428,7 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="guide-map.css?v=20260725-5">
 <link rel="stylesheet" href="home-intelligence.css?v=20260726-1">
 <link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
+<link rel="stylesheet" href="trip-tools.css?v=20260727-1">
 </head>
 <body data-map-data="map-places-maria.json?v=20260725-8">
 
@@ -521,6 +522,16 @@ body:has(.page:target) #page-home:target{display:block}
     <a class="home-action" href="#page-french">French cheat sheet →</a>
     <a class="home-action" href="#page-emergency">Emergency &amp; help →</a>
   </div>
+  <section class="currency-tool" id="currency-tool">
+    <h2>Quick currency converter</h2>
+    <div class="currency-row">
+      <div class="currency-field"><label for="currency-amount">Amount</label><input id="currency-amount" type="number" min="0" step="0.01" value="20" inputmode="decimal"></div>
+      <div class="currency-field"><label for="currency-code">Currency</label><select id="currency-code"><option value="GBP">British pounds</option><option value="EUR">Euros</option></select></div>
+      <div class="currency-equals">≈</div>
+      <div class="currency-result" id="currency-result" aria-live="polite">Loading rate…</div>
+    </div>
+    <p class="currency-meta" id="currency-meta">Downloading current reference rates…</p>
+  </section>
   <div class="guide-search">
     <label for="guide-search-input">Find anything in your trip</label>
     <input id="guide-search-input" type="search" placeholder="Try “Borough Market,” “pastries” or “Eurostar”" autocomplete="off">
@@ -995,7 +1006,7 @@ body:has(.page:target) #page-home:target{display:block}
 </tbody>
 </table>
 <hr />
-<h2>Outstanding To-Dos</h2>
+<h2 id="outstanding-todos">Outstanding To-Dos</h2>
 <ul>
 <li>[x] Chase Ultimate Rewards points transferred to Virgin Atlantic — both flights successfully booked using points, confirming the transfer went through</li>
 <li>[x] Return flight booked: CDG→LAX, Sept 17, Delta DL291, booking ref [stored privately]</li>
@@ -3079,5 +3090,6 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="guide-map.js?v=20260725-5"></script>
 <script src="home-intelligence.js?v=20260726-1"></script>
+<script src="trip-tools.js?v=20260727-1"></script>
 </body>
 </html>

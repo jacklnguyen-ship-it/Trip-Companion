@@ -104,8 +104,14 @@ for (const file of htmlFiles) {
     "home-next-title",
     "home-next-time",
     "home-events",
+    "currency-tool",
+    "currency-amount",
+    "currency-code",
+    "currency-result",
+    "currency-meta",
+    "outstanding-todos",
   ]) {
-    check(html.includes(`id="${id}"`), `${file} is missing Batch 1 home element #${id}`);
+    check(html.includes(`id="${id}"`), `${file} is missing interactive guide element #${id}`);
   }
 
   for (const page of requiredPages) {
@@ -252,6 +258,7 @@ for (const [file, expected] of [
 }
 
 const mapScript = read("guide-map.js");
+check(mapScript.includes("typeof L==='undefined'"), "guide-map.js has no offline fallback when Leaflet is unavailable");
 for (const requiredBehavior of [
   "navigator.geolocation",
   "Location permission was declined",
@@ -305,6 +312,49 @@ for (const selector of [".home-next-up", ".kickoff-alert", ".home-day.is-today",
 const readinessCss = read("travel-readiness.css");
 for (const selector of [".readiness-grid", ".readiness-alert", ".transit-card", ".transit-columns"]) {
   check(readinessCss.includes(selector), `travel-readiness.css is missing required style: ${selector}`);
+}
+for (const scriptFile of ["trip-tools.js", "service-worker.js"]) {
+  const script = read(scriptFile);
+  try {
+    new Function(script);
+  } catch (error) {
+    failures.push(`${scriptFile} has a syntax error: ${error.message}`);
+  }
+}
+const toolsScript = read("trip-tools.js");
+for (const behavior of [
+  "trip-fx-rates",
+  "api.frankfurter.dev",
+  "localStorage",
+  "trip-todos-",
+  "serviceWorker.register",
+  "text.textContent",
+]) {
+  check(toolsScript.includes(behavior), `trip-tools.js is missing required behavior: ${behavior}`);
+}
+check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
+const serviceWorker = read("service-worker.js");
+for (const asset of [
+  "./index.html",
+  "./maria.html",
+  "./trip-tools.css",
+  "./trip-tools.js",
+  "./map-places-index.json",
+  "./map-places-maria.json",
+]) {
+  check(serviceWorker.includes(`'${asset}'`), `service-worker.js does not cache ${asset}`);
+}
+for (const behavior of ["install", "activate", "fetch", "caches.match", "ignoreSearch:true"]) {
+  check(serviceWorker.includes(behavior), `service-worker.js is missing offline behavior: ${behavior}`);
+}
+const toolsCss = read("trip-tools.css");
+for (const selector of [".currency-tool", ".todo-tools", ".todo-progress", ".offline-status"]) {
+  check(toolsCss.includes(selector), `trip-tools.css is missing required style: ${selector}`);
+}
+for (const file of htmlFiles) {
+  const html = read(file);
+  check(html.includes("speechSynthesis"), `${file} is missing French phrase audio support`);
+  check(html.includes('data-french="') || html.includes("data-french="), `${file} has no playable French phrases`);
 }
 
 if (failures.length) {
