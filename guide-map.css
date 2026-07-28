@@ -23,8 +23,11 @@ body:has(#page-map:target) a.navlink[href="#page-map"]{background:rgba(164,118,6
 .map-search-wrap{position:relative;display:flex;gap:.5rem;flex-wrap:wrap}
 .map-search-wrap input{flex:1;min-width:180px;min-height:44px;border:1px solid var(--line);border-radius:10px;background:var(--parchment-card);color:var(--ink);padding:.65rem .8rem;font:inherit;box-sizing:border-box}
 .map-search-btn{white-space:nowrap}
+.map-search-clear{white-space:nowrap}
 .map-search-suggestions{position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:20;background:var(--parchment-card);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.18);max-height:260px;overflow-y:auto}
-.map-search-item{display:block;width:100%;text-align:left;padding:.6rem .8rem;border:none;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.map-search-item{display:grid;gap:.15rem;width:100%;text-align:left;padding:.6rem .8rem;border:none;border-bottom:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;cursor:pointer}
+.map-search-item small{color:var(--slate);font-size:.72rem}
+.map-search-summary{padding:.45rem .8rem;background:var(--parchment-dark);color:var(--slate);font-size:.72rem}
 .map-search-item:last-child{border-bottom:none}
 .map-search-item:hover,.map-search-item:focus{background:var(--parchment-dark)}
 .map-search-empty{padding:.6rem .8rem;color:var(--slate);font-size:.85rem}
@@ -37,6 +40,8 @@ body:has(#page-map:target) a.navlink[href="#page-map"]{background:rgba(164,118,6
 .map-search-found h4,.map-search-found p,.map-search-notfound p{margin:.3rem 0}
 .map-search-category{display:inline-block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--brass);font-weight:700}
 .map-search-hint{color:var(--slate);font-size:.85rem;margin:.3rem 0 0}
+.map-specialty-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin:.45rem 0}
+.map-specialty-tag{padding:.18rem .45rem;border:1px solid var(--line);border-radius:999px;background:var(--parchment-card);color:var(--slate);font-size:.68rem}
 .trip-map-highlight{animation:tripMapPulse 1.3s ease-in-out 2}
 @keyframes tripMapPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.4)}}
-@media(max-width:620px){#trip-map{height:55vh;min-height:390px}.trip-map-toolbar{display:grid;grid-template-columns:1fr 1fr}.trip-map-field{min-width:0}.trip-map-button{width:100%}}
+@media(max-width:620px){#trip-map{height:55vh;min-height:390px}.trip-map-toolbar{display:grid;grid-template-columns:1fr 1fr}.trip-map-field{min-width:0}.trip-map-button{width:100%}.map-search-wrap input{flex-basis:100%}.map-search-btn,.map-search-clear{width:auto;flex:1}}
