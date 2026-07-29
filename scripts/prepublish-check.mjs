@@ -143,9 +143,20 @@ for (const file of htmlFiles) {
     "€14",
     "€12.30",
     "€32.40",
+    "Chase Sapphire Preferred · travel protection claims",
+    "https://www.chasecardbenefits.com",
+    "1-800-350-1362",
+    "001-214-503-2951",
+    "Trip cancellation or interruption:",
+    "Trip delay:",
+    "Baggage delay:",
+    "Emergency evacuation and transportation:",
+    "authorized and arranged in advance",
+    "Save this evidence immediately",
   ]) {
     check(html.includes(readinessText), `${file} is missing Batch 2 travel-readiness content: ${readinessText}`);
   }
+  check(!/\b\d{13,19}\b/.test(html), `${file} may expose a full payment-card number`);
   for (const label of weekdayLabels) {
     check(html.includes(label), `${file} is missing or has changed the date label “${label}”`);
   }
@@ -385,7 +396,7 @@ for (const behavior of [
 }
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
-check(serviceWorker.includes("trip-companion-20260728-3"), "service-worker.js has not advanced to the Camden map cache version");
+check(serviceWorker.includes("trip-companion-20260729-1"), "service-worker.js has not advanced to the Chase claims cache version");
 for (const asset of [
   "./index.html",
   "./maria.html",
