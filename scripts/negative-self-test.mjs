@@ -120,6 +120,22 @@ const scenarios = [
     },
   },
   {
+    name: "missing Chase claim portal",
+    expected: "is missing Batch 2 travel-readiness content: https://www.chasecardbenefits.com",
+    mutate(dir) {
+      const file = path.join(dir, "index.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replaceAll("https://www.chasecardbenefits.com", "removed-claim-portal"));
+    },
+  },
+  {
+    name: "missing evacuation preauthorization warning",
+    expected: "is missing Batch 2 travel-readiness content: authorized and arranged in advance",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replaceAll("authorized and arranged in advance", "arrangement details unavailable"));
+    },
+  },
+  {
     name: "missing currency widget",
     expected: "is missing interactive guide element #currency-tool",
     mutate(dir) {
@@ -187,11 +203,11 @@ const scenarios = [
     },
   },
   {
-    name: "stale Camden map offline cache",
-    expected: "has not advanced to the Camden map cache version",
+    name: "stale Chase claims offline cache",
+    expected: "has not advanced to the Chase claims cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260728-3", "trip-companion-20260728-1"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-1", "trip-companion-20260728-3"));
     },
   },
   {
