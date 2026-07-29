@@ -429,6 +429,7 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="home-intelligence.css?v=20260726-1">
 <link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
 <link rel="stylesheet" href="trip-tools.css?v=20260727-1">
+<link rel="stylesheet" href="claim-organizer.css?v=20260729-1">
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 </head>
 <body data-map-data="map-places-maria.json?v=20260728-3">
@@ -642,6 +643,34 @@ body:has(.page:target) #page-home:target{display:block}
     <p><strong>Do not wait:</strong> cancellation/interruption and baggage claims generally require notice within 20 days; trip-delay claims generally require notice within 60 days. Supporting-document deadlines also apply.</p>
     <a class="readiness-call" href="https://www.chasecardbenefits.com">Start a claim</a><a class="readiness-call secondary" href="https://www.chasebenefits.com/K113-012/pdf/BGC11599.pdf">Official benefit guide</a>
     <p class="readiness-note">Quick reference only. Eligibility generally depends on using the covered card or Chase rewards for all or part of the eligible travel purchase. Exclusions and definitions apply; the current Guide to Benefits controls.</p>
+    <section class="claim-organizer" id="claim-organizer" aria-labelledby="claim-organizer-title">
+      <div class="claim-organizer-heading">
+        <div><p class="claim-eyebrow">Private · saved on this device</p><h3 id="claim-organizer-title">Receipt &amp; expense organizer</h3></div>
+        <button class="claim-secondary-button" id="claim-export" type="button">Export summary</button>
+      </div>
+      <p class="claim-privacy">Use this during a delay, cancellation or baggage problem. Attach receipt photos or PDFs and record each expense while the details are fresh. Nothing is uploaded automatically.</p>
+      <form class="claim-form" id="claim-form">
+        <label>Claim type<select id="claim-type" required><option value="Trip delay">Trip delay</option><option value="Trip cancellation/interruption">Trip cancellation/interruption</option><option value="Baggage delay">Baggage delay</option><option value="Lost/damaged luggage">Lost/damaged luggage</option><option value="Emergency evacuation">Emergency evacuation</option><option value="Other">Other</option></select></label>
+        <label>Date<input id="claim-date" type="date" required></label>
+        <label>Merchant or expense<input id="claim-merchant" type="text" maxlength="100" placeholder="Hotel, meal, toiletries…" required></label>
+        <label>Amount<input id="claim-amount" type="number" min="0" step="0.01" inputmode="decimal" placeholder="0.00" required></label>
+        <label>Currency<select id="claim-currency"><option>GBP</option><option>EUR</option><option selected>USD</option></select></label>
+        <label>Status<select id="claim-status"><option>Not submitted</option><option>Submitted</option><option>Reimbursed</option><option>Denied</option></select></label>
+        <label class="claim-field-wide">Notes<input id="claim-notes" type="text" maxlength="240" placeholder="Reason, people covered, airline report number…"></label>
+        <label class="claim-field-wide">Receipt or supporting document<input id="claim-receipt" type="file" accept="image/jpeg,image/png,image/heic,image/heif,application/pdf"><small>JPG, PNG, HEIC or PDF · maximum 10 MB</small></label>
+        <p class="claim-form-status claim-field-wide" id="claim-form-status" role="status" aria-live="polite"></p>
+        <button class="readiness-call claim-submit claim-field-wide" type="submit">Save expense</button>
+      </form>
+      <div class="claim-dashboard">
+        <div><strong id="claim-count">0</strong><span>saved expenses</span></div>
+        <div class="claim-totals" id="claim-totals"><span>No expenses yet</span></div>
+      </div>
+      <div class="claim-controls">
+        <label>Show<select id="claim-filter"><option value="all">All expenses</option><option value="Not submitted">Not submitted</option><option value="Submitted">Submitted</option><option value="Reimbursed">Reimbursed</option><option value="Denied">Denied</option></select></label>
+        <button class="claim-danger-button" id="claim-clear" type="button">Clear all</button>
+      </div>
+      <div class="claim-list" id="claim-list" aria-live="polite"><p class="claim-empty">No saved expenses. Add the first receipt above.</p></div>
+    </section>
   </article>
 </div>
 <p class="readiness-note">Verified July 29, 2026: <a href="https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-call-999/">NHS emergency guidance</a> · <a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/UnitedKingdom.html">U.S. Embassy London</a> · <a href="https://travel.state.gov/content/travel/en/international-travel/International-Travel-Country-Information-Pages/France.html">U.S. Embassy Paris and French emergency numbers</a> · <a href="https://www.chasebenefits.com/K113-012/pdf/BGC11599.pdf">Chase Sapphire Preferred Guide to Benefits, effective June 14, 2026</a>.</p>
@@ -3159,6 +3188,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <script src="guide-map-v2.js?v=20260727-1"></script>
 <script src="home-intelligence.js?v=20260726-1"></script>
 <script src="trip-tools.js?v=20260727-1"></script>
+<script src="claim-organizer.js?v=20260729-1"></script>
 <script src="final-polish.js?v=20260728-1"></script>
 <script src="french-audio-v2.js?v=20260728-1"></script>
 </body>
