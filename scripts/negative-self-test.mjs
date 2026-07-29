@@ -187,11 +187,11 @@ const scenarios = [
     },
   },
   {
-    name: "stale Batch 6 offline cache",
-    expected: "has not advanced to the Batch 6 cache version",
+    name: "stale Camden map offline cache",
+    expected: "has not advanced to the Camden map cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260728-1", "trip-companion-20260727-7"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260728-3", "trip-companion-20260728-1"));
     },
   },
   {
@@ -264,6 +264,15 @@ const scenarios = [
     expected: "uses a disruptive browser alert",
     mutate(dir) {
       fs.appendFileSync(path.join(dir, "french-audio-v2.js"), "\nalert('audio error');\n");
+    },
+  },
+  {
+    name: "missing Camden Market map pin",
+    expected: "is missing Camden Market",
+    mutate(dir) {
+      const file = path.join(dir, "map-places-maria.json");
+      const places = JSON.parse(fs.readFileSync(file, "utf8")).filter((place) => place.title !== "Camden Market");
+      fs.writeFileSync(file, JSON.stringify(places));
     },
   },
 ];
