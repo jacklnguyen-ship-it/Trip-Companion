@@ -96,7 +96,7 @@ for (const file of htmlFiles) {
   check(html.includes('id="main-content"'), `${file} is missing its main-content landmark`);
   check(html.includes('aria-label="Trip guide navigation"'), `${file} is missing its navigation label`);
   check(html.includes('id="french-audio-status"'), `${file} is missing its French audio status region`);
-  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js", "claim-organizer.css", "claim-organizer.js"]) {
+  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js", "claim-organizer.css", "claim-organizer.js", "floating-shortcuts.css", "floating-shortcuts.js"]) {
     check(html.includes(asset), `${file} is missing Batch 6 asset: ${asset}`);
   }
   check(html.includes('href="#page-map"'), `${file} has no link to Map & Near Me`);
@@ -156,6 +156,8 @@ for (const file of htmlFiles) {
     "Receipt &amp; expense organizer",
     "Private · saved on this device",
     "Nothing is uploaded automatically",
+    "Quick shortcuts",
+    "Audio guides",
   ]) {
     check(html.includes(readinessText), `${file} is missing Batch 2 travel-readiness content: ${readinessText}`);
   }
@@ -378,7 +380,7 @@ const readinessCss = read("travel-readiness.css");
 for (const selector of [".readiness-grid", ".readiness-alert", ".transit-card", ".transit-columns"]) {
   check(readinessCss.includes(selector), `travel-readiness.css is missing required style: ${selector}`);
 }
-for (const scriptFile of ["trip-tools.js", "claim-organizer.js", "service-worker.js", "final-polish.js", "french-audio-v2.js"]) {
+for (const scriptFile of ["trip-tools.js", "claim-organizer.js", "floating-shortcuts.js", "service-worker.js", "final-polish.js", "french-audio-v2.js"]) {
   const script = read(scriptFile);
   try {
     new Function(script);
@@ -409,7 +411,16 @@ const claimCss = read("claim-organizer.css");
 for (const selector of [".claim-organizer", ".claim-form", ".claim-dashboard", ".claim-item", "@media(max-width:620px)"]) {
   check(claimCss.includes(selector), `claim-organizer.css is missing required style: ${selector}`);
 }
-check(serviceWorker.includes("trip-companion-20260729-2"), "service-worker.js has not advanced to the receipt organizer cache version");
+const shortcutScript = read("floating-shortcuts.js");
+for (const behavior of ["querySelectorAll('.audio-guide')", "audio-shortcut-item", "scrollIntoView", "aria-expanded", "event.key==='Escape'", "event.key==='Tab'"]) {
+  check(shortcutScript.includes(behavior), `floating-shortcuts.js is missing required behavior: ${behavior}`);
+}
+check(!shortcutScript.includes("innerHTML"), "floating-shortcuts.js renders guide names as unsafe HTML");
+const shortcutCss = read("floating-shortcuts.css");
+for (const selector of [".floating-shortcuts", ".audio-shortcut-modal", ".audio-shortcut-sheet", "@media(max-width:860px)"]) {
+  check(shortcutCss.includes(selector), `floating-shortcuts.css is missing required style: ${selector}`);
+}
+check(serviceWorker.includes("trip-companion-20260729-3"), "service-worker.js has not advanced to the floating shortcuts cache version");
 for (const asset of [
   "./index.html",
   "./maria.html",
@@ -417,6 +428,8 @@ for (const asset of [
   "./trip-tools.js",
   "./claim-organizer.css",
   "./claim-organizer.js",
+  "./floating-shortcuts.css",
+  "./floating-shortcuts.js",
   "./map-places-index.json",
   "./map-places-maria.json",
   "./final-polish.css",

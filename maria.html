@@ -430,6 +430,7 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
 <link rel="stylesheet" href="trip-tools.css?v=20260727-1">
 <link rel="stylesheet" href="claim-organizer.css?v=20260729-1">
+<link rel="stylesheet" href="floating-shortcuts.css?v=20260729-1">
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 </head>
 <body data-map-data="map-places-maria.json?v=20260728-3">
@@ -3184,11 +3185,24 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     }, false);
   })();
 </script>
+<nav class="floating-shortcuts" aria-label="Quick shortcuts">
+  <a href="#page-home"><span aria-hidden="true">⌂</span><span>Home</span></a>
+  <a href="#page-itinerary"><span aria-hidden="true">☷</span><span>Itinerary</span></a>
+  <a href="#page-map"><span aria-hidden="true">⌖</span><span>Map</span></a>
+  <button id="audio-shortcut" type="button" aria-haspopup="dialog"><span aria-hidden="true">♫</span><span>Audio</span></button>
+</nav>
+<div class="audio-shortcut-modal" id="audio-shortcut-modal" role="dialog" aria-modal="true" aria-labelledby="audio-shortcut-title" hidden>
+  <div class="audio-shortcut-sheet">
+    <div class="audio-shortcut-head"><div><p>Listen while you explore</p><h2 id="audio-shortcut-title">Audio guides</h2></div><button id="audio-shortcut-close" type="button" aria-label="Close audio guide list">×</button></div>
+    <div class="audio-shortcut-list" id="audio-shortcut-list"></div>
+  </div>
+</div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="guide-map-v2.js?v=20260727-1"></script>
 <script src="home-intelligence.js?v=20260726-1"></script>
 <script src="trip-tools.js?v=20260727-1"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>
+<script src="floating-shortcuts.js?v=20260729-1"></script>
 <script src="final-polish.js?v=20260728-1"></script>
 <script src="french-audio-v2.js?v=20260728-1"></script>
 </body>

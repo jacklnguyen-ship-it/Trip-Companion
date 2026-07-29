@@ -16,6 +16,8 @@ const fixtureFiles = [
   "trip-tools.js",
   "claim-organizer.css",
   "claim-organizer.js",
+  "floating-shortcuts.css",
+  "floating-shortcuts.js",
   "final-polish.css",
   "final-polish.js",
   "french-audio-v2.js",
@@ -138,6 +140,21 @@ const scenarios = [
     },
   },
   {
+    name: "missing floating shortcuts",
+    expected: "is missing Batch 2 travel-readiness content: Quick shortcuts",
+    mutate(dir) {
+      const file = path.join(dir, "index.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('aria-label="Quick shortcuts"', 'aria-label="Removed shortcuts"'));
+    },
+  },
+  {
+    name: "unsafe floating guide names",
+    expected: "renders guide names as unsafe HTML",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "floating-shortcuts.js"), "\ndocument.body.innerHTML='unsafe';\n");
+    },
+  },
+  {
     name: "claim organizer network transmission",
     expected: "unexpectedly transmits private claim data",
     mutate(dir) {
@@ -227,11 +244,11 @@ const scenarios = [
     },
   },
   {
-    name: "stale receipt organizer offline cache",
-    expected: "has not advanced to the receipt organizer cache version",
+    name: "stale floating shortcuts offline cache",
+    expected: "has not advanced to the floating shortcuts cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-2", "trip-companion-20260729-1"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-3", "trip-companion-20260729-2"));
     },
   },
   {
