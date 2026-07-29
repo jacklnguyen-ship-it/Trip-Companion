@@ -96,7 +96,7 @@ for (const file of htmlFiles) {
   check(html.includes('id="main-content"'), `${file} is missing its main-content landmark`);
   check(html.includes('aria-label="Trip guide navigation"'), `${file} is missing its navigation label`);
   check(html.includes('id="french-audio-status"'), `${file} is missing its French audio status region`);
-  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js"]) {
+  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js", "claim-organizer.css", "claim-organizer.js"]) {
     check(html.includes(asset), `${file} is missing Batch 6 asset: ${asset}`);
   }
   check(html.includes('href="#page-map"'), `${file} has no link to Map & Near Me`);
@@ -153,6 +153,9 @@ for (const file of htmlFiles) {
     "Emergency evacuation and transportation:",
     "authorized and arranged in advance",
     "Save this evidence immediately",
+    "Receipt &amp; expense organizer",
+    "Private · saved on this device",
+    "Nothing is uploaded automatically",
   ]) {
     check(html.includes(readinessText), `${file} is missing Batch 2 travel-readiness content: ${readinessText}`);
   }
@@ -375,7 +378,7 @@ const readinessCss = read("travel-readiness.css");
 for (const selector of [".readiness-grid", ".readiness-alert", ".transit-card", ".transit-columns"]) {
   check(readinessCss.includes(selector), `travel-readiness.css is missing required style: ${selector}`);
 }
-for (const scriptFile of ["trip-tools.js", "service-worker.js", "final-polish.js", "french-audio-v2.js"]) {
+for (const scriptFile of ["trip-tools.js", "claim-organizer.js", "service-worker.js", "final-polish.js", "french-audio-v2.js"]) {
   const script = read(scriptFile);
   try {
     new Function(script);
@@ -396,12 +399,24 @@ for (const behavior of [
 }
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
-check(serviceWorker.includes("trip-companion-20260729-1"), "service-worker.js has not advanced to the Chase claims cache version");
+const claimScript = read("claim-organizer.js");
+for (const behavior of ["indexedDB.open", "MAX_FILE_SIZE", "allowedTypes", "textContent", "createObjectURL", "claim-export", "trip-claim-expenses.csv"]) {
+  check(claimScript.includes(behavior), `claim-organizer.js is missing required receipt behavior: ${behavior}`);
+}
+check(!claimScript.includes("innerHTML"), "claim-organizer.js renders saved claim data as unsafe HTML");
+check(!claimScript.includes("fetch("), "claim-organizer.js unexpectedly transmits private claim data");
+const claimCss = read("claim-organizer.css");
+for (const selector of [".claim-organizer", ".claim-form", ".claim-dashboard", ".claim-item", "@media(max-width:620px)"]) {
+  check(claimCss.includes(selector), `claim-organizer.css is missing required style: ${selector}`);
+}
+check(serviceWorker.includes("trip-companion-20260729-2"), "service-worker.js has not advanced to the receipt organizer cache version");
 for (const asset of [
   "./index.html",
   "./maria.html",
   "./trip-tools.css",
   "./trip-tools.js",
+  "./claim-organizer.css",
+  "./claim-organizer.js",
   "./map-places-index.json",
   "./map-places-maria.json",
   "./final-polish.css",

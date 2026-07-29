@@ -14,6 +14,8 @@ const fixtureFiles = [
   "travel-readiness.css",
   "trip-tools.css",
   "trip-tools.js",
+  "claim-organizer.css",
+  "claim-organizer.js",
   "final-polish.css",
   "final-polish.js",
   "french-audio-v2.js",
@@ -128,6 +130,28 @@ const scenarios = [
     },
   },
   {
+    name: "missing private claim organizer",
+    expected: "is missing Batch 2 travel-readiness content: Receipt &amp; expense organizer",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("Receipt &amp; expense organizer", "Removed organizer"));
+    },
+  },
+  {
+    name: "claim organizer network transmission",
+    expected: "unexpectedly transmits private claim data",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "claim-organizer.js"), "\nfetch('/upload-claim');\n");
+    },
+  },
+  {
+    name: "unsafe claim record rendering",
+    expected: "renders saved claim data as unsafe HTML",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "claim-organizer.js"), "\ndocument.body.innerHTML='unsafe';\n");
+    },
+  },
+  {
     name: "missing evacuation preauthorization warning",
     expected: "is missing Batch 2 travel-readiness content: authorized and arranged in advance",
     mutate(dir) {
@@ -203,11 +227,11 @@ const scenarios = [
     },
   },
   {
-    name: "stale Chase claims offline cache",
-    expected: "has not advanced to the Chase claims cache version",
+    name: "stale receipt organizer offline cache",
+    expected: "has not advanced to the receipt organizer cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-1", "trip-companion-20260728-3"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-2", "trip-companion-20260729-1"));
     },
   },
   {
