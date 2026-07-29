@@ -247,6 +247,16 @@ for (const { file, data } of maps) {
   }
 }
 
+for (const { file, data } of maps) {
+  if (!data) continue;
+  const camden = data.find((place) => place.title === "Camden Market");
+  check(Boolean(camden), `${file} is missing Camden Market`);
+  if (camden) {
+    check(camden.category === "shopping", `${file} has Camden Market in the wrong category`);
+    check(camden.tags.includes("vintage") && camden.tags.includes("street food"), `${file} is missing Camden Market search tags`);
+  }
+}
+
 if (maps.every(({ data }) => Array.isArray(data))) {
   const jack = maps[0].data;
   const mariaMap = maps[1].data;
@@ -375,7 +385,7 @@ for (const behavior of [
 }
 check(!toolsScript.includes("text.innerHTML=task.text"), "trip-tools.js renders custom task text as unsafe HTML");
 const serviceWorker = read("service-worker.js");
-check(serviceWorker.includes("trip-companion-20260728-1"), "service-worker.js has not advanced to the Batch 6 cache version");
+check(serviceWorker.includes("trip-companion-20260728-3"), "service-worker.js has not advanced to the Camden map cache version");
 for (const asset of [
   "./index.html",
   "./maria.html",

@@ -2282,5 +2282,24 @@
       "moroccan",
       "creole"
     ]
+  },
+  {
+    "query": "Camden Market Camden Lock Place London",
+    "title": "Camden Market",
+    "category": "shopping",
+    "lat": 51.5414,
+    "lng": -0.1465,
+    "address": "Camden Lock Place, London NW1 8AF, United Kingdom",
+    "tags": [
+      "camden",
+      "market",
+      "vintage",
+      "shopping",
+      "street food",
+      "canal",
+      "music",
+      "match day",
+      "september 12"
+    ]
   }
 ]
