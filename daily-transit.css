@@ -1,0 +1,51 @@
+.daily-transit{
+  margin:1rem 0 1.35rem;
+  padding:1rem;
+  border:1px solid color-mix(in srgb,var(--brass) 55%,transparent);
+  border-radius:18px;
+  background:color-mix(in srgb,var(--paper) 92%,var(--brass) 8%);
+  box-shadow:0 8px 24px rgba(18,37,54,.07);
+}
+.daily-transit__eyebrow{
+  margin:0 0 .25rem;
+  color:var(--brass-dark);
+  font:800 .7rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.daily-transit h3{margin:.1rem 0 .5rem;font-size:1.12rem}
+.daily-transit__summary{margin:.25rem 0 .8rem;color:var(--muted)}
+.daily-transit__steps{margin:.5rem 0 .85rem;padding-left:1.25rem}
+.daily-transit__steps li{margin:.38rem 0}
+.daily-transit__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem;
+  margin:.7rem 0;
+}
+.daily-transit__meta span{
+  display:inline-flex;
+  padding:.36rem .58rem;
+  border-radius:999px;
+  background:rgba(18,37,54,.08);
+  font-size:.82rem;
+  font-weight:700;
+}
+.daily-transit__note{margin:.65rem 0;font-size:.9rem;color:var(--muted)}
+.daily-transit__link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:.65rem .85rem;
+  border-radius:12px;
+  background:var(--ink);
+  color:var(--paper)!important;
+  font-weight:800;
+  text-decoration:none;
+}
+.daily-transit__link:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+@media(max-width:620px){
+  .daily-transit{padding:.9rem;border-radius:15px}
+  .daily-transit__link{display:flex;width:100%}
+}

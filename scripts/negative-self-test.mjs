@@ -319,7 +319,7 @@ const scenarios = [
     expected: "has not advanced to the cross-device vault cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-5", "trip-companion-20260729-4"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace(/trip-companion-\d{8}-\d+/, "trip-companion-20260729-4"));
     },
   },
   {

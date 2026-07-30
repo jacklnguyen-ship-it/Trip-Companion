@@ -96,7 +96,7 @@ for (const file of htmlFiles) {
   check(html.includes('id="main-content"'), `${file} is missing its main-content landmark`);
   check(html.includes('aria-label="Trip guide navigation"'), `${file} is missing its navigation label`);
   check(html.includes('id="french-audio-status"'), `${file} is missing its French audio status region`);
-  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js", "claim-organizer.css", "claim-organizer.js", "floating-shortcuts.css", "floating-shortcuts.js", "private-vault.css", "private-vault.js"]) {
+  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js", "claim-organizer.css", "claim-organizer.js", "floating-shortcuts.css", "floating-shortcuts.js", "private-vault.css", "private-vault.js", "daily-transit.css", "daily-transit.js"]) {
     check(html.includes(asset), `${file} is missing Batch 6 asset: ${asset}`);
   }
   check(html.includes('href="#page-map"'), `${file} has no link to Map & Near Me`);
@@ -456,7 +456,13 @@ const vaultCss = read("private-vault.css");
 for (const selector of [".vault-hero", ".vault-panel", ".vault-record", ".vault-dialog", "@media(max-width:620px)"]) {
   check(vaultCss.includes(selector), `private-vault.css is missing required style: ${selector}`);
 }
-check(serviceWorker.includes("trip-companion-20260729-5"), "service-worker.js has not advanced to the cross-device vault cache version");
+const cacheVersion = serviceWorker.match(/trip-companion-(\d{8})-(\d+)/);
+check(
+  Boolean(cacheVersion) &&
+    (cacheVersion[1] > "20260729" ||
+      (cacheVersion[1] === "20260729" && Number(cacheVersion[2]) >= 5)),
+  "service-worker.js has not advanced to the cross-device vault cache version",
+);
 for (const asset of [
   "./index.html",
   "./maria.html",
