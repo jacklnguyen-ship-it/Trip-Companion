@@ -25,10 +25,10 @@
         "From Sheffield Interchange, take bus 218 toward Bakewell and get off at Chatsworth House."
       ],
       time:"About 3 hr each way",
-      leave:"Target 04:40–04:50 for an early train",
+      leave:"Target 04:35–04:45 for the 10:30 entry",
       destination:"Chatsworth House, Bakewell",
       origin:"Wombat's City Hostel London, 7 Dock Street, London",
-      note:"Confirm the intercity train and bus 218 schedules shortly before travel; the bus is much less frequent than London transit."
+      note:"The House entry is confirmed for 10:30 and you should aim to arrive by 10:15. Confirm the intercity train and bus 218 schedules shortly before travel; the bus is much less frequent than London transit."
     },
     "Sept 10":{
       title:"Wombat’s → Wimbledon",
