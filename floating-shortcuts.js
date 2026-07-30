@@ -4,6 +4,10 @@
   var modal=document.getElementById('audio-shortcut-modal');
   var closeButton=document.getElementById('audio-shortcut-close');
   var list=document.getElementById('audio-shortcut-list');
+  var guideNames={
+    'audioguide-chatsworth':'Chatsworth House',
+    'audioguide-versailles':'Palace of Versailles'
+  };
   if(!openButton||!modal||!closeButton||!list)return;
   var lastFocus=null;
   function text(node){return (node&&node.textContent||'').replace(/^🎧\s*Audio Guide:?\s*/i,'').trim();}
@@ -37,7 +41,7 @@
     button.type='button';button.className='audio-shortcut-item';
     var icon=document.createElement('span');icon.className='audio-shortcut-icon';icon.setAttribute('aria-hidden','true');icon.textContent='♫';
     var copy=document.createElement('span');
-    var strong=document.createElement('strong');strong.textContent=text(guideHeading)||('Audio guide '+(index+1));
+    var strong=document.createElement('strong');strong.textContent=guideNames[guide.id]||text(guideHeading)||('Audio guide '+(index+1));
     var small=document.createElement('small');small.textContent=(pageHeading?text(pageHeading)+' · ':'')+stops.length+' stops';
     var arrow=document.createElement('span');arrow.className='audio-shortcut-arrow';arrow.setAttribute('aria-hidden','true');arrow.textContent='›';
     copy.appendChild(strong);copy.appendChild(small);button.appendChild(icon);button.appendChild(copy);button.appendChild(arrow);

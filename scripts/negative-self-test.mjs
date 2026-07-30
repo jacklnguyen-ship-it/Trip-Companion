@@ -18,6 +18,8 @@ const fixtureFiles = [
   "claim-organizer.js",
   "floating-shortcuts.css",
   "floating-shortcuts.js",
+  "private-vault.css",
+  "private-vault.js",
   "final-polish.css",
   "final-polish.js",
   "french-audio-v2.js",
@@ -155,6 +157,67 @@ const scenarios = [
     },
   },
   {
+    name: "missing named Chatsworth audio shortcut",
+    expected: "is missing the explicit guide name: Chatsworth House",
+    mutate(dir) {
+      const file = path.join(dir, "floating-shortcuts.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("'Chatsworth House'", "'Audio guide 3'"));
+    },
+  },
+  {
+    name: "missing named Versailles audio shortcut",
+    expected: "is missing the explicit guide name: Palace of Versailles",
+    mutate(dir) {
+      const file = path.join(dir, "floating-shortcuts.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("'Palace of Versailles'", "'Audio guide 8'"));
+    },
+  },
+  {
+    name: "missing private vault page",
+    expected: "is missing required section #page-vault",
+    mutate(dir) {
+      const file = path.join(dir, "index.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace('id="page-vault"', 'id="removed-page-vault"'));
+    },
+  },
+  {
+    name: "vault network transmission",
+    expected: "unexpectedly transmits private vault data",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "private-vault.js"), "\nfetch('/upload-vault');\n");
+    },
+  },
+  {
+    name: "unsafe vault record rendering",
+    expected: "renders private records as unsafe HTML",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "private-vault.js"), "\ndocument.body.innerHTML='unsafe';\n");
+    },
+  },
+  {
+    name: "weak vault key derivation",
+    expected: "is missing required encrypted-vault behavior: 600000",
+    mutate(dir) {
+      const file = path.join(dir, "private-vault.js");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("600000", "1000"));
+    },
+  },
+  {
+    name: "surprise leak in vault starter data",
+    expected: "exposes a surprise venue in public starter data",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "private-vault.js"), "\n// Witness for the Prosecution\n");
+    },
+  },
+  {
+    name: "missing Carette written guide",
+    expected: "is missing Carette’s official Place des Vosges guide entry",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replaceAll("https://paris-carette.fr/nos-magasins/place-des-vosges", "removed-carette-official"));
+    },
+  },
+  {
     name: "claim organizer network transmission",
     expected: "unexpectedly transmits private claim data",
     mutate(dir) {
@@ -245,10 +308,10 @@ const scenarios = [
   },
   {
     name: "stale floating shortcuts offline cache",
-    expected: "has not advanced to the floating shortcuts cache version",
+    expected: "has not advanced to the private vault cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-3", "trip-companion-20260729-2"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-4", "trip-companion-20260729-3"));
     },
   },
   {
