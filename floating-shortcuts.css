@@ -13,3 +13,22 @@ body:has(.day-modal.open) .floating-shortcuts{display:none}
 @media(max-width:860px){.floating-shortcuts{left:50%;right:auto;bottom:max(.65rem,env(safe-area-inset-bottom));width:min(calc(100% - 1rem),430px);transform:translateX(-50%)}.content-wrap{padding-bottom:7rem!important}}
 @media(min-width:861px){.floating-shortcuts{bottom:1.25rem}.audio-shortcut-modal{align-items:center}.audio-shortcut-sheet{border-radius:18px}}
 @media(prefers-reduced-motion:reduce){.floating-shortcuts,.audio-shortcut-modal{scroll-behavior:auto}}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.currency-fab{position:fixed;right:1rem;bottom:6.2rem;z-index:920;display:flex;align-items:center;justify-content:flex-end;gap:.45rem;padding:0;border:0;background:transparent;color:var(--ink);font:inherit;cursor:pointer;filter:drop-shadow(0 9px 18px rgba(16,38,58,.28))}
+.currency-fab-bubble{display:grid;place-items:center;width:58px;height:58px;border:2px solid color-mix(in srgb,var(--brass) 75%,#fff);border-radius:50%;background:var(--brass);color:#fff;font-size:1rem;font-weight:900;letter-spacing:-.08em}
+.currency-fab-pill{padding:.62rem .78rem;border:1px solid var(--line);border-radius:999px;background:var(--parchment-card);color:var(--ink);font-size:.78rem;font-weight:900;white-space:nowrap}
+.currency-fab:hover .currency-fab-bubble,.currency-fab:focus-visible .currency-fab-bubble{background:var(--ink)}.currency-fab:focus-visible{outline:3px solid var(--brass);outline-offset:4px;border-radius:999px}
+.currency-shortcut-modal[hidden]{display:none}.currency-shortcut-modal{position:fixed;inset:0;z-index:2600;display:flex;align-items:flex-end;justify-content:center;padding:1rem;background:rgba(16,38,58,.68);backdrop-filter:blur(5px)}
+.currency-shortcut-sheet{width:min(470px,100%);padding:1.1rem;border-radius:20px 20px 12px 12px;background:var(--parchment);color:var(--ink);box-shadow:0 -20px 60px rgba(0,0,0,.32)}
+.currency-shortcut-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin:-.1rem 0 1rem;padding-bottom:.8rem;border-bottom:1px solid var(--line)}
+.currency-shortcut-head p{margin:0;color:var(--brass-dark);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.currency-shortcut-head h2{margin:.15rem 0 0!important;padding:0!important;border:0!important}
+.currency-shortcut-head button{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:var(--parchment-card);color:var(--ink);font-size:1.55rem;cursor:pointer}
+.currency-shortcut-row{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}.currency-shortcut-row label{color:var(--slate);font:800 .7rem ui-monospace,monospace;text-transform:uppercase}.currency-shortcut-row input,.currency-shortcut-row select{display:block;box-sizing:border-box;width:100%;margin-top:.3rem;padding:.8rem;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit}
+.currency-shortcut-result{margin:.9rem 0;padding:1rem;border-radius:12px;background:var(--ink);color:#fff;font-size:1.55rem;font-weight:900;text-align:center}
+.currency-quick-amounts{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem}.currency-quick-amounts button{min-height:42px;border:1px solid var(--line);border-radius:9px;background:var(--parchment-card);color:var(--ink);font:inherit;font-weight:800;cursor:pointer}.currency-quick-amounts button:hover,.currency-quick-amounts button:focus-visible{border-color:var(--brass);background:var(--brass);color:#fff}
+.currency-shortcut-meta{margin:.7rem 0 0!important;color:var(--slate)!important;font-size:.76rem!important;text-align:center}
+body:has(.day-modal.open) .currency-fab{display:none}
+@media(max-width:860px){.currency-fab{right:max(.75rem,calc((100vw - 430px)/2 + .75rem));bottom:calc(max(.65rem,env(safe-area-inset-bottom)) + 69px)}}
+@media(min-width:861px){.currency-shortcut-modal{align-items:center}.currency-shortcut-sheet{border-radius:20px}}
+@media(max-width:420px){.currency-fab-bubble{width:52px;height:52px}.currency-shortcut-row{grid-template-columns:1fr}.currency-quick-amounts{grid-template-columns:repeat(5,1fr)}}
+@media(prefers-reduced-motion:reduce){.currency-shortcut-modal{scroll-behavior:auto}}

@@ -453,7 +453,7 @@ body.day-modal-open{overflow:hidden}
 <link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
 <link rel="stylesheet" href="trip-tools.css?v=20260727-1">
 <link rel="stylesheet" href="claim-organizer.css?v=20260729-1">
-<link rel="stylesheet" href="floating-shortcuts.css?v=20260729-1">
+<link rel="stylesheet" href="floating-shortcuts.css?v=20260730-2">
 <link rel="stylesheet" href="private-vault.css?v=20260729-1">
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 <link rel="stylesheet" href="daily-transit.css?v=20260729-2">
@@ -3443,6 +3443,25 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     }, false);
   })();
 </script>
+<button class="currency-fab" id="currency-fab" type="button" aria-haspopup="dialog" aria-expanded="false">
+  <span class="currency-fab-pill" id="currency-fab-pill" hidden></span>
+  <span class="currency-fab-bubble" aria-hidden="true">£€$</span>
+  <span class="sr-only">Open currency converter</span>
+</button>
+<div class="currency-shortcut-modal" id="currency-shortcut-modal" role="dialog" aria-modal="true" aria-labelledby="currency-shortcut-title" hidden>
+  <div class="currency-shortcut-sheet">
+    <div class="currency-shortcut-head"><div><p>Quick travel tool</p><h2 id="currency-shortcut-title">Currency converter</h2></div><button id="currency-shortcut-close" type="button" aria-label="Close currency converter">×</button></div>
+    <div class="currency-shortcut-row">
+      <label>Amount<input id="currency-shortcut-amount" type="number" min="0" step="0.01" value="20" inputmode="decimal"></label>
+      <label>From<select id="currency-shortcut-code"><option value="GBP">£ British pounds</option><option value="EUR">€ Euros</option></select></label>
+    </div>
+    <div class="currency-shortcut-result" id="currency-shortcut-result" aria-live="polite">Loading rate…</div>
+    <div class="currency-quick-amounts" aria-label="Quick amounts">
+      <button type="button" data-currency-amount="5">5</button><button type="button" data-currency-amount="10">10</button><button type="button" data-currency-amount="20">20</button><button type="button" data-currency-amount="50">50</button><button type="button" data-currency-amount="100">100</button>
+    </div>
+    <p class="currency-shortcut-meta" id="currency-shortcut-meta">Downloading current reference rates…</p>
+  </div>
+</div>
 <nav class="floating-shortcuts" aria-label="Quick shortcuts">
   <a href="#page-home"><span aria-hidden="true">⌂</span><span>Home</span></a>
   <a href="#page-itinerary"><span aria-hidden="true">☷</span><span>Itinerary</span></a>
@@ -3458,7 +3477,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="guide-map-v2.js?v=20260727-1"></script>
 <script src="home-intelligence.js?v=20260726-1"></script>
-<script src="trip-tools.js?v=20260727-1"></script>
+<script src="trip-tools.js?v=20260730-2"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>
 <script src="floating-shortcuts.js?v=20260729-1"></script>
 <script src="private-vault.js?v=20260729-1"></script>

@@ -11,21 +11,94 @@
 
   function initCurrency(){
     var tool=document.getElementById('currency-tool');
-    if(!tool)return;
     var amount=document.getElementById('currency-amount'),currency=document.getElementById('currency-code');
     var result=document.getElementById('currency-result'),meta=document.getElementById('currency-meta');
+    var fab=document.getElementById('currency-fab'),pill=document.getElementById('currency-fab-pill');
+    var modal=document.getElementById('currency-shortcut-modal'),closeButton=document.getElementById('currency-shortcut-close');
+    var shortcutAmount=document.getElementById('currency-shortcut-amount'),shortcutCurrency=document.getElementById('currency-shortcut-code');
+    var shortcutResult=document.getElementById('currency-shortcut-result'),shortcutMeta=document.getElementById('currency-shortcut-meta');
+    if(!tool&&!fab)return;
     var cached=storageGet('trip-fx-rates',null);
     var rates=cached&&cached.rates?cached.rates:null;
-    function render(){
-      var value=parseFloat(amount.value);
-      if(!Number.isFinite(value)){result.textContent='$0.00';return;}
-      if(!rates||!rates[currency.value]){result.textContent='Rate unavailable';return;}
-      result.textContent=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(value*rates[currency.value]);
+    var savedChoice=storageGet('trip-fx-choice',{amount:20,currency:'GBP'});
+    var pillTimer=null,lastFocus=null;
+    function usd(value){return new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(value);}
+    function local(value,code){return new Intl.NumberFormat('en-US',{style:'currency',currency:code,maximumFractionDigits:2}).format(value);}
+    function calculate(input,select,output){
+      if(!input||!select||!output)return null;
+      var value=parseFloat(input.value),code=select.value;
+      if(!Number.isFinite(value)){output.textContent='$0.00';return null;}
+      if(!rates||!rates[code]){output.textContent='Rate unavailable';return null;}
+      var converted=value*rates[code];
+      output.textContent=usd(converted);
+      return{value:value,code:code,converted:converted};
     }
-    amount.addEventListener('input',render);currency.addEventListener('change',render);
+    function remember(calculation){
+      if(!calculation)return;
+      storageSet('trip-fx-choice',{amount:calculation.value,currency:calculation.code});
+    }
+    function showPill(calculation){
+      if(!pill||!calculation)return;
+      pill.textContent=local(calculation.value,calculation.code)+' ≈ '+usd(calculation.converted);
+      pill.hidden=false;
+      clearTimeout(pillTimer);
+      pillTimer=setTimeout(function(){pill.hidden=true;},5000);
+    }
+    function renderHome(){
+      var calculation=calculate(amount,currency,result);remember(calculation);return calculation;
+    }
+    function renderShortcut(show){
+      var calculation=calculate(shortcutAmount,shortcutCurrency,shortcutResult);remember(calculation);
+      if(show)showPill(calculation);
+      return calculation;
+    }
+    function syncFromSaved(){
+      var choice=storageGet('trip-fx-choice',savedChoice);
+      if(amount)amount.value=choice.amount;
+      if(currency)currency.value=choice.currency;
+      if(shortcutAmount)shortcutAmount.value=choice.amount;
+      if(shortcutCurrency)shortcutCurrency.value=choice.currency;
+    }
+    function setMeta(message){
+      if(meta)meta.textContent=message;
+      if(shortcutMeta)shortcutMeta.textContent=message;
+    }
+    function close(){
+      if(!modal)return;
+      modal.hidden=true;document.body.style.overflow='';fab.setAttribute('aria-expanded','false');
+      if(lastFocus&&lastFocus.focus)lastFocus.focus();
+    }
+    function open(){
+      if(!modal)return;
+      lastFocus=document.activeElement;syncFromSaved();renderShortcut(false);
+      modal.hidden=false;document.body.style.overflow='hidden';fab.setAttribute('aria-expanded','true');
+      setTimeout(function(){shortcutAmount.focus();shortcutAmount.select();},0);
+    }
+    syncFromSaved();
+    if(amount)amount.addEventListener('input',renderHome);
+    if(currency)currency.addEventListener('change',renderHome);
+    if(shortcutAmount)shortcutAmount.addEventListener('input',function(){renderShortcut(true);});
+    if(shortcutCurrency)shortcutCurrency.addEventListener('change',function(){renderShortcut(true);});
+    document.querySelectorAll('[data-currency-amount]').forEach(function(button){
+      button.addEventListener('click',function(){shortcutAmount.value=button.getAttribute('data-currency-amount');renderShortcut(true);});
+    });
+    if(fab)fab.addEventListener('click',open);
+    if(closeButton)closeButton.addEventListener('click',close);
+    if(modal)modal.addEventListener('click',function(event){if(event.target===modal)close();});
+    document.addEventListener('keydown',function(event){
+      if(!modal||modal.hidden)return;
+      if(event.key==='Escape'){close();return;}
+      if(event.key==='Tab'){
+        var controls=modal.querySelectorAll('button:not([disabled]),input:not([disabled]),select:not([disabled])');
+        if(!controls.length)return;
+        var first=controls[0],last=controls[controls.length-1];
+        if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+        else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+      }
+    });
     if(cached){
-      meta.textContent='Using saved reference rates from '+cached.date+'.';
-      render();
+      setMeta('Using saved reference rates from '+cached.date+'.');
+      renderHome();renderShortcut(false);
     }
     fetch('https://api.frankfurter.dev/v2/rates?base=EUR&quotes=USD,GBP&providers=ECB')
       .then(function(response){if(!response.ok)throw new Error('rate request failed');return response.json();})
@@ -36,12 +109,12 @@
         rates={EUR:usd.rate,GBP:usd.rate/gbp.rate};
         var saved={rates:rates,date:usd.date,source:'ECB reference rates'};
         storageSet('trip-fx-rates',saved);
-        meta.textContent='ECB reference rates · '+usd.date+' · estimates only.';
-        render();
+        setMeta('ECB reference rates · '+usd.date+' · estimates only.');
+        renderHome();renderShortcut(false);
       })
       .catch(function(){
-        meta.textContent=rates?'Offline · using the last saved reference rates.':'Connect once to download current reference rates.';
-        render();
+        setMeta(rates?'Offline · using the last saved reference rates.':'Connect once to download current reference rates.');
+        renderHome();renderShortcut(false);
       });
   }
 
