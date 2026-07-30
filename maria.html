@@ -497,6 +497,10 @@ body:has(.page:target) #page-home:target{display:block}
       <label class="vault-field"><span>Confirm passphrase</span><input type="password" name="confirmPassword" minlength="12" autocomplete="new-password" required></label>
       <div class="vault-actions"><button class="vault-button" type="submit">Create encrypted vault</button></div>
     </form>
+    <hr>
+    <p class="vault-muted"><strong>Already created the vault on another device?</strong> Import its encrypted backup here instead of making a new password.</p>
+    <label class="vault-button secondary" for="vault-import-first">Import existing encrypted vault</label>
+    <input id="vault-import-first" class="vault-import-input" type="file" accept="application/json,.json" hidden>
   </section>
 
   <section class="vault-panel" id="vault-unlock" hidden>
@@ -513,7 +517,7 @@ body:has(.page:target) #page-home:target{display:block}
       <div class="vault-toolbar-group">
         <button class="vault-button secondary" id="vault-export" type="button">Download encrypted backup</button>
         <label class="vault-button secondary" for="vault-import">Import encrypted backup</label>
-        <input id="vault-import" type="file" accept="application/json,.json" hidden>
+        <input id="vault-import" class="vault-import-input" type="file" accept="application/json,.json" hidden>
         <button class="vault-button secondary" id="vault-lock" type="button">Lock now</button>
       </div>
     </div>

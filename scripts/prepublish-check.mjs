@@ -163,6 +163,7 @@ for (const file of htmlFiles) {
     "Private Travel Vault",
     "Your password and private records never leave this device.",
     "Download encrypted backup",
+    "Import existing encrypted vault",
   ]) {
     check(html.includes(readinessText), `${file} is missing Batch 2 travel-readiness content: ${readinessText}`);
   }
@@ -441,6 +442,7 @@ for (const behavior of [
   "AUTO_LOCK_MS",
   "trip-companion-",
   "validEnvelope",
+  "querySelectorAll('.vault-import-input')",
   "textContent",
 ]) {
   check(vaultScript.includes(behavior), `private-vault.js is missing required encrypted-vault behavior: ${behavior}`);
@@ -454,7 +456,7 @@ const vaultCss = read("private-vault.css");
 for (const selector of [".vault-hero", ".vault-panel", ".vault-record", ".vault-dialog", "@media(max-width:620px)"]) {
   check(vaultCss.includes(selector), `private-vault.css is missing required style: ${selector}`);
 }
-check(serviceWorker.includes("trip-companion-20260729-4"), "service-worker.js has not advanced to the private vault cache version");
+check(serviceWorker.includes("trip-companion-20260729-5"), "service-worker.js has not advanced to the cross-device vault cache version");
 for (const asset of [
   "./index.html",
   "./maria.html",

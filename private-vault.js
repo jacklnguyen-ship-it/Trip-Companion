@@ -215,15 +215,18 @@
       link.href=url;link.download='trip-companion-'+guideKey+'-vault.encrypted.json';link.click();setTimeout(function(){URL.revokeObjectURL(url);},1000);setMessage(status,'Encrypted backup downloaded. Keep its passphrase safe.','success');
     }catch(error){handleError(error);}
   });
-  document.getElementById('vault-import').addEventListener('change',function(event){
-    var file=event.target.files[0];if(!file)return;var reader=new FileReader();
-    reader.onload=async function(){
-      try{
-        var envelope=JSON.parse(reader.result);if(!validEnvelope(envelope))throw new Error('That is not a valid encrypted Trip Companion vault backup.');
-        if(!confirm('Replace this device’s encrypted vault with the selected backup? Export the current vault first if needed.'))return;
-        await writeEnvelope(envelope);lockVault('Encrypted backup imported. Unlock it with the backup passphrase.');
-      }catch(error){handleError(error);}finally{event.target.value='';}
-    };reader.readAsText(file);
+  document.querySelectorAll('.vault-import-input').forEach(function(input){
+    input.addEventListener('change',function(event){
+      var file=event.target.files[0];if(!file)return;var reader=new FileReader();
+      reader.onload=async function(){
+        try{
+          var envelope=JSON.parse(reader.result);if(!validEnvelope(envelope))throw new Error('That is not a valid encrypted Trip Companion vault backup.');
+          var existing=await readEnvelope();
+          if(existing&&!confirm('Replace this device’s encrypted vault with the selected backup? Export the current vault first if needed.'))return;
+          await writeEnvelope(envelope);lockVault('Encrypted backup imported. Unlock it with the backup passphrase.');
+        }catch(error){handleError(error);}finally{event.target.value='';}
+      };reader.readAsText(file);
+    });
   });
   document.getElementById('vault-reset').addEventListener('click',async function(){
     if(!confirm('Permanently erase this encrypted vault from this device? This cannot be undone without an exported backup.'))return;
