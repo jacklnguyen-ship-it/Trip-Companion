@@ -10,6 +10,7 @@ const categoryTags = {
   art: ["art", "prints"],
   icecream: ["ice cream", "dessert"],
   afternoontea: ["afternoon tea", "tea", "pastries"],
+  markets: ["market", "shopping", "street food"],
   hotel: ["hotel"],
 };
 const specialtyRules = [

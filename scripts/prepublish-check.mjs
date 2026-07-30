@@ -228,6 +228,7 @@ const approvedCategories = new Set([
   "art",
   "icecream",
   "afternoontea",
+  "markets",
   "hotel",
 ]);
 const mapFiles = ["map-places-index.json", "map-places-maria.json"];
@@ -259,7 +260,7 @@ for (const { file, data } of maps) {
   const market = data.find((place) => place.title === "Marché des Enfants Rouges");
   check(Boolean(market), `${file} is missing Marché des Enfants Rouges`);
   if (market) {
-    check(market.category === "food", `${file} assigns Marché des Enfants Rouges to the wrong category`);
+    check(market.category === "markets", `${file} assigns Marché des Enfants Rouges to the wrong category`);
     check(market.tags.includes("food market"), `${file} is missing Marché des Enfants Rouges specialty tags`);
   }
   const carette = data.find((place) => place.title === "Carette");
@@ -275,8 +276,20 @@ for (const { file, data } of maps) {
   const camden = data.find((place) => place.title === "Camden Market");
   check(Boolean(camden), `${file} is missing Camden Market`);
   if (camden) {
-    check(camden.category === "shopping", `${file} has Camden Market in the wrong category`);
+    check(camden.category === "markets", `${file} has Camden Market in the wrong category`);
     check(camden.tags.includes("vintage") && camden.tags.includes("street food"), `${file} is missing Camden Market search tags`);
+  }
+  const requiredMarkets = ["Borough Market", "Broadway Market", "Greenwich Market", "Columbia Road Flower Market", "Marché d’Aligre", "Marché Bastille", "Marché aux Puces de Saint-Ouen", "Marché Monge"];
+  for (const title of requiredMarkets) {
+    const entry = data.find((place) => place.title === title);
+    check(Boolean(entry), `${file} is missing market pin: ${title}`);
+    if (entry) check(entry.category === "markets", `${file} assigns ${title} to the wrong category`);
+  }
+  const requiredBoutiques = ["Merci", "Empreintes", "Papier Tigre", "Officine Universelle Buly", "Fleux’", "Marin Montagut"];
+  for (const title of requiredBoutiques) {
+    const entry = data.find((place) => place.title === title);
+    check(Boolean(entry), `${file} is missing Paris boutique pin: ${title}`);
+    if (entry) check(entry.category === "shopping", `${file} assigns ${title} to the wrong category`);
   }
 }
 

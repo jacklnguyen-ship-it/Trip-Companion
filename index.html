@@ -183,6 +183,7 @@ body:has(#page-vintage:target) a.navlink[href="#page-vintage"]{ background:rgba(
 body:has(#page-coffee:target) a.navlink[href="#page-coffee"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-icecream:target) a.navlink[href="#page-icecream"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-boutique:target) a.navlink[href="#page-boutique"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
+body:has(#page-markets:target) a.navlink[href="#page-markets"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-home:target) a.navlink[href="#page-home"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:not(:has(.page:target)) a.navlink[href="#page-home"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
@@ -458,7 +459,7 @@ body.day-modal-open{overflow:hidden}
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 <link rel="stylesheet" href="daily-transit.css?v=20260729-2">
 </head>
-<body data-map-data="map-places-index.json?v=20260728-3" data-vault-guide="index">
+<body data-map-data="map-places-index.json?v=20260730-1" data-vault-guide="index">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
@@ -501,6 +502,7 @@ body.day-modal-open{overflow:hidden}
     <a class="navlink" href="#page-icecream"><span class="num">13</span> Ice Cream Guide</a>
     <a class="navlink" href="#page-boutique"><span class="num">14</span> Boutique Guide</a>
     <a class="navlink" href="#page-jetlag"><span class="num">15</span> Jet Lag Guide</a>
+    <a class="navlink" href="#page-markets"><span class="num">16</span> Markets Guide</a>
   </nav>
 
   <main class="content-wrap" id="main-content" tabindex="-1">
@@ -2907,7 +2909,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <div class="trip-map-shell">
   <div class="trip-map-toolbar">
     <label class="trip-map-field"><span>Area</span><select id="map-city-filter"><option value="all">All areas</option><option value="london">London</option><option value="paris">Paris</option><option value="daytrips">Bath &amp; day trips</option></select></label>
-    <label class="trip-map-field"><span>Category</span><select id="map-category-filter"><option value="all">Everything</option><option value="attractions">Attractions</option><option value="food">Food &amp; bakeries</option><option value="coffee">Coffee</option><option value="drinks">Pubs &amp; drinks</option><option value="shopping">Vintage &amp; shopping</option><option value="art">Art &amp; prints</option><option value="icecream">Ice cream</option><option value="afternoontea">Afternoon tea</option><option value="hotel">Hotel</option></select></label>
+    <label class="trip-map-field"><span>Category</span><select id="map-category-filter"><option value="all">Everything</option><option value="attractions">Attractions</option><option value="food">Food &amp; bakeries</option><option value="coffee">Coffee</option><option value="drinks">Pubs &amp; drinks</option><option value="shopping">Vintage &amp; shopping</option><option value="markets">Markets</option><option value="art">Art &amp; prints</option><option value="icecream">Ice cream</option><option value="afternoontea">Afternoon tea</option><option value="hotel">Hotel</option></select></label>
     <button class="trip-map-button" id="map-locate" type="button">Use my location</button>
     <button class="trip-map-button secondary" id="map-show-all" type="button">Show all</button>
   </div>
@@ -2990,10 +2992,36 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <h2>Best matches for this trip</h2>
 <p><strong>London:</strong> Gelupo if you are already in Soho; Mamasons for the most unusual flavor experience. <strong>Paris:</strong> Bachir is the lowest-friction choice near your hotel, while Berthillon fits naturally with the Île de la Cité area.</p>
 </section>
+<section class="page" id="page-markets">
+<h1>Markets Guide</h1>
+<p><strong>Curated for atmosphere, distinctive food, independent makers and vintage finds—not simply the largest markets.</strong> Opening days matter, so each recommendation includes the best fit for your actual itinerary.</p>
+<hr />
+<h2>London</h2>
+<ul>
+<li><strong><a href="https://boroughmarket.org.uk/visit-us/">Borough Market</a></strong> — <strong>best food destination and already scheduled for Sept 10.</strong> Prioritize Bread Ahead’s crème brûlée doughnut, Brindisa’s chorizo roll, Kappacasein’s toasted cheese and Monmouth Coffee rather than trying everything.</li>
+<li><strong><a href="https://www.camdenmarket.com/">Camden Market</a></strong> — <strong>best mix of counterculture, vintage and spectacle.</strong> Your Sept 12 plan allows 10:00–11:45 for Camden Lock, the Stables and vintage stalls, followed by the protected return to Wombat’s before the match.</li>
+<li><strong><a href="https://www.maltbystreetmarket.co.uk/">Maltby Street Market</a></strong> — <strong>best quieter alternative to Borough.</strong> The compact Ropewalk setting beneath railway arches offers excellent weekend food with less sprawl.</li>
+<li><strong><a href="https://oldspitalfieldsmarket.com/">Old Spitalfields Market</a></strong> — <strong>best low-friction browse from your hotel.</strong> Covered stalls, independent makers, fashion and food make it useful even in uncertain weather.</li>
+<li><strong><a href="https://broadwaymarket.co.uk/">Broadway Market</a></strong> — <strong>best neighborhood Saturday market.</strong> A lively Hackney mix of produce, prepared food, books and small makers; the strongest alternative if the Camden plan changes.</li>
+<li><strong><a href="https://www.greenwichmarket.london/">Greenwich Market</a></strong> — <strong>best makers-and-design market.</strong> Combine its crafts, art, antiques and street food with Greenwich, the Cutty Sark or a river boat.</li>
+<li><strong><a href="https://www.columbiaroad.info/">Columbia Road Flower Market</a></strong> — <strong>most photogenic.</strong> Sunday flowers, plants and independent shops fill a narrow East London street, but your Sept 13 Eurostar makes it risky.</li>
+</ul>
+<h2>Paris</h2>
+<ul>
+<li><strong><a href="https://www.paris.fr/lieux/marche-couvert-des-enfants-rouges-5461">Marché des Enfants Rouges</a></strong> — <strong>best itinerary fit and oldest covered market in Paris.</strong> It works on Sept 13 after check-in or Sept 15 as a backup, but is closed Monday.</li>
+<li><strong><a href="https://www.paris.fr/lieux/marche-d-aligre-5481">Marché d’Aligre</a></strong> — <strong>best value and neighborhood energy.</strong> Produce, the covered Beauvau market and inexpensive brocante tables; open mornings Tuesday–Sunday.</li>
+<li><strong><a href="https://mairie11.paris.fr/pages/les-marches-du-11e-9830">Marché Bastille</a></strong> — <strong>best large traditional food market.</strong> It runs Thursday and Sunday mornings; Sept 17 is possible if packing is already complete.</li>
+<li><strong><a href="https://www.paris.fr/pages/les-marches-parisiens-2428">Marché Monge</a></strong> — <strong>best compact Left Bank option.</strong> Open Wednesday, Friday and Sunday mornings; it can fit Sept 16 only if you deliberately shorten the stop.</li>
+<li><strong><a href="https://www.pucesdeparissaintouen.com/">Marché aux Puces de Paris Saint-Ouen</a></strong> — <strong>best serious vintage and antiques hunt.</strong> The enormous weekend complex needs several hours, so save it as an alternate-trip destination.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Marche+de+la+Creation+Edgar+Quinet+Paris">Marché de la Création Edgar Quinet</a></strong> — <strong>best art-market browse.</strong> Independent artists sell original work on Sunday, but your arrival is too late for a dependable visit.</li>
+</ul>
+<h2>Best choices for this trip</h2>
+<p><strong>Keep Borough and Camden as planned.</strong> Add Old Spitalfields for an easy hotel-area browse. In Paris, Marché des Enfants Rouges is the strongest flexible addition; Marché Bastille is the best final-morning option if you are ready for the airport.</p>
+</section>
 <section class="page" id="page-boutique">
 <h1>Boutique Guide</h1>
 <p><strong>Independent boutiques for gifts, home goods and a browse—curated across both cities from what's already on your route.</strong></p>
-<p><em>This leans London/Bath-heavy for now, since that's what your itineraries have documented in detail so far. Flag it if you'd like the Paris side built out further.</em></p>
+<p><em>The Paris section emphasizes French craft, useful gifts and memorable interiors, with several stops clustered in the Haut-Marais.</em></p>
 <hr />
 <h2>Bath — Milsom Street &amp; Walcot Street</h2>
 <p>These two streets cover almost everything, and both sit inside your Sept 11 evening window if there's any spare time before Roman Baths.</p>
@@ -3025,14 +3053,23 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Oliver+Bonas+Winchester">Oliver Bonas</a></strong> — UK fashion/homeware/design store directly opposite Winchester Cathedral; a good stop for design-led gifts if your Sept 11 tour leaves a few spare minutes.</li>
 </ul>
 <hr />
-<h2>Paris</h2>
-<p><em>Thinner section for now — your Paris guide hasn't documented dedicated boutique shopping the way London and Bath have. These two are what's already on your route; worth expanding if you want a fuller Marais boutique crawl.</em></p>
+<h2>Paris — Haut-Marais design and French craft</h2>
+<p>These first five sit close enough to form a focused browse around Rue de Bretagne, with Marché des Enfants Rouges as the natural food break.</p>
 <ul>
-<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Village+Saint-Paul+Paris">Village Saint-Paul</a></strong> (Le Marais) — a labyrinth of paved courtyards filled with antique dealers and small galleries; a quiet, leisurely wander that fits naturally into Sept 13 evening or Sept 14 after Carnavalet.</li>
-<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Shakespeare+and+Company+bookstore+Paris">Shakespeare and Company</a></strong> — the legendary English-language bookshop; equal parts literary landmark and boutique browse, already on your Sept 14 route.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Empreintes+5+Rue+de+Picardie+Paris">Empreintes</a></strong> — <strong>best French-made craft.</strong> Four levels of ceramics, jewelry, glass, wood and paper handmade in French workshops; small objects make distinctive gifts.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Merci+111+Boulevard+Beaumarchais+Paris">Merci</a></strong> — <strong>best complete concept-store experience.</strong> Fashion, linens, stationery, tableware and design objects fill a dramatic former fabric workshop with the famous red Fiat courtyard.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Papier+Tigre+5+Rue+des+Filles+du+Calvaire+Paris">Papier Tigre</a></strong> — <strong>best affordable design gift.</strong> Colorful Paris-designed notebooks, planners, cards and desk accessories are packable, useful and good value.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Officine+Universelle+Buly+45+Rue+de+Saintonge+Paris">Officine Universelle Buly</a></strong> — <strong>most beautiful beauty boutique.</strong> Old-apothecary interiors, calligraphy and personalized labels turn soaps, oils and combs into memorable gifts.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Fleux+39+Rue+Sainte-Croix+de+la+Bretonnerie+Paris">Fleux’</a></strong> — <strong>best playful homeware browse.</strong> Multiple neighboring spaces carry lighting, kitchen objects, accessories and quirky gifts across a wide price range.</li>
+</ul>
+<h2>Paris — Left Bank and literary route</h2>
+<ul>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Marin+Montagut+48+Rue+Madame+Paris">Marin Montagut</a></strong> — <strong>most romantic Parisian aesthetic.</strong> Hand-painted glassware, illustrated maps, trays and whimsical house objects in a cabinet-of-curiosities setting.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Village+Saint-Paul+Paris">Village Saint-Paul</a></strong> — antique dealers and small galleries spread through quiet paved courtyards; best for a slow browse.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Shakespeare+and+Company+bookstore+Paris">Shakespeare and Company</a></strong> — buy a stamped book as a compact literary souvenir during your Sept 14 route.</li>
 </ul>
 <h2>Best matches for this trip</h2>
-<p><strong>Bath:</strong> Fat Giraffe Gifts and Wood &amp; Burr are both an easy add if your Sept 11 evening has any slack before Roman Baths. <strong>London:</strong> Coal Drops Yard is worth folding into a King's Cross morning if one opens up. <strong>Paris:</strong> Village Saint-Paul pairs naturally with your existing Sept 13/14 Marais wandering.</p>
+<p><strong>Paris:</strong> combine Empreintes, Papier Tigre and Buly with Marché des Enfants Rouges for the highest-value, lowest-friction boutique loop; add Merci for the full concept-store experience. <strong>London:</strong> Coal Drops Yard is worthwhile if a King’s Cross window opens.</p>
 </section>
 <section class="page" id="page-jetlag">
 <h1>Jet Lag Guide</h1>
@@ -3280,7 +3317,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     var active='all',categoryMap={
       'page-itinerary':'days','page-logistics':'travel','page-london':'london','page-bath':'london',
       'page-chatsworth':'london','page-london_pubs':'london','page-paris':'paris','page-versailles':'paris',
-      'page-opera':'paris','page-paris_drinks':'paris','page-food':'food','page-french':'travel','page-jetlag':'travel',
+      'page-opera':'paris','page-paris_drinks':'paris','page-food':'food','page-french':'travel','page-jetlag':'travel','page-markets':'travel',
       'page-map':'travel','page-vintage':'travel','page-coffee':'food','page-icecream':'food',
       'page-boutique':'travel'
     },items=[],mapCategories={food:1,coffee:1,drinks:1,icecream:1,afternoontea:1};
@@ -3475,7 +3512,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
   </div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script src="guide-map-v2.js?v=20260727-1"></script>
+<script src="guide-map-v2.js?v=20260730-1"></script>
 <script src="home-intelligence.js?v=20260726-1"></script>
 <script src="trip-tools.js?v=20260730-2"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>
