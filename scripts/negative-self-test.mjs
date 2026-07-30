@@ -181,6 +181,14 @@ const scenarios = [
     },
   },
   {
+    name: "missing first-device vault import",
+    expected: "is missing Batch 2 travel-readiness content: Import existing encrypted vault",
+    mutate(dir) {
+      const file = path.join(dir, "maria.html");
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("Import existing encrypted vault", "Removed first-device import"));
+    },
+  },
+  {
     name: "vault network transmission",
     expected: "unexpectedly transmits private vault data",
     mutate(dir) {
@@ -308,10 +316,10 @@ const scenarios = [
   },
   {
     name: "stale floating shortcuts offline cache",
-    expected: "has not advanced to the private vault cache version",
+    expected: "has not advanced to the cross-device vault cache version",
     mutate(dir) {
       const file = path.join(dir, "service-worker.js");
-      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-4", "trip-companion-20260729-3"));
+      fs.writeFileSync(file, fs.readFileSync(file, "utf8").replace("trip-companion-20260729-5", "trip-companion-20260729-4"));
     },
   },
   {
