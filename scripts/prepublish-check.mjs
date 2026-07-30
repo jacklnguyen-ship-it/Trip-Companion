@@ -73,7 +73,7 @@ function pngDimensions(file) {
 }
 
 const htmlFiles = ["index.html", "maria.html"];
-const requiredPages = ["page-home", "page-itinerary", "page-logistics", "page-emergency", "page-food", "page-map"];
+const requiredPages = ["page-home", "page-itinerary", "page-logistics", "page-vault", "page-emergency", "page-food", "page-map"];
 const weekdayLabels = [
   "Mon · Sept 7",
   "Tue · Sept 8",
@@ -96,10 +96,12 @@ for (const file of htmlFiles) {
   check(html.includes('id="main-content"'), `${file} is missing its main-content landmark`);
   check(html.includes('aria-label="Trip guide navigation"'), `${file} is missing its navigation label`);
   check(html.includes('id="french-audio-status"'), `${file} is missing its French audio status region`);
-  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js", "claim-organizer.css", "claim-organizer.js", "floating-shortcuts.css", "floating-shortcuts.js"]) {
+  for (const asset of ["final-polish.css", "final-polish.js", "french-audio-v2.js", "claim-organizer.css", "claim-organizer.js", "floating-shortcuts.css", "floating-shortcuts.js", "private-vault.css", "private-vault.js"]) {
     check(html.includes(asset), `${file} is missing Batch 6 asset: ${asset}`);
   }
   check(html.includes('href="#page-map"'), `${file} has no link to Map & Near Me`);
+  check(html.includes("https://paris-carette.fr/nos-magasins/place-des-vosges"), `${file} is missing Carette’s official Place des Vosges guide entry`);
+  check(html.includes("Carette, 25 Place des Vosges"), `${file} is missing Carette’s researched address`);
   check(html.includes('id="map-search-input"'), `${file} is missing map search`);
   check(html.includes('id="map-search-clear"'), `${file} is missing the map search clear control`);
   check(html.includes('id="map-city-filter"'), `${file} is missing the map city filter`);
@@ -158,6 +160,9 @@ for (const file of htmlFiles) {
     "Nothing is uploaded automatically",
     "Quick shortcuts",
     "Audio guides",
+    "Private Travel Vault",
+    "Your password and private records never leave this device.",
+    "Download encrypted backup",
   ]) {
     check(html.includes(readinessText), `${file} is missing Batch 2 travel-readiness content: ${readinessText}`);
   }
@@ -206,9 +211,10 @@ const privateDetailLines = maria
   .filter((line) => /(booking reference|booking ref|confirmation number|stay confirmation|pnr:|confirmation:)/i.test(line));
 for (const line of privateDetailLines) {
   const containsPlaceholder = /\[stored privately\]|stored separately|stored privately/i.test(line);
-  const looksLikeRealCode = /(?:booking reference|booking ref|confirmation number|stay confirmation|pnr:|confirmation:)[^<\n]{0,80}\b[A-Z0-9-]{6,}\b/i.test(
-    line.replace(/<[^>]+>/g, " "),
-  );
+  const visibleText = line.replace(/<input\b[^>]*>/gi, " ").replace(/<[^>]+>/g, " ");
+  const label = visibleText.match(/(?:booking reference|booking ref|confirmation number|stay confirmation|pnr:|confirmation:)/i);
+  const nearby = label ? visibleText.slice(label.index + label[0].length, label.index + label[0].length + 80) : "";
+  const looksLikeRealCode = /\b(?=[A-Z0-9-]{6,}\b)(?=[A-Z0-9-]*\d)[A-Z0-9-]+\b/.test(nearby);
   check(!looksLikeRealCode || containsPlaceholder, "maria.html may contain a real booking or confirmation code");
 }
 
@@ -380,7 +386,7 @@ const readinessCss = read("travel-readiness.css");
 for (const selector of [".readiness-grid", ".readiness-alert", ".transit-card", ".transit-columns"]) {
   check(readinessCss.includes(selector), `travel-readiness.css is missing required style: ${selector}`);
 }
-for (const scriptFile of ["trip-tools.js", "claim-organizer.js", "floating-shortcuts.js", "service-worker.js", "final-polish.js", "french-audio-v2.js"]) {
+for (const scriptFile of ["trip-tools.js", "claim-organizer.js", "floating-shortcuts.js", "private-vault.js", "service-worker.js", "final-polish.js", "french-audio-v2.js"]) {
   const script = read(scriptFile);
   try {
     new Function(script);
@@ -416,11 +422,39 @@ for (const behavior of ["querySelectorAll('.audio-guide')", "audio-shortcut-item
   check(shortcutScript.includes(behavior), `floating-shortcuts.js is missing required behavior: ${behavior}`);
 }
 check(!shortcutScript.includes("innerHTML"), "floating-shortcuts.js renders guide names as unsafe HTML");
+for (const name of ["Chatsworth House", "Palace of Versailles"]) {
+  check(shortcutScript.includes(name), `floating-shortcuts.js is missing the explicit guide name: ${name}`);
+}
+check(!shortcutScript.includes("strong.textContent=text(guideHeading)||('Audio guide '+(index+1))"), "floating-shortcuts.js can fall back before applying destination names");
 const shortcutCss = read("floating-shortcuts.css");
 for (const selector of [".floating-shortcuts", ".audio-shortcut-modal", ".audio-shortcut-sheet", "@media(max-width:860px)"]) {
   check(shortcutCss.includes(selector), `floating-shortcuts.css is missing required style: ${selector}`);
 }
-check(serviceWorker.includes("trip-companion-20260729-3"), "service-worker.js has not advanced to the floating shortcuts cache version");
+const vaultScript = read("private-vault.js");
+for (const behavior of [
+  "indexedDB.open",
+  "crypto.subtle.deriveKey",
+  "PBKDF2",
+  "SHA-256",
+  "AES-GCM",
+  "600000",
+  "AUTO_LOCK_MS",
+  "trip-companion-",
+  "validEnvelope",
+  "textContent",
+]) {
+  check(vaultScript.includes(behavior), `private-vault.js is missing required encrypted-vault behavior: ${behavior}`);
+}
+check(!vaultScript.includes("innerHTML"), "private-vault.js renders private records as unsafe HTML");
+check(!vaultScript.includes("fetch("), "private-vault.js unexpectedly transmits private vault data");
+check(!vaultScript.includes("Witness for the Prosecution"), "private-vault.js exposes a surprise venue in public starter data");
+check(!vaultScript.includes("Sainte-Chapelle concert"), "private-vault.js exposes a surprise venue in public starter data");
+check(!vaultScript.includes("Palais Garnier performance"), "private-vault.js exposes a surprise venue in public starter data");
+const vaultCss = read("private-vault.css");
+for (const selector of [".vault-hero", ".vault-panel", ".vault-record", ".vault-dialog", "@media(max-width:620px)"]) {
+  check(vaultCss.includes(selector), `private-vault.css is missing required style: ${selector}`);
+}
+check(serviceWorker.includes("trip-companion-20260729-4"), "service-worker.js has not advanced to the private vault cache version");
 for (const asset of [
   "./index.html",
   "./maria.html",
@@ -430,6 +464,8 @@ for (const asset of [
   "./claim-organizer.js",
   "./floating-shortcuts.css",
   "./floating-shortcuts.js",
+  "./private-vault.css",
+  "./private-vault.js",
   "./map-places-index.json",
   "./map-places-maria.json",
   "./final-polish.css",

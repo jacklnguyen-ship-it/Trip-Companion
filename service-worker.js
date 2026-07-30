@@ -1,10 +1,11 @@
-const CACHE_NAME='trip-companion-20260729-3';
+const CACHE_NAME='trip-companion-20260729-4';
 const CORE=[
   './','./index.html','./maria.html','./manifest.json','./manifest-maria.json',
   './guide-map.css','./guide-map-v2.js','./home-intelligence.css','./home-intelligence.js',
   './travel-readiness.css','./trip-tools.css','./trip-tools.js',
   './claim-organizer.css','./claim-organizer.js',
   './floating-shortcuts.css','./floating-shortcuts.js',
+  './private-vault.css','./private-vault.js',
   './final-polish.css','./final-polish.js','./french-audio-v2.js',
   './map-places-index.json','./map-places-maria.json',
   './apple-touch-icon.png','./favicon-32.png','./icon-192.png','./icon-512.png'

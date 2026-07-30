@@ -431,9 +431,10 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="trip-tools.css?v=20260727-1">
 <link rel="stylesheet" href="claim-organizer.css?v=20260729-1">
 <link rel="stylesheet" href="floating-shortcuts.css?v=20260729-1">
+<link rel="stylesheet" href="private-vault.css?v=20260729-1">
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 </head>
-<body data-map-data="map-places-maria.json?v=20260728-3">
+<body data-map-data="map-places-maria.json?v=20260728-3" data-vault-guide="maria">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
@@ -456,6 +457,7 @@ body:has(.page:target) #page-home:target{display:block}
     <a class="navlink" href="#page-home"><span class="num">01</span> Home</a>
     <a class="navlink" href="#page-itinerary"><span class="num">02</span> Day-by-Day Itinerary</a>
     <a class="navlink" href="#page-logistics"><span class="num">03</span> Logistics & Bookings</a>
+    <a class="navlink" href="#page-vault"><span class="num">🔒</span> Private Travel Vault</a>
     <a class="navlink" href="#page-emergency"><span class="num">!</span> Emergency &amp; Help</a>
     <div class="nav-group-label">London Leg</div>
     <a class="navlink" href="#page-london"><span class="num">03</span> London Places Guide</a>
@@ -477,6 +479,71 @@ body:has(.page:target) #page-home:target{display:block}
   </nav>
 
   <main class="content-wrap" id="main-content" tabindex="-1">
+<section class="page" id="page-vault">
+  <div class="vault-hero">
+    <span class="vault-badge">🔒 Device-encrypted</span>
+    <h1>Private Travel Vault</h1>
+    <p>Keep confirmation numbers, private reservation notes, tickets and QR codes encrypted on this device.</p>
+    <p id="vault-lock-state">Checking this device…</p>
+  </div>
+  <p class="vault-security"><strong>Your password and private records never leave this device.</strong> The public site and GitHub contain only the vault software and non-sensitive starter titles. Your encrypted backup cannot be recovered without its passphrase.</p>
+  <p class="vault-message" id="vault-status" role="status" aria-live="polite"></p>
+
+  <section class="vault-panel" id="vault-setup" hidden>
+    <h2>Create this device’s vault</h2>
+    <p class="vault-muted">Use a unique passphrase of at least 12 characters. Do not send it through chat or store it in the guide.</p>
+    <form class="vault-form" id="vault-setup-form">
+      <label class="vault-field"><span>New vault passphrase</span><input type="password" name="password" minlength="12" autocomplete="new-password" required></label>
+      <label class="vault-field"><span>Confirm passphrase</span><input type="password" name="confirmPassword" minlength="12" autocomplete="new-password" required></label>
+      <div class="vault-actions"><button class="vault-button" type="submit">Create encrypted vault</button></div>
+    </form>
+  </section>
+
+  <section class="vault-panel" id="vault-unlock" hidden>
+    <h2>Unlock your vault</h2>
+    <form class="vault-form" id="vault-unlock-form">
+      <label class="vault-field"><span>Vault passphrase</span><input id="vault-password" type="password" name="password" autocomplete="current-password" required></label>
+      <div class="vault-actions"><button class="vault-button" type="submit">Unlock locally</button></div>
+    </form>
+  </section>
+
+  <section class="vault-panel" id="vault-open" hidden>
+    <div class="vault-toolbar">
+      <button class="vault-button" id="vault-add-record" type="button">Add private record</button>
+      <div class="vault-toolbar-group">
+        <button class="vault-button secondary" id="vault-export" type="button">Download encrypted backup</button>
+        <label class="vault-button secondary" for="vault-import">Import encrypted backup</label>
+        <input id="vault-import" type="file" accept="application/json,.json" hidden>
+        <button class="vault-button secondary" id="vault-lock" type="button">Lock now</button>
+      </div>
+    </div>
+    <p class="vault-muted">Starter reservations are included without private numbers. Open each record to add its confirmation, notes, ticket PDF or QR image. The vault locks automatically after five minutes.</p>
+    <div class="vault-records" id="vault-records"></div>
+    <hr>
+    <button class="vault-button danger" id="vault-reset" type="button">Erase vault from this device</button>
+  </section>
+
+  <div class="vault-dialog" id="vault-record-dialog" role="dialog" aria-modal="true" aria-labelledby="vault-record-title" hidden>
+    <div class="vault-dialog-card">
+      <div class="vault-dialog-head"><h2 id="vault-record-title">Add private record</h2><button class="vault-dialog-close" id="vault-record-close" type="button" aria-label="Close private record form">×</button></div>
+      <form class="vault-form" id="vault-record-form">
+        <input type="hidden" name="id">
+        <div class="vault-grid">
+          <label class="vault-field"><span>Category</span><select name="category"><option value="flight">Flight</option><option value="lodging">Lodging</option><option value="train">Train</option><option value="attraction">Attraction</option><option value="performance">Performance</option><option value="tour">Tour</option><option value="restaurant">Restaurant</option><option value="other">Other</option></select></label>
+          <label class="vault-field"><span>Title</span><input name="title" required></label>
+          <label class="vault-field"><span>Date</span><input type="date" name="date"></label>
+          <label class="vault-field"><span>Time</span><input type="time" name="time"></label>
+          <label class="vault-field full"><span>Location</span><input name="location"></label>
+          <label class="vault-field full"><span>Confirmation or booking number</span><input name="confirmation" autocomplete="off"></label>
+          <label class="vault-field full"><span>Private notes</span><textarea name="notes"></textarea></label>
+          <label class="vault-field full"><span>Ticket or QR file (PNG, JPEG, WebP or PDF; maximum 4 MB)</span><input type="file" name="ticket" accept="image/png,image/jpeg,image/webp,application/pdf"></label>
+        </div>
+        <p class="vault-message" id="vault-record-status" role="status" aria-live="polite"></p>
+        <div class="vault-actions"><button class="vault-button" type="submit">Encrypt and save</button><button class="vault-button secondary" id="vault-record-cancel" type="button">Cancel</button></div>
+      </form>
+    </div>
+  </div>
+</section>
 <section class="page" id="page-home">
   <div class="home-hero">
     <p class="home-kicker">Your trip at a glance</p>
@@ -2663,7 +2730,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 </ul>
 <h3>🥐 Pastries — Paris tasting list</h3>
 <ul>
-<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Carette+Place+des+Vosges+Paris">Carette, Place des Vosges</a></strong> — choose it for the beautiful setting, hot chocolate with chantilly, and a polished pastry rather than a best-value full meal. A takeaway enjoyed in Place des Vosges makes the experience easier and less expensive.</li>
+<li><strong><a href="https://paris-carette.fr/nos-magasins/place-des-vosges">Carette, 25 Place des Vosges</a></strong> — choose it for the beautiful arcaded setting, hot chocolate with chantilly, and a polished pastry rather than a best-value full meal. The official location is open daily from 7am to midnight. Go early to reduce the chance of a queue, or take away a hot chocolate and pastry to enjoy in Place des Vosges. <a href="https://www.google.com/maps/search/?api=1&amp;query=Carette+25+Place+des+Vosges+Paris">Open in Maps →</a></li>
 <li><strong><a href="https://www.dupainetdesidees.com/">Du Pain et des Idées</a></strong> (10th arrondissement) — directly supports your Sept 16 picnic plan. Try an <strong>escargot feuilleté</strong> and the orange-blossom <strong>mouna</strong>; check opening days before going.</li>
 <li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Bontemps+Paris+Rue+de+Bretagne">Bontemps</a></strong> (Le Marais) — sablé cookies and refined individual cakes, with a hidden courtyard atmosphere that suits your Marais day.</li>
 <li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Stohrer+Paris">Stohrer</a></strong> (Rue Montorgueil) — historic pâtisserie associated with the baba au rhum; useful if you pass through Les Halles.</li>
@@ -2671,7 +2738,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 </ul>
 <h3>🫖 Tea salons and Paris-style afternoon tea</h3>
 <ul>
-<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Carette+Place+des+Vosges+Paris">Carette, Place des Vosges</a></strong> — the most photogenic option and effortless on arrival day. Order selectively: hot chocolate, tea, and one pastry play to its strengths; recent value and service feedback makes a full meal less compelling.</li>
+<li><strong><a href="https://paris-carette.fr/nos-magasins/place-des-vosges">Carette, 25 Place des Vosges</a></strong> — the most photogenic option and effortless on arrival day. It is officially open daily from 7am to midnight; an early visit is the best strategy for avoiding the social-media crowds. Order selectively: hot chocolate with chantilly, tea, and one pastry play to its strengths, while recent value and service feedback makes a full meal less compelling. <a href="https://www.google.com/maps/search/?api=1&amp;query=Carette+25+Place+des+Vosges+Paris">Open in Maps →</a></li>
 <li><strong><a href="https://www.mariagefreres.com/en/store/restaurant-tea-salon-paris-le-marais-menu.html">Mariage Frères, Le Marais</a></strong> — the most natural fit for your itinerary: a historic French tea house with a restaurant and tea salon at 30 Rue du Bourg-Tibourg.</li>
 <li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Bontemps+tea+salon+Paris">Bontemps</a></strong> — combine tea with sablé cookies and cakes in the Marais rather than scheduling a separate cross-city stop.</li>
 <li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Un+The+Dans+Le+Jardin+Musee+de+la+Vie+Romantique">Un Thé Dans Le Jardin</a></strong> — the quiet garden tea room at Musée de la Vie Romantique, perfectly placed at the start of Sept 16.</li>
@@ -3203,6 +3270,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <script src="trip-tools.js?v=20260727-1"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>
 <script src="floating-shortcuts.js?v=20260729-1"></script>
+<script src="private-vault.js?v=20260729-1"></script>
 <script src="final-polish.js?v=20260728-1"></script>
 <script src="french-audio-v2.js?v=20260728-1"></script>
 </body>
