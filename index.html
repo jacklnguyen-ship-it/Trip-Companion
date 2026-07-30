@@ -178,6 +178,7 @@ body:has(#page-opera:target) a.navlink[href="#page-opera"]{ background:rgba(164,
 body:has(#page-paris_drinks:target) a.navlink[href="#page-paris_drinks"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-food:target) a.navlink[href="#page-food"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-french:target) a.navlink[href="#page-french"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
+body:has(#page-jetlag:target) a.navlink[href="#page-jetlag"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-vintage:target) a.navlink[href="#page-vintage"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-coffee:target) a.navlink[href="#page-coffee"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-icecream:target) a.navlink[href="#page-icecream"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
@@ -499,6 +500,7 @@ body.day-modal-open{overflow:hidden}
     <a class="navlink" href="#page-coffee"><span class="num">12</span> Coffee Guide</a>
     <a class="navlink" href="#page-icecream"><span class="num">13</span> Ice Cream Guide</a>
     <a class="navlink" href="#page-boutique"><span class="num">14</span> Boutique Guide</a>
+    <a class="navlink" href="#page-jetlag"><span class="num">15</span> Jet Lag Guide</a>
   </nav>
 
   <main class="content-wrap" id="main-content" tabindex="-1">
@@ -3032,6 +3034,44 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <h2>Best matches for this trip</h2>
 <p><strong>Bath:</strong> Fat Giraffe Gifts and Wood &amp; Burr are both an easy add if your Sept 11 evening has any slack before Roman Baths. <strong>London:</strong> Coal Drops Yard is worth folding into a King's Cross morning if one opens up. <strong>Paris:</strong> Village Saint-Paul pairs naturally with your existing Sept 13/14 Marais wandering.</p>
 </section>
+<section class="page" id="page-jetlag">
+<h1>Jet Lag Guide</h1>
+<p><strong>Your trip crosses eight time zones.</strong> The flight to London is the harder eastbound adjustment; the flight home to Los Angeles is usually easier because it shifts your body clock later.</p>
+<h2>Two to three days before London</h2>
+<ul>
+<li>Go to bed and wake up about <strong>one hour earlier each day</strong>, if your schedule allows.</li>
+<li>Get outdoor light soon after waking and dim lights during the final hour before bed.</li>
+<li>Start the trip well rested. Deliberately staying up late before departure usually makes jet lag worse.</li>
+</ul>
+<h2>LAX → London flight</h2>
+<ul>
+<li>Set your phone to London time after boarding and use that time for sleep, meals and caffeine decisions.</li>
+<li>Drink water regularly. Limit alcohol, and avoid relying on repeated caffeine late in the flight.</li>
+<li>Use an eye mask and earplugs when sleeping, and stand or stretch periodically while awake.</li>
+</ul>
+<h2>Arrival evening — Tuesday, Sept 8</h2>
+<ul>
+<li><strong>Do not take a long nap.</strong> After hotel check-in, take a short outdoor walk, eat a light dinner and stay awake until roughly 20:30–21:30 London time.</li>
+<li>Pack everything needed for Chatsworth before bed. The next morning has an unusually early 04:35–04:45 departure target.</li>
+<li>If exhaustion makes a nap unavoidable, set an alarm for <strong>20 minutes</strong> and take it as early as possible.</li>
+</ul>
+<h2>First London mornings</h2>
+<ul>
+<li>Get outdoor morning light, eat on local time and keep moving during the day.</li>
+<li>Use coffee strategically in the morning or early afternoon, then stop at least six hours before bedtime.</li>
+<li>Keep naps short—about 20 minutes—so you can sleep at night.</li>
+</ul>
+<h2>Paris → Los Angeles return</h2>
+<ul>
+<li>Try to remain awake for most of the flight and treat meals and light as Los Angeles time.</li>
+<li>After the 18:40 arrival, get a little evening light, eat lightly and aim for bed around 21:30–22:30.</li>
+<li>Get outdoor light the next morning and avoid sleeping late, even if the first night is imperfect.</li>
+</ul>
+<h2>Medication note</h2>
+<p>Melatonin timing matters and it can interact with medicines. Ask a clinician or pharmacist before using it; avoid experimenting with a new sleep medicine during the trip.</p>
+<blockquote><p><strong>The simple rule:</strong> follow local time immediately, seek daylight during the local day, hydrate, limit alcohol, and choose a short nap over a long one.</p></blockquote>
+<p><small>Health references: <a href="https://www.cdc.gov/yellow-book/hcp/travel-air-sea/jet-lag-disorder.html">CDC Yellow Book — Jet Lag Disorder</a> and <a href="https://www.nhs.uk/conditions/jet-lag/">NHS — Jet lag</a>. General guidance only, not personal medical advice.</small></p>
+</section>
 <section class="page" id="page-french">
 <h1>French Travel Cheat Sheet</h1>
 <p><strong>Tap 🔊 to hear each phrase in French.</strong></p>
@@ -3240,7 +3280,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     var active='all',categoryMap={
       'page-itinerary':'days','page-logistics':'travel','page-london':'london','page-bath':'london',
       'page-chatsworth':'london','page-london_pubs':'london','page-paris':'paris','page-versailles':'paris',
-      'page-opera':'paris','page-paris_drinks':'paris','page-food':'food','page-french':'travel',
+      'page-opera':'paris','page-paris_drinks':'paris','page-food':'food','page-french':'travel','page-jetlag':'travel',
       'page-map':'travel','page-vintage':'travel','page-coffee':'food','page-icecream':'food',
       'page-boutique':'travel'
     },items=[],mapCategories={food:1,coffee:1,drinks:1,icecream:1,afternoontea:1};
