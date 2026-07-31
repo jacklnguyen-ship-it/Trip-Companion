@@ -5,6 +5,7 @@
   var nextCountdown=document.getElementById('home-next-countdown'),nextTime=document.getElementById('home-next-time');
   var nextDetail=document.getElementById('home-next-detail'),eventsNode=document.getElementById('home-events');
   var alertBox=document.getElementById('kickoff-alert'),dismiss=document.getElementById('kickoff-dismiss');
+  var dinnerAlert=document.getElementById('dinner-review-alert'),dinnerDismiss=document.getElementById('dinner-review-dismiss');
   var events=[];
 
   function now(){
@@ -101,6 +102,16 @@
       try{sessionStorage.setItem('tripCompanionKickoffAlertDismissed','1');}catch(error){}
     });
   }
+  function initDinnerAlert(){
+    if(!dinnerAlert)return;
+    var dismissed=false;
+    try{dismissed=sessionStorage.getItem('tripCompanionDinnerReviewDismissed')==='1';}catch(error){}
+    dinnerAlert.hidden=dismissed;
+    if(dinnerDismiss)dinnerDismiss.addEventListener('click',function(){
+      dinnerAlert.hidden=true;
+      try{sessionStorage.setItem('tripCompanionDinnerReviewDismissed','1');}catch(error){}
+    });
+  }
   function render(){
     var current=now();
     renderToday(current);
@@ -109,6 +120,7 @@
 
   events=parseEvents();
   initAlert();
+  initDinnerAlert();
   render();
   setInterval(render,60000);
 })();
