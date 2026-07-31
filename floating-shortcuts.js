@@ -49,13 +49,16 @@
     list.appendChild(button);
   });
   openButton.setAttribute('aria-expanded','false');
-  openButton.addEventListener('click',open);
+  openButton.addEventListener('click',function(){if(modal.hidden)open();else close();});
+  document.querySelectorAll('.floating-shortcuts a').forEach(function(link){
+    link.addEventListener('click',function(){if(!modal.hidden)close();});
+  });
   closeButton.addEventListener('click',close);
   modal.addEventListener('click',function(event){if(event.target===modal)close();});
   document.addEventListener('keydown',function(event){
     if(event.key==='Escape'&&!modal.hidden)close();
     if(event.key==='Tab'&&!modal.hidden){
-      var controls=modal.querySelectorAll('button:not([disabled])');
+      var controls=document.querySelectorAll('.floating-shortcuts a,.floating-shortcuts button,#audio-shortcut-modal button:not([disabled])');
       if(!controls.length)return;
       var first=controls[0],last=controls[controls.length-1];
       if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
