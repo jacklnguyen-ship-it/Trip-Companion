@@ -172,6 +172,7 @@ body:has(#page-london:target) a.navlink[href="#page-london"]{ background:rgba(16
 body:has(#page-bath:target) a.navlink[href="#page-bath"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-chatsworth:target) a.navlink[href="#page-chatsworth"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-london_pubs:target) a.navlink[href="#page-london_pubs"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
+body:has(#page-meals:target) a.navlink[href="#page-meals"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-paris:target) a.navlink[href="#page-paris"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-versailles:target) a.navlink[href="#page-versailles"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-opera:target) a.navlink[href="#page-opera"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
@@ -470,6 +471,7 @@ body:has(.page:target) #page-home:target{display:block}
     <a class="navlink" href="#page-paris"><span class="num">05</span> Paris Places Guide</a>
     <a class="navlink sub" href="#page-versailles"><span class="num">·</span> Versailles Guide</a>
     <div class="nav-group-label">Reference</div>
+    <a class="navlink" href="#page-meals"><span class="num">🍽</span> Meals by Day</a>
     <a class="navlink" href="#page-london_pubs"><span class="num">06</span> London Pub Guide</a>
     <a class="navlink" href="#page-paris_drinks"><span class="num">07</span> Paris Drinks Guide</a>
     <a class="navlink" href="#page-food"><span class="num">08</span> Food Guide</a>
@@ -2103,6 +2105,28 @@ body:has(.page:target) #page-home:target{display:block}
 <p class="audio-note">Tip: turn your volume up, and tap the same button again to pause.</p>
 </div>
 </section>
+<section class="page" id="page-meals">
+<h1>Meals by Day</h1>
+<p><strong>Daily food choices organized around each day’s route, timing and reservations.</strong></p>
+</section>
+<script>
+(function(){
+  var source=document.getElementById('page-london'),destination=document.getElementById('page-meals');
+  if(!source||!destination)return;
+  var heading=Array.prototype.slice.call(source.querySelectorAll(':scope > h2')).find(function(h){
+    return h.textContent.trim().indexOf('Meals By Day')===0;
+  });
+  if(!heading)return;
+  var node=heading.nextSibling;
+  heading.remove();
+  while(node){
+    var next=node.nextSibling;
+    if(node.nodeType===1&&node.tagName==='H2')break;
+    destination.appendChild(node);
+    node=next;
+  }
+})();
+</script>
 <section class="page" id="page-london_pubs">
 <h1>London Pub Guide</h1>
 <p><strong>A proper pub crawl reference — the best of what's already scattered through your itinerary, plus a few extras</strong></p>
@@ -3145,9 +3169,9 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 (function(){
   var days=[
     {tickets:'<span class="day-status">CONFIRMED</span><strong>Virgin Atlantic VS0024</strong><ul><li>Depart LAX 23:15 · Terminal 2</li><li>Booking reference: <strong>[stored privately]</strong></li><li>Direct to London Heathrow · 10h 20m</li></ul>',food:[['Virgin Atlantic Clubhouse','Dinner and drinks before the overnight flight','Virgin Atlantic Clubhouse LAX'],['LAX coffee','Quick coffee near Terminal 2','coffee LAX Terminal 2']],research:[['page-logistics',['Flights']]]},
-    {tickets:'<span class="day-status">CONFIRMED</span><strong>Wombat’s City Hostel</strong><ul><li>7 Dock Street, London E1 8JN</li><li>Stay confirmation: <strong>[stored privately]</strong></li><li>5 nights · booked via Chase Travel</li></ul>',food:[['Beigel Bake','Brick Lane salt beef bagel','Beigel Bake Brick Lane'],['Wilton’s Music Hall','Nearby drink in a historic setting','Wiltons Music Hall London'],['Discount Suit Company','Excellent nearby cocktail bar','Discount Suit Company London']],research:[['page-logistics',['London Hotel']],['page-london',['Hotel:','Good Coffee','Bar Quick Reference','Meals By Day']]]},
+    {tickets:'<span class="day-status">CONFIRMED</span><strong>Wombat’s City Hostel</strong><ul><li>7 Dock Street, London E1 8JN</li><li>Stay confirmation: <strong>[stored privately]</strong></li><li>5 nights · booked via Chase Travel</li></ul>',food:[['Beigel Bake','Brick Lane salt beef bagel','Beigel Bake Brick Lane'],['Wilton’s Music Hall','Nearby drink in a historic setting','Wiltons Music Hall London'],['Discount Suit Company','Excellent nearby cocktail bar','Discount Suit Company London']],research:[['page-logistics',['London Hotel']],['page-london',['Hotel:','Good Coffee','Bar Quick Reference']],['page-meals',['*']]]},
     {tickets:'<span class="day-status">CONFIRMED</span><strong>Chatsworth House and Garden</strong><ul><li>Two adults · Wednesday, Sept 9 · 10:30 AM</li><li>Aim to reach the entrance by 10:15</li><li>One complimentary car-free-travel multimedia guide</li><li>Keep proof of the day’s train or bus journey available</li><li>Ticket QR code and confirmation number are stored privately</li></ul>',food:[['Chatsworth Farm Shop','Estate produce and gifts','Chatsworth Estate Farm Shop'],['Old Original Bakewell Pudding Shop','Try the pudding, not only the tart','Old Original Bakewell Pudding Shop']],research:[['page-chatsworth',['*']],['page-london',['Chatsworth House']]]},
-    {tickets:'<span class="day-status action">ACTION NEEDED</span><strong>Wimbledon Museum & Tour</strong><ul><li>Guide currently marks this ticket as not yet booked</li></ul><hr><span class="day-status">CONFIRMED</span><strong>Evening surprise</strong><ul><li>The reservation is already handled</li><li>Details are stored privately with Jack</li></ul>',food:[['Kappacasein','Grilled cheese or raclette','Kappacasein Borough Market'],['Bread Ahead','Crème brûlée doughnut','Bread Ahead Borough Market'],['The Archduke','Best overall dinner fit near the surprise','The Archduke London'],['Gillray’s','Closest, lowest-stress dinner option','Gillrays Steakhouse London'],['Skylon','River-view dinner and a short walk onward','Skylon Restaurant London']],research:[['page-london',['Wimbledon','Borough Market','St Dunstan','Tower Bridge','Meals By Day']]]},
+    {tickets:'<span class="day-status action">ACTION NEEDED</span><strong>Wimbledon Museum & Tour</strong><ul><li>Guide currently marks this ticket as not yet booked</li></ul><hr><span class="day-status">CONFIRMED</span><strong>Evening surprise</strong><ul><li>The reservation is already handled</li><li>Details are stored privately with Jack</li></ul>',food:[['Kappacasein','Grilled cheese or raclette','Kappacasein Borough Market'],['Bread Ahead','Crème brûlée doughnut','Bread Ahead Borough Market'],['The Archduke','Best overall dinner fit near the surprise','The Archduke London'],['Gillray’s','Closest, lowest-stress dinner option','Gillrays Steakhouse London'],['Skylon','River-view dinner and a short walk onward','Skylon Restaurant London']],research:[['page-london',['Wimbledon','Borough Market','St Dunstan','Tower Bridge']],['page-meals',['*']]]},
     {tickets:'<span class="day-status">ALL CONFIRMED</span><ul><li>Waterloo → Winchester 07:03 · ref <strong>[stored privately]</strong></li><li>Celtic Horizons private tour</li><li>Roman Baths 16:45 · ref <strong>[stored privately]</strong></li><li>Sally Lunn’s 18:15 · ref <strong>[stored privately]</strong></li><li>Bath Spa → Paddington 21:13</li></ul>',food:[['Sally Lunn’s','Full dinner reservation','Sally Lunns Bath'],['Landrace Bakery','Cardamom bun if timing permits','Landrace Bakery Bath'],['The Hideout','Planned nightcap','The Hideout Bath']],research:[['page-bath',['*']]]},
     {tickets:'<span class="day-status">CONFIRMED</span><strong>Tottenham v Everton hospitality</strong><ul><li>Travel Club Longside Premium · 2 tickets</li><li>Order: <strong>[stored privately]</strong></li><li>€530 total</li><li><strong>Verify kickoff:</strong> P1 shows 08:30; official sources show 17:30</li></ul>',food:[['The Beehive','Reliable match-day pub','The Beehive Tottenham'],['Chick King','Tottenham institution','Chick King Tottenham'],['Beavertown Taproom','Inside the stadium with ticket','Beavertown Taproom Tottenham Stadium']],research:[['page-london',['Tottenham Hotspur']],['page-london_pubs',['Tottenham']]]},
     {tickets:'<span class="day-status">CONFIRMED</span><strong>Eurostar · 11:31 AM</strong><ul><li>St Pancras International → Gare du Nord</li><li>Train 9022 · Standard class · arrives 14:59</li><li>PNR: <strong>[stored privately]</strong> · $262.89 total</li></ul><hr><span class="day-status">CONFIRMED</span><strong>Airbnb check-in · after 3:00 PM</strong><ul><li>8 Rue du Pont aux Choux, 75003 Paris</li><li>Confirmation: <strong>[stored privately]</strong></li><li>Tight but workable given 14:59 arrival</li></ul>',food:[['Fortitude Bakehouse','Breakfast before St Pancras','Fortitude Bakehouse London'],['Betjeman Arms','Station pub option','Betjeman Arms St Pancras'],['Canal Saint-Martin','Relaxed first-night food and drinks','restaurants Canal Saint-Martin Paris']],research:[['page-logistics',['Ground Transportation','Paris — Bookings']],['page-paris',['Sept 13']],['page-paris_drinks',['Le Marais']]]},
@@ -3174,7 +3198,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
     if(!input||!results)return;
     var active='all',categoryMap={
       'page-itinerary':'days','page-logistics':'travel','page-london':'london','page-bath':'london',
-      'page-chatsworth':'london','page-london_pubs':'london','page-paris':'paris','page-versailles':'paris',
+      'page-chatsworth':'london','page-london_pubs':'london','page-meals':'food','page-paris':'paris','page-versailles':'paris',
       'page-paris_drinks':'paris','page-food':'food','page-french':'travel','page-jetlag':'travel','page-markets':'travel',
       'page-map':'travel','page-vintage':'travel','page-coffee':'food','page-icecream':'food',
       'page-boutique':'travel'
