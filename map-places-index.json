@@ -505,7 +505,8 @@
       "pub",
       "beer",
       "food market",
-      "street food"
+      "street food",
+      "bourdain"
     ]
   },
   {
@@ -1324,7 +1325,8 @@
       "food",
       "restaurant",
       "pie and mash",
-      "jellied eels"
+      "jellied eels",
+      "bourdain"
     ]
   },
   {
@@ -1368,7 +1370,8 @@
       "food",
       "restaurant",
       "special occasion",
-      "dinner"
+      "dinner",
+      "bourdain"
     ]
   },
   {
@@ -1382,7 +1385,8 @@
       "food",
       "restaurant",
       "special occasion",
-      "dinner"
+      "dinner",
+      "bourdain"
     ]
   },
   {
@@ -1491,7 +1495,8 @@
       "restaurant",
       "seafood",
       "food market",
-      "street food"
+      "street food",
+      "bourdain"
     ]
   },
   {
@@ -2844,5 +2849,214 @@
       "Sept 16, 7:30pm"
     ],
     "mariaExclude": true
+  },
+  {
+    "query": "St. JOHN Bread and Wine Spitalfields London",
+    "title": "St. JOHN Bread & Wine",
+    "category": "food",
+    "lat": 51.5197373,
+    "lng": -0.0742167,
+    "address": "94-96 Commercial St, London E1 6LZ, UK",
+    "tags": [
+      "restaurant",
+      "british",
+      "bone marrow",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Smiths of Smithfield London",
+    "title": "Smiths of Smithfield",
+    "category": "food",
+    "lat": 51.519521,
+    "lng": -0.102755,
+    "address": "67-77 Charterhouse St, London EC1M 6HJ, UK",
+    "tags": [
+      "restaurant",
+      "full english",
+      "breakfast",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Bar Italia Frith Street Soho London",
+    "title": "Bar Italia",
+    "category": "coffee",
+    "lat": 51.5134134,
+    "lng": -0.1312402,
+    "address": "22 Frith St, London W1D 4RF, UK",
+    "tags": [
+      "cafe",
+      "espresso",
+      "late night",
+      "soho",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Gerry's Club Soho London",
+    "title": "Gerry's Club",
+    "category": "drinks",
+    "lat": 51.5123812,
+    "lng": -0.1315037,
+    "address": "52 Dean St, London W1D 5BJ, UK",
+    "tags": [
+      "members club",
+      "live music",
+      "late night",
+      "soho",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Bradley's Spanish Bar London",
+    "title": "Bradley's Spanish Bar",
+    "category": "drinks",
+    "lat": 51.516553,
+    "lng": -0.1327001,
+    "address": "42-44 Hanway St, London W1T 1UT, UK",
+    "tags": [
+      "pub",
+      "jukebox",
+      "soho",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Sweetings restaurant Queen Victoria Street London",
+    "title": "Sweetings",
+    "category": "food",
+    "lat": 51.5124864,
+    "lng": -0.0927329,
+    "address": "39 Queen Victoria St, London EC4N 4SF, UK",
+    "tags": [
+      "restaurant",
+      "seafood",
+      "weekday lunch only",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "The Two Chairmen pub Westminster London",
+    "title": "The Two Chairmen",
+    "category": "drinks",
+    "lat": 51.5006512,
+    "lng": -0.1316484,
+    "address": "39 Dartmouth St, London SW1H 9BP, UK",
+    "tags": [
+      "pub",
+      "classic pub",
+      "westminster",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Princess Victoria pub Uxbridge Road London",
+    "title": "The Princess Victoria",
+    "category": "drinks",
+    "lat": 51.5063714,
+    "lng": -0.2409864,
+    "address": "217 Uxbridge Rd, London W12 9DH, UK",
+    "tags": [
+      "gastropub",
+      "west london",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Pepper & Spice Dalston London",
+    "title": "Pepper & Spice",
+    "category": "food",
+    "lat": 51.5462421,
+    "lng": -0.0775277,
+    "address": "40 Balls Pond Rd, London N1 4AU, UK",
+    "tags": [
+      "caribbean",
+      "takeaway",
+      "dalston",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Hunter S pub Dalston London",
+    "title": "The Hunter S.",
+    "category": "drinks",
+    "lat": 51.5459344,
+    "lng": -0.0834563,
+    "address": "194 Southgate Rd, London N1 3HT, UK",
+    "tags": [
+      "gastropub",
+      "dalston",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Restaurant Gordon Ramsay Chelsea London",
+    "title": "Restaurant Gordon Ramsay",
+    "category": "food",
+    "lat": 51.4853968,
+    "lng": -0.1620078,
+    "address": "68 Royal Hospital Rd, London SW3 4HP, UK",
+    "tags": [
+      "fine dining",
+      "splurge",
+      "reservation",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "Cabmen's Shelter Pont Street London",
+    "title": "Pont Street Cabmen's Shelter",
+    "category": "food",
+    "lat": 51.4973219,
+    "lng": -0.158427,
+    "address": "17, 15 Pont St, London SW1X 9EH, UK",
+    "tags": [
+      "cafe",
+      "breakfast",
+      "historic",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "E Pellicci Bethnal Green London",
+    "title": "E. Pellicci",
+    "category": "food",
+    "lat": 51.5264757,
+    "lng": -0.0634292,
+    "address": "332 Bethnal Grn Rd, London E2 0AG, UK",
+    "tags": [
+      "cafe",
+      "full english",
+      "historic",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "The Newman Arms Marylebone London",
+    "title": "The Newman Arms",
+    "category": "drinks",
+    "lat": 51.5181612,
+    "lng": -0.1352162,
+    "address": "23 Rathbone St, London W1T 1NG, UK",
+    "tags": [
+      "pub",
+      "pie room",
+      "bourdain"
+    ]
+  },
+  {
+    "query": "The Phoenix Artist Club London",
+    "title": "The Phoenix Arts Club",
+    "category": "drinks",
+    "lat": 51.5143518,
+    "lng": -0.1294819,
+    "address": "1 Phoenix St, London WC2H 8BU, UK",
+    "tags": [
+      "members club",
+      "cabaret",
+      "late night",
+      "bourdain"
+    ]
   }
 ]
