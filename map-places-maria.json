@@ -2320,7 +2320,14 @@
     "lat": 51.5055815,
     "lng": -0.0901984,
     "address": "Borough High Street, London SE1 9AL, United Kingdom",
-    "tags": ["market", "food market", "street food", "produce", "pastries", "september 10"]
+    "tags": [
+      "market",
+      "food market",
+      "street food",
+      "produce",
+      "pastries",
+      "september 10"
+    ]
   },
   {
     "query": "Broadway Market London E8",
@@ -2329,7 +2336,14 @@
     "lat": 51.5368433,
     "lng": -0.061636,
     "address": "Broadway Market, London E8 4QJ, United Kingdom",
-    "tags": ["market", "saturday", "food", "books", "independent makers", "hackney"]
+    "tags": [
+      "market",
+      "saturday",
+      "food",
+      "books",
+      "independent makers",
+      "hackney"
+    ]
   },
   {
     "query": "Greenwich Market London",
@@ -2338,7 +2352,14 @@
     "lat": 51.4815833,
     "lng": -0.0090449,
     "address": "College Approach, Greenwich, London SE10 9HY, United Kingdom",
-    "tags": ["market", "covered market", "crafts", "art", "antiques", "street food"]
+    "tags": [
+      "market",
+      "covered market",
+      "crafts",
+      "art",
+      "antiques",
+      "street food"
+    ]
   },
   {
     "query": "Columbia Road Flower Market London",
@@ -2347,7 +2368,14 @@
     "lat": 51.5292185,
     "lng": -0.0696196,
     "address": "Columbia Road, London E2 7RG, United Kingdom",
-    "tags": ["market", "sunday", "flowers", "plants", "photogenic", "independent shops"]
+    "tags": [
+      "market",
+      "sunday",
+      "flowers",
+      "plants",
+      "photogenic",
+      "independent shops"
+    ]
   },
   {
     "query": "Marché d'Aligre Paris",
@@ -2356,7 +2384,14 @@
     "lat": 48.8488749,
     "lng": 2.3780461,
     "address": "Rue d’Aligre and Place d’Aligre, 75012 Paris, France",
-    "tags": ["market", "food market", "brocante", "produce", "covered market", "value"]
+    "tags": [
+      "market",
+      "food market",
+      "brocante",
+      "produce",
+      "covered market",
+      "value"
+    ]
   },
   {
     "query": "Marché Bastille Paris",
@@ -2365,7 +2400,14 @@
     "lat": 48.8548372,
     "lng": 2.3698924,
     "address": "Boulevard Richard-Lenoir, 75011 Paris, France",
-    "tags": ["market", "food market", "thursday", "sunday", "produce", "september 17"]
+    "tags": [
+      "market",
+      "food market",
+      "thursday",
+      "sunday",
+      "produce",
+      "september 17"
+    ]
   },
   {
     "query": "Marché aux Puces de Paris Saint-Ouen",
@@ -2374,7 +2416,14 @@
     "lat": 48.9029523,
     "lng": 2.3388582,
     "address": "Rue des Rosiers, 93400 Saint-Ouen-sur-Seine, France",
-    "tags": ["market", "flea market", "vintage", "antiques", "weekend", "shopping"]
+    "tags": [
+      "market",
+      "flea market",
+      "vintage",
+      "antiques",
+      "weekend",
+      "shopping"
+    ]
   },
   {
     "query": "Marché Monge Paris",
@@ -2383,7 +2432,14 @@
     "lat": 48.8430603,
     "lng": 2.3517476,
     "address": "Place Monge, 75005 Paris, France",
-    "tags": ["market", "food market", "left bank", "wednesday", "friday", "sunday"]
+    "tags": [
+      "market",
+      "food market",
+      "left bank",
+      "wednesday",
+      "friday",
+      "sunday"
+    ]
   },
   {
     "query": "Empreintes 5 Rue de Picardie Paris",
@@ -2392,7 +2448,14 @@
     "lat": 48.8633382,
     "lng": 2.3621912,
     "address": "5 Rue de Picardie, 75003 Paris, France",
-    "tags": ["boutique", "french craft", "ceramics", "jewelry", "design", "gifts"]
+    "tags": [
+      "boutique",
+      "french craft",
+      "ceramics",
+      "jewelry",
+      "design",
+      "gifts"
+    ]
   },
   {
     "query": "Papier Tigre 5 Rue des Filles du Calvaire Paris",
@@ -2401,7 +2464,14 @@
     "lat": 48.8623631,
     "lng": 2.365076,
     "address": "5 Rue des Filles du Calvaire, 75003 Paris, France",
-    "tags": ["boutique", "stationery", "notebooks", "design", "gifts", "value"]
+    "tags": [
+      "boutique",
+      "stationery",
+      "notebooks",
+      "design",
+      "gifts",
+      "value"
+    ]
   },
   {
     "query": "Officine Universelle Buly 45 Rue de Saintonge Paris",
@@ -2410,7 +2480,14 @@
     "lat": 48.863068,
     "lng": 2.3639537,
     "address": "45 Rue de Saintonge, 75003 Paris, France",
-    "tags": ["boutique", "beauty", "apothecary", "soap", "personalized gifts", "aesthetic"]
+    "tags": [
+      "boutique",
+      "beauty",
+      "apothecary",
+      "soap",
+      "personalized gifts",
+      "aesthetic"
+    ]
   },
   {
     "query": "Fleux 39 Rue Sainte-Croix de la Bretonnerie Paris",
@@ -2419,7 +2496,14 @@
     "lat": 48.8587424,
     "lng": 2.3541741,
     "address": "39 Rue Sainte-Croix de la Bretonnerie, 75004 Paris, France",
-    "tags": ["boutique", "homeware", "lighting", "design", "quirky gifts", "marais"]
+    "tags": [
+      "boutique",
+      "homeware",
+      "lighting",
+      "design",
+      "quirky gifts",
+      "marais"
+    ]
   },
   {
     "query": "Marin Montagut 48 Rue Madame Paris",
@@ -2428,7 +2512,14 @@
     "lat": 48.8481999,
     "lng": 2.3315629,
     "address": "48 Rue Madame, 75006 Paris, France",
-    "tags": ["boutique", "homeware", "glassware", "illustration", "gifts", "aesthetic"]
+    "tags": [
+      "boutique",
+      "homeware",
+      "glassware",
+      "illustration",
+      "gifts",
+      "aesthetic"
+    ]
   },
   {
     "query": "Chez Robert et Louise Paris",
@@ -2437,7 +2528,13 @@
     "lat": 48.8577,
     "lng": 2.3588,
     "address": "64 Rue Vieille du Temple, 75003 Paris, France",
-    "tags": ["restaurant", "marais", "wood-fired grill", "classic french", "bourdain"]
+    "tags": [
+      "restaurant",
+      "marais",
+      "wood-fired grill",
+      "classic french",
+      "bourdain"
+    ]
   },
   {
     "query": "Chez Denise Paris",
@@ -2446,7 +2543,12 @@
     "lat": 48.8615239,
     "lng": 2.3440891,
     "address": "Rue des Prouvaires, 75001 Paris, France",
-    "tags": ["restaurant", "les halles", "classic french", "bourdain"]
+    "tags": [
+      "restaurant",
+      "les halles",
+      "classic french",
+      "bourdain"
+    ]
   },
   {
     "query": "La Tête dans les Olives Paris",
@@ -2455,7 +2557,12 @@
     "lat": 48.8301685,
     "lng": 2.3302541,
     "address": "Rue du Couédic, 75014 Paris, France",
-    "tags": ["specialty food", "wine", "14th", "bourdain"]
+    "tags": [
+      "specialty food",
+      "wine",
+      "14th",
+      "bourdain"
+    ]
   },
   {
     "query": "Frenchie 6 Rue du Nil Paris",
@@ -2464,7 +2571,13 @@
     "lat": 48.8678381,
     "lng": 2.3480163,
     "address": "6 Rue du Nil, 75002 Paris, France",
-    "tags": ["restaurant", "tasting menu", "modern french", "reservation", "bourdain"]
+    "tags": [
+      "restaurant",
+      "tasting menu",
+      "modern french",
+      "reservation",
+      "bourdain"
+    ]
   },
   {
     "query": "Le Châteaubriand Paris",
@@ -2473,7 +2586,12 @@
     "lat": 48.8693116,
     "lng": 2.3713458,
     "address": "Avenue Parmentier, 75011 Paris, France",
-    "tags": ["restaurant", "modern french", "tasting menu", "bourdain"]
+    "tags": [
+      "restaurant",
+      "modern french",
+      "tasting menu",
+      "bourdain"
+    ]
   },
   {
     "query": "La Quincave Paris",
@@ -2482,7 +2600,12 @@
     "lat": 48.8429611,
     "lng": 2.3300843,
     "address": "Rue Bréa, 75006 Paris, France",
-    "tags": ["wine shop", "wine", "6th", "bourdain"]
+    "tags": [
+      "wine shop",
+      "wine",
+      "6th",
+      "bourdain"
+    ]
   },
   {
     "query": "L'Avant Comptoir Paris",
@@ -2491,7 +2614,12 @@
     "lat": 48.8520751,
     "lng": 2.3387903,
     "address": "Carrefour de l’Odéon, 75006 Paris, France",
-    "tags": ["small plates", "charcuterie", "left bank", "bourdain"]
+    "tags": [
+      "small plates",
+      "charcuterie",
+      "left bank",
+      "bourdain"
+    ]
   },
   {
     "query": "L'Atelier de Joël Robuchon Paris",
@@ -2500,7 +2628,12 @@
     "lat": 48.856659,
     "lng": 2.3275506,
     "address": "Rue de Montalembert, 75007 Paris, France",
-    "tags": ["restaurant", "fine dining", "7th", "bourdain"]
+    "tags": [
+      "restaurant",
+      "fine dining",
+      "7th",
+      "bourdain"
+    ]
   },
   {
     "query": "Le Pure Café Paris",
@@ -2509,7 +2642,12 @@
     "lat": 48.8532884,
     "lng": 2.3834234,
     "address": "14 Rue Jean Macé, 75011 Paris, France",
-    "tags": ["coffee", "cafe", "people watching", "bourdain"]
+    "tags": [
+      "coffee",
+      "cafe",
+      "people watching",
+      "bourdain"
+    ]
   },
   {
     "query": "Au Petit Fer à Cheval Paris",
@@ -2518,7 +2656,12 @@
     "lat": 48.8574347,
     "lng": 2.3576107,
     "address": "30 Rue Vieille du Temple, 75004 Paris, France",
-    "tags": ["cafe", "wine", "marais", "bourdain"]
+    "tags": [
+      "cafe",
+      "wine",
+      "marais",
+      "bourdain"
+    ]
   },
   {
     "query": "Au Passage Paris",
@@ -2527,7 +2670,12 @@
     "lat": 48.8616286,
     "lng": 2.368956,
     "address": "Passage Saint-Sébastien, 75011 Paris, France",
-    "tags": ["restaurant", "small plates", "11th", "bourdain"]
+    "tags": [
+      "restaurant",
+      "small plates",
+      "11th",
+      "bourdain"
+    ]
   },
   {
     "query": "Bistrot Paul Bert Paris",
@@ -2536,7 +2684,12 @@
     "lat": 48.852223,
     "lng": 2.3849242,
     "address": "Rue Paul Bert, 75011 Paris, France",
-    "tags": ["bistro", "steak au poivre", "classic french", "bourdain"]
+    "tags": [
+      "bistro",
+      "steak au poivre",
+      "classic french",
+      "bourdain"
+    ]
   },
   {
     "query": "Septime Paris",
@@ -2545,7 +2698,12 @@
     "lat": 48.8536026,
     "lng": 2.3809558,
     "address": "80 Rue de Charonne, 75011 Paris, France",
-    "tags": ["restaurant", "tasting menu", "reservation", "bourdain"]
+    "tags": [
+      "restaurant",
+      "tasting menu",
+      "reservation",
+      "bourdain"
+    ]
   },
   {
     "query": "Le Camion qui fume Paris",
@@ -2554,7 +2712,12 @@
     "lat": 48.8649463,
     "lng": 2.3745576,
     "address": "81 Rue Oberkampf, 75011 Paris, France",
-    "tags": ["burger", "casual", "11th", "bourdain"]
+    "tags": [
+      "burger",
+      "casual",
+      "11th",
+      "bourdain"
+    ]
   },
   {
     "query": "Le Dôme Paris",
@@ -2563,7 +2726,12 @@
     "lat": 48.8419574,
     "lng": 2.3290304,
     "address": "Rue Delambre, 75014 Paris, France",
-    "tags": ["seafood", "oysters", "montparnasse", "bourdain"]
+    "tags": [
+      "seafood",
+      "oysters",
+      "montparnasse",
+      "bourdain"
+    ]
   },
   {
     "query": "Brasserie Le Wepler Paris",
@@ -2572,7 +2740,12 @@
     "lat": 48.88313,
     "lng": 2.32764,
     "address": "14 Place de Clichy, 75018 Paris, France",
-    "tags": ["seafood", "oysters", "brasserie", "bourdain"]
+    "tags": [
+      "seafood",
+      "oysters",
+      "brasserie",
+      "bourdain"
+    ]
   },
   {
     "query": "Urfa Dürüm Paris",
@@ -2581,7 +2754,12 @@
     "lat": 48.870202,
     "lng": 2.35304,
     "address": "Passage du Prado, 75010 Paris, France",
-    "tags": ["kurdish", "kebab", "casual", "bourdain"]
+    "tags": [
+      "kurdish",
+      "kebab",
+      "casual",
+      "bourdain"
+    ]
   },
   {
     "query": "La Palette Paris",
@@ -2590,7 +2768,12 @@
     "lat": 48.8553805,
     "lng": 2.3368914,
     "address": "Rue Jacques Callot, 75006 Paris, France",
-    "tags": ["bistro", "wine", "left bank", "bourdain"]
+    "tags": [
+      "bistro",
+      "wine",
+      "left bank",
+      "bourdain"
+    ]
   },
   {
     "query": "Le Baratin Paris",
@@ -2599,7 +2782,12 @@
     "lat": 48.8730762,
     "lng": 2.3828589,
     "address": "3 Rue Jouye Rouve, 75020 Paris, France",
-    "tags": ["wine", "bistro", "belleville", "bourdain"]
+    "tags": [
+      "wine",
+      "bistro",
+      "belleville",
+      "bourdain"
+    ]
   },
   {
     "query": "Le Verre Volé Paris",
@@ -2608,6 +2796,11 @@
     "lat": 48.8728408,
     "lng": 2.3635142,
     "address": "Rue de Lancry, 75010 Paris, France",
-    "tags": ["wine bar", "small plates", "canal saint-martin", "bourdain"]
+    "tags": [
+      "wine bar",
+      "small plates",
+      "canal saint-martin",
+      "bourdain"
+    ]
   }
 ]

@@ -1,4 +1,4 @@
-const CACHE_NAME='trip-companion-20260731-1';
+const CACHE_NAME='trip-companion-20260731-2';
 const CORE=[
   './','./index.html','./maria.html','./manifest.json','./manifest-maria.json',
   './guide-map.css','./guide-map-v2.js','./home-intelligence.css','./home-intelligence.js',
@@ -9,6 +9,9 @@ const CORE=[
   './final-polish.css','./final-polish.js','./french-audio-v2.js',
   './daily-transit.css','./daily-transit.js',
   './map-places-index.json','./map-places-maria.json',
+  './leaflet/leaflet.js','./leaflet/leaflet.css',
+  './leaflet/images/marker-icon.png','./leaflet/images/marker-icon-2x.png','./leaflet/images/marker-shadow.png',
+  './leaflet/images/layers.png','./leaflet/images/layers-2x.png',
   './apple-touch-icon.png','./favicon-32.png','./icon-192.png','./icon-512.png'
 ];
 self.addEventListener('install',event=>{

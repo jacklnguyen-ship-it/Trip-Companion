@@ -428,7 +428,7 @@ body:has(.page:target) #page-home:target{display:block}
 .phrase-intro{padding:1rem;border-left:4px solid var(--brass);background:var(--parchment-card);border-radius:0 10px 10px 0}.phrase-group{margin:1rem 0;border:1px solid var(--line);border-radius:12px;background:var(--parchment-card);overflow:hidden}.phrase-group summary{cursor:pointer;padding:1rem;font-weight:700;color:var(--ink)}.phrase-list{display:grid;gap:.55rem;padding:0 1rem 1rem}.phrase-card{display:grid;grid-template-columns:1fr auto;gap:.5rem;padding:.8rem;border:1px solid var(--line-soft);border-radius:9px;background:#fff}.phrase-fr{display:block;color:var(--ink);font-size:1rem}.phrase-en{display:block;color:var(--slate);font-size:.82rem;margin:.15rem 0}.phrase-pron{display:block;color:var(--wax);font-size:.74rem;font-style:italic}.phrase-play{align-self:center;width:42px;height:42px;border:1px solid var(--brass);border-radius:50%;background:var(--parchment);color:var(--wax);cursor:pointer;font-size:1rem}.phrase-play.playing{background:var(--wax);color:#fff}.phrase-note{font-size:.8rem!important;color:var(--slate)!important}
 @media(max-width:620px){.home-actions{grid-template-columns:1fr}.home-days{grid-template-columns:1fr}}
 </style>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<link rel="stylesheet" href="leaflet/leaflet.css">
 <link rel="stylesheet" href="guide-map.css?v=20260725-5">
 <link rel="stylesheet" href="home-intelligence.css?v=20260730-2">
 <link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
@@ -477,6 +477,7 @@ body:has(.page:target) #page-home:target{display:block}
     <a class="navlink" href="#page-paris_drinks"><span class="num">07</span> Paris Drinks Guide</a>
     <a class="navlink" href="#page-food"><span class="num">08</span> Food Guide</a>
     <a class="navlink" href="#page-french"><span class="num">09</span> French Cheat Sheet</a>
+    <a class="navlink" href="#page-tube-metro"><span class="num">🚇</span> Tube &amp; Paris Métro Guide</a>
     <a class="navlink" href="#page-map"><span class="num">10</span> Map &amp; Near Me</a>
     <a class="navlink" href="#page-vintage"><span class="num">11</span> Vintage Guide</a>
     <a class="navlink" href="#page-coffee"><span class="num">12</span> Coffee Guide</a>
@@ -3081,6 +3082,39 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <div id="french-phrase-groups"></div>
 <p class="phrase-note">Audio uses the French voice installed on your phone or computer. If nothing plays, make sure the device is not muted and open the guide directly in Safari or Chrome.</p>
 </section>
+<section class="page" id="page-tube-metro">
+<h1>Tube &amp; Paris Métro Guide</h1>
+<p>How each system actually works, so you're not figuring it out for the first time on the platform. For turn-by-turn directions on a specific day, see the <a class="page-link" href="#page-itinerary">Day-by-Day Itinerary</a> — the daily transit steps are already built in there.</p>
+<div class="readiness-grid">
+  <article class="readiness-card readiness-card-wide">
+    <h2>🚇 London Underground (the Tube)</h2>
+    <p><strong>Pay with:</strong> tap a contactless bank card or phone wallet directly on the yellow readers — no ticket needed. Fares are capped automatically per day and per week, the same as an Oyster card, so there's nothing to plan ahead or pre-load.</p>
+    <p><strong>Tap in AND tap out</strong> on the Tube, DLR, and Elizabeth line so the correct fare is charged. On buses, tap once only — it's a flat fare with no tap-out.</p>
+    <p><strong>Lines you'll actually use:</strong> Elizabeth line (Heathrow arrival), District / Circle / Hammersmith &amp; City (Aldgate East ↔ most of central London), Victoria line (Tottenham).</p>
+    <p class="readiness-note">Escalator etiquette: stand on the right, walk on the left. Let people off the train before you board.</p>
+  </article>
+  <article class="readiness-card readiness-card-wide">
+    <h2>🚇 Paris Métro</h2>
+    <p><strong>Pay with:</strong> a <strong>Navigo Easy</strong> card is the simplest option for a short stay — a reloadable plastic card (~€2, keep it), sold at any staffed station, onto which you load single tickets or a <em>carnet</em> of 10. Contactless bank card now works on some lines but not the whole network yet, so Navigo Easy is the more reliable default.</p>
+    <p><strong>Tap in only</strong> at the gate for the Métro itself — no tap-out. The RER to Versailles is different: it needs its own Zone 1–4 "Origine-Destination" ticket (a standard Métro ticket won't open the gates), and you keep that ticket to tap out at the RER exit.</p>
+    <p><strong>Good to know:</strong> many older Métro trains don't open their doors automatically — look for a handle to lift or a button to press as the train stops.</p>
+    <p class="readiness-note">Central Paris (Zones 1–2) covers essentially everything on your Sept 13–17 days except Versailles.</p>
+  </article>
+  <article class="readiness-card">
+    <h2>Apps worth having</h2>
+    <ul>
+      <li><strong>Citymapper</strong> — handles both cities well, with live delays and platform info</li>
+      <li><strong>TfL Go</strong> — official London app, live Tube status</li>
+      <li><strong>Bonjour RATP</strong> — official Paris app, live Métro/RER status</li>
+      <li>Your day-by-day transit directions are already in this guide — see the <a class="page-link" href="#page-itinerary">itinerary</a></li>
+    </ul>
+  </article>
+  <article class="readiness-card">
+    <h2>Eurostar → Métro, Sept 13</h2>
+    <p>Gare du Nord is both a Eurostar terminal and a major Métro/RER hub, so you can walk straight from the platform into the Métro without leaving the station. Your Airalo eSIM covers both countries, so there's no SIM swap needed for the transition either.</p>
+  </article>
+</div>
+</section>
 <section class="page" id="page-itinerary">
 <h1>Day-by-Day Itinerary</h1>
 <p><strong>Sept 7–17, 2026 | 2 Travelers</strong></p>
@@ -3431,7 +3465,14 @@ Thursday, Sept 10 at 5:30pm for 2; à la carte and marked as pre-event. A river/
     <div class="audio-shortcut-list" id="audio-shortcut-list"></div>
   </div>
 </div>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script src="leaflet/leaflet.js"></script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',function(){
+    navigator.serviceWorker.register('./service-worker.js').catch(function(){});
+  });
+}
+</script>
 <script src="guide-map-v2.js?v=20260731-bourdain"></script>
 <script src="home-intelligence.js?v=20260730-2"></script>
 <script src="trip-tools.js?v=20260730-2"></script>
