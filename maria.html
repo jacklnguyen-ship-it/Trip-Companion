@@ -185,6 +185,7 @@ body:has(#page-coffee:target) a.navlink[href="#page-coffee"]{ background:rgba(16
 body:has(#page-icecream:target) a.navlink[href="#page-icecream"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-boutique:target) a.navlink[href="#page-boutique"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-markets:target) a.navlink[href="#page-markets"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
+body:has(#page-bourdain:target) a.navlink[href="#page-bourdain"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:not(:has(.page:target)) a.navlink[href="#page-itinerary"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-home:target) a.navlink[href="#page-home"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:not(:has(.page:target)) a.navlink[href="#page-home"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
@@ -438,7 +439,7 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 <link rel="stylesheet" href="daily-transit.css?v=20260729-2">
 </head>
-<body data-map-data="map-places-maria.json?v=20260730-1" data-vault-guide="maria">
+<body data-map-data="map-places-maria.json?v=20260731-bourdain" data-vault-guide="maria">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
@@ -483,6 +484,7 @@ body:has(.page:target) #page-home:target{display:block}
     <a class="navlink" href="#page-boutique"><span class="num">14</span> Boutique Guide</a>
     <a class="navlink" href="#page-jetlag"><span class="num">15</span> Jet Lag Guide</a>
     <a class="navlink" href="#page-markets"><span class="num">16</span> Markets Guide</a>
+    <a class="navlink" href="#page-bourdain"><span class="num">17</span> Bourdain’s Paris</a>
   </nav>
 
   <main class="content-wrap" id="main-content" tabindex="-1">
@@ -2847,7 +2849,7 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <div class="trip-map-shell">
   <div class="trip-map-toolbar">
     <label class="trip-map-field"><span>Area</span><select id="map-city-filter"><option value="all">All areas</option><option value="london">London</option><option value="paris">Paris</option><option value="daytrips">Bath &amp; day trips</option></select></label>
-    <label class="trip-map-field"><span>Category</span><select id="map-category-filter"><option value="all">Everything</option><option value="attractions">Attractions</option><option value="food">Food &amp; bakeries</option><option value="coffee">Coffee</option><option value="drinks">Pubs &amp; drinks</option><option value="shopping">Vintage &amp; shopping</option><option value="markets">Markets</option><option value="art">Art &amp; prints</option><option value="icecream">Ice cream</option><option value="afternoontea">Afternoon tea</option><option value="hotel">Hotel</option></select></label>
+    <label class="trip-map-field"><span>Category</span><select id="map-category-filter"><option value="all">Everything</option><option value="attractions">Attractions</option><option value="food">Food &amp; bakeries</option><option value="coffee">Coffee</option><option value="drinks">Pubs &amp; drinks</option><option value="shopping">Vintage &amp; shopping</option><option value="markets">Markets</option><option value="art">Art &amp; prints</option><option value="icecream">Ice cream</option><option value="afternoontea">Afternoon tea</option><option value="bourdain">Locations with Bourdain</option><option value="hotel">Hotel</option></select></label>
     <button class="trip-map-button" id="map-locate" type="button">Use my location</button>
     <button class="trip-map-button secondary" id="map-show-all" type="button">Show all</button>
   </div>
@@ -2927,6 +2929,32 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 </ul>
 <h2>Best matches for this trip</h2>
 <p><strong>London:</strong> Gelupo if you are already in Soho; Mamasons for the most unusual flavor experience. <strong>Paris:</strong> Bachir is the lowest-friction choice near your hotel, while Berthillon fits naturally with the Île de la Cité area.</p>
+</section>
+<section class="page" id="page-bourdain">
+<h1>Anthony Bourdain’s Paris</h1>
+<p><strong>A focused, map-ready set of living Bourdain stops that fit your Paris leg—not a checklist of every venue from the shows.</strong> The source guide documents 40 Paris locations across <em>No Reservations</em> and <em>The Layover</em>; this shorter list favors places that are still operating and make sense near your hotel or planned routes.</p>
+<p><a href="https://eatlikebourdain.com/anthony-bourdain-in-paris/" target="_blank" rel="noopener">Open the full Eat Like Bourdain Paris guide →</a></p>
+<hr />
+<h2>Best fits for this trip</h2>
+<ul>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Chez+Robert+et+Louise+Paris">Chez Robert et Louise</a></strong> — old-school Marais grill with the kitchen practically in the dining room. A classic Bourdain stop and the most natural splurge if you want to add an unplanned Marais dinner.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Au+Petit+Fer+a+Cheval+Paris">Au Petit Fer à Cheval</a></strong> — tiny horseshoe-counter café in the Marais. Excellent for a small glass, casual meal, or an atmospheric pause near your hotel.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Marche+des+Enfants+Rouges+Paris">Marché des Enfants Rouges</a></strong> — Bourdain’s flexible international-food-market stop, already a strong fit near your hotel. Remember: it is closed Monday.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=L%27Avant+Comptoir+Paris">L’Avant Comptoir</a></strong> — standing-room charcuterie and small plates near Odéon; ideal for a snack or glass before/after the Sept. 14 Left Bank route.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Berthillon+Paris">Berthillon</a></strong> — the Île Saint-Louis ice-cream institution; the easiest Bourdain dessert detour on your historic-Paris day.</li>
+<li><strong><a href="https://www.google.com/maps/search/?api=1&amp;query=Du+Pain+et+des+Idees+Paris">Du Pain et des Idées</a></strong> — Bourdain’s bakery stop for pain des amis and pistachio-cherry escargot. Worth the detour only if you are already near the 10th.</li>
+</ul>
+<h2>Worth a dedicated meal or detour</h2>
+<ul>
+<li><strong>Frenchie</strong> — modern French tasting-menu landmark near Rue du Nil; reserve well ahead.</li>
+<li><strong>Septime</strong> — seasonally driven tasting menu in the 11th; a serious reservation target, not a last-minute option.</li>
+<li><strong>Le Châteaubriand</strong> — influential, inventive Paris bistro; go with an open mind and an appetite for a longer meal.</li>
+<li><strong>Bistrot Paul Bert</strong> — classic bistro choice in the 11th, especially for steak au poivre and a more traditional feel.</li>
+<li><strong>Le Baratin</strong> and <strong>Le Verre Volé</strong> — excellent wine-led options if a Belleville or Canal Saint-Martin evening opens up.</li>
+</ul>
+<h2>Map note</h2>
+<p>On <a href="#page-map">Map &amp; Near Me</a>, choose <strong>“Locations with Bourdain”</strong> in the Category filter. It includes these stops plus additional active locations from the source such as Chez Denise, Au Passage, La Palette, Urfa Dürüm, Le Dôme, Le Pure Café and Le Camion Qui Fume.</p>
+<p><em>Availability, hours and reservation policies can change. Treat this as a culinary reference, then verify the restaurant directly before building a fixed meal around it.</em></p>
 </section>
 <section class="page" id="page-markets">
 <h1>Markets Guide</h1>
@@ -3197,7 +3225,7 @@ Thursday, Sept 10 at 5:30pm for 2; à la carte and marked as pre-event. A river/
       'page-itinerary':'days','page-logistics':'travel','page-london':'london','page-bath':'london',
       'page-chatsworth':'london','page-london_pubs':'london','page-meals':'food','page-paris':'paris','page-versailles':'paris',
       'page-paris_drinks':'paris','page-food':'food','page-french':'travel','page-jetlag':'travel','page-markets':'travel',
-      'page-map':'travel','page-vintage':'travel','page-coffee':'food','page-icecream':'food',
+      'page-map':'travel','page-vintage':'travel','page-coffee':'food','page-icecream':'food','page-bourdain':'food',
       'page-boutique':'travel'
     },items=[],mapCategories={food:1,coffee:1,drinks:1,icecream:1,afternoontea:1};
     function escapeSearchHtml(value){return String(value).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -3404,7 +3432,7 @@ Thursday, Sept 10 at 5:30pm for 2; à la carte and marked as pre-event. A river/
   </div>
 </div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-<script src="guide-map-v2.js?v=20260730-1"></script>
+<script src="guide-map-v2.js?v=20260731-bourdain"></script>
 <script src="home-intelligence.js?v=20260730-2"></script>
 <script src="trip-tools.js?v=20260730-2"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>

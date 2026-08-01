@@ -750,7 +750,8 @@
       "food",
       "restaurant",
       "bakery",
-      "pastries"
+      "pastries",
+      "bourdain"
     ]
   },
   {
@@ -1068,7 +1069,8 @@
     "tags": [
       "ice cream",
       "dessert",
-      "gelato"
+      "gelato",
+      "bourdain"
     ]
   },
   {
@@ -2288,7 +2290,8 @@
       "covered market",
       "street food",
       "moroccan",
-      "creole"
+      "creole",
+      "bourdain"
     ]
   },
   {
@@ -2426,5 +2429,185 @@
     "lng": 2.3315629,
     "address": "48 Rue Madame, 75006 Paris, France",
     "tags": ["boutique", "homeware", "glassware", "illustration", "gifts", "aesthetic"]
+  },
+  {
+    "query": "Chez Robert et Louise Paris",
+    "title": "Chez Robert et Louise",
+    "category": "food",
+    "lat": 48.8577,
+    "lng": 2.3588,
+    "address": "64 Rue Vieille du Temple, 75003 Paris, France",
+    "tags": ["restaurant", "marais", "wood-fired grill", "classic french", "bourdain"]
+  },
+  {
+    "query": "Chez Denise Paris",
+    "title": "Chez Denise",
+    "category": "food",
+    "lat": 48.8615239,
+    "lng": 2.3440891,
+    "address": "Rue des Prouvaires, 75001 Paris, France",
+    "tags": ["restaurant", "les halles", "classic french", "bourdain"]
+  },
+  {
+    "query": "La Tête dans les Olives Paris",
+    "title": "La Tête dans les Olives",
+    "category": "food",
+    "lat": 48.8301685,
+    "lng": 2.3302541,
+    "address": "Rue du Couédic, 75014 Paris, France",
+    "tags": ["specialty food", "wine", "14th", "bourdain"]
+  },
+  {
+    "query": "Frenchie 6 Rue du Nil Paris",
+    "title": "Frenchie",
+    "category": "food",
+    "lat": 48.8678381,
+    "lng": 2.3480163,
+    "address": "6 Rue du Nil, 75002 Paris, France",
+    "tags": ["restaurant", "tasting menu", "modern french", "reservation", "bourdain"]
+  },
+  {
+    "query": "Le Châteaubriand Paris",
+    "title": "Le Châteaubriand",
+    "category": "food",
+    "lat": 48.8693116,
+    "lng": 2.3713458,
+    "address": "Avenue Parmentier, 75011 Paris, France",
+    "tags": ["restaurant", "modern french", "tasting menu", "bourdain"]
+  },
+  {
+    "query": "La Quincave Paris",
+    "title": "La Quincave",
+    "category": "drinks",
+    "lat": 48.8429611,
+    "lng": 2.3300843,
+    "address": "Rue Bréa, 75006 Paris, France",
+    "tags": ["wine shop", "wine", "6th", "bourdain"]
+  },
+  {
+    "query": "L'Avant Comptoir Paris",
+    "title": "L’Avant Comptoir",
+    "category": "food",
+    "lat": 48.8520751,
+    "lng": 2.3387903,
+    "address": "Carrefour de l’Odéon, 75006 Paris, France",
+    "tags": ["small plates", "charcuterie", "left bank", "bourdain"]
+  },
+  {
+    "query": "L'Atelier de Joël Robuchon Paris",
+    "title": "L’Atelier de Joël Robuchon",
+    "category": "food",
+    "lat": 48.856659,
+    "lng": 2.3275506,
+    "address": "Rue de Montalembert, 75007 Paris, France",
+    "tags": ["restaurant", "fine dining", "7th", "bourdain"]
+  },
+  {
+    "query": "Le Pure Café Paris",
+    "title": "Le Pure Café",
+    "category": "coffee",
+    "lat": 48.8532884,
+    "lng": 2.3834234,
+    "address": "14 Rue Jean Macé, 75011 Paris, France",
+    "tags": ["coffee", "cafe", "people watching", "bourdain"]
+  },
+  {
+    "query": "Au Petit Fer à Cheval Paris",
+    "title": "Au Petit Fer à Cheval",
+    "category": "drinks",
+    "lat": 48.8574347,
+    "lng": 2.3576107,
+    "address": "30 Rue Vieille du Temple, 75004 Paris, France",
+    "tags": ["cafe", "wine", "marais", "bourdain"]
+  },
+  {
+    "query": "Au Passage Paris",
+    "title": "Au Passage",
+    "category": "food",
+    "lat": 48.8616286,
+    "lng": 2.368956,
+    "address": "Passage Saint-Sébastien, 75011 Paris, France",
+    "tags": ["restaurant", "small plates", "11th", "bourdain"]
+  },
+  {
+    "query": "Bistrot Paul Bert Paris",
+    "title": "Bistrot Paul Bert",
+    "category": "food",
+    "lat": 48.852223,
+    "lng": 2.3849242,
+    "address": "Rue Paul Bert, 75011 Paris, France",
+    "tags": ["bistro", "steak au poivre", "classic french", "bourdain"]
+  },
+  {
+    "query": "Septime Paris",
+    "title": "Septime",
+    "category": "food",
+    "lat": 48.8536026,
+    "lng": 2.3809558,
+    "address": "80 Rue de Charonne, 75011 Paris, France",
+    "tags": ["restaurant", "tasting menu", "reservation", "bourdain"]
+  },
+  {
+    "query": "Le Camion qui fume Paris",
+    "title": "Le Camion qui fume",
+    "category": "food",
+    "lat": 48.8649463,
+    "lng": 2.3745576,
+    "address": "81 Rue Oberkampf, 75011 Paris, France",
+    "tags": ["burger", "casual", "11th", "bourdain"]
+  },
+  {
+    "query": "Le Dôme Paris",
+    "title": "Le Dôme",
+    "category": "food",
+    "lat": 48.8419574,
+    "lng": 2.3290304,
+    "address": "Rue Delambre, 75014 Paris, France",
+    "tags": ["seafood", "oysters", "montparnasse", "bourdain"]
+  },
+  {
+    "query": "Brasserie Le Wepler Paris",
+    "title": "Brasserie Le Wepler",
+    "category": "food",
+    "lat": 48.88313,
+    "lng": 2.32764,
+    "address": "14 Place de Clichy, 75018 Paris, France",
+    "tags": ["seafood", "oysters", "brasserie", "bourdain"]
+  },
+  {
+    "query": "Urfa Dürüm Paris",
+    "title": "Urfa Dürüm",
+    "category": "food",
+    "lat": 48.870202,
+    "lng": 2.35304,
+    "address": "Passage du Prado, 75010 Paris, France",
+    "tags": ["kurdish", "kebab", "casual", "bourdain"]
+  },
+  {
+    "query": "La Palette Paris",
+    "title": "La Palette",
+    "category": "drinks",
+    "lat": 48.8553805,
+    "lng": 2.3368914,
+    "address": "Rue Jacques Callot, 75006 Paris, France",
+    "tags": ["bistro", "wine", "left bank", "bourdain"]
+  },
+  {
+    "query": "Le Baratin Paris",
+    "title": "Le Baratin",
+    "category": "drinks",
+    "lat": 48.8730762,
+    "lng": 2.3828589,
+    "address": "3 Rue Jouye Rouve, 75020 Paris, France",
+    "tags": ["wine", "bistro", "belleville", "bourdain"]
+  },
+  {
+    "query": "Le Verre Volé Paris",
+    "title": "Le Verre Volé",
+    "category": "drinks",
+    "lat": 48.8728408,
+    "lng": 2.3635142,
+    "address": "Rue de Lancry, 75010 Paris, France",
+    "tags": ["wine bar", "small plates", "canal saint-martin", "bourdain"]
   }
 ]

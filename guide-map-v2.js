@@ -1,7 +1,7 @@
 (function(){
   var map, places=[], markers, userMarker, userLocation, initialized=false, markersByTitle={}, lastSearchedPlace=null;
   var icons={attractions:'📍',food:'🍽️',coffee:'☕',drinks:'🍸',shopping:'🛍️',markets:'🧺',icecream:'🍦',afternoontea:'🫖',hotel:'🏨',art:'🎨'};
-  var categoryLabels={attractions:'Attractions',food:'Food & bakeries',coffee:'Coffee',drinks:'Pubs & drinks',shopping:'Vintage & shopping',markets:'Markets',art:'Art & prints',icecream:'Ice cream',afternoontea:'Afternoon tea',hotel:'Hotel'};
+  var categoryLabels={attractions:'Attractions',food:'Food & bakeries',coffee:'Coffee',drinks:'Pubs & drinks',shopping:'Vintage & shopping',markets:'Markets',art:'Art & prints',icecream:'Ice cream',afternoontea:'Afternoon tea',bourdain:'Locations with Bourdain',hotel:'Hotel'};
   function milesBetween(a,b){
     var r=3958.8,toRad=Math.PI/180,dLat=(b.lat-a.lat)*toRad,dLng=(b.lng-a.lng)*toRad;
     var x=Math.sin(dLat/2)**2+Math.cos(a.lat*toRad)*Math.cos(b.lat*toRad)*Math.sin(dLng/2)**2;
@@ -59,7 +59,10 @@
   }
   function filteredPlaces(){
     var city=document.getElementById('map-city-filter').value,category=document.getElementById('map-category-filter').value;
-    return places.filter(function(p){return(city==='all'||cityFor(p)===city)&&(category==='all'||p.category===category);});
+    return places.filter(function(p){
+      var matchesCategory=category==='all'||p.category===category||(category==='bourdain'&&(p.tags||[]).some(function(tag){return String(tag).toLowerCase()==='bourdain';}));
+      return(city==='all'||cityFor(p)===city)&&matchesCategory;
+    });
   }
   function popupFor(p){
     var distance=userLocation?'<p><strong>'+milesBetween(userLocation,p).toFixed(1)+' miles from you</strong></p>':'';
