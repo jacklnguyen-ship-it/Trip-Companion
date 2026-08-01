@@ -6,6 +6,7 @@
   var nextDetail=document.getElementById('home-next-detail'),eventsNode=document.getElementById('home-events');
   var alertBox=document.getElementById('kickoff-alert'),dismiss=document.getElementById('kickoff-dismiss');
   var dinnerAlert=document.getElementById('dinner-review-alert'),dinnerDismiss=document.getElementById('dinner-review-dismiss');
+  var chatsworthAlert=document.getElementById('chatsworth-time-alert'),chatsworthDismiss=document.getElementById('chatsworth-time-dismiss');
   var events=[];
 
   function now(){
@@ -112,6 +113,16 @@
       try{sessionStorage.setItem('tripCompanionDinnerReviewDismissed','1');}catch(error){}
     });
   }
+  function initChatsworthAlert(){
+    if(!chatsworthAlert)return;
+    var dismissed=false;
+    try{dismissed=sessionStorage.getItem('tripCompanionChatsworthTimeDismissed')==='1';}catch(error){}
+    chatsworthAlert.hidden=dismissed;
+    if(chatsworthDismiss)chatsworthDismiss.addEventListener('click',function(){
+      chatsworthAlert.hidden=true;
+      try{sessionStorage.setItem('tripCompanionChatsworthTimeDismissed','1');}catch(error){}
+    });
+  }
   function render(){
     var current=now();
     renderToday(current);
@@ -121,6 +132,7 @@
   events=parseEvents();
   initAlert();
   initDinnerAlert();
+  initChatsworthAlert();
   render();
   setInterval(render,60000);
 })();

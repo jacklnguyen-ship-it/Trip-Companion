@@ -572,6 +572,30 @@ body:has(.page:target) #page-home:target{display:block}
     <p>P1 Travel shows 08:30, while official fixture listings show 17:30 on September 12. Confirm directly before finalizing match-day timing.</p>
     <a href="#page-itinerary">Review the match-day itinerary →</a>
   </aside>
+  <aside class="dinner-review-alert" id="chatsworth-time-alert" role="alert">
+    <button class="dinner-review-dismiss" id="chatsworth-time-dismiss" type="button" aria-label="Dismiss Chatsworth entry time card">&times;</button>
+    <strong>🏰 Chatsworth entry time — your call</strong>
+    <p>We're currently booked for <strong>10:30 AM</strong> entry (£5/person to change). Here's how the two alternatives compare — let Jack know which you prefer.</p>
+    <div class="dinner-review-days" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+      <div class="dinner-review-day">
+        <time>Option A</time>
+        <strong>11:00 AM entry</strong>
+        <p>Leave Wombat's ~6:30 AM — a proper morning sleep after the flight.</p>
+        <p>Train from St Pancras ~7:00–7:15 AM. Arrive Chatsworth ~10:30 AM.</p>
+        <p>Return from Sheffield ~6:00 PM, back in London ~8:15 PM.</p>
+        <p><strong>~5.5 hrs at Chatsworth.</strong> Recommended.</p>
+      </div>
+      <div class="dinner-review-day">
+        <time>Option B</time>
+        <strong>11:30 AM entry</strong>
+        <p>Leave Wombat's ~7:00 AM — the most relaxed start of the three.</p>
+        <p>Train from St Pancras ~7:30 AM. Arrive Chatsworth ~11:00 AM.</p>
+        <p>Return from Sheffield ~6:30–7:00 PM, back in London ~8:45–9:15 PM.</p>
+        <p><strong>~5 hrs at Chatsworth.</strong> Slightly shorter day.</p>
+      </div>
+    </div>
+    <p style="margin-top: .75rem; font-size: .85rem;">Both options mean cheaper, more available trains vs the current 5:27 AM departure. Current 10:30 AM booking stays until you decide — no rush.</p>
+  </aside>
   <section class="home-next-up" id="home-next-up" aria-live="polite" hidden>
     <div class="home-next-up-head"><p class="home-next-up-kicker">Next up</p><span class="home-next-up-countdown" id="home-next-countdown"></span></div>
     <h2 id="home-next-title"></h2>
@@ -3544,7 +3568,7 @@ if('serviceWorker' in navigator){
 }
 </script>
 <script src="guide-map-v2.js?v=20260731-bourdain"></script>
-<script src="home-intelligence.js?v=20260730-2"></script>
+<script src="home-intelligence.js?v=20260801-1"></script>
 <script src="trip-tools.js?v=20260730-2"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>
 <script src="floating-shortcuts.js?v=20260730-7"></script>
