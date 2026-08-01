@@ -577,7 +577,7 @@ body:has(.page:target) #page-home:target{display:block}
     <strong>🏰 Chatsworth — train booking &amp; entry time</strong>
     <p>We're deciding whether to move our <strong>10:30 AM</strong> entry to <strong>11:00 AM</strong> or <strong>11:30 AM</strong> (£5/person to change) — which means a later, cheaper, more relaxed start after the flight. Trains aren't booked yet either.</p>
     <p style="margin: .6rem 0 0;">Full breakdown of both options, train prices, bus info, and return ticket choices →</p>
-    <a class="dinner-review-open" href="#chatsworth-booking" style="display: inline-block; margin-top: .65rem;">View full booking details</a>
+    <a class="dinner-review-open" href="#page-chatsworth" id="chatsworth-booking-link" style="display: inline-block; margin-top: .65rem;">View full booking details</a>
   </aside>
   <section class="home-next-up" id="home-next-up" aria-live="polite" hidden>
     <div class="home-next-up-head"><p class="home-next-up-kicker">Next up</p><span class="home-next-up-countdown" id="home-next-countdown"></span></div>
@@ -3611,6 +3611,18 @@ if('serviceWorker' in navigator){
 </script>
 <script src="guide-map-v2.js?v=20260731-bourdain"></script>
 <script src="home-intelligence.js?v=20260801-1"></script>
+<script>
+(function(){
+  var btn=document.getElementById('chatsworth-booking-link');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    setTimeout(function(){
+      var target=document.getElementById('chatsworth-booking');
+      if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    },80);
+  });
+})();
+</script>
 <script src="trip-tools.js?v=20260730-2"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>
 <script src="floating-shortcuts.js?v=20260730-7"></script>
