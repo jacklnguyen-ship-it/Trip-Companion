@@ -8,6 +8,7 @@
   var dinnerAlert=document.getElementById('dinner-review-alert'),dinnerDismiss=document.getElementById('dinner-review-dismiss');
   var chatsworthAlert=document.getElementById('chatsworth-time-alert'),chatsworthDismiss=document.getElementById('chatsworth-time-dismiss');
   var events=[];
+  var transitExpanded=false,lastNextAt=null;
 
   function now(){
     if(window.__TRIP_COMPANION_TEST_NOW__)return new Date(window.__TRIP_COMPANION_TEST_NOW__);
@@ -53,6 +54,11 @@
   function formatEventTime(date){
     return new Intl.DateTimeFormat(undefined,{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}).format(date);
   }
+  function escapeHtml(text){
+    var div=document.createElement('div');
+    div.textContent=text;
+    return div.innerHTML;
+  }
   function renderToday(current){
     var active=dayIndex(current);
     cards.forEach(function(card,index){
@@ -77,20 +83,29 @@
       nextTitle.textContent='Trip complete';
       nextCountdown.textContent='Welcome home';
       nextTime.textContent='Your London and Paris memories are ready to revisit.';
-      nextDetail.textContent='Use the guide to review favorite places and notes from the trip.';
+      nextDetail.innerHTML='Use the guide to review favorite places and notes from the trip.';
       return;
     }
     if(!next){
       nextTitle.textContent=current<tripStart?'Your trip begins September 7':'No more timed events';
       nextCountdown.textContent=current<tripStart?'Coming soon':'Enjoy the moment';
       nextTime.textContent=current<tripStart?'Your first live countdown will appear here.':'Check today’s card for flexible plans.';
-      nextDetail.textContent='';
+      nextDetail.innerHTML='';
       return;
+    }
+    if(lastNextAt!==next.at.getTime()){
+      transitExpanded=false;
+      lastNextAt=next.at.getTime();
     }
     nextTitle.textContent=next.title;
     nextCountdown.textContent=formatCountdown(next.at-current);
     nextTime.textContent=formatEventTime(next.at);
-    nextDetail.textContent=next.detail||'';
+    var html=escapeHtml(next.detail||'');
+    if(next.transit&&next.transit.length){
+      html+=' <button type="button" class="home-next-transit-toggle" aria-expanded="'+(transitExpanded?'true':'false')+'">'+(transitExpanded?'Hide full transit details \u2212':'Show full transit details +')+'</button>';
+      html+='<ol class="home-next-transit-list"'+(transitExpanded?'':' hidden')+'>'+next.transit.map(function(step){return'<li>'+escapeHtml(step)+'</li>';}).join('')+'</ol>';
+    }
+    nextDetail.innerHTML=html;
   }
   function alertWasDismissed(){
     try{return sessionStorage.getItem('tripCompanionKickoffAlertDismissed')==='1';}catch(error){return false;}
@@ -123,6 +138,15 @@
       try{sessionStorage.setItem('tripCompanionChatsworthTimeDismissed','1');}catch(error){}
     });
   }
+  function initTransitToggle(){
+    if(!nextDetail)return;
+    nextDetail.addEventListener('click',function(e){
+      var btn=e.target.closest?e.target.closest('.home-next-transit-toggle'):null;
+      if(!btn)return;
+      transitExpanded=!transitExpanded;
+      render();
+    });
+  }
   function render(){
     var current=now();
     renderToday(current);
@@ -133,6 +157,7 @@
   initAlert();
   initDinnerAlert();
   initChatsworthAlert();
+  initTransitToggle();
   render();
   setInterval(render,60000);
 })();
