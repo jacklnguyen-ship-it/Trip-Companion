@@ -17,18 +17,19 @@
     },
     "Sept 9":{
       title:"Wombat’s → Chatsworth House",
-      summary:"This is the longest transit morning, with a London Underground connection, an intercity train and a local bus.",
+      summary:"This is the longest transit morning, with a London Underground connection, an intercity train with one change, and a local bus.",
       steps:[
         "Walk about 8 minutes to Aldgate East.",
         "Take the Hammersmith & City line westbound to King’s Cross St Pancras, then follow signs to St Pancras International.",
-        "Take the booked/selected East Midlands Railway service to Sheffield.",
-        "From Sheffield Interchange, take bus 218 toward Bakewell and get off at Chatsworth House."
+        "Take the 06:05 East Midlands Railway service to Leicester (arrive 07:17).",
+        "Change trains at Leicester — 26 min transfer. Take the 07:43 East Midlands Railway service to Chesterfield (arrive 08:32).",
+        "From Chesterfield Railway Station, take bus 170 toward Bakewell at 09:26 (or walk 10 min into town and catch the same bus at the New Beetwell Street stop at 09:38 for a coffee/breakfast window) and get off at Chatsworth House at 10:10."
       ],
-      time:"About 3 hr each way",
-      leave:"Target 04:35–04:45 for the 10:30 entry",
+      time:"About 2h30m each way",
+      leave:"Target 05:35–05:45 to catch the 06:05 train",
       destination:"Chatsworth House, Bakewell",
       origin:"Wombat's City Hostel London, 7 Dock Street, London",
-      note:"The House entry is confirmed for 10:30 and you should aim to arrive by 10:15. Confirm the intercity train and bus 218 schedules shortly before travel; the bus is much less frequent than London transit."
+      note:"The House entry is confirmed for 10:30 and you should aim to arrive by 10:15. Return: bus 170 departs Chatsworth House at 5:09pm, arriving Chesterfield 5:50pm; train departs Chesterfield at 19:13, arriving St Pancras 21:08 (direct). The 5:50pm–7:13pm window in Chesterfield is a good stretch for dinner (Spa Lane Vaults, The Rectory, or The Railway Inn near the station)."
     },
     "Sept 10":{
       title:"Wombat’s → Wimbledon",
