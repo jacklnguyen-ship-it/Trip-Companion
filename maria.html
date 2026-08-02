@@ -438,6 +438,7 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="private-vault.css?v=20260729-1">
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 <link rel="stylesheet" href="daily-transit.css?v=20260729-2">
+<link rel="stylesheet" href="packing-checklist.css?v=20260802-1">
 </head>
 <body data-map-data="map-places-maria.json?v=20260731-bourdain" data-vault-guide="maria">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -565,6 +566,24 @@ body:has(.page:target) #page-home:target{display:block}
     <h1>London &amp; Paris</h1>
     <p>September 7–17, 2026 · 11 days · 2 travelers</p>
     <p>Open a day below for its schedule, tickets, nearby food and detailed research.</p>
+  </div>
+  <button class="packing-launcher" id="packing-launcher" type="button">🧳 Packing checklist</button>
+  <div class="packing-dialog" id="packing-dialog" role="dialog" aria-modal="true" aria-labelledby="packing-dialog-title" hidden>
+    <div class="packing-dialog-card">
+      <div class="packing-dialog-head">
+        <div>
+          <h2 id="packing-dialog-title">Packing checklist</h2>
+          <p class="packing-progress" id="packing-progress-text"></p>
+        </div>
+        <button class="packing-dialog-close" id="packing-dialog-close" type="button" aria-label="Close packing checklist">&times;</button>
+      </div>
+      <button class="packing-reset" id="packing-reset" type="button">Reset to defaults</button>
+      <div id="packing-categories"></div>
+      <div class="packing-new-category">
+        <input type="text" id="packing-new-category-input" placeholder="Add a category, e.g. Gifts to bring back">
+        <button id="packing-new-category-btn" type="button">Add</button>
+      </div>
+    </div>
   </div>
   <section class="home-next-up" id="home-next-up" aria-live="polite" hidden>
     <div class="home-next-up-head"><p class="home-next-up-kicker">Next up</p><span class="home-next-up-countdown" id="home-next-countdown"></span></div>
@@ -3523,5 +3542,6 @@ if('serviceWorker' in navigator){
 <script src="final-polish.js?v=20260728-1"></script>
 <script src="french-audio-v2.js?v=20260728-1"></script>
 <script src="daily-transit.js?v=20260730-1"></script>
+<script src="packing-checklist.js?v=20260802-1"></script>
 </body>
 </html>
