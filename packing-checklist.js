@@ -6,7 +6,7 @@
       {t:"UK ETA confirmation",d:false},
       {t:"France entry requirements checked",d:false},
       {t:"Flight, train, Eurostar confirmations (downloaded/offline)",d:false},
-      {t:"Theater and opera tickets",d:false},
+
       {t:"Travel insurance details",d:false},
       {t:"Chase Sapphire Preferred and Venture X cards",d:false},
       {t:"Backup cash (GBP and EUR)",d:false},
