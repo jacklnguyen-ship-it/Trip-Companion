@@ -1,6 +1,6 @@
 (function(){
   'use strict';
-  var openButton=document.getElementById('audio-shortcut');
+  var openButtons=document.querySelectorAll('.js-open-audio-guides');
   var modal=document.getElementById('audio-shortcut-modal');
   var closeButton=document.getElementById('audio-shortcut-close');
   var list=document.getElementById('audio-shortcut-list');
@@ -8,20 +8,20 @@
     'audioguide-chatsworth':'Chatsworth House',
     'audioguide-versailles':'Palace of Versailles'
   };
-  if(!openButton||!modal||!closeButton||!list)return;
+  if(!openButtons.length||!modal||!closeButton||!list)return;
   var lastFocus=null;
   function text(node){return (node&&node.textContent||'').replace(/^🎧\s*Audio Guide:?\s*/i,'').trim();}
   function close(){
     modal.hidden=true;
     document.body.style.overflow='';
-    openButton.setAttribute('aria-expanded','false');
+    openButtons.forEach(function(b){b.setAttribute('aria-expanded','false');});
     if(lastFocus&&lastFocus.focus)lastFocus.focus();
   }
-  function open(){
-    lastFocus=document.activeElement;
+  function open(triggeredBy){
+    lastFocus=triggeredBy||document.activeElement;
     modal.hidden=false;
     document.body.style.overflow='hidden';
-    openButton.setAttribute('aria-expanded','true');
+    openButtons.forEach(function(b){b.setAttribute('aria-expanded','true');});
     closeButton.focus();
   }
   function goToGuide(guide){
@@ -48,8 +48,10 @@
     button.addEventListener('click',function(){goToGuide(guide);});
     list.appendChild(button);
   });
-  openButton.setAttribute('aria-expanded','false');
-  openButton.addEventListener('click',function(){if(modal.hidden)open();else close();});
+  openButtons.forEach(function(b){b.setAttribute('aria-expanded','false');});
+  openButtons.forEach(function(b){
+    b.addEventListener('click',function(){if(modal.hidden)open(b);else close();});
+  });
   document.querySelectorAll('.floating-shortcuts a').forEach(function(link){
     link.addEventListener('click',function(){if(!modal.hidden)close();});
   });

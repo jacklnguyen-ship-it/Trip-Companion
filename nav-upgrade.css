@@ -1,0 +1,99 @@
+/* ---------- Back to Today floating button ---------- */
+.back-to-today{
+  position:fixed;
+  top:.75rem;
+  right:.75rem;
+  z-index:60;
+  display:inline-flex;
+  align-items:center;
+  gap:.35rem;
+  padding:.5rem .85rem;
+  border-radius:999px;
+  background:var(--ink);
+  color:#fff;
+  font-size:.74rem;
+  font-weight:800;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(16,38,58,.28);
+  border:1px solid rgba(255,255,255,.15);
+}
+.back-to-today:hover,.back-to-today:focus-visible{background:var(--brass);outline:none;}
+body:not(:has(.page:target)) .back-to-today{display:none}
+body:has(#page-home:target) .back-to-today{display:none}
+body:has(#page-itinerary:target) .back-to-today{display:none}
+body:has(.day-modal.open) .back-to-today{display:none}
+@media(max-width:860px){
+  .back-to-today{top:max(.6rem,env(safe-area-inset-top,0px));right:.6rem;font-size:.7rem;padding:.45rem .7rem}
+}
+
+/* ---------- Quick Actions sheet (reuses .audio-shortcut-modal chrome) ---------- */
+.qa-next-card{
+  display:flex;align-items:center;gap:.7rem;
+  padding:.85rem;margin-bottom:.7rem;
+  border:1px solid var(--line);border-radius:12px;
+  background:var(--parchment-card);
+}
+.qa-next-icon{
+  display:grid;place-items:center;width:42px;height:42px;flex:0 0 auto;
+  border-radius:50%;background:var(--brass);color:#fff;font-size:1.1rem;
+}
+.qa-next-copy{display:flex;flex-direction:column;min-width:0}
+.qa-next-eyebrow{font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brass-dark)}
+.qa-next-title{font-weight:800;font-size:.94rem;color:var(--ink);overflow-wrap:anywhere}
+.qa-next-time{font-size:.78rem;color:var(--slate)}
+
+/* ---------- Collapsible sidebar groups (Tools / Reference) ---------- */
+.nav-group{margin:.35rem 0;}
+.nav-group > summary{
+  display:flex;align-items:center;justify-content:space-between;gap:.5rem;
+  width:100%;padding:.55rem .6rem;margin-bottom:.1rem;
+  border-radius:5px;cursor:pointer;list-style:none;
+  color:rgba(245,239,225,.82);
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-size:1rem;font-weight:700;
+}
+.nav-group > summary::-webkit-details-marker{display:none}
+.nav-group > summary:hover{background:rgba(245,239,225,.07);color:#fff;}
+.nav-group > summary .nav-group-caret{
+  font-size:.75rem;color:var(--brass);transition:transform .18s ease;
+}
+.nav-group[open] > summary .nav-group-caret{transform:rotate(90deg);}
+.nav-group .nav-group-label{margin-top:.5rem;}
+.nav-group .nav-group-label:first-of-type{margin-top:.2rem;}
+
+/* Auto-expand Tools/Reference groups when one of their pages is the active target,
+   so the highlighted link is never hidden behind a collapsed <details>. */
+body:has(#page-logistics:target,#page-vault:target,#page-emergency:target,#page-london:target,#page-bath:target,#page-chatsworth:target,#page-london_pubs:target,#page-london-food:target,#page-bourdain-london:target,#page-paris:target,#page-versailles:target,#page-opera:target,#page-paris_drinks:target,#page-le-marais:target,#page-bourdain:target,#page-meals:target,#page-food:target,#page-markets:target,#page-french:target,#page-tube-metro:target,#page-vintage:target,#page-coffee:target,#page-icecream:target,#page-boutique:target,#page-jetlag:target) .nav-group > :not(summary){
+  display:block;
+}
+body:has(#page-logistics:target,#page-vault:target,#page-emergency:target,#page-london:target,#page-bath:target,#page-chatsworth:target,#page-london_pubs:target,#page-london-food:target,#page-bourdain-london:target,#page-paris:target,#page-versailles:target,#page-opera:target,#page-paris_drinks:target,#page-le-marais:target,#page-bourdain:target,#page-meals:target,#page-food:target,#page-markets:target,#page-french:target,#page-tube-metro:target,#page-vintage:target,#page-coffee:target,#page-icecream:target,#page-boutique:target,#page-jetlag:target) .nav-group > summary .nav-group-caret{
+  transform:rotate(90deg);
+}
+
+
+/* ---------- Food & Drink hub ---------- */
+.food-hub-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;
+  margin:18px 0 22px;
+}
+.food-hub-card{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--parchment-card);
+  text-decoration:none;
+  color:var(--ink);
+  transition:border-color .15s ease,transform .15s ease;
+}
+.food-hub-card:hover,.food-hub-card:focus-visible{
+  border-color:var(--brass);
+  transform:translateY(-2px);
+}
+.food-hub-icon{font-size:1.4rem;}
+.food-hub-title{font-weight:800;font-size:.98rem;color:var(--ink);}
+.food-hub-desc{font-size:.78rem;color:var(--slate);line-height:1.35;}

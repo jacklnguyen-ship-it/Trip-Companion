@@ -51,7 +51,7 @@
     ]}
   ];
 
-  var launcher=document.getElementById('packing-launcher');
+  var launchers=document.querySelectorAll('#packing-launcher, .js-open-packing');
   var dialog=document.getElementById('packing-dialog');
   var closeBtn=document.getElementById('packing-dialog-close');
   var resetBtn=document.getElementById('packing-reset');
@@ -59,7 +59,7 @@
   var progressEl=document.getElementById('packing-progress-text');
   var newCatInput=document.getElementById('packing-new-category-input');
   var newCatBtn=document.getElementById('packing-new-category-btn');
-  if(!launcher||!dialog)return;
+  if(!launchers.length||!dialog)return;
 
   var data=null;
 
@@ -185,7 +185,7 @@
     if(e.key==='Escape')closeDialog();
   }
 
-  launcher.addEventListener('click',openDialog);
+  launchers.forEach(function(l){l.addEventListener('click',openDialog);});
   if(closeBtn)closeBtn.addEventListener('click',closeDialog);
   dialog.addEventListener('click',function(e){
     if(e.target===dialog)closeDialog();

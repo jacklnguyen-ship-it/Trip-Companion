@@ -175,7 +175,6 @@ body:has(#page-london_pubs:target) a.navlink[href="#page-london_pubs"]{ backgrou
 body:has(#page-meals:target) a.navlink[href="#page-meals"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-paris:target) a.navlink[href="#page-paris"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-versailles:target) a.navlink[href="#page-versailles"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
-body:has(#page-opera:target) a.navlink[href="#page-opera"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-paris_drinks:target) a.navlink[href="#page-paris_drinks"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-food:target) a.navlink[href="#page-food"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
 body:has(#page-london-food:target) a.navlink[href="#page-london-food"]{ background:rgba(164,118,60,.22); color:#fff; font-weight:600; }
@@ -441,6 +440,8 @@ body:has(.page:target) #page-home:target{display:block}
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 <link rel="stylesheet" href="daily-transit.css?v=20260729-2">
 <link rel="stylesheet" href="packing-checklist.css?v=20260802-1">
+<link rel="stylesheet" href="today-glance.css?v=20260804-1">
+<link rel="stylesheet" href="nav-upgrade.css?v=20260804-1">
 </head>
 <body data-map-data="map-places-maria.json?v=20260731-bourdain" data-vault-guide="maria">
 <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -461,37 +462,47 @@ body:has(.page:target) #page-home:target{display:block}
       <div class="sidebar-dates">SEPT 7&ndash;17, 2026 &middot; 2 TRAVELERS</div>
       <div style="margin-top:.6rem; font-size:.72rem; color:#e4b876; font-style:italic;">A few evenings are surprises 🎁</div>
     </div>
-    <div class="nav-group-label">Plan</div>
-    <a class="navlink" href="#page-home"><span class="num">01</span> Home</a>
-    <a class="navlink" href="#page-itinerary"><span class="num">02</span> Day-by-Day Itinerary</a>
-    <a class="navlink" href="#page-logistics"><span class="num">03</span> Logistics & Bookings</a>
-    <a class="navlink" href="#page-vault"><span class="num">🔒</span> Private Travel Vault</a>
-    <a class="navlink" href="#page-emergency"><span class="num">!</span> Emergency &amp; Help</a>
-    <div class="nav-group-label">London Leg</div>
-    <a class="navlink" href="#page-london"><span class="num">03</span> London Places Guide</a>
-    <a class="navlink" href="#page-bath"><span class="num">04</span> Bath / Celtic Tour Day</a>
-    <a class="navlink sub" href="#page-chatsworth"><span class="num">·</span> Chatsworth House Guide</a>
-    <div class="nav-group-label">Paris Leg</div>
-    <a class="navlink" href="#page-paris"><span class="num">05</span> Paris Places Guide</a>
-    <a class="navlink sub" href="#page-versailles"><span class="num">·</span> Versailles Guide</a>
-    <div class="nav-group-label">Reference</div>
-    <a class="navlink" href="#page-meals"><span class="num">🍽</span> Meals by Day</a>
-    <a class="navlink" href="#page-london_pubs"><span class="num">06</span> London Pub Guide</a>
-    <a class="navlink" href="#page-paris_drinks"><span class="num">07</span> Paris Drinks Guide</a>
-    <a class="navlink" href="#page-food"><span class="num">08</span> Food Guide</a>
-    <a class="navlink sub" href="#page-london-food"><span class="num">·</span> London Food Guide</a>
-    <a class="navlink sub" href="#page-le-marais"><span class="num">·</span> Le Marais Guide</a>
-    <a class="navlink" href="#page-french"><span class="num">09</span> French Cheat Sheet</a>
-    <a class="navlink" href="#page-tube-metro"><span class="num">🚇</span> Tube &amp; Paris Métro Guide</a>
-    <a class="navlink" href="#page-map"><span class="num">10</span> Map &amp; Near Me</a>
-    <a class="navlink" href="#page-vintage"><span class="num">11</span> Vintage Guide</a>
-    <a class="navlink" href="#page-coffee"><span class="num">12</span> Coffee Guide</a>
-    <a class="navlink" href="#page-icecream"><span class="num">13</span> Ice Cream Guide</a>
-    <a class="navlink" href="#page-boutique"><span class="num">14</span> Boutique Guide</a>
-    <a class="navlink" href="#page-jetlag"><span class="num">15</span> Jet Lag Guide</a>
-    <a class="navlink" href="#page-markets"><span class="num">16</span> Markets Guide</a>
-    <a class="navlink" href="#page-bourdain"><span class="num">17</span> Bourdain’s Paris</a>
-    <a class="navlink" href="#page-bourdain-london"><span class="num">18</span> Bourdain’s London</a>
+    <a class="navlink" href="#page-home"><span class="num">⌂</span> Home</a>
+    <a class="navlink" href="#page-itinerary"><span class="num">☷</span> Itinerary</a>
+    <a class="navlink" href="#page-map"><span class="num">⌖</span> Map</a>
+    <button class="navlink js-open-audio-guides" type="button" aria-haspopup="dialog"><span class="num">♫</span> Audio Guides</button>
+
+    <details class="nav-group">
+      <summary><span>Tools</span><span class="nav-group-caret" aria-hidden="true">▸</span></summary>
+      <a class="navlink" href="#page-logistics"><span class="num">✓</span> Logistics &amp; Bookings</a>
+      <a class="navlink" href="#page-vault"><span class="num">🔒</span> Private Travel Vault</a>
+      <a class="navlink" href="#page-emergency"><span class="num">!</span> Emergency &amp; Help</a>
+      <button class="navlink js-open-packing" type="button"><span class="num">🎒</span> Packing Checklist</button>
+    </details>
+
+    <details class="nav-group">
+      <summary><span>Reference</span><span class="nav-group-caret" aria-hidden="true">▸</span></summary>
+      <div class="nav-group-label">London</div>
+      <a class="navlink" href="#page-london"><span class="num">·</span> London Places Guide</a>
+      <a class="navlink sub" href="#page-bath"><span class="num">·</span> Bath / Celtic Tour Day</a>
+      <a class="navlink sub" href="#page-chatsworth"><span class="num">·</span> Chatsworth House Guide</a>
+      <a class="navlink sub" href="#page-london_pubs"><span class="num">·</span> London Pub Guide</a>
+      <a class="navlink sub" href="#page-london-food"><span class="num">·</span> London Food Guide</a>
+      <a class="navlink sub" href="#page-bourdain-london"><span class="num">·</span> Bourdain&rsquo;s London</a>
+      <div class="nav-group-label">Paris</div>
+      <a class="navlink" href="#page-paris"><span class="num">·</span> Paris Places Guide</a>
+      <a class="navlink sub" href="#page-versailles"><span class="num">·</span> Versailles Guide</a>
+      <a class="navlink sub" href="#page-paris_drinks"><span class="num">·</span> Paris Drinks Guide</a>
+      <a class="navlink sub" href="#page-le-marais"><span class="num">·</span> Le Marais Guide</a>
+      <a class="navlink sub" href="#page-bourdain"><span class="num">·</span> Bourdain&rsquo;s Paris</a>
+      <div class="nav-group-label">Food &amp; Drink</div>
+      <a class="navlink" href="#page-food"><span class="num">🍽</span> Food &amp; Drink Hub</a>
+      <a class="navlink sub" href="#page-meals"><span class="num">·</span> Meals by Day</a>
+      <a class="navlink sub" href="#page-markets"><span class="num">·</span> Markets Guide</a>
+      <div class="nav-group-label">Practical</div>
+      <a class="navlink" href="#page-french"><span class="num">·</span> French Cheat Sheet</a>
+      <a class="navlink" href="#page-tube-metro"><span class="num">🚇</span> Tube &amp; Paris Métro Guide</a>
+      <a class="navlink" href="#page-vintage"><span class="num">·</span> Vintage Guide</a>
+      <a class="navlink" href="#page-coffee"><span class="num">·</span> Coffee Guide</a>
+      <a class="navlink" href="#page-icecream"><span class="num">·</span> Ice Cream Guide</a>
+      <a class="navlink" href="#page-boutique"><span class="num">·</span> Boutique Guide</a>
+      <a class="navlink" href="#page-jetlag"><span class="num">·</span> Jet Lag Guide</a>
+    </details>
   </nav>
 
   <main class="content-wrap" id="main-content" tabindex="-1">
@@ -1375,6 +1386,26 @@ body:has(.page:target) #page-home:target{display:block}
 <h3>Sept 13 — Depart for Paris</h3>
 <p><strong>Breakfast (quick, before 11:31 Eurostar):</strong><br />
 - Grab pastry/coffee to-go near the hotel, or once you're at <strong><a href="https://www.google.com/maps/search/?api=1&amp;query=St+Pancras+International+Station">St Pancras International</a></strong> itself — the station has a genuinely good food hall and several grab-and-go bakery options if you're running close to departure time</p>
+<h3>Sept 14 — Paris: Islands / Left Bank / History Day</h3>
+<p><strong>Lunch (Latin Quarter, no reservation):</strong><br />
+- Graze as you cross into the Latin Quarter — cafés, bookstalls, and casual spots along the way; no fixed stop, just wander and pick whatever looks good<br />
+<strong>Dinner — <span class="stamp stamp-ok">✓</span> RESERVED:</strong><br />
+- <strong><a href="#page-paris">Le Procope</a></strong> — Monday, Sept 14, 6:00pm, table for 2 at 13 Rue de l'Ancienne Comédie, 75006. Request prompt service and aim to leave around 7:10pm for the later evening plans.</p>
+<h3>Sept 15 — Versailles Day Trip</h3>
+<p><strong>Lunch (Versailles):</strong><br />
+- Lunch in Versailles town, or bring a picnic for the gardens — no fixed reservation<br />
+<strong>Dinner — <span class="stamp stamp-ok">✓</span> CHOSEN:</strong><br />
+- <strong><a href="https://www.bouillon-chartier.com/en/bouillon-chartier-montparnasse-en/" target="_blank" rel="noopener">Bouillon Chartier Montparnasse</a></strong> — after returning from Versailles, paired with the literary café evening (Closerie des Lilas / Café de Flore / Les Deux Magots)</p>
+<h3>Sept 16 — Literary / Parks Day</h3>
+<p><strong>Morning coffee/tea (optional):</strong><br />
+- <strong>Un Thé Dans Le Jardin</strong> — the Musée de la Vie Romantique's own garden café, a genuine hidden gem, visitable without paying museum admission<br />
+<strong>Picnic prep (before the parks):</strong><br />
+- <strong>Du Pain et des Idées</strong> (10th) for their signature escargot pistache chocolat pastry, or <strong>Laurent Dubois</strong> for Meilleur Ouvrier de France–certified cheese<br />
+<strong>Dinner — <span class="stamp stamp-ok">✓</span> CONFIRMED:</strong><br />
+- <strong><a href="https://www.fitz-group.fr/fontaine-gaillon-paris">La Fontaine Gaillon</a></strong> — 5:30pm, table for two. Elegant attire requested. Depart around 6:50pm for the evening plans; €50/person cancellation charge within 24 hours or no-show.</p>
+<h3>Sept 17 — Free Morning, Depart CDG</h3>
+<p><strong>Breakfast (relaxed, no reservation):</strong><br />
+- A relaxed final coffee/pastry run in Le Marais — revisit a favorite spot from earlier in the week rather than rushing somewhere new</p>
 <hr />
 <h2>Chatsworth House (Day Trip — Sept 9)</h2>
 <p><strong>What it is:</strong> One of England's grandest stately homes, seat of the Duke and Duchess of Devonshire for over 16 generations. Set in the Peak District, it's the real-life inspiration for Pemberley in <em>Pride and Prejudice</em> — a fitting stop for your girlfriend's Austen theme, even outside the formal tour.</p>
@@ -1383,7 +1414,7 @@ body:has(.page:target) #page-home:target{display:block}
 - <strong>The House</strong> — 30+ opulent rooms, an extraordinary art and sculpture collection, painted ceilings<br />
 - <strong>The Gardens</strong> — 105 acres, including the famous Cascade waterfall, Emperor Fountain, and maze<br />
 - <strong>Farmyard &amp; Adventure Playground</strong> — likely more relevant if traveling with kids, but the farmyard is still a pleasant wander</p>
-<p><strong>Tickets — <span class="stamp stamp-ok">✓</span> CONFIRMED:</strong> Two adult <strong>House and Garden</strong> tickets for <strong>Wednesday, Sept 9 at 10:30 AM</strong>, plus one complimentary car-free-travel multimedia guide. The QR code and confirmation number are stored privately. Have the tickets ready on a phone at arrival.</p>
+<p><strong>Tickets — <span class="stamp stamp-ok">✓</span> CONFIRMED:</strong> Two adult <strong>House and Garden</strong> tickets for <strong>Wednesday, Sept 9 at 11:00 AM</strong>, plus one complimentary car-free-travel multimedia guide. The QR code and confirmation number are stored privately. Have the tickets ready on a phone at arrival.</p>
 <p><strong>☕ Killing time in Chesterfield — morning (08:32–09:26, ~54 min):</strong> Coffee/breakfast in town near the Crooked Spire, or right by the station at Story Coffee or the Wetherspoons.</p>
 <p><strong>☕ Killing time in Chesterfield — evening (5:50pm–7:13pm, ~1h20):</strong> A bigger window for a proper dinner near the station — Spa Lane Vaults, The Rectory, or The Railway Inn.</p>
 <p><strong>Good to know:</strong> Given the transit time, this is a long day — the early train maximizes time at the house itself. Bring snacks/water for the journey.</p>
@@ -2744,9 +2775,41 @@ Near Opéra Garnier, virtually unchanged since the 1920s. Hemingway, Fitzgerald,
 <p><em>For full context on when each of these fits into your schedule, see the Paris Places Guide.</em></p>
 </section>
 <section class="page" id="page-food">
-<h1>London &amp; Paris Food Guide</h1>
-<p><strong>Sourced from travel blogs, food writers, and local guides — unique eats and local must-haves for the full trip</strong></p>
-<p><em>This is a standalone companion to the main Places Guides — some entries overlap with what's already built into your day-by-day plans, but this pulls everything food-related into one browsable document, plus adds new blog-sourced finds.</em></p>
+<h1>Food &amp; Drink</h1>
+<p><strong>Your hub for everything to eat and drink across the trip</strong></p>
+<div class="food-hub-grid">
+  <a class="food-hub-card" href="#page-meals">
+    <span class="food-hub-icon" aria-hidden="true">📅</span>
+    <span class="food-hub-title">By Day</span>
+    <span class="food-hub-desc">Meal picks matched to each day's route</span>
+  </a>
+  <a class="food-hub-card" href="#page-london-food">
+    <span class="food-hub-icon" aria-hidden="true">🇬🇧</span>
+    <span class="food-hub-title">London</span>
+    <span class="food-hub-desc">Dishoom, Poppies, Simpson's, Sunday roast beyond Sunday</span>
+  </a>
+  <a class="food-hub-card" href="#page-london_pubs">
+    <span class="food-hub-icon" aria-hidden="true">🍺</span>
+    <span class="food-hub-title">London Pubs</span>
+    <span class="food-hub-desc">Full pub guide, by neighborhood</span>
+  </a>
+  <a class="food-hub-card" href="#page-le-marais">
+    <span class="food-hub-icon" aria-hidden="true">🇫🇷</span>
+    <span class="food-hub-title">Paris — Le Marais</span>
+    <span class="food-hub-desc">Walkable food route near the Airbnb</span>
+  </a>
+  <a class="food-hub-card" href="#page-paris_drinks">
+    <span class="food-hub-icon" aria-hidden="true">🍷</span>
+    <span class="food-hub-title">Paris Drinks</span>
+    <span class="food-hub-desc">Wine bars, cocktail spots, cafés</span>
+  </a>
+  <a class="food-hub-card" href="#page-markets">
+    <span class="food-hub-icon" aria-hidden="true">🧺</span>
+    <span class="food-hub-title">Markets</span>
+    <span class="food-hub-desc">Borough Market, Enfants Rouges &amp; more</span>
+  </a>
+</div>
+<p><em>Below is the full cross-city food guide — iconic dishes, hidden gems, and award-winning spots in both cities.</em></p>
 <hr />
 <h2>LONDON</h2>
 <h3>Iconic dishes worth seeking out at least once</h3>
@@ -3352,7 +3415,7 @@ Paris's oldest covered market, dating to 1628 — a genuine local institution wi
 <li>Light evening — short walk, early dinner (jet lag recovery day)</li>
 </ul>
 <h2>Wednesday, Sept 9 — Chatsworth House Day Trip</h2>
-<p><span class="stamp stamp-ok">✓</span> <strong>CONFIRMED:</strong> House and Garden · two adults · 10:30 AM entry · one car-free-travel multimedia guide. Aim to reach the entrance by 10:45.</p>
+<p><span class="stamp stamp-ok">✓</span> <strong>CONFIRMED:</strong> House and Garden · two adults · 11:00 AM entry · one car-free-travel multimedia guide. Aim to reach the entrance by 10:45.</p>
 <p>Full day trip to Chatsworth House, the real-life inspiration for Pemberley in <em>Pride and Prejudice</em>.</p>
 <p><a class="page-link" href="#page-chatsworth">Read the full Chatsworth guide &rarr;</a></p>
 <h2>Thursday, Sept 10 — Wimbledon / Borough Market / Tower of London</h2>
@@ -3469,6 +3532,7 @@ Thursday, Sept 10 at 5:30pm for 2; à la carte and marked as pre-event. A river/
   headings.forEach(function(h,i){h.classList.add('itinerary-day-heading');h.tabIndex=0;h.setAttribute('role','button');h.setAttribute('aria-label','Open complete guide for '+h.textContent.trim());h.addEventListener('click',function(){openDay(i)});h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openDay(i)}})});
   Array.prototype.slice.call(document.querySelectorAll('[data-open-day]')).forEach(function(button){button.addEventListener('click',function(){openDay(parseInt(button.getAttribute('data-open-day'),10))})});
   function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('day-modal-open')}modal.querySelector('.day-close').addEventListener('click',close);modal.addEventListener('click',function(e){if(e.target===modal)close()});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))close()});
+  window.TripDays=days;window.TripItineraryHeadings=headings;
 })();
 </script>
 
@@ -3675,12 +3739,33 @@ Thursday, Sept 10 at 5:30pm for 2; à la carte and marked as pre-event. A river/
     <p class="currency-shortcut-meta" id="currency-shortcut-meta">Downloading current reference rates…</p>
   </div>
 </div>
+<a class="back-to-today" href="#page-home"><span aria-hidden="true">↩</span><span>Today</span></a>
 <nav class="floating-shortcuts" aria-label="Quick shortcuts">
   <a href="#page-home"><span aria-hidden="true">⌂</span><span>Home</span></a>
   <a href="#page-itinerary"><span aria-hidden="true">☷</span><span>Itinerary</span></a>
   <a href="#page-map"><span aria-hidden="true">⌖</span><span>Map</span></a>
-  <button id="audio-shortcut" type="button" aria-haspopup="dialog"><span aria-hidden="true">♫</span><span>Audio</span></button>
+  <button class="js-open-audio-guides" type="button" aria-haspopup="dialog"><span aria-hidden="true">♫</span><span>Audio</span></button>
+  <button id="quick-actions-open" type="button" aria-haspopup="dialog"><span aria-hidden="true">⋯</span><span>Tools</span></button>
 </nav>
+<div class="quick-actions-modal audio-shortcut-modal" id="quick-actions-modal" role="dialog" aria-modal="false" aria-labelledby="quick-actions-title" hidden>
+  <div class="audio-shortcut-sheet">
+    <div class="audio-shortcut-head"><div><p>Quick access</p><h2 id="quick-actions-title">Trip tools</h2></div><button id="quick-actions-close" type="button" aria-label="Close quick actions">×</button></div>
+    <div class="qa-next-card">
+      <span class="qa-next-icon" aria-hidden="true">📍</span>
+      <div class="qa-next-copy">
+        <span class="qa-next-eyebrow">Next stop</span>
+        <span class="qa-next-title" id="qa-next-stop-label">Loading…</span>
+        <span class="qa-next-time" id="qa-next-stop-time"></span>
+      </div>
+    </div>
+    <div class="audio-shortcut-list">
+      <a class="audio-shortcut-item" id="qa-directions-link" target="_blank" rel="noopener" href="#page-map"><span class="audio-shortcut-icon" aria-hidden="true">➜</span><span><strong>Directions</strong><small>Open live directions to the next stop</small></span><span class="audio-shortcut-arrow" aria-hidden="true">›</span></a>
+      <a class="audio-shortcut-item" href="#page-french"><span class="audio-shortcut-icon" aria-hidden="true">🇫🇷</span><span><strong>French phrases</strong><small>Cheat sheet with audio</small></span><span class="audio-shortcut-arrow" aria-hidden="true">›</span></a>
+      <a class="audio-shortcut-item" href="#page-vault"><span class="audio-shortcut-icon" aria-hidden="true">🔒</span><span><strong>Private vault</strong><small>Booking references and confirmations</small></span><span class="audio-shortcut-arrow" aria-hidden="true">›</span></a>
+      <a class="audio-shortcut-item" href="#page-emergency"><span class="audio-shortcut-icon" aria-hidden="true">!</span><span><strong>Emergency &amp; help</strong><small>Embassy, insurance, lost passport</small></span><span class="audio-shortcut-arrow" aria-hidden="true">›</span></a>
+    </div>
+  </div>
+</div>
 <div class="audio-shortcut-modal" id="audio-shortcut-modal" role="dialog" aria-modal="false" aria-labelledby="audio-shortcut-title" hidden>
   <div class="audio-shortcut-sheet">
     <div class="audio-shortcut-head"><div><p>Listen while you explore</p><h2 id="audio-shortcut-title">Audio guides</h2></div><button id="audio-shortcut-close" type="button" aria-label="Close audio guide list">×</button></div>
@@ -3704,6 +3789,8 @@ if('serviceWorker' in navigator){
 <script src="final-polish.js?v=20260728-1"></script>
 <script src="french-audio-v2.js?v=20260728-1"></script>
 <script src="daily-transit.js?v=20260730-1"></script>
+<script src="today-glance.js?v=20260804-1"></script>
+<script src="quick-actions.js?v=20260804-1"></script>
 <script src="packing-checklist.js?v=20260802-1"></script>
 </body>
 </html>

@@ -29,7 +29,13 @@
       leave:"Target 05:35–05:45 to catch the 06:05 train",
       destination:"Chatsworth House, Bakewell",
       origin:"Wombat's City Hostel London, 7 Dock Street, London",
-      note:"The House entry is confirmed for 10:30 and you should aim to arrive by 10:15. Return: bus 170 departs Chatsworth House at 5:09pm, arriving Chesterfield 5:50pm; train departs Chesterfield at 19:13, arriving St Pancras 21:08 (direct). The 5:50pm–7:13pm window in Chesterfield is a good stretch for dinner (Spa Lane Vaults, The Rectory, or The Railway Inn near the station)."
+      legs:[
+        {label:"Train out",detail:"06:05 St Pancras → 08:32 Chesterfield (one change en route)"},
+        {label:"Bus out",detail:"09:26 Chesterfield → 10:10 Chatsworth House (bus 170)"},
+        {label:"Bus back",detail:"5:09 PM Chatsworth House → 5:50 PM Chesterfield"},
+        {label:"Train back",detail:"7:13 PM Chesterfield → 9:08 PM St Pancras (direct)"}
+      ],
+      note:"The House entry is confirmed for 11:00 and you should aim to arrive by 10:45. The 5:50pm–7:13pm window in Chesterfield is a good stretch for dinner (Spa Lane Vaults, The Rectory, or The Railway Inn near the station)."
     },
     "Sept 10":{
       title:"Wombat’s → Wimbledon",
@@ -178,14 +184,22 @@
     var section=document.createElement("section");
     section.className="daily-transit";
     section.setAttribute("aria-label","Getting to the first scheduled stop");
+    var legsHtml="";
+    if(route.legs&&route.legs.length){
+      legsHtml='<div class="daily-transit__legs">'+route.legs.map(function(leg){
+        return '<div class="daily-transit__leg"><span class="daily-transit__leg-label">'+escapeHtml(leg.label)+'</span><span class="daily-transit__leg-detail">'+escapeHtml(leg.detail)+'</span></div>';
+      }).join("")+"</div>";
+    }
     section.innerHTML=
       '<p class="daily-transit__eyebrow">First journey of the day</p>'+
       '<h3>🚇 '+escapeHtml(route.title)+'</h3>'+
       '<p class="daily-transit__summary">'+escapeHtml(route.summary)+'</p>'+
+      legsHtml+
       '<ol class="daily-transit__steps">'+route.steps.map(function(step){return "<li>"+escapeHtml(step)+"</li>";}).join("")+"</ol>"+
       '<div class="daily-transit__meta"><span>⏱ '+escapeHtml(route.time)+'</span><span>🕒 '+escapeHtml(route.leave)+'</span></div>'+
       (route.note?'<p class="daily-transit__note"><strong>Check before leaving:</strong> '+escapeHtml(route.note)+'</p>':"")+
       '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">Open live directions →</a>';
     heading.insertAdjacentElement("afterend",section);
   });
+  window.TripRoutes=routes;
 })();
