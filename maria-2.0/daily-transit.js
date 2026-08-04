@@ -188,4 +188,5 @@
       '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">Open live directions →</a>';
     heading.insertAdjacentElement("afterend",section);
   });
+  window.TripRoutes=routes;
 })();
