@@ -29,7 +29,7 @@
       leave:"Target 05:35–05:45 to catch the 06:05 train",
       destination:"Chatsworth House, Bakewell",
       origin:"Wombat's City Hostel London, 7 Dock Street, London",
-      note:"The House entry is confirmed for 10:30 and you should aim to arrive by 10:15. Return: bus 170 departs Chatsworth House at 5:09pm, arriving Chesterfield 5:50pm; train departs Chesterfield at 19:13, arriving St Pancras 21:08 (direct). The 5:50pm–7:13pm window in Chesterfield is a good stretch for dinner (Spa Lane Vaults, The Rectory, or The Railway Inn near the station)."
+      note:"The House entry is confirmed for 11:00 and you should aim to arrive by 10:45. Return: bus 170 departs Chatsworth House at 5:09pm, arriving Chesterfield 5:50pm; train departs Chesterfield at 19:13, arriving St Pancras 21:08 (direct). The 5:50pm–7:13pm window in Chesterfield is a good stretch for dinner (Spa Lane Vaults, The Rectory, or The Railway Inn near the station)."
     },
     "Sept 10":{
       title:"Wombat’s → Wimbledon",
