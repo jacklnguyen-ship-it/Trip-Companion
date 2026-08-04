@@ -1,4 +1,4 @@
-const CACHE_NAME='trip-companion-20260731-2';
+const CACHE_NAME='trip-companion-20260804-1';
 const CORE=[
   './','./index.html','./maria.html','./manifest.json','./manifest-maria.json',
   './guide-map.css','./guide-map-v2.js','./home-intelligence.css','./home-intelligence.js',
@@ -8,6 +8,9 @@ const CORE=[
   './private-vault.css','./private-vault.js',
   './final-polish.css','./final-polish.js','./french-audio-v2.js',
   './daily-transit.css','./daily-transit.js',
+  './packing-checklist.css','./packing-checklist.js',
+  './today-glance.css','./today-glance.js',
+  './quick-actions.js','./nav-upgrade.css',
   './map-places-index.json','./map-places-maria.json',
   './leaflet/leaflet.js','./leaflet/leaflet.css',
   './leaflet/images/marker-icon.png','./leaflet/images/marker-icon-2x.png','./leaflet/images/marker-shadow.png',
