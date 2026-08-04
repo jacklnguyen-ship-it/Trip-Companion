@@ -70,3 +70,30 @@ body:has(#page-logistics:target,#page-vault:target,#page-emergency:target,#page-
   transform:rotate(90deg);
 }
 
+
+/* ---------- Food & Drink hub ---------- */
+.food-hub-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;
+  margin:18px 0 22px;
+}
+.food-hub-card{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  padding:14px 16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--parchment-card);
+  text-decoration:none;
+  color:var(--ink);
+  transition:border-color .15s ease,transform .15s ease;
+}
+.food-hub-card:hover,.food-hub-card:focus-visible{
+  border-color:var(--brass);
+  transform:translateY(-2px);
+}
+.food-hub-icon{font-size:1.4rem;}
+.food-hub-title{font-weight:800;font-size:.98rem;color:var(--ink);}
+.food-hub-desc{font-size:.78rem;color:var(--slate);line-height:1.35;}
