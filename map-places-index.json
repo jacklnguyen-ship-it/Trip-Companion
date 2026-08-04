@@ -3058,5 +3058,193 @@
       "late night",
       "bourdain"
     ]
+  },
+  {
+    "query": "Christophe Louie Paris",
+    "title": "Christophe Louie",
+    "category": "food",
+    "lat": 48.8654865,
+    "lng": 2.3619835,
+    "address": "12 Rue Dupetit-Thouars, 75003 Paris, France",
+    "tags": [
+      "food",
+      "bakery",
+      "pastry",
+      "panettone",
+      "madeleines",
+      "Le Marais"
+    ]
+  },
+  {
+    "query": "Isotope ice cream Paris",
+    "title": "Isotope",
+    "category": "icecream",
+    "lat": 48.8652048,
+    "lng": 2.3624471,
+    "address": "8 Rue Dupetit-Thouars, 75003 Paris, France",
+    "tags": [
+      "icecream",
+      "dessert",
+      "Le Marais"
+    ]
+  },
+  {
+    "query": "Jacques Genin Paris",
+    "title": "Jacques Genin",
+    "category": "food",
+    "lat": 48.8644465,
+    "lng": 2.3645636,
+    "address": "133 Rue de Turenne, 75003 Paris, France",
+    "tags": [
+      "food",
+      "chocolate",
+      "caramels",
+      "confectionery",
+      "Le Marais"
+    ]
+  },
+  {
+    "query": "Dumbo Marais Paris",
+    "title": "Dumbo Marais",
+    "category": "food",
+    "lat": 48.8614633,
+    "lng": 2.3642848,
+    "address": "6 Rue de Poitou, 75003 Paris, France",
+    "tags": [
+      "food",
+      "restaurant",
+      "smash burgers",
+      "Le Marais"
+    ]
+  },
+  {
+    "query": "Pontochoux Cafe Paris",
+    "title": "Pontochoux Café",
+    "category": "coffee",
+    "lat": 48.8612909,
+    "lng": 2.3652243,
+    "address": "18 Rue du Pont aux Choux, 75003 Paris, France",
+    "tags": [
+      "coffee",
+      "cafe",
+      "Japanese-inspired pastries",
+      "Le Marais"
+    ]
+  },
+  {
+    "query": "Dishoom Shoreditch London",
+    "title": "Dishoom Shoreditch",
+    "category": "food",
+    "lat": 51.5245002,
+    "lng": -0.0765998,
+    "address": "7 Boundary St, London E2 7JE, UK",
+    "tags": [
+      "food",
+      "restaurant",
+      "Indian",
+      "Bombay cafe",
+      "Shoreditch"
+    ]
+  },
+  {
+    "query": "Nandos Spitalfields London",
+    "title": "Nando's Spitalfields",
+    "category": "food",
+    "lat": 51.5206781,
+    "lng": -0.0745009,
+    "address": "114-118 Commercial St, London E1 6NF, UK",
+    "tags": [
+      "food",
+      "restaurant",
+      "Portuguese",
+      "peri-peri chicken",
+      "casual"
+    ]
+  },
+  {
+    "query": "Simpsons in the Strand London",
+    "title": "Simpson's in the Strand",
+    "category": "sundayroast",
+    "lat": 51.5106677,
+    "lng": -0.1206365,
+    "address": "100 Strand, London WC2R 0EW, UK",
+    "tags": [
+      "sunday roast",
+      "roast beef daily",
+      "historic",
+      "Ten Deadly Sins breakfast",
+      "Covent Garden"
+    ]
+  },
+  {
+    "query": "Canteen Notting Hill London",
+    "title": "Canteen | Notting Hill",
+    "category": "sundayroast",
+    "lat": 51.5210022,
+    "lng": -0.2093261,
+    "address": "310 Portobello Rd, London W10 5TA, UK",
+    "tags": [
+      "sunday roast",
+      "roast of the day",
+      "casual",
+      "weekday roast"
+    ]
+  },
+  {
+    "query": "Ling Lings The Bluecoats Pub Tottenham London",
+    "title": "Ling Ling's @ The Bluecoats Pub",
+    "category": "sundayroast",
+    "lat": 51.596937,
+    "lng": -0.068095,
+    "address": "614 High Rd, London N17 9TA, UK",
+    "tags": [
+      "sunday roast",
+      "Chinese-inspired roast",
+      "Tottenham",
+      "matchday menu",
+      "Wed-Sun"
+    ]
+  },
+  {
+    "query": "The Hare A Heartwood Inn Harrow London",
+    "title": "The Hare, A Heartwood Inn",
+    "category": "sundayroast",
+    "lat": 51.6206525,
+    "lng": -0.3429983,
+    "address": "Weald, Brookshill, Old Redding, Harrow HA3 6SD, UK",
+    "tags": [
+      "sunday roast",
+      "roast beef",
+      "Yorkshire pudding",
+      "gastropub"
+    ]
+  },
+  {
+    "query": "Rules restaurant Covent Garden London",
+    "title": "Rules",
+    "category": "sundayroast",
+    "lat": 51.510833,
+    "lng": -0.1231694,
+    "address": "35 Maiden Ln, London WC2E 7LB, UK",
+    "tags": [
+      "sunday roast",
+      "London's oldest restaurant",
+      "British classics",
+      "Covent Garden"
+    ]
+  },
+  {
+    "query": "Toby Carvery Snaresbrook London",
+    "title": "Toby Carvery Snaresbrook",
+    "category": "sundayroast",
+    "lat": 51.5831298,
+    "lng": 0.0207603,
+    "address": "73 Hollybush Hill, Greater, London E11 1PE, UK",
+    "tags": [
+      "sunday roast",
+      "carvery",
+      "budget",
+      "daily roast"
+    ]
   }
 ]
