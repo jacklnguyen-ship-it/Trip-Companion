@@ -28,6 +28,9 @@
   function directionsUrl(p){
     return'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(p.lat+','+p.lng)+'&travelmode=walking';
   }
+  function citymapperUrl(p){
+    return'https://citymapper.com/directions?endcoord='+p.lat+'%2C'+p.lng+'&endname='+encodeURIComponent(p.title);
+  }
   function escapeHtml(value){
     return String(value).replace(/[&<>"']/g,function(character){
       return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character];
@@ -66,7 +69,7 @@
   }
   function popupFor(p){
     var distance=userLocation?'<p><strong>'+milesBetween(userLocation,p).toFixed(1)+' miles from you</strong></p>':'';
-    return'<div class="trip-map-popup"><h3>'+escapeHtml(p.title)+'</h3><p>'+escapeHtml(p.address)+'</p>'+tagsFor(p)+distance+'<a href="'+directionsUrl(p)+'" target="_blank" rel="noopener">Walking directions</a></div>';
+    return'<div class="trip-map-popup"><h3>'+escapeHtml(p.title)+'</h3><p>'+escapeHtml(p.address)+'</p>'+tagsFor(p)+distance+'<a href="'+directionsUrl(p)+'" target="_blank" rel="noopener">🗺 Google Maps</a> · <a href="'+citymapperUrl(p)+'" target="_blank" rel="noopener">🚇 Citymapper</a></div>';
   }
   function updateNearest(list){
     var box=document.getElementById('nearby-place-list');
@@ -74,7 +77,7 @@
     var sorted=list.slice().sort(function(a,b){return milesBetween(userLocation,a)-milesBetween(userLocation,b);}).slice(0,8);
     box.innerHTML=sorted.map(function(p){
       var distance=milesBetween(userLocation,p);
-      return'<a class="nearby-place" href="'+directionsUrl(p)+'" target="_blank" rel="noopener"><strong>'+(icons[p.category]||'📍')+' '+p.title+'</strong><span>'+distance.toFixed(distance<10?1:0)+' miles away · Directions</span></a>';
+      return'<div class="nearby-place"><strong>'+(icons[p.category]||'📍')+' '+p.title+'</strong><span>'+distance.toFixed(distance<10?1:0)+' miles away</span><span class="nearby-place-links"><a href="'+directionsUrl(p)+'" target="_blank" rel="noopener">🗺 Google Maps</a> · <a href="'+citymapperUrl(p)+'" target="_blank" rel="noopener">🚇 Citymapper</a></span></div>';
     }).join('');
   }
   function render(fit){
