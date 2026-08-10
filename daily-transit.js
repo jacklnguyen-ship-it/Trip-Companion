@@ -168,6 +168,12 @@
       encodeURIComponent(route.destination)+"&travelmode="+mode;
   }
 
+  function citymapperUrl(route){
+    return "https://citymapper.com/directions?endname="+
+      encodeURIComponent(route.destination)+"&startname="+
+      encodeURIComponent(route.origin);
+  }
+
   function routeForHeading(heading){
     var text=heading.textContent||"";
     return Object.keys(routes).reduce(function(found,key){
@@ -198,7 +204,8 @@
       '<ol class="daily-transit__steps">'+route.steps.map(function(step){return "<li>"+escapeHtml(step)+"</li>";}).join("")+"</ol>"+
       '<div class="daily-transit__meta"><span>⏱ '+escapeHtml(route.time)+'</span><span>🕒 '+escapeHtml(route.leave)+'</span></div>'+
       (route.note?'<p class="daily-transit__note"><strong>Check before leaving:</strong> '+escapeHtml(route.note)+'</p>':"")+
-      '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">Open live directions →</a>';
+      '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">🗺 Google Maps →</a>'+
+      '<a class="daily-transit__link daily-transit__link--citymapper" target="_blank" rel="noopener" href="'+citymapperUrl(route)+'">🚇 Citymapper →</a>';
     heading.insertAdjacentElement("afterend",section);
   });
   window.TripRoutes=routes;
