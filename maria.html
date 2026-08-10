@@ -409,6 +409,133 @@ body:has(.page:target) #page-home:target{display:block}
 }
 
 
+
+/* ========== FEATURE 1: TODAY HIGHLIGHT ON DAY BUTTONS ========== */
+.home-day.today {
+  background: rgba(164, 118, 60, 0.35);
+  border-left: 4px solid var(--brass);
+  padding-left: calc(0.6rem - 4px);
+  font-weight: 600;
+}
+.home-day.today::before {
+  content: '📍';
+  margin-right: 0.5rem;
+}
+
+/* ========== FEATURE 2: NEXT-UP BANNER STYLING ========== */
+.home-next-up {
+  background: linear-gradient(135deg, rgba(164, 118, 60, 0.12) 0%, rgba(140, 58, 46, 0.08) 100%);
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+.home-next-up-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+.home-next-up-kicker {
+  font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin: 0;
+}
+.home-next-up-countdown {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--wax);
+}
+.home-next-up h2 {
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+}
+.home-next-up-time {
+  color: var(--slate);
+  font-size: 0.95rem;
+  margin: 0.25rem 0 0.75rem;
+}
+.home-next-up p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* ========== FEATURE 3: MAP SEARCH CLEAR BUTTON ========== */
+.guide-search {
+  position: relative;
+}
+.guide-search-clear {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+.guide-search-clear:hover {
+  opacity: 1;
+}
+.guide-search-clear:focus {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+/* ========== FEATURE 4: TOTTENHAM KICKOFF ALERT ========== */
+.kickoff-alert {
+  background: linear-gradient(135deg, rgba(186, 61, 41, 0.15) 0%, rgba(165, 42, 42, 0.1) 100%);
+  border: 2px solid var(--wax);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+.kickoff-alert strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+.kickoff-alert p {
+  margin: 0.5rem 0;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.kickoff-alert a {
+  color: var(--wax);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.kickoff-dismiss {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--wax);
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.kickoff-dismiss:hover {
+  opacity: 1;
+}
+
+/* ========== FEATURE 5: TRANSIT APP PREFERENCE TOGGLE ========== */
+.transit-app-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.transit-toggle-btn {
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.transit-toggle-btn:hover {
+  background: rgba(164, 118, 60, 0.25) !important;
+}
+.transit-toggle-btn:focus {
+  outline: 1px solid var(--brass);
+}
+
 </style>
 <style>
 /* Interactive day cards and full daily research view */
@@ -3792,5 +3919,316 @@ if('serviceWorker' in navigator){
 <script src="today-glance.js?v=20260804-1"></script>
 <script src="quick-actions.js?v=20260804-1"></script>
 <script src="packing-checklist.js?v=20260802-1"></script>
+
+<script>
+// ========== FEATURE 1: HOME PAGE "TODAY" AUTO-DETECT ==========
+(function(){
+  const tripStart = new Date('2026-09-07').getTime();
+  const tripEnd = new Date('2026-09-17T16:00:00').getTime();
+  
+  function highlightToday() {
+    const now = new Date();
+    const todayMs = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    
+    // Only highlight if we're within the trip dates
+    if (todayMs < tripStart || todayMs > tripEnd) {
+      console.log('Not in trip window, skipping today highlight');
+      return;
+    }
+    
+    const daysIntoTrip = Math.floor((todayMs - tripStart) / (1000 * 60 * 60 * 24));
+    
+    // Get all day buttons and clear previous highlighting
+    const dayButtons = document.querySelectorAll('.home-day');
+    dayButtons.forEach((btn, idx) => {
+      btn.classList.remove('today');
+      if (idx === daysIntoTrip) {
+        btn.classList.add('today');
+        btn.setAttribute('aria-current', 'date');
+      } else {
+        btn.removeAttribute('aria-current');
+      }
+    });
+  }
+  
+  // Run on load and set up observer for page changes
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', highlightToday);
+  } else {
+    highlightToday();
+  }
+  
+  // Re-run if page visibility changes (in case device time changes or user returns from standby)
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+      highlightToday();
+    }
+  });
+})();
+
+// ========== FEATURE 2: "NEXT UP" BANNER WITH LIVE COUNTDOWN ==========
+(function(){
+  const eventsData = document.getElementById('home-events');
+  if (!eventsData) return;
+  
+  let events = [];
+  try {
+    events = JSON.parse(eventsData.textContent);
+  } catch (e) {
+    console.error('Failed to parse home-events JSON:', e);
+    return;
+  }
+  
+  const container = document.getElementById('home-next-up');
+  const titleEl = document.getElementById('home-next-title');
+  const timeEl = document.getElementById('home-next-time');
+  const detailEl = document.getElementById('home-next-detail');
+  const countdownEl = document.getElementById('home-next-countdown');
+  
+  if (!container || !titleEl || !countdownEl) return;
+  
+  let updateTimer = null;
+  
+  function formatCountdown(ms) {
+    if (ms <= 0) return 'Starting now';
+    
+    const totalSeconds = Math.floor(ms / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    
+    if (days > 0) return `${days}d ${hours}h`;
+    if (hours > 0) return `${hours}h ${minutes}m`;
+    return `${minutes}m`;
+  }
+  
+  function findNextEvent() {
+    const now = new Date().getTime();
+    
+    for (let i = 0; i < events.length; i++) {
+      const eventTime = new Date(events[i].at).getTime();
+      if (eventTime > now) {
+        return { event: events[i], index: i, timeUntil: eventTime - now };
+      }
+    }
+    
+    return null;
+  }
+  
+  function updateNextUp() {
+    const next = findNextEvent();
+    
+    if (!next) {
+      // Trip is over
+      container.hidden = true;
+      return;
+    }
+    
+    // Show the container
+    container.hidden = false;
+    container.setAttribute('aria-live', 'polite');
+    
+    const eventDate = new Date(next.event.at);
+    const timeStr = eventDate.toLocaleString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    
+    titleEl.textContent = next.event.title;
+    timeEl.textContent = timeStr;
+    detailEl.textContent = next.event.detail || '';
+    countdownEl.textContent = formatCountdown(next.timeUntil);
+  }
+  
+  function startCountdownUpdates() {
+    updateNextUp();
+    
+    if (updateTimer) clearInterval(updateTimer);
+    updateTimer = setInterval(updateNextUp, 30000); // Update every 30 seconds
+  }
+  
+  // Start on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', startCountdownUpdates);
+  } else {
+    startCountdownUpdates();
+  }
+  
+  // Restart updates if page visibility changes
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+      startCountdownUpdates();
+    } else if (updateTimer) {
+      clearInterval(updateTimer);
+      updateTimer = null;
+    }
+  });
+})();
+
+// ========== FEATURE 3: MAP SEARCH "CLEAR" BUTTON ==========
+(function(){
+  const searchInput = document.getElementById('guide-search-input');
+  const filterChips = document.querySelector('.filter-chips');
+  const searchResults = document.getElementById('guide-search-results');
+  
+  if (!searchInput) return;
+  
+  // Create clear button
+  const clearBtn = document.createElement('button');
+  clearBtn.className = 'guide-search-clear';
+  clearBtn.setAttribute('type', 'button');
+  clearBtn.setAttribute('aria-label', 'Clear search');
+  clearBtn.innerHTML = '&times;';
+  clearBtn.hidden = true;
+  clearBtn.style.cssText = 'position:absolute; right:0.5rem; top:50%; transform:translateY(-50%); background:none; border:none; font-size:1.5rem; cursor:pointer; padding:0.5rem; color:var(--slate);';
+  
+  // Insert clear button into the search container
+  const searchContainer = searchInput.parentElement;
+  searchContainer.style.position = 'relative';
+  searchContainer.appendChild(clearBtn);
+  
+  function toggleClearBtn() {
+    clearBtn.hidden = !searchInput.value.trim();
+  }
+  
+  searchInput.addEventListener('input', toggleClearBtn);
+  
+  clearBtn.addEventListener('click', function() {
+    searchInput.value = '';
+    searchResults.innerHTML = '<p class="search-empty">Search the complete itinerary and all curated guides.</p>';
+    
+    // Reset filter chips to "All"
+    if (filterChips) {
+      Array.from(filterChips.querySelectorAll('.filter-chip')).forEach(chip => {
+        chip.classList.remove('active');
+      });
+      filterChips.querySelector('.filter-chip[data-search-filter="all"]').classList.add('active');
+    }
+    
+    toggleClearBtn();
+    searchInput.focus();
+  });
+})();
+
+// ========== FEATURE 4: TOTTENHAM KICKOFF BANNER DISMISS ==========
+(function(){
+  const alertEl = document.getElementById('kickoff-alert');
+  const dismissBtn = document.getElementById('kickoff-dismiss');
+  
+  if (!alertEl || !dismissBtn) return;
+  
+  // Check localStorage for dismissal
+  const storageKey = 'tottenham-kickoff-dismissed';
+  if (localStorage.getItem(storageKey)) {
+    alertEl.style.display = 'none';
+    return;
+  }
+  
+  dismissBtn.addEventListener('click', function() {
+    alertEl.style.display = 'none';
+    localStorage.setItem(storageKey, 'true');
+  });
+})();
+
+// ========== FEATURE 5: TRANSIT APP PREFERENCE TOGGLE ==========
+(function(){
+  const storageKey = 'transit-app-preference';
+  const defaultApp = 'google'; // Default to Google Maps
+  
+  function getPreference() {
+    return localStorage.getItem(storageKey) || defaultApp;
+  }
+  
+  function buildTransitLink(origin, destination, app) {
+    const app_choice = app || getPreference();
+    
+    // Sanitize inputs
+    const o = encodeURIComponent(String(origin || ''));
+    const d = encodeURIComponent(String(destination || ''));
+    
+    if (app_choice === 'citymapper') {
+      // Citymapper uses a simpler format
+      return `https://citymapper.com/directions?startcoord=${o}&endcoord=${d}`;
+    } else {
+      // Google Maps (default)
+      return `https://www.google.com/maps/dir/?api=1&origin=${o}&destination=${d}&travelmode=transit`;
+    }
+  }
+  
+  function updateTransitLinks() {
+    const app = getPreference();
+    
+    // Find all transit direction links
+    // Look for links with data-transit-origin and data-transit-destination attributes
+    const links = document.querySelectorAll('a[data-transit-origin][data-transit-destination]');
+    
+    links.forEach(link => {
+      const origin = link.getAttribute('data-transit-origin');
+      const destination = link.getAttribute('data-transit-destination');
+      link.href = buildTransitLink(origin, destination, app);
+    });
+  }
+  
+  // Create UI toggle in the sidebar or toolbar
+  function createPreferenceToggle() {
+    // Look for a good place to put the toggle - perhaps in the tools section
+    const toolsSection = document.querySelector('.nav-group-label') || document.querySelector('.sidebar');
+    if (!toolsSection) return;
+    
+    const currentPref = getPreference();
+    
+    // Create a small toggle group
+    const toggle = document.createElement('div');
+    toggle.className = 'transit-app-toggle';
+    toggle.style.cssText = 'margin:1.5rem 0 1rem; padding:0.75rem; background:rgba(245,239,225,.06); border-radius:5px; font-size:0.85rem;';
+    toggle.innerHTML = `
+      <div style="color:rgba(245,239,225,.65); margin-bottom:0.5rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em;">Transit app</div>
+      <button class="transit-toggle-btn transit-google" data-app="google" style="width:48%; padding:0.5rem 0.4rem; border:none; border-radius:4px; background:${currentPref === 'google' ? 'rgba(164,118,60,0.4)' : 'rgba(245,239,225,0.08)'}; color:inherit; cursor:pointer; font-size:0.75rem; margin-right:0.4rem;">Google</button>
+      <button class="transit-toggle-btn transit-citymapper" data-app="citymapper" style="width:48%; padding:0.5rem 0.4rem; border:none; border-radius:4px; background:${currentPref === 'citymapper' ? 'rgba(164,118,60,0.4)' : 'rgba(245,239,225,0.08)'}; color:inherit; cursor:pointer; font-size:0.75rem;">CityMapper</button>
+    `;
+    
+    // Find a good location - after the nav groups
+    const navGroups = document.querySelectorAll('.nav-group-label');
+    if (navGroups.length > 0) {
+      const lastGroup = navGroups[navGroups.length - 1];
+      lastGroup.parentElement.insertBefore(toggle, lastGroup.nextElementSibling.nextElementSibling);
+    } else {
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar) sidebar.appendChild(toggle);
+    }
+    
+    // Add click handlers
+    toggle.querySelectorAll('.transit-toggle-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const app = this.getAttribute('data-app');
+        localStorage.setItem(storageKey, app);
+        
+        // Update button styles
+        toggle.querySelectorAll('.transit-toggle-btn').forEach(b => {
+          b.style.background = b.getAttribute('data-app') === app ? 'rgba(164,118,60,0.4)' : 'rgba(245,239,225,0.08)';
+        });
+        
+        // Update all transit links
+        updateTransitLinks();
+      });
+    });
+  }
+  
+  // Initialize on load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      createPreferenceToggle();
+      updateTransitLinks();
+    });
+  } else {
+    createPreferenceToggle();
+    updateTransitLinks();
+  }
+})();
+
+
+</script>
 </body>
 </html>
