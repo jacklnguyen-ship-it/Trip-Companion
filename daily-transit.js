@@ -168,10 +168,30 @@
       encodeURIComponent(route.destination)+"&travelmode="+mode;
   }
 
+  var coordsLookup={
+    "London Heathrow Airport":[51.4700,-0.4543],
+    "Wombat's City Hostel London, 7 Dock Street, London":[51.5092,-0.0722],
+    "Chatsworth House, Bakewell":[53.2275,-1.6108],
+    "All England Lawn Tennis Club, Church Road, London":[51.4337,-0.2141],
+    "London Waterloo Station":[51.5031,-0.1132],
+    "Camden Market, London":[51.5415,-0.1466],
+    "St Pancras International, London":[51.5320,-0.1233],
+    "8 Rue du Pont aux Choux, Paris":[48.8578,2.3625],
+    "Musée Picasso Paris, 5 Rue de Thorigny, Paris":[48.8596,2.3624],
+    "Palace of Versailles, Place d'Armes, Versailles":[48.8049,2.1204],
+    "Musée de la Vie Romantique, 16 Rue Chaptal, Paris":[48.8826,2.3334],
+    "Paris Charles de Gaulle Airport":[49.0097,2.5479]
+  };
+
   function citymapperUrl(route){
-    return "https://citymapper.com/directions?endname="+
-      encodeURIComponent(route.destination)+"&startname="+
-      encodeURIComponent(route.origin);
+    var s=coordsLookup[route.origin];
+    var e=coordsLookup[route.destination];
+    var url="https://citymapper.com/directions?";
+    if(s) url+="startcoord="+s[0]+"%2C"+s[1]+"&";
+    url+="startname="+encodeURIComponent(route.origin)+"&";
+    if(e) url+="endcoord="+e[0]+"%2C"+e[1]+"&";
+    url+="endname="+encodeURIComponent(route.destination);
+    return url;
   }
 
   function routeForHeading(heading){
