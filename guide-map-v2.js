@@ -29,7 +29,9 @@
     return'https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(p.lat+','+p.lng)+'&travelmode=walking';
   }
   function citymapperUrl(p){
-    return'https://citymapper.com/directions?endcoord='+p.lat+'%2C'+p.lng+'&endname='+encodeURIComponent(p.title);
+    var url='https://citymapper.com/directions?endcoord='+p.lat+'%2C'+p.lng+'&endname='+encodeURIComponent(p.title);
+    if(userLocation){url+='&startcoord='+userLocation.lat+'%2C'+userLocation.lng+'&startname='+encodeURIComponent('Your location');}
+    return url;
   }
   function escapeHtml(value){
     return String(value).replace(/[&<>"']/g,function(character){
