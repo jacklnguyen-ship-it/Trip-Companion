@@ -29,9 +29,34 @@
       var value=parseFloat(input.value),code=select.value;
       if(!Number.isFinite(value)){output.textContent='$0.00';return null;}
       if(!rates||!rates[code]){output.textContent='Rate unavailable';return null;}
-      var converted=value*rates[code];
-      output.textContent=usd(converted);
+      var converted=swapped?(value/rates[code]):value*rates[code];
+      // When swapped: input is USD, output is foreign currency
+      if(swapped){
+        output.textContent=local(converted,code);
+      } else {
+        output.textContent=usd(converted);
+      }
       return{value:value,code:code,converted:converted};
+    }
+    var swapped=false;
+    function swapDirection(){
+      if(!rates)return;
+      var code=shortcutCurrency.value;
+      if(!rates[code])return;
+      var currentAmount=parseFloat(shortcutAmount.value);
+      if(!Number.isFinite(currentAmount))return;
+      // Toggle direction
+      swapped=!swapped;
+      if(swapped){
+        // USD → foreign: take the current USD result and set it as new input
+        var usdVal=currentAmount*rates[code];
+        shortcutAmount.value=usdVal.toFixed(2);
+      } else {
+        // foreign → USD: invert back
+        var foreignVal=currentAmount/rates[code];
+        shortcutAmount.value=foreignVal.toFixed(2);
+      }
+      renderShortcut(true);
     }
     function remember(calculation){
       if(!calculation)return;
@@ -70,6 +95,7 @@
     }
     function open(){
       if(!modal)return;
+      swapped=false;
       lastFocus=document.activeElement;syncFromSaved();renderShortcut(false);
       modal.hidden=false;document.body.style.overflow='hidden';fab.setAttribute('aria-expanded','true');
       setTimeout(function(){shortcutAmount.focus();shortcutAmount.select();},0);
@@ -78,10 +104,12 @@
     if(amount)amount.addEventListener('input',renderHome);
     if(currency)currency.addEventListener('change',renderHome);
     if(shortcutAmount)shortcutAmount.addEventListener('input',function(){renderShortcut(true);});
-    if(shortcutCurrency)shortcutCurrency.addEventListener('change',function(){renderShortcut(true);});
+    if(shortcutCurrency)shortcutCurrency.addEventListener('change',function(){swapped=false;renderShortcut(true);});
     document.querySelectorAll('[data-currency-amount]').forEach(function(button){
       button.addEventListener('click',function(){shortcutAmount.value=button.getAttribute('data-currency-amount');renderShortcut(true);});
     });
+    var swapBtn=document.getElementById('currency-shortcut-swap');
+    if(swapBtn)swapBtn.addEventListener('click',swapDirection);
     if(fab)fab.addEventListener('click',open);
     if(closeButton)closeButton.addEventListener('click',close);
     if(modal)modal.addEventListener('click',function(event){if(event.target===modal)close();});
