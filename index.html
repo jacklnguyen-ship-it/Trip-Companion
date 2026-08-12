@@ -546,7 +546,13 @@ body:has(.page:target) #page-home:target{display:block}
 .day-priority ul{margin:0;padding-left:1.2rem}.day-priority li{margin:.4rem 0}
 .day-status{display:inline-block;padding:.18rem .45rem;border-radius:99px;background:var(--forest);color:#fff;font:700 .62rem ui-monospace,monospace;margin-right:.35rem;}
 .day-status.action{background:#b06b2c;}
-.day-schedule,.day-food{border:1px solid var(--line);background:var(--parchment-card);border-radius:12px;padding:1rem;margin-bottom:1rem;}
+.day-collapsible{border:1px solid var(--line);background:var(--parchment-card);border-radius:12px;margin-bottom:1rem;overflow:hidden;}
+.day-collapsible summary{cursor:pointer;padding:1rem;font-weight:800;color:var(--wax);list-style:none;}
+.day-collapsible summary::-webkit-details-marker{display:none}
+.day-collapsible summary::before{content:'▸';display:inline-block;margin-right:.5rem;color:var(--brass);transition:transform .15s ease}
+.day-collapsible[open] summary::before{transform:rotate(90deg)}
+.day-collapsible-body{padding:0 1rem 1rem;}
+.day-schedule,.day-food{border-top:1px solid var(--line-soft);padding-top:.85rem;}
 .day-schedule h2{font-size:1rem!important;margin:.85rem 0 .45rem!important;padding:0!important;border:0!important}.day-schedule h2:first-child{margin-top:0!important}
 .food-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem}
 .food-card{padding:.8rem;border:1px solid var(--line-soft);border-radius:9px;background:#fff}
@@ -3869,9 +3875,10 @@ Thursday, Sept 10 at 5:30pm for 2; à la carte and marked as pre-event. A river/
   }
   function openDay(i){
     var d=days[i],schedule=blockAfter(headings[i]),food=d.food.map(function(f){return '<div class="food-card"><strong>'+f[0]+'</strong><span>'+f[1]+'</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(f[2])+'">Open in Maps →</a></div>';}).join('');
-    body.innerHTML='<section class="day-priority"><h3>Tickets & reservations first</h3>'+d.tickets+'</section><section class="day-schedule"><h3>Today’s itinerary</h3>'+schedule.innerHTML+'</section><section class="day-food"><h3>Nearby food & drinks</h3><div class="food-grid">'+food+'</div></section><h3 class="day-research-title">Research from your guides</h3><div class="day-research"></div>';
+    body.innerHTML='<section class="day-priority"><h3>Tickets & reservations first</h3>'+d.tickets+'</section><details class="day-collapsible"><summary>Today’s itinerary</summary><div class="day-collapsible-body"><section class="day-schedule">'+schedule.innerHTML+'</section></div></details><details class="day-collapsible"><summary>Nearby food & drinks</summary><div class="day-collapsible-body"><section class="day-food"><div class="food-grid">'+food+'</div></section></div></details><details class="day-collapsible day-research-wrap"><summary>Research from your guides</summary><div class="day-collapsible-body"><div class="day-research"></div></div></details>';
     var research=body.querySelector('.day-research');
     d.research.forEach(function(r){findBlocks(r[0],r[1]).forEach(function(b){var det=document.createElement('details'),sum=document.createElement('summary'),content=document.createElement('div');sum.textContent=b.label;content.className='day-research-content';content.appendChild(b.node);det.appendChild(sum);det.appendChild(content);research.appendChild(det);});});
+    if(!research.children.length) research.closest('.day-research-wrap').remove();
     title.textContent=headings[i].textContent.trim();modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.classList.add('day-modal-open');modal.querySelector('.day-close').focus();
   }
   headings.forEach(function(h,i){h.classList.add('itinerary-day-heading');h.tabIndex=0;h.setAttribute('role','button');h.setAttribute('aria-label','Open complete guide for '+h.textContent.trim());h.addEventListener('click',function(){openDay(i);});h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openDay(i);}});});
