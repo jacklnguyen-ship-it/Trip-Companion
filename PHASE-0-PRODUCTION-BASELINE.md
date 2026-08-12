@@ -110,7 +110,7 @@ The authoritative source is Git history plus two local backup artifacts stored o
 5. Verify map loading and the offline service-worker cache.
 6. Merge or deploy the recovery branch only after verification.
 
-The initial known-good reference for Phase 0 is commit `83e435d719b28ee526612f6759906e2f5011aa5a`. A later Phase 0 completion commit should replace it as the preferred restoration point after all checks pass.
+The preferred Phase 0 functional restoration point is commit `71a161c904cff852664b6ddd23816f2244008e21`. The earlier commit `83e435d719b28ee526612f6759906e2f5011aa5a` remains the exact pre-Phase-0 reference.
 
 ## Required pre-publish checks
 

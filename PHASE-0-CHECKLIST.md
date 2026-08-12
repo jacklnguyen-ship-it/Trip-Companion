@@ -1,6 +1,6 @@
 # Phase 0 — Safety Checklist
 
-## Completed locally
+## Completed and published
 
 - [x] Confirm the live checkout is on `main` and synchronized with `origin/main`.
 - [x] Record the production commit and public entry points.
@@ -18,13 +18,12 @@
 - [x] Document a non-destructive restoration procedure.
 - [x] Create and checksum a restorable local backup.
 
-## Still requires explicit publishing approval
+- [x] Review the Phase 0 repository changes.
+- [x] Commit and push the Phase 0 baseline to `main`.
+- [x] Confirm the pre-publish GitHub Actions workflow passes on the pushed commit.
+- [x] Mark commit `71a161c904cff852664b6ddd23816f2244008e21` as the preferred functional restoration point.
 
-- [ ] Review the Phase 0 repository changes.
-- [ ] Commit and push the Phase 0 baseline to `main`.
-- [ ] Confirm GitHub Actions passes on the pushed commit.
-- [ ] Verify both live GitHub Pages entry points after deployment.
-- [ ] Mark the pushed Phase 0 commit as the preferred restoration point.
+Live GitHub Pages verification is recorded separately after the Pages deployment completes.
 
 ## Before every future production update
 
