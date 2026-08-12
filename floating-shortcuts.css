@@ -28,7 +28,7 @@ body:has(.day-modal.open) .floating-shortcuts{display:none}
 .currency-quick-amounts{display:grid;grid-template-columns:repeat(5,1fr);gap:.35rem}.currency-quick-amounts button{min-height:42px;border:1px solid var(--line);border-radius:9px;background:var(--parchment-card);color:var(--ink);font:inherit;font-weight:800;cursor:pointer}.currency-quick-amounts button:hover,.currency-quick-amounts button:focus-visible{border-color:var(--brass);background:var(--brass);color:#fff}
 .currency-shortcut-meta{margin:.7rem 0 0!important;color:var(--slate)!important;font-size:.76rem!important;text-align:center}
 body:has(.day-modal.open) .currency-fab{display:none}
-@media(max-width:860px){.currency-fab{right:max(.75rem,calc((100vw - 430px)/2 + .75rem));bottom:calc(max(.65rem,env(safe-area-inset-bottom)) + 69px)}}
+@media(max-width:860px){.currency-fab{right:max(.75rem,calc((100vw - 430px)/2 + .75rem));bottom:calc(max(.65rem,env(safe-area-inset-bottom)) + 69px)}.currency-shortcut-modal{bottom:calc(max(.65rem,env(safe-area-inset-bottom)) + 68px);padding:0 .5rem .5rem}.currency-shortcut-sheet{max-height:calc(100dvh - max(.65rem,env(safe-area-inset-bottom)) - 84px);overflow:auto}}
 @media(min-width:861px){.currency-shortcut-modal{align-items:center}.currency-shortcut-sheet{border-radius:20px}}
 @media(max-width:420px){.currency-fab-bubble{width:52px;height:52px}.currency-shortcut-row{grid-template-columns:1fr}.currency-quick-amounts{grid-template-columns:repeat(5,1fr)}}
 @media(prefers-reduced-motion:reduce){.currency-shortcut-modal{scroll-behavior:auto}}
