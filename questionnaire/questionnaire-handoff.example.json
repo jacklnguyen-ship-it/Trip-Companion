@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "trip": {
+    "workingTitle": "",
+    "destinations": [],
+    "startDate": "",
+    "endDate": "",
+    "dateFlexibility": "",
+    "origin": ""
+  },
+  "travelers": {
+    "count": 0,
+    "groupType": "",
+    "agesOrLifeStages": [],
+    "accessibilityNeeds": [],
+    "privateNotes": []
+  },
+  "budget": {
+    "total": null,
+    "currency": "USD",
+    "lodgingLevel": "",
+    "dailyComfortRange": "",
+    "splurgePriorities": []
+  },
+  "style": {
+    "pace": "balanced",
+    "structure": "balanced",
+    "famousVsHidden": "balanced",
+    "localVsSightseeing": "balanced",
+    "morningPreference": "",
+    "eveningPreference": "",
+    "walkingTolerance": "",
+    "transitComfort": ""
+  },
+  "interests": {
+    "ranked": [],
+    "museums": [],
+    "history": [],
+    "architecture": [],
+    "food": [],
+    "nightlife": [],
+    "shopping": [],
+    "nature": [],
+    "specialInterests": []
+  },
+  "food": {
+    "dietaryNeeds": [],
+    "allergies": [],
+    "adventurousness": "",
+    "mustTry": [],
+    "avoid": [],
+    "mealBudgetNotes": ""
+  },
+  "priorities": {
+    "mustDo": [],
+    "maybe": [],
+    "avoid": [],
+    "specialOccasions": [],
+    "dreamTripDescription": ""
+  },
+  "planning": {
+    "confirmedFlights": [],
+    "confirmedLodging": [],
+    "confirmedReservations": [],
+    "researchLinks": [],
+    "openQuestions": []
+  },
+  "privacy": {
+    "publicGuideAllowed": false,
+    "sensitiveFieldsProvided": false,
+    "travelerSpecificVisibilityRules": []
+  }
+}

@@ -1,0 +1,69 @@
+:root {
+  color-scheme: dark;
+  --ink: #eaf3ff;
+  --muted: #9fb0c5;
+  --panel: #102337;
+  --panel-strong: #17314b;
+  --accent: #57b5f6;
+  --line: #284864;
+  --background: #071526;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(150deg, #0b2037, var(--background) 55%);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.template-shell {
+  width: min(100% - 2rem, 58rem);
+  margin: 0 auto;
+  padding: 3rem 0 5rem;
+}
+
+.eyebrow {
+  margin: 0 0 .6rem;
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+h1 { margin: 0; font-size: clamp(2.2rem, 8vw, 4.5rem); line-height: .98; }
+h2 { margin-top: 0; }
+p { color: var(--muted); line-height: 1.6; }
+
+.trip-meta { margin: 1rem 0 2rem; font-weight: 700; }
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.template-card {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+}
+
+.template-card strong { display: block; margin-bottom: .35rem; }
+.template-card p { margin: 0; }
+
+.empty-state {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 1rem;
+  color: var(--muted);
+}
+
+@media (max-width: 34rem) {
+  .template-shell { width: min(100% - 1.25rem, 58rem); padding-top: 2rem; }
+}

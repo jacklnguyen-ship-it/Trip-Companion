@@ -1,0 +1,80 @@
+.daily-transit{
+  margin:1rem 0 1.35rem;
+  padding:1rem;
+  border:1px solid color-mix(in srgb,var(--brass) 55%,transparent);
+  border-radius:18px;
+  background:color-mix(in srgb,var(--paper) 92%,var(--brass) 8%);
+  box-shadow:0 8px 24px rgba(18,37,54,.07);
+}
+.daily-transit__eyebrow{
+  margin:0 0 .25rem;
+  color:var(--brass-dark);
+  font:800 .7rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.daily-transit h3{margin:.1rem 0 .5rem;font-size:1.12rem}
+.daily-transit__summary{margin:.25rem 0 .8rem;color:var(--slate)}
+.daily-transit__steps{margin:.5rem 0 .85rem;padding-left:1.25rem}
+.daily-transit__steps li{margin:.38rem 0}
+.daily-transit__meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem;
+  margin:.7rem 0;
+}
+.daily-transit__meta span{
+  display:inline-flex;
+  padding:.36rem .58rem;
+  border-radius:999px;
+  background:rgba(18,37,54,.08);
+  font-size:.82rem;
+  font-weight:700;
+}
+.daily-transit__note{margin:.65rem 0;font-size:.9rem;color:var(--slate)}
+.daily-transit__legs{
+  margin:.7rem 0 .9rem;
+  border:1px solid var(--line);
+  border-radius:12px;
+  overflow:hidden;
+  background:var(--parchment-card);
+}
+.daily-transit__leg{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.15rem .6rem;
+  padding:.6rem .8rem;
+}
+.daily-transit__leg:nth-child(even){background:rgba(18,37,54,.035);}
+.daily-transit__leg-label{
+  flex:0 0 auto;
+  min-width:80px;
+  color:var(--slate);
+  font-size:.8rem;
+  font-weight:700;
+}
+.daily-transit__leg-detail{
+  flex:1 1 200px;
+  font-size:.92rem;
+  color:var(--ink);
+}
+.daily-transit__leg-detail strong{font-weight:800}
+.daily-transit__link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:.65rem .85rem;
+  border-radius:12px;
+  background:var(--ink);
+  color:#fff!important;
+  font-weight:800;
+  text-decoration:none!important;
+  text-decoration-color:transparent!important;
+}
+.daily-transit__link:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+@media(max-width:620px){
+  .daily-transit{padding:.9rem;border-radius:15px}
+  .daily-transit__link{display:flex;width:100%}
+}

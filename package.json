@@ -5,6 +5,7 @@
     "test": "npm run test:prepublish",
     "test:checks": "node scripts/prepublish-check.mjs",
     "test:negative": "node scripts/negative-self-test.mjs",
-    "test:prepublish": "npm run test:checks && npm run test:negative"
+    "test:phase1": "node scripts/phase1-backbone-check.mjs",
+    "test:prepublish": "npm run test:checks && npm run test:negative && npm run test:phase1"
   }
 }

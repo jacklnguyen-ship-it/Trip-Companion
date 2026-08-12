@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b2037">
+  <title>New Trip — Trip Companion</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="../../engine/template-shell.css">
+</head>
+<body>
+  <main class="template-shell">
+    <p class="eyebrow">Personalized Trip Companion</p>
+    <h1 data-trip-title>New personalized trip</h1>
+    <p class="trip-meta"><span data-trip-dates>Dates to be confirmed</span> · <span data-trip-travelers>Traveler profile pending</span></p>
+    <p data-trip-summary>Questionnaire answers will shape the itinerary, recommendations, pace, and budget.</p>
+
+    <section class="template-grid" aria-label="Trip building status">
+      <article class="template-card">
+        <strong>1. Questionnaire</strong>
+        <p>Capture budget, pace, interests, food preferences, mobility needs, must-dos, and avoids.</p>
+      </article>
+      <article class="template-card">
+        <strong>2. Research</strong>
+        <p>Curate suitable neighborhoods, attractions, food, transit, reservations, and hidden gems.</p>
+      </article>
+      <article class="template-card">
+        <strong>3. Itinerary</strong>
+        <p>Arrange researched choices into realistic days with timing, travel guidance, and alternatives.</p>
+      </article>
+      <article class="template-card">
+        <strong>4. Traveler guide</strong>
+        <p>Publish a mobile-friendly, privacy-safe guide with maps and offline support.</p>
+      </article>
+    </section>
+
+    <section class="template-card" style="margin-top: 1rem">
+      <h2>Build readiness</h2>
+      <div class="empty-state" data-readiness>Waiting for a completed questionnaire handoff.</div>
+    </section>
+  </main>
+  <script src="trip-config.js"></script>
+  <script src="../../engine/template-shell.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./service-worker.js').catch(function () {});
+      });
+    }
+  </script>
+</body>
+</html>

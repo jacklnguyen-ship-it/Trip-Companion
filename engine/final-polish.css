@@ -1,0 +1,8 @@
+.skip-link{position:fixed;left:1rem;top:.5rem;z-index:10000;padding:.7rem 1rem;border-radius:8px;background:#fff;color:#10263a;font-weight:700;transform:translateY(-160%)}.skip-link:focus{transform:none}
+:where(a,button,input,select,summary,[role="button"]):focus-visible{outline:3px solid #d28b27!important;outline-offset:3px!important}
+.austen-quote{margin:1rem 0;padding:1rem 1.1rem;border-left:4px solid var(--brass);border-radius:0 10px 10px 0;background:var(--parchment-card)}.austen-quote p{margin:0 0 .35rem!important;font-family:Georgia,serif;font-size:1.05rem;font-style:italic}.austen-quote cite{color:var(--slate);font-size:.8rem}
+.french-audio-status{margin:.75rem 0;padding:.75rem .9rem;border:1px solid var(--line);border-radius:9px;background:var(--parchment-card);color:var(--slate);font-size:.82rem}.french-audio-status.is-playing{border-color:var(--brass);color:var(--ink)}
+.phrase-play{min-width:44px;min-height:44px}.content-wrap,.page,.phrase-card,.day-sheet{min-width:0}.page :where(p,li,a,td,th){overflow-wrap:anywhere}
+@media(max-width:620px){.phrase-card{grid-template-columns:minmax(0,1fr) 44px}.day-sheet{max-height:94dvh}.hamburger{min-width:44px;min-height:44px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media(prefers-contrast:more){:where(.phrase-card,.guide-search,.home-day,.austen-quote){border-color:currentColor}.navlink{border-bottom:1px solid rgba(255,255,255,.35)}}
