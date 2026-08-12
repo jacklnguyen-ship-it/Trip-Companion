@@ -8,6 +8,13 @@ const fixtureFiles = [
   "index.html",
   "maria.html",
   "guide-map.css",
+  "leaflet/leaflet.css",
+  "leaflet/leaflet.js",
+  "leaflet/images/layers-2x.png",
+  "leaflet/images/layers.png",
+  "leaflet/images/marker-icon-2x.png",
+  "leaflet/images/marker-icon.png",
+  "leaflet/images/marker-shadow.png",
   "guide-map-v2.js",
   "home-intelligence.css",
   "home-intelligence.js",
@@ -23,6 +30,14 @@ const fixtureFiles = [
   "final-polish.css",
   "final-polish.js",
   "french-audio-v2.js",
+  "daily-transit.css",
+  "daily-transit.js",
+  "packing-checklist.css",
+  "packing-checklist.js",
+  "today-glance.css",
+  "today-glance.js",
+  "quick-actions.js",
+  "nav-upgrade.css",
   "service-worker.js",
   "map-places-index.json",
   "map-places-maria.json",
@@ -56,6 +71,20 @@ const scenarios = [
     expected: "exposes surprise item",
     mutate(dir) {
       fs.appendFileSync(path.join(dir, "maria.html"), "\n<!-- Witness for the Prosecution -->\n");
+    },
+  },
+  {
+    name: "Maria County Hall leak",
+    expected: "exposes surprise item",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "maria.html"), "\n<!-- County Hall -->\n");
+    },
+  },
+  {
+    name: "Maria surprise leak in shared runtime",
+    expected: "exposes Maria surprise item",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "packing-checklist.js"), "\n// Sainte-Chapelle concert\n");
     },
   },
   {

@@ -17,7 +17,7 @@
       {t:"Light rain jacket",d:false},
       {t:"Comfortable walking shoes (broken in)",d:false},
       {t:"Elegant outfit for evening shows (Sept 10, 14, 16)",d:false},
-      {t:"Warm layer for evenings (Sainte-Chapelle, Versailles gardens)",d:false},
+      {t:"Warm layer for evening plans and the Versailles gardens",d:false},
       {t:"Football-appropriate casual outfit (Sept 12)",d:false},
       {t:"Sleepwear",d:false},
       {t:"Undergarments and socks for full trip",d:false}

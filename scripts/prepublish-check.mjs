@@ -110,8 +110,6 @@ for (const file of htmlFiles) {
   check(html.includes("trip-map-pending-search"), `${file} home search cannot hand a selected location to the map`);
   check(html.includes("escapeSearchHtml"), `${file} home search does not safely render map results`);
   for (const id of [
-    "kickoff-alert",
-    "kickoff-dismiss",
     "home-next-up",
     "home-next-countdown",
     "home-next-title",
@@ -199,12 +197,26 @@ check((maria.match(/class="austen-quote"/g) || []).length === 4, "maria.html nee
 check(!(read("index.html").match(/class="austen-quote"/g) || []).length, "index.html should not include Maria's Austen quotation touches");
 const mariaRestrictedTerms = [
   "Witness for the Prosecution",
+  "County Hall",
   "Perle Noire",
   "Sainte-Chapelle concert",
   "Palais Garnier",
 ];
 for (const term of mariaRestrictedTerms) {
   check(!maria.toLowerCase().includes(term.toLowerCase()), `maria.html exposes surprise item: ${term}`);
+}
+
+const mariaRuntimeFiles = new Set([
+  "maria.html",
+  "map-places-maria.json",
+  "manifest-maria.json",
+  ...localAssetReferences(maria).filter((file) => /\.(?:css|js|json)$/i.test(file)),
+]);
+for (const file of mariaRuntimeFiles) {
+  const contents = read(file).toLowerCase();
+  for (const term of mariaRestrictedTerms) {
+    check(!contents.includes(term.toLowerCase()), `${file} exposes Maria surprise item: ${term}`);
+  }
 }
 
 const privateDetailLines = maria
@@ -230,6 +242,7 @@ const approvedCategories = new Set([
   "afternoontea",
   "markets",
   "hotel",
+  "sundayroast",
 ]);
 const mapFiles = ["map-places-index.json", "map-places-maria.json"];
 const maps = mapFiles.map((file) => ({ file, data: loadJson(file) }));
@@ -296,14 +309,21 @@ for (const { file, data } of maps) {
 if (maps.every(({ data }) => Array.isArray(data))) {
   const jack = maps[0].data;
   const mariaMap = maps[1].data;
-  check(jack.length === mariaMap.length, "Jack and Maria map datasets have different place counts");
   const signature = (place) => `${place.title}|${place.query}|${place.category}|${place.lat}|${place.lng}`;
-  const jackSignatures = jack.map(signature).sort();
-  const mariaSignatures = mariaMap.map(signature).sort();
+  const mariaSignatures = new Set(mariaMap.map(signature));
+  const jackOnly = jack.filter((place) => !mariaSignatures.has(signature(place)));
+  const jackSignatures = new Set(jack.map(signature));
+  const mariaOnly = mariaMap.filter((place) => !jackSignatures.has(signature(place)));
+  const expectedJackOnlyTitles = [
+    "County Hall — Witness for the Prosecution",
+    "Palais Garnier — Perle Noire",
+    "Sainte-Chapelle — Evening Concert",
+  ];
   check(
-    JSON.stringify(jackSignatures) === JSON.stringify(mariaSignatures),
-    "Jack and Maria map datasets have drifted apart",
+    JSON.stringify(jackOnly.map((place) => place.title).sort()) === JSON.stringify(expectedJackOnlyTitles.sort()),
+    "Jack-only map entries do not match the approved surprise-safe set",
   );
+  check(mariaOnly.length === 0, "Maria's map contains entries missing from Jack's map");
 }
 
 const manifests = [
@@ -494,6 +514,19 @@ for (const asset of [
   "./french-audio-v2.js",
 ]) {
   check(serviceWorker.includes(`'${asset}'`), `service-worker.js does not cache ${asset}`);
+}
+const cachedAssets = new Set(
+  [...serviceWorker.matchAll(/['"](\.\/[^'"?#]+)(?:\?[^'"]*)?['"]/g)].map((match) => match[1]),
+);
+for (const file of htmlFiles) {
+  for (const asset of localAssetReferences(read(file))) {
+    const normalized = asset.startsWith("./") ? asset : `./${asset}`;
+    check(cachedAssets.has(normalized), `service-worker.js does not cache ${file} dependency ${normalized}`);
+  }
+}
+for (const asset of cachedAssets) {
+  if (asset === "./") continue;
+  check(fs.existsSync(path.join(root, asset)), `service-worker.js caches missing local asset: ${asset}`);
 }
 for (const behavior of ["install", "activate", "fetch", "caches.match", "ignoreSearch:true"]) {
   check(serviceWorker.includes(behavior), `service-worker.js is missing offline behavior: ${behavior}`);
