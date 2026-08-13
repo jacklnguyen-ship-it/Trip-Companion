@@ -1,10 +1,9 @@
--- Phase 4A: private inbox for completed traveler questionnaires.
--- This table is deliberately in the private schema. Public browser clients
--- cannot read it; the questionnaire-submit Edge Function is the only writer.
+-- Phase 4A: locked inbox for completed traveler questionnaires.
+-- The table uses the normal public schema so the protected Edge Function can
+-- write through Supabase's server API. RLS is enabled with no browser policies,
+-- so anonymous and authenticated browser clients cannot read or write it.
 
-create schema if not exists private;
-
-create table if not exists private.questionnaire_submissions (
+create table if not exists public.questionnaire_submissions (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default now(),
   status text not null default 'new'
@@ -14,8 +13,9 @@ create table if not exists private.questionnaire_submissions (
   constraint questionnaire_payload_is_object check (jsonb_typeof(questionnaire) = 'object')
 );
 
-comment on table private.questionnaire_submissions is
-  'Private planning briefs submitted through the Trip Companion questionnaire.';
+alter table public.questionnaire_submissions enable row level security;
 
-revoke all on schema private from public;
-revoke all on table private.questionnaire_submissions from public;
+comment on table public.questionnaire_submissions is
+  'Locked planning briefs submitted through the Trip Companion questionnaire.';
+
+revoke all on table public.questionnaire_submissions from anon, authenticated;

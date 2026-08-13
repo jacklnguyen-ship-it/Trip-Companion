@@ -19,9 +19,9 @@ const handler = read(functionPath);
 const script = read('questionnaire/questionnaire.js');
 const readme = read('supabase/PHASE-4A-SETUP.md');
 
-check(migration.includes('create schema if not exists private'), 'Inbox is not isolated in a private schema');
-check(migration.includes('private.questionnaire_submissions'), 'Inbox table is missing');
-check(migration.includes('revoke all on table private.questionnaire_submissions from public'), 'Public access to questionnaire inbox was not revoked');
+check(migration.includes('public.questionnaire_submissions'), 'Inbox table is missing');
+check(migration.includes('enable row level security'), 'Inbox does not enable Row Level Security');
+check(migration.includes('revoke all on table public.questionnaire_submissions from anon, authenticated'), 'Browser access to questionnaire inbox was not revoked');
 check(handler.includes("Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')"), 'Function does not keep the service key server-side');
 check(!script.includes('SUPABASE_SERVICE_ROLE_KEY'), 'Service role key was exposed to the public questionnaire');
 check(handler.includes("allowedOrigins"), 'Function does not restrict browser origins');

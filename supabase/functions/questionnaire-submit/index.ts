@@ -41,7 +41,7 @@ Deno.serve(async (request) => {
 
   const supabase = createClient(Deno.env.get('SUPABASE_URL') ?? '', Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? '', { auth: { persistSession: false } });
   const source = typeof body.source === 'string' && body.source.length <= 80 ? body.source : 'trip-companion-questionnaire';
-  const { error } = await supabase.schema('private').from('questionnaire_submissions').insert({ questionnaire: body.questionnaire, source });
+  const { error } = await supabase.from('questionnaire_submissions').insert({ questionnaire: body.questionnaire, source });
   if (error) { console.error('Questionnaire insert failed', error.code); return json({ error: 'Unable to save planning brief' }, 500, headers); }
   return json({ received: true }, 201, headers);
 });

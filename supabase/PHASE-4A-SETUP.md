@@ -4,8 +4,8 @@ This folder makes the public questionnaire submit a reviewed, non-sensitive plan
 
 ## What this does
 
-- Stores submissions in `private.questionnaire_submissions`, not a public table.
-- Allows only the `questionnaire-submit` Edge Function to write submissions.
+- Stores submissions in the locked `public.questionnaire_submissions` table.
+- Enables Row Level Security with no browser access policies; only the `questionnaire-submit` Edge Function can write submissions.
 - Permits requests from the Trip Companion GitHub Pages origin.
 - Keeps passport details, payment details, ticket barcodes, and confirmation numbers out of the questionnaire flow.
 
@@ -16,4 +16,4 @@ This folder makes the public questionnaire submit a reviewed, non-sensitive plan
 3. Do not add a service-role key to GitHub Pages or to any HTML/JavaScript file. Supabase supplies it only inside the deployed Edge Function.
 4. Test by submitting a sample questionnaire; then use the SQL Editor to confirm that a new row appears in `private.questionnaire_submissions`.
 
-The publishable key appears in the public questionnaire by design. It is not a database password and cannot read this private table.
+The publishable key appears in the public questionnaire by design. It is not a database password and cannot read or write this locked table.
