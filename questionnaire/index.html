@@ -127,17 +127,19 @@
       <section class="form-step" data-step="review" aria-labelledby="step-review-title" hidden>
         <p class="step-number">08 · Review</p>
         <h2 id="step-review-title">Your planning brief</h2>
-        <p>Review the summary before downloading. The exported file contains planning preferences only.</p>
+        <p>Review the summary before sending or downloading. Both options contain planning preferences only.</p>
         <div id="review-summary" class="review-summary"></div>
         <fieldset class="consent-box"><legend>Final checks</legend>
           <label><input type="checkbox" name="publicGuideAllowed">I am comfortable with a public, shareable guide containing dates, locations, preferences, and public-safe itinerary details.</label>
           <label><input type="checkbox" name="privacyConfirmed" required>I confirm I did not enter passport, payment, barcode, confirmation-number, medical-record, or other sensitive data.</label>
         </fieldset>
         <div class="download-actions">
+          <button type="button" class="primary" id="submit-questionnaire">Send planning brief</button>
           <button type="button" class="primary" id="download-handoff">Download planning brief</button>
           <button type="button" id="copy-summary">Copy readable summary</button>
           <button type="button" class="danger" id="clear-draft">Clear this device</button>
         </div>
+        <p id="submit-state" class="submit-state" role="status" aria-live="polite" hidden></p>
       </section>
 
       <p id="form-error" class="form-error" role="alert" hidden></p>

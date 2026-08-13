@@ -35,6 +35,8 @@ legend { padding:0 .4rem; font-weight:850; }
 .review-card h3 { margin:0 0 .35rem; }
 .review-card p { margin:.2rem 0; }
 .form-navigation,.download-actions { display:flex; flex-wrap:wrap; justify-content:space-between; gap:.75rem; margin-top:1rem; }
+.submit-state { margin:1rem 0 0; padding:.8rem 1rem; border:1px solid var(--line, #d9c89c); border-radius:.75rem; background:#fffaf0; color:#23415b; font-weight:600; }
+.submit-state.is-error { border-color:#b95a4a; background:#fff3f0; color:#7d3028; }
 button { min-height:3rem; padding:.7rem 1rem; border:1px solid var(--line); border-radius:.85rem; background:var(--panel2); color:var(--ink); font-weight:850; cursor:pointer; }
 button.primary { border-color:var(--accent); background:var(--accent); color:#071526; }
 button.danger { color:var(--danger); }

@@ -11,10 +11,15 @@
   var progressLabel = document.getElementById('progress-label');
   var progressBar = document.getElementById('progress-bar');
   var saveState = document.getElementById('save-state');
+  var submitState = document.getElementById('submit-state');
   var error = document.getElementById('form-error');
   var review = document.getElementById('review-summary');
   var comparison = document.getElementById('traveler-comparison');
   var saveTimer;
+  var submitButton = document.getElementById('submit-questionnaire');
+  var SUPABASE_URL = 'https://zvtgjglurozujjbupouu.supabase.co';
+  var SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_9vFnsiyyrbhJh9SjKh89Gg_Qz8l9CSl';
+  var SUBMIT_ENDPOINT = SUPABASE_URL + '/functions/v1/questionnaire-submit';
 
   function clean(value) {
     return typeof value === 'string' ? value.trim() : '';
@@ -215,6 +220,24 @@
     });
   }
 
+  function passesPrivacyCheck() {
+    if (!value('privacyConfirmed')) {
+      fail('Confirm the privacy check before sending the planning brief.');
+      return false;
+    }
+    if (containsSensitiveData()) {
+      fail('Possible sensitive information was detected. Remove passport, payment, confirmation-number, booking-number, or ticket-barcode details before sending.');
+      return false;
+    }
+    return true;
+  }
+
+  function showSubmitState(message, isError) {
+    submitState.hidden = false;
+    submitState.textContent = message;
+    submitState.classList.toggle('is-error', Boolean(isError));
+  }
+
   function readableSummary(data) {
     return [
       'TRIP COMPANION PLANNING BRIEF',
@@ -241,8 +264,7 @@
   document.addEventListener('visibilitychange', function () { if (document.hidden) save(); });
 
   document.getElementById('download-handoff').addEventListener('click', function () {
-    if (!value('privacyConfirmed')) return fail('Confirm the privacy check before downloading the planning brief.');
-    if (containsSensitiveData()) return fail('Possible sensitive information was detected. Remove passport, payment, confirmation-number, booking-number, or ticket-barcode details before downloading.');
+    if (!passesPrivacyCheck()) return;
     var blob = new Blob([JSON.stringify(handoff(), null, 2) + '\n'], { type: 'application/json' });
     var link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
@@ -252,6 +274,32 @@
     link.remove();
     setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
     saveState.textContent = 'Planning brief downloaded';
+  });
+
+  submitButton.addEventListener('click', function () {
+    if (!passesPrivacyCheck()) return;
+    var payload = handoff();
+    submitButton.disabled = true;
+    showSubmitState('Sending your planning brief…');
+    fetch(SUBMIT_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_PUBLISHABLE_KEY,
+        'Authorization': 'Bearer ' + SUPABASE_PUBLISHABLE_KEY
+      },
+      body: JSON.stringify({ questionnaire: payload, source: 'trip-companion-questionnaire' })
+    }).then(function (response) {
+      if (!response.ok) throw new Error('Submission was not accepted');
+      return response.json();
+    }).then(function () {
+      showSubmitState('Received — your planning brief is safely in the Trip Companion inbox.');
+      saveState.textContent = 'Planning brief sent';
+    }).catch(function () {
+      showSubmitState('Your brief could not be sent yet. Your draft is still saved on this device; download it or try again shortly.', true);
+    }).finally(function () {
+      submitButton.disabled = false;
+    });
   });
 
   document.getElementById('copy-summary').addEventListener('click', function () {

@@ -48,8 +48,11 @@ check(script.includes("localStorage.getItem(STORAGE_KEY"), 'Questionnaire does n
 check(script.includes("localStorage.removeItem(STORAGE_KEY"), 'Questionnaire cannot clear local data');
 check(script.includes("window.addEventListener('pagehide', save)"), 'Questionnaire can lose pending answers during immediate navigation');
 check(script.includes("window.addEventListener('beforeunload', save)"), 'Questionnaire can lose pending answers during immediate reload');
-check(!/fetch\s*\(/.test(script), 'Questionnaire transmits answers over the network');
-check(!/XMLHttpRequest|sendBeacon|WebSocket/.test(script), 'Questionnaire contains a network transmission API');
+check(script.includes("fetch(SUBMIT_ENDPOINT"), 'Questionnaire does not submit through the configured secure endpoint');
+check(script.includes("SUPABASE_PUBLISHABLE_KEY"), 'Questionnaire is missing its public submission configuration');
+check(!/XMLHttpRequest|sendBeacon|WebSocket/.test(script), 'Questionnaire contains an unexpected network transmission API');
+check(script.includes('passesPrivacyCheck'), 'Questionnaire cannot apply its privacy check before submission');
+check(script.includes('containsSensitiveData'), 'Questionnaire does not scan submission content for sensitive data');
 check(script.includes("new Blob([JSON.stringify(handoff(), null, 2)"), 'Questionnaire does not create a JSON handoff');
 check(script.includes("URL.createObjectURL(blob)"), 'Questionnaire does not download locally');
 check(script.includes("navigator.clipboard.writeText"), 'Questionnaire cannot copy its summary');
@@ -96,4 +99,4 @@ check(!rootIndex.includes('questionnaire/questionnaire.js'), 'Production Jack gu
 check(!rootMaria.includes('questionnaire/questionnaire.js'), 'Production Maria guide was wired to Phase 3 questionnaire');
 
 console.log(`Phase 3 questionnaire QA passed: ${checks} checks.`);
-console.log('Verified coverage, local-only persistence, safe handoff export, conditional comparison, privacy boundary, offline assets, accessibility, and production isolation.');
+console.log('Verified coverage, safe local draft persistence, privacy-screened handoff and submission, conditional comparison, offline assets, accessibility, and production isolation.');
