@@ -3330,5 +3330,104 @@
     "lng": 2.3051089994689358,
     "address": "2 ter place Joffre, 75007 Paris",
     "tags": ["public restroom", "sanisette", "free", "24 hours", "accessible", "Eiffel Tower"]
+  },
+  {
+    "query": "Harrods London",
+    "title": "Harrods — customer restroom stop",
+    "category": "restrooms",
+    "lat": 51.4994,
+    "lng": -0.1631,
+    "address": "87–135 Brompton Road, London SW1X 7XL",
+    "tags": ["customer restroom", "department store", "accessible toilets", "store opening hours", "Knightsbridge"]
+  },
+  {
+    "query": "Selfridges Oxford Street London",
+    "title": "Selfridges — customer restroom stop",
+    "category": "restrooms",
+    "lat": 51.5144,
+    "lng": -0.1527,
+    "address": "400 Oxford Street, London W1A 1AB",
+    "tags": ["customer restroom", "department store", "accessible toilets", "store opening hours", "Oxford Street"]
+  },
+  {
+    "query": "Liberty London",
+    "title": "Liberty — customer restroom stop",
+    "category": "restrooms",
+    "lat": 51.5144,
+    "lng": -0.1418,
+    "address": "Regent Street, London W1B 5AH",
+    "tags": ["customer restroom", "department store", "accessible toilets", "store opening hours", "Soho"]
+  },
+  {
+    "query": "John Lewis Oxford Street London",
+    "title": "John Lewis — customer restroom stop",
+    "category": "restrooms",
+    "lat": 51.5152,
+    "lng": -0.1532,
+    "address": "300 Oxford Street, London W1C 1DX",
+    "tags": ["customer restroom", "department store", "Waitrose Foodhall", "store opening hours", "Oxford Street"]
+  },
+  {
+    "query": "Galeries Lafayette Haussmann Paris",
+    "title": "Galeries Lafayette Haussmann — restroom stop",
+    "category": "restrooms",
+    "lat": 48.8738,
+    "lng": 2.3324,
+    "address": "40 boulevard Haussmann, 75009 Paris",
+    "tags": ["customer restroom", "department store", "store opening hours", "Haussmann"]
+  },
+  {
+    "query": "Le Bon Marche Paris",
+    "title": "Le Bon Marché — restroom stop",
+    "category": "restrooms",
+    "lat": 48.8517,
+    "lng": 2.3259,
+    "address": "24 rue de Sèvres, 75007 Paris",
+    "tags": ["customer restroom", "department store", "store opening hours", "Saint-Germain"]
+  },
+  {
+    "query": "Printemps Haussmann Paris",
+    "title": "Printemps Haussmann — restroom stop",
+    "category": "restrooms",
+    "lat": 48.8731,
+    "lng": 2.3295,
+    "address": "64 boulevard Haussmann, 75009 Paris",
+    "tags": ["customer restroom", "department store", "store opening hours", "Haussmann"]
+  },
+  {
+    "query": "Tuileries Garden Place de la Concorde public toilets",
+    "title": "Tuileries Garden — Concorde public toilets",
+    "category": "restrooms",
+    "lat": 48.8653,
+    "lng": 2.3217,
+    "address": "Tuileries Garden, near Place de la Concorde, 75001 Paris",
+    "tags": ["public restroom", "free", "accessible", "garden opening hours", "Tuileries"]
+  },
+  {
+    "query": "Tuileries Garden Rue de Rivoli public toilets",
+    "title": "Tuileries Garden — Rue de Rivoli public toilets",
+    "category": "restrooms",
+    "lat": 48.8653,
+    "lng": 2.3338,
+    "address": "Tuileries Garden, Rue de Rivoli entrance, 75001 Paris",
+    "tags": ["public restroom", "free", "accessible", "garden opening hours", "Tuileries"]
+  },
+  {
+    "query": "Louvre Museum Paris",
+    "title": "Louvre Museum — visitor restroom stop",
+    "category": "restrooms",
+    "lat": 48.8606,
+    "lng": 2.3376,
+    "address": "Rue de Rivoli, 75001 Paris",
+    "tags": ["visitor restroom", "museum ticket required", "baby changing", "museum opening hours", "Louvre"]
+  },
+  {
+    "query": "Musee d'Orsay Paris",
+    "title": "Musée d’Orsay — visitor restroom stop",
+    "category": "restrooms",
+    "lat": 48.86,
+    "lng": 2.3266,
+    "address": "Esplanade Valéry Giscard d’Estaing, 75007 Paris",
+    "tags": ["visitor restroom", "museum ticket required", "accessible toilets", "museum opening hours", "water dispensers"]
   }
 ]
