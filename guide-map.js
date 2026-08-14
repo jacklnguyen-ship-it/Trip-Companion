@@ -1,7 +1,7 @@
 (function(){
   var map, places=[], markers, userMarker, userLocation, initialized=false, markersByTitle={}, lastSearchedPlace=null;
-  var icons={attractions:'📍',food:'🍽️',coffee:'☕',drinks:'🍸',shopping:'🛍️',markets:'🧺',icecream:'🍦',afternoontea:'🫖',hotel:'🏨',art:'🎨'};
-  var categoryLabels={attractions:'Attractions',food:'Food & bakeries',coffee:'Coffee',drinks:'Pubs & drinks',shopping:'Vintage & shopping',markets:'Markets',art:'Art & prints',icecream:'Ice cream',afternoontea:'Afternoon tea',bourdain:'Locations with Bourdain',hotel:'Hotel'};
+  var icons={attractions:'📍',food:'🍽️',coffee:'☕',drinks:'🍸',shopping:'🛍️',markets:'🧺',icecream:'🍦',afternoontea:'🫖',restrooms:'🚻',hotel:'🏨',art:'🎨'};
+  var categoryLabels={attractions:'Attractions',food:'Food & bakeries',coffee:'Coffee',drinks:'Pubs & drinks',shopping:'Vintage & shopping',markets:'Markets',art:'Art & prints',icecream:'Ice cream',afternoontea:'Afternoon tea',restrooms:'Public restrooms',bourdain:'Locations with Bourdain',hotel:'Hotel'};
   function milesBetween(a,b){
     var r=3958.8,toRad=Math.PI/180,dLat=(b.lat-a.lat)*toRad,dLng=(b.lng-a.lng)*toRad;
     var x=Math.sin(dLat/2)**2+Math.cos(a.lat*toRad)*Math.cos(b.lat*toRad)*Math.sin(dLng/2)**2;
