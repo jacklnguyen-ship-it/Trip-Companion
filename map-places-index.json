@@ -3246,5 +3246,131 @@
       "budget",
       "daily roast"
     ]
+  },
+  {
+    "query": "Borough Market public toilets Three Crown Square London",
+    "title": "Borough Market public toilets",
+    "category": "restrooms",
+    "lat": 51.5055,
+    "lng": -0.091,
+    "address": "Three Crown Square, Borough Market, London SE1 1TL",
+    "tags": ["public restroom", "accessible", "market trading hours", "free"]
+  },
+  {
+    "query": "Camden Market Hawley Wharf toilets London",
+    "title": "Camden Market toilets — Hawley Wharf",
+    "category": "restrooms",
+    "lat": 51.54155,
+    "lng": -0.14361,
+    "address": "Hawley Wharf, Chalk Farm Road, London NW1 8AA",
+    "tags": ["public restroom", "accessible", "changing places", "small fee may apply"]
+  },
+  {
+    "query": "London Waterloo Station public toilets main concourse",
+    "title": "Waterloo Station public toilets",
+    "category": "restrooms",
+    "lat": 51.5033,
+    "lng": -0.1132,
+    "address": "Main concourse, opposite platform 18, London Waterloo Station, SE1 8SW",
+    "tags": ["public restroom", "free", "accessible", "baby changing"]
+  },
+  {
+    "query": "St Pancras International Circle toilets London",
+    "title": "St Pancras International toilets",
+    "category": "restrooms",
+    "lat": 51.53004,
+    "lng": -0.12563,
+    "address": "The Circle, St Pancras International, London N1C 4QP",
+    "tags": ["public restroom", "free", "24 hours", "accessible"]
+  },
+  {
+    "query": "Royal Festival Hall toilets Southbank Centre London",
+    "title": "Royal Festival Hall toilets",
+    "category": "restrooms",
+    "lat": 51.5069,
+    "lng": -0.1168,
+    "address": "Royal Festival Hall, Southbank Centre, London SE1 8XX",
+    "tags": ["public restroom", "accessible", "building hours apply", "South Bank"]
+  },
+  {
+    "query": "British Museum Great Court toilets London",
+    "title": "British Museum Great Court toilets",
+    "category": "restrooms",
+    "lat": 51.5194,
+    "lng": -0.127,
+    "address": "Great Court, British Museum, Great Russell Street, London WC1B 3DG",
+    "tags": ["public restroom", "accessible", "museum opening hours", "baby changing"]
+  },
+  {
+    "query": "27 boulevard Poissonniere public toilet Paris",
+    "title": "Public restroom — 27 boulevard Poissonnière",
+    "category": "restrooms",
+    "lat": 48.871311000377034,
+    "lng": 2.3436539998311914,
+    "address": "27 boulevard Poissonnière, 75002 Paris",
+    "tags": ["public restroom", "sanisette", "free", "24 hours", "accessible"]
+  },
+  {
+    "query": "119b rue Saint-Antoine public toilet Paris",
+    "title": "Public restroom — rue Saint-Antoine",
+    "category": "restrooms",
+    "lat": 48.855252999706806,
+    "lng": 2.3605029994385647,
+    "address": "119 bis rue Saint-Antoine, 75004 Paris",
+    "tags": ["public restroom", "sanisette", "free", "accessible", "Le Marais"]
+  },
+  {
+    "query": "Place des Vosges public toilet Paris",
+    "title": "Public restroom — Place des Vosges",
+    "category": "restrooms",
+    "lat": 48.85522108096124,
+    "lng": 2.365276627759591,
+    "address": "1 place des Vosges, 75004 Paris",
+    "tags": ["public restroom", "park hours apply", "Le Marais"]
+  },
+  {
+    "query": "85 boulevard Sebastopol public toilet Paris",
+    "title": "Public restroom — boulevard de Sébastopol",
+    "category": "restrooms",
+    "lat": 48.864851999714816,
+    "lng": 2.3516230003101315,
+    "address": "85 boulevard de Sébastopol, 75002 Paris",
+    "tags": ["public restroom", "sanisette", "free", "accessible"]
+  },
+  {
+    "query": "6 quai de Gesvres public toilet Paris",
+    "title": "Public restroom — quai de Gesvres",
+    "category": "restrooms",
+    "lat": 48.85650199997113,
+    "lng": 2.349804999950442,
+    "address": "6 quai de Gesvres, 75004 Paris",
+    "tags": ["public restroom", "sanisette", "free", "24 hours", "near Île de la Cité"]
+  },
+  {
+    "query": "184 boulevard Saint-Germain public toilet Paris",
+    "title": "Public restroom — boulevard Saint-Germain",
+    "category": "restrooms",
+    "lat": 48.85445899991381,
+    "lng": 2.3309899996955994,
+    "address": "184 boulevard Saint-Germain, 75006 Paris",
+    "tags": ["public restroom", "sanisette", "free", "24 hours", "Saint-Germain"]
+  },
+  {
+    "query": "135 boulevard du Montparnasse public toilet Paris",
+    "title": "Public restroom — boulevard du Montparnasse",
+    "category": "restrooms",
+    "lat": 48.84122000004061,
+    "lng": 2.332351000486413,
+    "address": "135 boulevard du Montparnasse, 75006 Paris",
+    "tags": ["public restroom", "sanisette", "free", "accessible", "06:00–22:00"]
+  },
+  {
+    "query": "Place Joffre public toilet Paris",
+    "title": "Public restroom — place Joffre",
+    "category": "restrooms",
+    "lat": 48.85433100021918,
+    "lng": 2.3051089994689358,
+    "address": "2 ter place Joffre, 75007 Paris",
+    "tags": ["public restroom", "sanisette", "free", "24 hours", "accessible", "Eiffel Tower"]
   }
 ]

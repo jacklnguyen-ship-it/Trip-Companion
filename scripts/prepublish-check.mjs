@@ -240,6 +240,7 @@ const approvedCategories = new Set([
   "art",
   "icecream",
   "afternoontea",
+  "restrooms",
   "markets",
   "hotel",
   "sundayroast",
