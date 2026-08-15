@@ -50,6 +50,7 @@
       leave:"Allow 90 min before the tour",
       destination:"All England Lawn Tennis Club, Church Road, London",
       origin:"Wombat's City Hostel London, 7 Dock Street, London",
+      waypoints:["Tower Hill Underground Station, London"],
       alternatives:[{
         title:"Via Waterloo + Leake Street Tunnel",
         summary:"A similarly timed option with a free, colorful street-art detour directly behind Waterloo station.",
@@ -62,7 +63,10 @@
           "Continue by local bus or on foot to the All England Lawn Tennis Club, following the ticket directions."
         ],
         time:"About 45–50 min door-to-door including the tunnel stop",
-        fare:"Tower Hill → Waterloo: about £2.70 · Waterloo → Wimbledon: about 15 min"
+        fare:"Tower Hill → Waterloo: about £2.70 · Waterloo → Wimbledon: about 15 min",
+        origin:"Wombat's City Hostel London, 7 Dock Street, London",
+        destination:"All England Lawn Tennis Club, Church Road, London",
+        waypoints:["Tower Hill Underground Station, London","Leake Street Tunnel, London"]
       }]
     },
     "Sept 11":{
@@ -177,9 +181,11 @@
 
   function directionsUrl(route){
     var mode=route.mode||"transit";
-    return "https://www.google.com/maps/dir/?api=1&origin="+
+    var url="https://www.google.com/maps/dir/?api=1&origin="+
       encodeURIComponent(route.origin)+"&destination="+
       encodeURIComponent(route.destination)+"&travelmode="+mode;
+    if(route.waypoints&&route.waypoints.length)url+="&waypoints="+encodeURIComponent(route.waypoints.join("|"));
+    return url;
   }
 
   var coordsLookup={
@@ -237,7 +243,8 @@
           '<div class="daily-transit__alternative-body"><p>'+escapeHtml(alternative.summary)+'</p>'+
           '<ol>'+alternative.steps.map(function(step){return '<li>'+escapeHtml(step)+'</li>';}).join('')+'</ol>'+
           '<div class="daily-transit__meta"><span>⏱ '+escapeHtml(alternative.time)+'</span>'+
-          (alternative.fare?'<span>🎟 '+escapeHtml(alternative.fare)+'</span>':'')+'</div></div></details>';
+          (alternative.fare?'<span>🎟 '+escapeHtml(alternative.fare)+'</span>':'')+'</div>'+
+          '<a class="daily-transit__link daily-transit__alternative-link" target="_blank" rel="noopener" href="'+directionsUrl(alternative)+'">🗺 Open via tunnel in Google Maps →</a></div></details>';
       }).join('')+'</div>';
     }
     section.innerHTML=
@@ -249,7 +256,7 @@
       '<div class="daily-transit__meta"><span>⏱ '+escapeHtml(route.time)+'</span><span>🕒 '+escapeHtml(route.leave)+'</span></div>'+
       alternativesHtml+
       (route.note?'<p class="daily-transit__note"><strong>Check before leaving:</strong> '+escapeHtml(route.note)+'</p>':"")+
-      '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">🗺 Google Maps →</a>'+
+      '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">🗺 '+(route.alternatives?'Open direct route in Google Maps':'Google Maps')+' →</a>'+
       '<a class="daily-transit__link daily-transit__link--citymapper" target="_blank" rel="noopener" href="'+citymapperUrl(route)+'">🚇 Citymapper →</a>';
     heading.insertAdjacentElement("afterend",section);
   });
