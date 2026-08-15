@@ -170,8 +170,14 @@
   }
   function actionButton(label,handler,kind){var button=document.createElement('button');button.type='button';button.className='vault-button '+(kind||'');button.textContent=label;button.addEventListener('click',handler);return button;}
   function openTicket(ticket){
-    if(ticket.type==='application/pdf'){var link=document.createElement('a');link.href=ticket.data;link.target='_blank';link.rel='noopener';link.click();return;}
-    var win=window.open('','_blank','noopener');if(win){var image=win.document.createElement('img');image.src=ticket.data;image.alt='Ticket or QR code';image.style.maxWidth='100%';win.document.body.appendChild(image);}
+    var viewer=document.createElement('div'),card=document.createElement('div'),head=document.createElement('div'),title=document.createElement('h2'),close=document.createElement('button'),content;
+    viewer.className='vault-ticket-viewer';viewer.setAttribute('role','dialog');viewer.setAttribute('aria-modal','true');viewer.setAttribute('aria-label','Ticket viewer');
+    card.className='vault-ticket-viewer-card';head.className='vault-ticket-viewer-head';title.textContent=ticket.name||'Ticket';close.type='button';close.className='vault-dialog-close';close.setAttribute('aria-label','Close ticket viewer');close.textContent='×';
+    if(ticket.type==='application/pdf'){content=document.createElement('iframe');content.className='vault-ticket-pdf';content.title=ticket.name||'Ticket PDF';content.src=ticket.data;}
+    else{content=document.createElement('img');content.className='vault-ticket-full';content.src=ticket.data;content.alt='Ticket or QR code';}
+    function dismiss(){document.removeEventListener('keydown',escape);viewer.remove();}
+    function escape(event){if(event.key==='Escape')dismiss();}
+    close.addEventListener('click',dismiss);viewer.addEventListener('click',function(event){if(event.target===viewer)dismiss();});document.addEventListener('keydown',escape);head.append(title,close);card.append(head,content);viewer.appendChild(card);document.body.appendChild(viewer);close.focus();
   }
   function openRecordDialog(record){
     recordForm.reset();recordForm.elements.id.value=record?record.id:'';
