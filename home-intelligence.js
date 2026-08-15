@@ -4,6 +4,10 @@
   var nextCard=document.getElementById('home-next-up'),nextTitle=document.getElementById('home-next-title');
   var nextCountdown=document.getElementById('home-next-countdown'),nextTime=document.getElementById('home-next-time');
   var nextDetail=document.getElementById('home-next-detail'),eventsNode=document.getElementById('home-events');
+  var todayCard=document.getElementById('home-today-card'),todayDate=document.getElementById('home-today-date');
+  var todayTitle=document.getElementById('home-today-title'),todaySummary=document.getElementById('home-today-summary');
+  var todayOpen=document.getElementById('home-today-open'),todayFood=document.getElementById('home-today-food');
+  var offlinePacking=document.getElementById('home-offline-packing'),packingLauncher=document.getElementById('packing-launcher');
   var alertBox=document.getElementById('kickoff-alert'),dismiss=document.getElementById('kickoff-dismiss');
   var dinnerAlert=document.getElementById('dinner-review-alert'),dinnerDismiss=document.getElementById('dinner-review-dismiss');
   var chatsworthAlert=document.getElementById('chatsworth-time-alert'),chatsworthDismiss=document.getElementById('chatsworth-time-dismiss');
@@ -74,6 +78,22 @@
         card.appendChild(badge);
       }
     });
+    if(!todayCard)return;
+    if(active<0||!cards[active]){todayCard.hidden=true;return;}
+    var activeCard=cards[active],date=activeCard.querySelector('time'),title=activeCard.querySelector('strong');
+    var summary=activeCard.querySelector('span:not(.today-badge)');
+    todayCard.hidden=false;
+    todayDate.textContent=date?date.textContent.trim():'';
+    todayTitle.textContent=title?title.textContent.trim():'Today’s plan';
+    todaySummary.textContent=summary?summary.textContent.trim():'Open today’s plan for the schedule, tickets and nearby suggestions.';
+    todayOpen.onclick=function(){activeCard.click();};
+    todayFood.onclick=function(){
+      activeCard.click();
+      window.setTimeout(function(){
+        var food=document.querySelector('#day-modal .day-food-toggle');
+        if(food){food.open=true;food.scrollIntoView({block:'nearest'});}
+      },0);
+    };
   }
   function renderNext(current){
     if(!nextCard||!events.length)return;
@@ -147,6 +167,9 @@
       render();
     });
   }
+  function initOfflineEssentials(){
+    if(offlinePacking&&packingLauncher)offlinePacking.addEventListener('click',function(){packingLauncher.click();});
+  }
   function render(){
     var current=now();
     renderToday(current);
@@ -158,6 +181,7 @@
   initDinnerAlert();
   initChatsworthAlert();
   initTransitToggle();
+  initOfflineEssentials();
   render();
   setInterval(render,60000);
 })();

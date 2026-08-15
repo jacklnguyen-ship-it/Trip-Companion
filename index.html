@@ -573,7 +573,7 @@ body.day-modal-open{overflow:hidden}
 </style>
 <link rel="stylesheet" href="leaflet/leaflet.css">
 <link rel="stylesheet" href="guide-map.css?v=20260725-5">
-<link rel="stylesheet" href="home-intelligence.css?v=20260730-2">
+<link rel="stylesheet" href="home-intelligence.css?v=20260814-essentials-1">
 <link rel="stylesheet" href="travel-readiness.css?v=20260726-1">
 <link rel="stylesheet" href="trip-tools.css?v=20260727-1">
 <link rel="stylesheet" href="claim-organizer.css?v=20260729-1">
@@ -753,6 +753,29 @@ body.day-modal-open{overflow:hidden}
     <h2 id="home-next-title"></h2>
     <p class="home-next-up-time" id="home-next-time"></p>
     <p id="home-next-detail"></p>
+  </section>
+  <section class="home-today-card" id="home-today-card" aria-live="polite" hidden>
+    <div class="home-today-card-head"><p class="home-next-up-kicker">Today</p><span class="home-today-date" id="home-today-date"></span></div>
+    <h2 id="home-today-title"></h2>
+    <p id="home-today-summary"></p>
+    <div class="home-today-actions">
+      <button type="button" id="home-today-open">Open today’s plan</button>
+      <button type="button" class="secondary" id="home-today-food">Nearby food &amp; drinks</button>
+      <a href="#page-map">Map &amp; near me</a>
+    </div>
+  </section>
+  <section class="home-offline-essentials" aria-labelledby="offline-essentials-title">
+    <div>
+      <p class="home-next-up-kicker">Before Wi-Fi drops</p>
+      <h2 id="offline-essentials-title">Travel essentials</h2>
+      <p>Open these once while you have a connection. The guide’s core pages are saved for offline use; download Google Maps areas separately in the Maps app for offline directions.</p>
+    </div>
+    <div class="home-essentials-grid">
+      <a href="#page-vault"><strong>Tickets &amp; reservations</strong><span>Your private vault</span></a>
+      <a href="#page-emergency"><strong>Emergency card</strong><span>Help, claims and contacts</span></a>
+      <a href="#page-map"><strong>Curated map</strong><span>Places, essentials and restrooms</span></a>
+      <button type="button" id="home-offline-packing"><strong>Packing list</strong><span>Open your checklist</span></button>
+    </div>
   </section>
   <script type="application/json" id="home-events">[
     {"at":"2026-09-07T23:15:00","title":"Virgin Atlantic VS0024 departs","detail":"LAX Terminal 2 · allow time for check-in, security and the lounge.","transit":["Depart for LAX Terminal 2 with enough time for check-in, security, and the international lounge (Priority Pass via Venture X).","11:15 PM — Virgin Atlantic VS0024 departs LAX Terminal 2, nonstop Boeing 787-9, Economy Classic.","Flight duration: 10h20m, landing at London Heathrow Terminal 3 the next afternoon (Sept 8)."]},
@@ -3875,7 +3898,7 @@ Thursday, Sept 10 at 5:30pm for 2; à la carte and marked as pre-event. A river/
   }
   function openDay(i){
     var d=days[i],schedule=blockAfter(headings[i]),food=d.food.map(function(f){return '<div class="food-card"><strong>'+f[0]+'</strong><span>'+f[1]+'</span><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(f[2])+'">Open in Maps →</a></div>';}).join('');
-    body.innerHTML='<section class="day-priority"><h3>Tickets & reservations first</h3>'+d.tickets+'</section><details class="day-collapsible"><summary>Today’s itinerary</summary><div class="day-collapsible-body"><section class="day-schedule">'+schedule.innerHTML+'</section></div></details><details class="day-collapsible"><summary>Nearby food & drinks</summary><div class="day-collapsible-body"><section class="day-food"><div class="food-grid">'+food+'</div></section></div></details><details class="day-collapsible day-research-wrap"><summary>Research from your guides</summary><div class="day-collapsible-body"><div class="day-research"></div></div></details>';
+    body.innerHTML='<section class="day-priority"><h3>Tickets & reservations first</h3>'+d.tickets+'</section><details class="day-collapsible"><summary>Today’s itinerary</summary><div class="day-collapsible-body"><section class="day-schedule">'+schedule.innerHTML+'</section></div></details><details class="day-collapsible day-food-toggle"><summary>Nearby food & drinks</summary><div class="day-collapsible-body"><section class="day-food"><div class="food-grid">'+food+'</div></section></div></details><details class="day-collapsible day-research-wrap"><summary>Research from your guides</summary><div class="day-collapsible-body"><div class="day-research"></div></div></details>';
     var research=body.querySelector('.day-research');
     d.research.forEach(function(r){findBlocks(r[0],r[1]).forEach(function(b){var det=document.createElement('details'),sum=document.createElement('summary'),content=document.createElement('div');sum.textContent=b.label;content.className='day-research-content';content.appendChild(b.node);det.appendChild(sum);det.appendChild(content);research.appendChild(det);});});
     if(!research.children.length) research.closest('.day-research-wrap').remove();
@@ -4122,7 +4145,7 @@ if('serviceWorker' in navigator){
 }
 </script>
 <script src="guide-map-v2.js?v=20260814-restroom-stops"></script>
-<script src="home-intelligence.js?v=20260730-2"></script>
+<script src="home-intelligence.js?v=20260814-essentials-1"></script>
 <script src="trip-tools.js?v=20260810-1"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>
 <script src="floating-shortcuts.js?v=20260730-7"></script>
