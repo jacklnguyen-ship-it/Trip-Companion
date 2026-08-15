@@ -578,7 +578,7 @@ body.day-modal-open{overflow:hidden}
 <link rel="stylesheet" href="trip-tools.css?v=20260727-1">
 <link rel="stylesheet" href="claim-organizer.css?v=20260729-1">
 <link rel="stylesheet" href="floating-shortcuts.css?v=20260811-1">
-<link rel="stylesheet" href="private-vault.css?v=20260729-1">
+<link rel="stylesheet" href="private-vault.css?v=20260815-multifile-1">
 <link rel="stylesheet" href="final-polish.css?v=20260728-1">
 <link rel="stylesheet" href="daily-transit.css?v=20260815-wimbledon-3">
 <link rel="stylesheet" href="packing-checklist.css?v=20260802-1">
@@ -690,7 +690,7 @@ body.day-modal-open{overflow:hidden}
         <button class="vault-button secondary" id="vault-lock" type="button">Lock now</button>
       </div>
     </div>
-    <p class="vault-muted">Starter reservations are included without private numbers. Open each record to add its confirmation, notes, ticket PDF or QR image. The vault locks automatically after five minutes.</p>
+    <p class="vault-muted">Starter reservations are included without private numbers. Open each record to add its confirmation, notes, and up to eight ticket PDFs or QR images. The vault locks automatically after five minutes.</p>
     <div class="vault-records" id="vault-records"></div>
     <hr>
     <button class="vault-button danger" id="vault-reset" type="button">Erase vault from this device</button>
@@ -709,7 +709,7 @@ body.day-modal-open{overflow:hidden}
           <label class="vault-field full"><span>Location</span><input name="location"></label>
           <label class="vault-field full"><span>Confirmation or booking number</span><input name="confirmation" autocomplete="off"></label>
           <label class="vault-field full"><span>Private notes</span><textarea name="notes"></textarea></label>
-          <label class="vault-field full"><span>Ticket or QR file (PNG, JPEG, WebP or PDF; maximum 4 MB)</span><input type="file" name="ticket" accept="image/png,image/jpeg,image/webp,application/pdf"></label>
+          <div class="vault-field full"><span>Ticket or QR files (PNG, JPEG, WebP or PDF; maximum 4 MB each)</span><input type="file" name="tickets" accept="image/png,image/jpeg,image/webp,application/pdf" multiple><small>You can add up to eight files per reservation. Existing files stay unless you remove them below.</small><div class="vault-attachment-list" id="vault-existing-files" hidden></div></div>
         </div>
         <p class="vault-message" id="vault-record-status" role="status" aria-live="polite"></p>
         <div class="vault-actions"><button class="vault-button" type="submit">Encrypt and save</button><button class="vault-button secondary" id="vault-record-cancel" type="button">Cancel</button></div>
@@ -4149,7 +4149,7 @@ if('serviceWorker' in navigator){
 <script src="trip-tools.js?v=20260810-1"></script>
 <script src="claim-organizer.js?v=20260729-1"></script>
 <script src="floating-shortcuts.js?v=20260730-7"></script>
-<script src="private-vault.js?v=20260729-1"></script>
+<script src="private-vault.js?v=20260815-multifile-1"></script>
 <script src="final-polish.js?v=20260728-1"></script>
 <script src="french-audio-v2.js?v=20260728-1"></script>
 <script src="daily-transit.js?v=20260815-wimbledon-3"></script>
