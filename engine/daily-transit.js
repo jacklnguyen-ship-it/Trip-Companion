@@ -50,7 +50,6 @@
       leave:"Allow 90 min before the tour",
       destination:"All England Lawn Tennis Club, Church Road, London",
       origin:"Wombat's City Hostel London, 7 Dock Street, London",
-      waypoints:["Tower Hill Underground Station, London"],
       alternatives:[{
         title:"Via Waterloo + Leake Street Tunnel",
         summary:"A similarly timed option with a free, colorful street-art detour directly behind Waterloo station.",
@@ -64,9 +63,18 @@
         ],
         time:"About 45–50 min door-to-door including the tunnel stop",
         fare:"Tower Hill → Waterloo: about £2.70 · Waterloo → Wimbledon: about 15 min",
-        origin:"Wombat's City Hostel London, 7 Dock Street, London",
-        destination:"All England Lawn Tennis Club, Church Road, London",
-        waypoints:["Tower Hill Underground Station, London","Leake Street Tunnel, London"]
+        mapLegs:[
+          {
+            title:"Part 1: Wombat’s → Leake Street Tunnel",
+            origin:"Wombat's City Hostel London, 7 Dock Street, London",
+            destination:"Leake Street Tunnel, London"
+          },
+          {
+            title:"Part 2: Leake Street Tunnel → Wimbledon",
+            origin:"Leake Street Tunnel, London",
+            destination:"All England Lawn Tennis Club, Church Road, London"
+          }
+        ]
       }]
     },
     "Sept 11":{
@@ -194,6 +202,8 @@
     "Chatsworth House, Bakewell":[53.2275,-1.6108],
     "All England Lawn Tennis Club, Church Road, London":[51.4337,-0.2141],
     "London Waterloo Station":[51.5031,-0.1132],
+    "Tower Hill Underground Station, London":[51.5105,-0.0762],
+    "Leake Street Tunnel, London":[51.5010,-0.1123],
     "Camden Market, London":[51.5415,-0.1466],
     "St Pancras International, London":[51.5320,-0.1233],
     "8 Rue du Pont aux Choux, Paris":[48.8578,2.3625],
@@ -239,12 +249,18 @@
     var alternativesHtml="";
     if(route.alternatives&&route.alternatives.length){
       alternativesHtml='<div class="daily-transit__alternatives">'+route.alternatives.map(function(alternative){
+        var mapLegsHtml=(alternative.mapLegs||[]).map(function(leg){
+          return '<div class="daily-transit__map-leg"><strong>'+escapeHtml(leg.title)+'</strong>'+
+            '<div class="daily-transit__map-actions">'+
+            '<a class="daily-transit__link daily-transit__alternative-link" target="_blank" rel="noopener" href="'+directionsUrl(leg)+'">🗺 Google Maps</a>'+
+            '<a class="daily-transit__link daily-transit__link--citymapper" target="_blank" rel="noopener" href="'+citymapperUrl(leg)+'">🚇 Citymapper</a></div></div>';
+        }).join('');
         return '<details class="daily-transit__alternative"><summary>'+escapeHtml(alternative.title)+'</summary>'+
           '<div class="daily-transit__alternative-body"><p>'+escapeHtml(alternative.summary)+'</p>'+
           '<ol>'+alternative.steps.map(function(step){return '<li>'+escapeHtml(step)+'</li>';}).join('')+'</ol>'+
           '<div class="daily-transit__meta"><span>⏱ '+escapeHtml(alternative.time)+'</span>'+
           (alternative.fare?'<span>🎟 '+escapeHtml(alternative.fare)+'</span>':'')+'</div>'+
-          '<a class="daily-transit__link daily-transit__alternative-link" target="_blank" rel="noopener" href="'+directionsUrl(alternative)+'">🗺 Open via tunnel in Google Maps →</a></div></details>';
+          mapLegsHtml+'</div></details>';
       }).join('')+'</div>';
     }
     section.innerHTML=
@@ -256,8 +272,9 @@
       '<div class="daily-transit__meta"><span>⏱ '+escapeHtml(route.time)+'</span><span>🕒 '+escapeHtml(route.leave)+'</span></div>'+
       alternativesHtml+
       (route.note?'<p class="daily-transit__note"><strong>Check before leaving:</strong> '+escapeHtml(route.note)+'</p>':"")+
-      '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">🗺 '+(route.alternatives?'Open direct route in Google Maps':'Google Maps')+' →</a>'+
-      '<a class="daily-transit__link daily-transit__link--citymapper" target="_blank" rel="noopener" href="'+citymapperUrl(route)+'">🚇 Citymapper →</a>';
+      '<div class="daily-transit__map-actions">'+
+      '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">🗺 '+(route.alternatives?'Direct route in Google Maps':'Google Maps')+' →</a>'+
+      '<a class="daily-transit__link daily-transit__link--citymapper" target="_blank" rel="noopener" href="'+citymapperUrl(route)+'">🚇 '+(route.alternatives?'Direct route in Citymapper':'Citymapper')+' →</a></div>';
     heading.insertAdjacentElement("afterend",section);
   });
   window.TripRoutes=routes;

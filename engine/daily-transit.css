@@ -75,7 +75,8 @@
   text-decoration-color:transparent!important;
 }
 .daily-transit__link:focus-visible{outline:3px solid var(--brass);outline-offset:3px}
+.daily-transit__map-actions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:.75rem}.daily-transit__map-leg{margin-top:.9rem;padding-top:.85rem;border-top:1px solid var(--line-soft)}.daily-transit__map-leg strong{display:block;color:var(--ink);font-size:.9rem}
 @media(max-width:620px){
   .daily-transit{padding:.9rem;border-radius:15px}
-  .daily-transit__link{display:flex;width:100%}
+  .daily-transit__link{display:flex;width:100%}.daily-transit__map-actions{display:grid;grid-template-columns:1fr 1fr}.daily-transit__map-actions .daily-transit__link{width:auto;font-size:.82rem;padding:.6rem .45rem}
 }
