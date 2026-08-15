@@ -32,6 +32,7 @@
   font-weight:700;
 }
 .daily-transit__note{margin:.65rem 0;font-size:.9rem;color:var(--slate)}
+.daily-transit__alternatives{margin:.9rem 0}.daily-transit__alternative{border:1px solid var(--line);border-radius:12px;background:var(--parchment-card);overflow:hidden}.daily-transit__alternative summary{padding:.75rem .85rem;cursor:pointer;color:var(--wax);font-weight:800;list-style:none}.daily-transit__alternative summary::-webkit-details-marker{display:none}.daily-transit__alternative summary::before{content:'▸';display:inline-block;margin-right:.5rem;color:var(--brass);transition:transform .15s ease}.daily-transit__alternative[open] summary::before{transform:rotate(90deg)}.daily-transit__alternative-body{padding:0 .85rem .85rem;border-top:1px solid var(--line-soft)}.daily-transit__alternative-body p{margin:.75rem 0 .5rem;color:var(--slate)}.daily-transit__alternative-body ol{margin:.5rem 0 .8rem;padding-left:1.2rem}.daily-transit__alternative-body li{margin:.38rem 0}
 .daily-transit__legs{
   margin:.7rem 0 .9rem;
   border:1px solid var(--line);

@@ -39,17 +39,31 @@
     },
     "Sept 10":{
       title:"Wombat’s → Wimbledon",
-      summary:"The District line offers the cleanest cross-city route; make sure the destination display says Wimbledon.",
+      summary:"Choose the direct District line for the simplest trip, or take the Waterloo route if you would like to add Leake Street Tunnel without adding much time.",
       steps:[
-        "Walk about 8 minutes to Aldgate East.",
-        "Take a westbound District line train whose destination is Wimbledon.",
+        "Walk about 5 minutes to Tower Hill station.",
+        "Take a westbound District line train whose destination display says Wimbledon — no changes required.",
         "At Wimbledon station, take bus 493 toward Richmond and get off near the All England Lawn Tennis Club.",
         "Walk to the museum and tour entrance shown on the ticket."
       ],
-      time:"About 65–80 min",
+      time:"Direct District line: about 47 min to Wimbledon, no changes",
       leave:"Allow 90 min before the tour",
       destination:"All England Lawn Tennis Club, Church Road, London",
-      origin:"Wombat's City Hostel London, 7 Dock Street, London"
+      origin:"Wombat's City Hostel London, 7 Dock Street, London",
+      alternatives:[{
+        title:"Via Waterloo + Leake Street Tunnel",
+        summary:"A similarly timed option with a free, colorful street-art detour directly behind Waterloo station.",
+        steps:[
+          "Walk about 5 minutes from Wombat’s to Tower Hill station.",
+          "Take the District line from Tower Hill to Embankment.",
+          "Change at Embankment to the Northern line for one stop to Waterloo.",
+          "Optional: walk a few minutes to Leake Street Tunnel, the legal graffiti tunnel directly behind Waterloo station.",
+          "Return to Waterloo and take a direct South Western Railway train to Wimbledon — about 15 minutes, with no changes.",
+          "Continue by local bus or on foot to the All England Lawn Tennis Club, following the ticket directions."
+        ],
+        time:"About 45–50 min door-to-door including the tunnel stop",
+        fare:"Tower Hill → Waterloo: about £2.70 · Waterloo → Wimbledon: about 15 min"
+      }]
     },
     "Sept 11":{
       title:"Wombat’s → London Waterloo",
@@ -216,6 +230,16 @@
         return '<div class="daily-transit__leg"><span class="daily-transit__leg-label">'+escapeHtml(leg.label)+'</span><span class="daily-transit__leg-detail">'+escapeHtml(leg.detail)+'</span></div>';
       }).join("")+"</div>";
     }
+    var alternativesHtml="";
+    if(route.alternatives&&route.alternatives.length){
+      alternativesHtml='<div class="daily-transit__alternatives">'+route.alternatives.map(function(alternative){
+        return '<details class="daily-transit__alternative"><summary>'+escapeHtml(alternative.title)+'</summary>'+
+          '<div class="daily-transit__alternative-body"><p>'+escapeHtml(alternative.summary)+'</p>'+
+          '<ol>'+alternative.steps.map(function(step){return '<li>'+escapeHtml(step)+'</li>';}).join('')+'</ol>'+
+          '<div class="daily-transit__meta"><span>⏱ '+escapeHtml(alternative.time)+'</span>'+
+          (alternative.fare?'<span>🎟 '+escapeHtml(alternative.fare)+'</span>':'')+'</div></div></details>';
+      }).join('')+'</div>';
+    }
     section.innerHTML=
       '<p class="daily-transit__eyebrow">First journey of the day</p>'+
       '<h3>🚇 '+escapeHtml(route.title)+'</h3>'+
@@ -223,6 +247,7 @@
       legsHtml+
       '<ol class="daily-transit__steps">'+route.steps.map(function(step){return "<li>"+escapeHtml(step)+"</li>";}).join("")+"</ol>"+
       '<div class="daily-transit__meta"><span>⏱ '+escapeHtml(route.time)+'</span><span>🕒 '+escapeHtml(route.leave)+'</span></div>'+
+      alternativesHtml+
       (route.note?'<p class="daily-transit__note"><strong>Check before leaving:</strong> '+escapeHtml(route.note)+'</p>':"")+
       '<a class="daily-transit__link" target="_blank" rel="noopener" href="'+directionsUrl(route)+'">🗺 Google Maps →</a>'+
       '<a class="daily-transit__link daily-transit__link--citymapper" target="_blank" rel="noopener" href="'+citymapperUrl(route)+'">🚇 Citymapper →</a>';
