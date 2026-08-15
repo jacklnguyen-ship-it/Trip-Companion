@@ -7,6 +7,7 @@
   var STORE_NAME='vaults';
   var ITERATIONS=600000;
   var AUTO_LOCK_MS=5*60*1000;
+  var MAX_TICKET_FILES=8;
   var encoder=new TextEncoder(),decoder=new TextDecoder();
   var activeKey=null,activeEnvelope=null,records=[],lockTimer=null,failedAttempts=0,blockedUntil=0;
   var setupPanel=document.getElementById('vault-setup');
@@ -128,6 +129,14 @@
     setMessage(status,message||'Vault locked.','success');
   }
   function escapeText(value){return String(value||'');}
+  function ticketId(ticket,index){return ticket&&ticket.id?String(ticket.id):'legacy-'+index+'-'+String(ticket&&ticket.name||'ticket');}
+  function ticketsFor(record){
+    var source=record&&Array.isArray(record.tickets)?record.tickets:(record&&record.ticket?[record.ticket]:[]);
+    return source.filter(function(ticket){return ticket&&ticket.data&&ticket.type;}).map(function(ticket,index){
+      return {id:ticketId(ticket,index),name:String(ticket.name||'Ticket '+(index+1)),type:ticket.type,data:ticket.data};
+    });
+  }
+  function ticketLabel(ticket,index){return ticket.name||'Ticket '+(index+1);}
   function renderRecords(){
     recordsBox.replaceChildren();
     if(!records.length){var empty=document.createElement('div');empty.className='vault-empty';empty.textContent='No private travel records yet.';recordsBox.appendChild(empty);return;}
@@ -144,10 +153,16 @@
       var note=document.createElement('div'),noteLabel=document.createElement('span'),noteValue=document.createElement('strong');
       noteLabel.textContent='Private notes';noteValue.textContent=record.notes||'None';note.append(noteLabel,noteValue);
       privateBox.append(ref,note);card.appendChild(privateBox);
-      if(record.ticket&&record.ticket.data&&record.ticket.type&&record.ticket.type.indexOf('image/')===0){var image=document.createElement('img');image.className='vault-ticket';image.src=record.ticket.data;image.alt='Uploaded ticket or QR code for '+record.title;card.appendChild(image);}
+      var tickets=ticketsFor(record);
+      var imageTickets=tickets.filter(function(ticket){return ticket.type.indexOf('image/')===0;});
+      if(imageTickets.length){
+        var gallery=document.createElement('div');gallery.className='vault-ticket-grid';
+        imageTickets.forEach(function(ticket,index){var image=document.createElement('img');image.className='vault-ticket';image.src=ticket.data;image.alt='Uploaded ticket or QR code '+(index+1)+' for '+record.title;gallery.appendChild(image);});
+        card.appendChild(gallery);
+      }
       var actions=document.createElement('div');actions.className='vault-actions';
       if(record.confirmation){actions.appendChild(actionButton('Copy confirmation',function(){navigator.clipboard.writeText(record.confirmation).then(function(){setMessage(status,'Confirmation copied.','success');});},'secondary'));}
-      if(record.ticket&&record.ticket.data){actions.appendChild(actionButton('Open ticket',function(){openTicket(record.ticket);},'secondary'));}
+      tickets.forEach(function(ticket,index){actions.appendChild(actionButton('Open '+ticketLabel(ticket,index),function(){openTicket(ticket);},'secondary'));});
       actions.appendChild(actionButton('Edit',function(){openRecordDialog(record);},'secondary'));
       actions.appendChild(actionButton('Delete',function(){if(confirm('Delete this encrypted record?')){records=records.filter(function(item){return item.id!==record.id;});persist().then(renderRecords).catch(handleError);}},'danger'));
       card.appendChild(actions);recordsBox.appendChild(card);
@@ -161,18 +176,30 @@
   function openRecordDialog(record){
     recordForm.reset();recordForm.elements.id.value=record?record.id:'';
     ['category','title','date','time','location','confirmation','notes'].forEach(function(name){recordForm.elements[name].value=record&&record[name]||'';});
-    recordForm.dataset.existingTicket=record&&record.ticket?JSON.stringify(record.ticket):'';
+    var existingTickets=ticketsFor(record);recordForm.dataset.existingTickets=JSON.stringify(existingTickets);recordForm.dataset.removedTickets='[]';renderExistingTickets(existingTickets);
     document.getElementById('vault-record-title').textContent=record?'Edit private record':'Add private record';
     setMessage(recordStatus,'');recordDialog.hidden=false;recordForm.elements.title.focus();
   }
-  function closeRecordDialog(){recordDialog.hidden=true;recordForm.reset();setMessage(recordStatus,'');}
+  function renderExistingTickets(tickets){
+    var list=document.getElementById('vault-existing-files');list.replaceChildren();
+    if(!tickets.length){list.hidden=true;return;}
+    list.hidden=false;
+    tickets.forEach(function(ticket,index){
+      var row=document.createElement('div'),name=document.createElement('span'),remove=document.createElement('button');row.className='vault-attachment-item';name.textContent='Saved: '+ticketLabel(ticket,index);remove.type='button';remove.textContent='Remove';
+      remove.addEventListener('click',function(){
+        var removed=JSON.parse(recordForm.dataset.removedTickets||'[]');if(removed.indexOf(ticket.id)===-1)removed.push(ticket.id);recordForm.dataset.removedTickets=JSON.stringify(removed);renderExistingTickets(tickets.filter(function(item){return removed.indexOf(item.id)===-1;}));
+      });row.append(name,remove);list.appendChild(row);
+    });
+  }
+  function closeRecordDialog(){recordDialog.hidden=true;recordForm.reset();recordForm.dataset.existingTickets='';recordForm.dataset.removedTickets='[]';document.getElementById('vault-existing-files').replaceChildren();setMessage(recordStatus,'');}
   function fileToData(file){
     return new Promise(function(resolve,reject){
       if(!file){resolve(null);return;}if(file.size>4*1024*1024){reject(new Error('Ticket files must be 4 MB or smaller.'));return;}
       if(!/^image\/(png|jpeg|webp)$/.test(file.type)&&file.type!=='application/pdf'){reject(new Error('Use a PNG, JPEG, WebP, or PDF ticket file.'));return;}
-      var reader=new FileReader();reader.onload=function(){resolve({name:file.name,type:file.type,data:reader.result});};reader.onerror=function(){reject(reader.error);};reader.readAsDataURL(file);
+      var reader=new FileReader();reader.onload=function(){resolve({id:'ticket-'+Date.now()+'-'+Math.random().toString(36).slice(2),name:file.name,type:file.type,data:reader.result});};reader.onerror=function(){reject(reader.error);};reader.readAsDataURL(file);
     });
   }
+  function filesToData(fileList){return Promise.all(Array.prototype.slice.call(fileList||[]).map(fileToData));}
   function handleError(error){setMessage(status,error&&error.message?error.message:'The vault could not complete that action.','error');}
   setupForm.addEventListener('submit',async function(event){
     event.preventDefault();var password=setupForm.elements.password.value,confirmPassword=setupForm.elements.confirmPassword.value;
@@ -198,8 +225,12 @@
     event.preventDefault();
     try{
       var form=new FormData(recordForm),id=form.get('id')||('record-'+Date.now()),existing=records.find(function(item){return item.id===id;});
-      var uploaded=await fileToData(recordForm.elements.ticket.files[0]);
-      var record={id:id,category:String(form.get('category')||'other'),title:String(form.get('title')||'').trim(),date:String(form.get('date')||''),time:String(form.get('time')||''),location:String(form.get('location')||'').trim(),confirmation:String(form.get('confirmation')||'').trim(),notes:String(form.get('notes')||'').trim(),ticket:uploaded||(existing&&existing.ticket)||null};
+      var removed=JSON.parse(recordForm.dataset.removedTickets||'[]');
+      var retained=ticketsFor(existing).filter(function(ticket){return removed.indexOf(ticket.id)===-1;});
+      var selected=Array.prototype.slice.call(recordForm.elements.tickets.files||[]);
+      if(retained.length+selected.length>MAX_TICKET_FILES)throw new Error('Keep up to '+MAX_TICKET_FILES+' ticket files in one reservation. Remove a saved file before adding another.');
+      var uploaded=await filesToData(selected),ticketFiles=retained.concat(uploaded);
+      var record={id:id,category:String(form.get('category')||'other'),title:String(form.get('title')||'').trim(),date:String(form.get('date')||''),time:String(form.get('time')||''),location:String(form.get('location')||'').trim(),confirmation:String(form.get('confirmation')||'').trim(),notes:String(form.get('notes')||'').trim(),tickets:ticketFiles};
       if(!record.title)throw new Error('Add a title for this record.');
       records=records.filter(function(item){return item.id!==id;});records.push(record);await persist();closeRecordDialog();renderRecords();setMessage(status,'Private record encrypted and saved on this device.','success');
     }catch(error){setMessage(recordStatus,error.message||'Could not save this record.','error');}
