@@ -3422,6 +3422,42 @@
     "tags": ["visitor restroom", "museum ticket required", "baby changing", "museum opening hours", "Louvre"]
   },
   {
+    "query": "Derriere 69 Rue des Gravilliers Paris",
+    "title": "Derrière — Sunday dinner option",
+    "category": "food",
+    "lat": 48.8654,
+    "lng": 2.3546,
+    "address": "69 Rue des Gravilliers, 75003 Paris",
+    "tags": ["Paris arrival dinner", "Le Marais", "French", "special first night", "reserve ahead", "Sunday dinner"]
+  },
+  {
+    "query": "Le Marche 2 Place du Marche Sainte Catherine Paris",
+    "title": "Le Marché — Sunday dinner option",
+    "category": "food",
+    "lat": 48.8558,
+    "lng": 2.3643,
+    "address": "2 Place du Marché Sainte-Catherine, 75004 Paris",
+    "tags": ["Paris arrival dinner", "Le Marais", "French bistro", "easy first night", "Sunday dinner"]
+  },
+  {
+    "query": "La Fontaine Sully 67 Rue Saint Antoine Paris",
+    "title": "La Fontaine Sully — Sunday dinner option",
+    "category": "food",
+    "lat": 48.8542,
+    "lng": 2.3664,
+    "address": "67 Rue Saint-Antoine, 75004 Paris",
+    "tags": ["Paris arrival dinner", "Place des Vosges", "classic brasserie", "flexible", "Sunday dinner"]
+  },
+  {
+    "query": "La Marine 55 bis Quai de Valmy Paris",
+    "title": "La Marine — Canal Saint-Martin dinner option",
+    "category": "food",
+    "lat": 48.8719,
+    "lng": 2.3652,
+    "address": "55 bis Quai de Valmy, 75010 Paris",
+    "tags": ["Paris arrival dinner", "Canal Saint-Martin", "French brasserie", "wine", "Sunday dinner"]
+  },
+  {
     "query": "Musee d'Orsay Paris",
     "title": "Musée d’Orsay — visitor restroom stop",
     "category": "restrooms",
