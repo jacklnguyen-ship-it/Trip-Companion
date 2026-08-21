@@ -72,7 +72,7 @@ const blankPlaces = JSON.parse(read('templates/blank-trip/map-places.json'));
 check(Array.isArray(blankPlaces) && blankPlaces.length === 0, 'Blank trip map must start as an empty array');
 
 const worker = read('trips/london-paris-2026/service-worker.js');
-check(worker.includes("const CACHE_NAME='trip-companion-london-paris-2026-phase1-1'"), 'Parallel worker cache is not trip-specific');
+check(/const CACHE_NAME='trip-companion-london-paris-2026-[a-z0-9-]+'/.test(worker), 'Parallel worker cache is not trip-specific');
 check(worker.includes("key.indexOf('trip-companion-london-paris-2026-')===0"), 'Parallel worker could delete another trip cache');
 check(!worker.includes("keys.filter(key=>key!==CACHE_NAME)"), 'Parallel worker still deletes unrelated caches');
 

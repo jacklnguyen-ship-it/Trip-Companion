@@ -1,4 +1,4 @@
-const CACHE_NAME='trip-companion-london-paris-2026-phase1-1';
+const CACHE_NAME='trip-companion-london-paris-2026-phase2-1';
 const CORE=[
   './','./index.html','./maria.html','./manifest.json','./manifest-maria.json',
   '../../engine/guide-map.css','../../engine/guide-map-v2.js','../../engine/home-intelligence.css','../../engine/home-intelligence.js',
@@ -11,7 +11,9 @@ const CORE=[
   '../../engine/packing-checklist.css','../../engine/packing-checklist.js',
   '../../engine/today-glance.css','../../engine/today-glance.js',
   '../../engine/quick-actions.js','../../engine/nav-upgrade.css',
+  '../../engine/structured-trip.css','../../engine/structured-trip.js','../../engine/trip-data.schema.json',
   './map-places-index.json','./map-places-maria.json',
+  './structured-preview.html','./structured-preview-maria.html','./trip-data-index.json','./trip-data-maria.json',
   '../../engine/leaflet/leaflet.js','../../engine/leaflet/leaflet.css',
   '../../engine/leaflet/images/marker-icon.png','../../engine/leaflet/images/marker-icon-2x.png','../../engine/leaflet/images/marker-shadow.png',
   '../../engine/leaflet/images/layers.png','../../engine/leaflet/images/layers-2x.png',

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b2037">
+  <title>Traveler Questionnaire — Trip Companion</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="questionnaire.css?v=20260812-1">
+</head>
+<body>
+  <a class="skip-link" href="#questionnaire">Skip to questionnaire</a>
+  <header class="questionnaire-hero">
+    <p class="eyebrow">Trip Companion · Phase 3</p>
+    <h1>Design the trip you actually want</h1>
+    <p>Tell us how you like to travel. Your answers become a planning brief for research—not an instant generic itinerary.</p>
+    <aside class="privacy-note"><strong>Private by design:</strong> drafts stay on this device. Do not enter passport, payment, ticket barcode, or confirmation-number information.</aside>
+  </header>
+
+  <div class="progress-shell" aria-label="Questionnaire progress">
+    <div class="progress-copy"><strong id="progress-label">Step 1 of 8</strong><span id="save-state" role="status" aria-live="polite">Not saved yet</span></div>
+    <div class="progress-track"><span id="progress-bar"></span></div>
+  </div>
+
+  <main id="questionnaire" class="questionnaire-shell">
+    <form id="trip-questionnaire" novalidate>
+      <section class="form-step active" data-step="trip" aria-labelledby="step-trip-title">
+        <p class="step-number">01 · Trip basics</p>
+        <h2 id="step-trip-title">Where are we starting?</h2>
+        <div class="field-grid">
+          <label>Working trip title<input name="workingTitle" autocomplete="off" placeholder="Italy anniversary trip"></label>
+          <label>Starting city or airport<input name="origin" autocomplete="address-level2" placeholder="Los Angeles"></label>
+          <label>Destination ideas<input name="destinations" required placeholder="Rome, Florence, Tuscany"></label>
+          <label>How flexible is the destination?<select name="dateFlexibility"><option value="">Choose one</option><option>Destination is fixed</option><option>Open to nearby alternatives</option><option>Completely open to suggestions</option></select></label>
+          <label>Earliest departure<input name="startDate" type="date" required></label>
+          <label>Latest return<input name="endDate" type="date" required></label>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="travelers" aria-labelledby="step-travelers-title" hidden>
+        <p class="step-number">02 · Travelers</p>
+        <h2 id="step-travelers-title">Who is traveling?</h2>
+        <div class="field-grid">
+          <label>Number of travelers<input name="travelerCount" type="number" min="1" max="20" value="2" inputmode="numeric"></label>
+          <label>Group type<select name="groupType"><option value="couple">Couple</option><option value="solo">Solo traveler</option><option value="friends">Friends</option><option value="family">Family</option><option value="multigenerational">Multigenerational</option><option value="other">Other</option></select></label>
+          <label>Age ranges or life stages<input name="agesOrLifeStages" placeholder="Two adults in our 40s"></label>
+          <label>Mobility or accessibility needs<textarea name="accessibilityNeeds" rows="3" placeholder="Step-free access, limited standing, stroller, sensory needs…"></textarea></label>
+        </div>
+        <fieldset id="traveler-comparison">
+          <legend>Optional traveler comparison</legend>
+          <p class="hint">Useful when two travelers want different things. Use first names or nicknames only.</p>
+          <div class="comparison-grid">
+            <label>Traveler 1 top priorities<textarea name="travelerOnePriorities" rows="3" placeholder="Food, history, markets"></textarea></label>
+            <label>Traveler 2 top priorities<textarea name="travelerTwoPriorities" rows="3" placeholder="Museums, shopping, nightlife"></textarea></label>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="form-step" data-step="budget" aria-labelledby="step-budget-title" hidden>
+        <p class="step-number">03 · Budget</p>
+        <h2 id="step-budget-title">What should the trip feel comfortable costing?</h2>
+        <div class="field-grid">
+          <label>Total trip budget<input name="totalBudget" type="number" min="0" step="100" inputmode="decimal" placeholder="5000"></label>
+          <label>Currency<select name="currency"><option>USD</option><option>CAD</option><option>GBP</option><option>EUR</option><option>AUD</option></select></label>
+          <label>Lodging comfort<select name="lodgingLevel"><option value="">Choose one</option><option>Value-first</option><option>Comfortable mid-range</option><option>Boutique or upscale</option><option>Luxury</option><option>Mix depending on location</option></select></label>
+          <label>Comfortable daily spending<input name="dailyComfortRange" placeholder="$150–250 per person, excluding lodging"></label>
+        </div>
+        <fieldset><legend>Worth a splurge</legend><div class="choice-grid" data-choice="splurgePriorities">
+          <label><input type="checkbox" value="special lodging">Special lodging</label><label><input type="checkbox" value="memorable dinner">Memorable dinner</label><label><input type="checkbox" value="private guide">Private guide</label><label><input type="checkbox" value="live performance">Live performance</label><label><input type="checkbox" value="premium transport">Premium transport</label><label><input type="checkbox" value="signature experience">Signature experience</label>
+        </div></fieldset>
+      </section>
+
+      <section class="form-step" data-step="style" aria-labelledby="step-style-title" hidden>
+        <p class="step-number">04 · Travel style</p>
+        <h2 id="step-style-title">How should each day feel?</h2>
+        <div class="scale-grid">
+          <label>Pace<select name="pace"><option value="slow">Slow and spacious</option><option value="balanced" selected>Balanced</option><option value="full">Full but realistic</option><option value="maximized">Maximize every day</option></select></label>
+          <label>Structure<select name="structure"><option value="flexible">Mostly spontaneous</option><option value="balanced" selected>Key bookings plus free time</option><option value="structured">Detailed daily plan</option></select></label>
+          <label>Sights<select name="famousVsHidden"><option value="famous">Iconic sights first</option><option value="balanced" selected>Mix icons and hidden gems</option><option value="hidden">Underrated and offbeat</option></select></label>
+          <label>Experience<select name="localVsSightseeing"><option value="sightseeing">Sightseeing focused</option><option value="balanced" selected>Mix sightseeing and local life</option><option value="local">Live like a local</option></select></label>
+          <label>Morning rhythm<select name="morningPreference"><option value="early">Happy with early starts</option><option value="normal">Start around 9 AM</option><option value="slow">Slow mornings</option></select></label>
+          <label>Evening rhythm<select name="eveningPreference"><option value="early">Early dinner and rest</option><option value="flexible">Flexible</option><option value="late">Late dinners and nightlife</option></select></label>
+          <label>Walking tolerance<select name="walkingTolerance"><option value="low">Short walks only</option><option value="moderate">Several miles with breaks</option><option value="high">Long walking days are welcome</option></select></label>
+          <label>Public transit comfort<select name="transitComfort"><option value="low">Prefer taxis or simple routes</option><option value="moderate">Comfortable with clear instructions</option><option value="high">Comfortable navigating independently</option></select></label>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="interests" aria-labelledby="step-interests-title" hidden>
+        <p class="step-number">05 · Interests</p>
+        <h2 id="step-interests-title">What makes a trip memorable?</h2>
+        <p class="hint">Choose all that genuinely appeal, then name your top three.</p>
+        <fieldset><legend>Interests</legend><div class="choice-grid" data-choice="interests">
+          <label><input type="checkbox" value="food and restaurants">Food &amp; restaurants</label><label><input type="checkbox" value="markets and bakeries">Markets &amp; bakeries</label><label><input type="checkbox" value="history">History</label><label><input type="checkbox" value="architecture">Architecture</label><label><input type="checkbox" value="art museums">Art museums</label><label><input type="checkbox" value="specialty museums">Specialty museums</label><label><input type="checkbox" value="nature and gardens">Nature &amp; gardens</label><label><input type="checkbox" value="nightlife and cocktails">Nightlife &amp; cocktails</label><label><input type="checkbox" value="shopping">Shopping</label><label><input type="checkbox" value="vintage and antiques">Vintage &amp; antiques</label><label><input type="checkbox" value="live music and performance">Live music &amp; performance</label><label><input type="checkbox" value="sports">Sports</label><label><input type="checkbox" value="photography and aesthetics">Photography &amp; aesthetics</label><label><input type="checkbox" value="local neighborhoods">Local neighborhoods</label>
+        </div></fieldset>
+        <div class="field-grid">
+          <label>Your top three, in order<input name="rankedInterests" placeholder="1. Food  2. History  3. Markets"></label>
+          <label>Special interests or obsessions<textarea name="specialInterests" rows="3" placeholder="Jane Austen, mid-century design, jazz, football…"></textarea></label>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="food" aria-labelledby="step-food-title" hidden>
+        <p class="step-number">06 · Food</p>
+        <h2 id="step-food-title">How important is eating well?</h2>
+        <div class="field-grid">
+          <label>Food adventurousness<select name="adventurousness"><option value="familiar">Prefer familiar foods</option><option value="somewhat">Open with some limits</option><option value="adventurous">Very adventurous</option></select></label>
+          <label>Meal budget notes<input name="mealBudgetNotes" placeholder="Mostly affordable, one special dinner"></label>
+          <label>Dietary needs<textarea name="dietaryNeeds" rows="3" placeholder="Vegetarian, halal, gluten-free…"></textarea></label>
+          <label>Allergies<textarea name="allergies" rows="3" placeholder="List severity and cross-contact concerns"></textarea></label>
+          <label>Foods or experiences to seek<textarea name="mustTry" rows="3" placeholder="Street food, tasting menu, regional pastries…"></textarea></label>
+          <label>Foods or dining styles to avoid<textarea name="foodAvoid" rows="3" placeholder="Long formal meals, shellfish, queues…"></textarea></label>
+        </div>
+      </section>
+
+      <section class="form-step" data-step="priorities" aria-labelledby="step-priorities-title" hidden>
+        <p class="step-number">07 · Priorities</p>
+        <h2 id="step-priorities-title">What must—or must not—make the final plan?</h2>
+        <div class="field-grid">
+          <label>Must-do list<textarea name="mustDo" rows="4" placeholder="Places or experiences the trip must include"></textarea></label>
+          <label>Maybe list<textarea name="maybe" rows="4" placeholder="Interesting if geography and timing work"></textarea></label>
+          <label>Avoid list<textarea name="avoid" rows="4" placeholder="Crowds, early mornings, full-day museums…"></textarea></label>
+          <label>Special occasions<textarea name="specialOccasions" rows="3" placeholder="Birthday, anniversary, proposal, reunion…"></textarea></label>
+        </div>
+        <label>Describe your dream version of this trip<textarea name="dreamTripDescription" rows="6" placeholder="When you picture coming home happy, what happened on the trip?"></textarea></label>
+      </section>
+
+      <section class="form-step" data-step="review" aria-labelledby="step-review-title" hidden>
+        <p class="step-number">08 · Review</p>
+        <h2 id="step-review-title">Your planning brief</h2>
+        <p>Review the summary before sending or downloading. Both options contain planning preferences only.</p>
+        <div id="review-summary" class="review-summary"></div>
+        <fieldset class="consent-box"><legend>Final checks</legend>
+          <label><input type="checkbox" name="publicGuideAllowed">I am comfortable with a public, shareable guide containing dates, locations, preferences, and public-safe itinerary details.</label>
+          <label><input type="checkbox" name="privacyConfirmed" required>I confirm I did not enter passport, payment, barcode, confirmation-number, medical-record, or other sensitive data.</label>
+        </fieldset>
+        <div class="download-actions">
+          <button type="button" class="primary" id="submit-questionnaire">Send planning brief</button>
+          <button type="button" class="primary" id="download-handoff">Download planning brief</button>
+          <button type="button" id="copy-summary">Copy readable summary</button>
+          <button type="button" class="danger" id="clear-draft">Clear this device</button>
+        </div>
+        <p id="submit-state" class="submit-state" role="status" aria-live="polite" hidden></p>
+      </section>
+
+      <p id="form-error" class="form-error" role="alert" hidden></p>
+      <nav class="form-navigation" aria-label="Questionnaire steps">
+        <button type="button" id="previous-step">Back</button>
+        <button type="button" class="primary" id="next-step">Continue</button>
+      </nav>
+    </form>
+  </main>
+  <script src="questionnaire.js?v=20260812-1"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+      window.addEventListener('load', function () { navigator.serviceWorker.register('./service-worker.js').catch(function () {}); });
+    }
+  </script>
+</body>
+</html>

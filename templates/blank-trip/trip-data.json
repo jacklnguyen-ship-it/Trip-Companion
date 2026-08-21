@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 2,
+  "trip": {
+    "id": "replace-with-trip-id",
+    "title": "New personalized trip",
+    "dateLabel": "Dates to be confirmed",
+    "travelerLabel": "Traveler profile pending",
+    "summary": "Questionnaire answers will shape this structured itinerary."
+  },
+  "days": []
+}
