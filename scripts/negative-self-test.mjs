@@ -90,6 +90,13 @@ const scenarios = [
     },
   },
   {
+    name: "Maria indirect packing clue",
+    expected: "indirectly exposes Maria surprise plans",
+    mutate(dir) {
+      fs.appendFileSync(path.join(dir, "packing-checklist.js"), "\n// evening shows\n");
+    },
+  },
+  {
     name: "unsupported map category",
     expected: "has unsupported category",
     mutate(dir) {

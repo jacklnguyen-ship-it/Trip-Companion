@@ -16,7 +16,7 @@
       {t:"Everyday walking outfits (layer-friendly, early Sept weather)",d:false},
       {t:"Light rain jacket",d:false},
       {t:"Comfortable walking shoes (broken in)",d:false},
-      {t:"Elegant outfit for evening shows (Sept 10, 14, 16)",d:false},
+      {t:"One dressier outfit for planned dinners and evenings",d:false},
       {t:"Warm layer for evening plans and the Versailles gardens",d:false},
       {t:"Football-appropriate casual outfit (Sept 12)",d:false},
       {t:"Sleepwear",d:false},
@@ -63,12 +63,31 @@
 
   var data=null;
 
+  function protectMariaSurprises(categories){
+    if(!document.body||document.body.dataset.vaultGuide!=='maria')return categories;
+    var changed=false;
+    categories.forEach(function(category){
+      if(!Array.isArray(category.items))return;
+      category.items.forEach(function(item){
+        var text=typeof item.t==='string'?item.t:'';
+        if(/^Elegant outfit for /i.test(text)&&/\(Sept /i.test(text)){
+          item.t='One dressier outfit for planned dinners and evenings';
+          changed=true;
+        }
+      });
+    });
+    if(changed){
+      try{localStorage.setItem(STORAGE_KEY,JSON.stringify(categories));}catch(error){}
+    }
+    return categories;
+  }
+
   function load(){
     try{
       var raw=localStorage.getItem(STORAGE_KEY);
       if(raw){
         var parsed=JSON.parse(raw);
-        if(Array.isArray(parsed)&&parsed.length)return parsed;
+        if(Array.isArray(parsed)&&parsed.length)return protectMariaSurprises(parsed);
       }
     }catch(error){}
     return JSON.parse(JSON.stringify(DEFAULTS));

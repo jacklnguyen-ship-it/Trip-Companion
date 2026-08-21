@@ -206,6 +206,12 @@ for (const term of mariaRestrictedTerms) {
   check(!maria.toLowerCase().includes(term.toLowerCase()), `maria.html exposes surprise item: ${term}`);
 }
 
+const packingChecklist = read("packing-checklist.js");
+const indirectSurpriseClues = ["evening shows", "Sept 10, 14, 16"];
+for (const clue of indirectSurpriseClues) {
+  check(!packingChecklist.toLowerCase().includes(clue.toLowerCase()), `packing-checklist.js indirectly exposes Maria surprise plans: ${clue}`);
+}
+
 const mariaRuntimeFiles = new Set([
   "maria.html",
   "map-places-maria.json",
