@@ -32,6 +32,8 @@ const fixtureFiles = [
   "french-audio-v2.js",
   "picnic-companion.css",
   "picnic-companion.js",
+  "versailles-expanded-audio.css",
+  "versailles-expanded-audio.js",
   "daily-transit.css",
   "daily-transit.js",
   "packing-checklist.css",
