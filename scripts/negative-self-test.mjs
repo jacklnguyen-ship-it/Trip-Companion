@@ -30,6 +30,8 @@ const fixtureFiles = [
   "final-polish.css",
   "final-polish.js",
   "french-audio-v2.js",
+  "picnic-companion.css",
+  "picnic-companion.js",
   "daily-transit.css",
   "daily-transit.js",
   "packing-checklist.css",
