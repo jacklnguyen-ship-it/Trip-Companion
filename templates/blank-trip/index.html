@@ -8,9 +8,10 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="../../engine/template-shell.css">
+  <link rel="stylesheet" href="../../engine/structured-trip.css?v=20260812-1">
 </head>
 <body>
-  <main class="template-shell">
+  <main class="template-shell" data-template-intro>
     <p class="eyebrow">Personalized Trip Companion</p>
     <h1 data-trip-title>New personalized trip</h1>
     <p class="trip-meta"><span data-trip-dates>Dates to be confirmed</span> · <span data-trip-travelers>Traveler profile pending</span></p>
@@ -40,8 +41,17 @@
       <div class="empty-state" data-readiness>Waiting for a completed questionnaire handoff.</div>
     </section>
   </main>
+  <section class="structured-trip" data-structured-trip data-trip-data="trip-data.json" data-audience="primary" aria-label="Structured itinerary preview">
+    <p class="trip-eyebrow">Structured itinerary preview</p>
+    <h1 class="trip-title" data-trip-title>New personalized trip</h1>
+    <p class="trip-meta"><span data-trip-dates></span> · <span data-trip-travelers></span></p>
+    <p class="trip-summary" data-trip-summary></p>
+    <div class="trip-status" data-trip-status aria-live="polite">Loading structured itinerary…</div>
+    <div class="trip-days" data-trip-days></div>
+  </section>
   <script src="trip-config.js"></script>
   <script src="../../engine/template-shell.js"></script>
+  <script src="../../engine/structured-trip.js?v=20260812-1"></script>
   <script>
     if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
       window.addEventListener('load', function () {

@@ -17,3 +17,13 @@ The questionnaire should produce one reviewed handoff file matching `questionnai
 9. Preview and test before publishing.
 
 The handoff intentionally records preferences, constraints, confirmed logistics, and unanswered questions. It must never become a dumping ground for sensitive documents.
+
+## Phase 3 questionnaire
+
+`index.html` is the mobile questionnaire. It saves an unfinished draft only in the current browser and produces a version 2 handoff matching `questionnaire-handoff.schema.json`.
+
+- Nothing is submitted to a server automatically.
+- The exported handoff uses generic Traveler 1 / Traveler 2 comparison labels.
+- The export deliberately omits contact details, private notes and sensitive booking fields.
+- Obvious passport, payment, confirmation-number, booking-number and ticket-barcode text is blocked before download.
+- The traveler must confirm the privacy check before a file can be generated.

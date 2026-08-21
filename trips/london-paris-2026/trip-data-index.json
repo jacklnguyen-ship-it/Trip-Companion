@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 2,
+  "trip": {
+    "id": "london-paris-2026",
+    "title": "London & Paris",
+    "dateLabel": "September 7–17, 2026",
+    "travelerLabel": "Jack and Maria",
+    "summary": "One representative arrival day extracted from the existing guide to prove that future trips can be updated through structured data."
+  },
+  "days": [
+    {
+      "id": "2026-09-08-arrive-london",
+      "date": "2026-09-08",
+      "title": "Arrive in London",
+      "summary": "Hotel check-in and an intentionally easy first evening for jet-lag recovery.",
+      "audiences": ["all"],
+      "reservations": [
+        {
+          "id": "wombats-stay",
+          "title": "Wombat’s City Hostel",
+          "status": "booked",
+          "publicDetail": "7 Dock Street, London E1 8JN · five-night stay · private confirmation details remain outside public trip data.",
+          "links": [
+            { "label": "Open hotel map", "url": "https://www.google.com/maps/search/?api=1&query=Wombats+City+Hostel+London" }
+          ],
+          "audiences": ["all"]
+        }
+      ],
+      "activities": [
+        {
+          "id": "arrive-heathrow",
+          "timeLabel": "5:35 PM",
+          "title": "Arrive at London Heathrow",
+          "description": "Clear immigration, collect bags and follow signs for the Elizabeth line.",
+          "tags": ["arrival", "transit"],
+          "audiences": ["all"]
+        },
+        {
+          "id": "transfer-to-hotel",
+          "timeLabel": "After arrival",
+          "title": "Transfer to Wombat’s",
+          "description": "Take an eastbound Elizabeth line train to Whitechapel, then walk approximately 12–15 minutes to the hotel. A taxi is the low-effort final-leg alternative with luggage.",
+          "tags": ["Elizabeth line", "luggage"],
+          "links": [
+            { "label": "Route to hotel", "url": "https://www.google.com/maps/dir/?api=1&destination=Wombats+City+Hostel+London" }
+          ],
+          "audiences": ["all"]
+        },
+        {
+          "id": "easy-evening",
+          "timeLabel": "Evening",
+          "title": "Check in and keep the evening light",
+          "description": "Choose a short walk and an easy nearby dinner rather than committing to another major sight on the first night.",
+          "tags": ["jet lag", "flexible"],
+          "audiences": ["all"]
+        },
+        {
+          "id": "arrival-food",
+          "timeLabel": "If hungry",
+          "title": "Nearby arrival-night choices",
+          "description": "Beigel Bake for a casual Brick Lane bite, or Wilton’s Music Hall for a historic nearby drink.",
+          "tags": ["food", "near hotel"],
+          "links": [
+            { "label": "Beigel Bake", "url": "https://www.google.com/maps/search/?api=1&query=Beigel+Bake+Brick+Lane" },
+            { "label": "Wilton’s Music Hall", "url": "https://www.google.com/maps/search/?api=1&query=Wiltons+Music+Hall+London" }
+          ],
+          "audiences": ["all"]
+        }
+      ],
+      "notes": [
+        {
+          "id": "arrival-energy",
+          "text": "Treat the timing as flexible after immigration. The goal is to settle in, eat something easy and protect the following day’s early start.",
+          "audiences": ["all"]
+        },
+        {
+          "id": "stock-up",
+          "text": "Before bed, pick up water and train snacks near Leman Street for the next morning’s long Chatsworth journey.",
+          "audiences": ["all"]
+        }
+      ]
+    }
+  ]
+}

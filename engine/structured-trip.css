@@ -1,0 +1,126 @@
+:root {
+  color-scheme: dark;
+  --trip-bg: #071526;
+  --trip-panel: #102337;
+  --trip-panel-strong: #17314b;
+  --trip-ink: #eaf3ff;
+  --trip-muted: #a9bad0;
+  --trip-accent: #57b5f6;
+  --trip-success: #85d6a6;
+  --trip-line: #2b4b68;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(150deg, #0b2037, var(--trip-bg) 58%);
+  color: var(--trip-ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button, a { font: inherit; }
+
+.structured-trip {
+  width: min(100% - 2rem, 62rem);
+  margin: 0 auto;
+  padding: 2.5rem 0 5rem;
+}
+
+.trip-eyebrow {
+  margin: 0 0 .55rem;
+  color: var(--trip-accent);
+  font-size: .76rem;
+  font-weight: 850;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.trip-title { margin: 0; font-size: clamp(2.2rem, 8vw, 4.25rem); line-height: 1; }
+.trip-summary, .trip-meta, .trip-muted { color: var(--trip-muted); line-height: 1.6; }
+.trip-meta { margin: .8rem 0 0; font-weight: 750; }
+.trip-summary { max-width: 45rem; margin: .75rem 0 0; }
+
+.trip-status {
+  margin: 2rem 0 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--trip-line);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--trip-panel) 92%, transparent);
+  color: var(--trip-muted);
+}
+
+.trip-status[data-state="error"] { border-color: #b55d65; color: #ffd5d8; }
+
+.trip-days { display: grid; gap: 1rem; }
+
+.trip-day {
+  overflow: hidden;
+  border: 1px solid var(--trip-line);
+  border-radius: 1.35rem;
+  background: color-mix(in srgb, var(--trip-panel) 94%, transparent);
+  box-shadow: 0 1.2rem 3rem rgb(0 0 0 / .16);
+}
+
+.trip-day-header { padding: 1.2rem 1.25rem; background: var(--trip-panel-strong); }
+.trip-day-header h2 { margin: .2rem 0 0; font-size: clamp(1.45rem, 5vw, 2rem); }
+.trip-day-date { margin: 0; color: var(--trip-accent); font-size: .75rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+.trip-day-body { padding: 1.1rem 1.25rem 1.3rem; }
+
+.trip-section + .trip-section { margin-top: 1.25rem; }
+.trip-section h3 { margin: 0 0 .65rem; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--trip-muted); }
+
+.trip-activity-list { display: grid; gap: .75rem; }
+.trip-activity {
+  display: grid;
+  grid-template-columns: 5.2rem minmax(0, 1fr);
+  gap: .85rem;
+  padding: .9rem;
+  border: 1px solid var(--trip-line);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / .025);
+}
+
+.trip-time { color: var(--trip-accent); font-weight: 850; }
+.trip-activity h4 { margin: 0; font-size: 1.03rem; }
+.trip-activity p { margin: .35rem 0 0; color: var(--trip-muted); line-height: 1.48; }
+.trip-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .55rem; }
+.trip-tag { padding: .22rem .48rem; border-radius: 999px; background: var(--trip-panel-strong); color: var(--trip-muted); font-size: .72rem; font-weight: 750; }
+
+.trip-link-row { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .7rem; }
+.trip-link {
+  display: inline-flex;
+  min-height: 2.6rem;
+  align-items: center;
+  padding: .55rem .75rem;
+  border: 1px solid var(--trip-line);
+  border-radius: .8rem;
+  color: var(--trip-ink);
+  text-decoration: none;
+  font-weight: 750;
+}
+.trip-link:hover, .trip-link:focus-visible { border-color: var(--trip-accent); outline: none; }
+
+.trip-note, .trip-reservation {
+  padding: .9rem;
+  border-left: .25rem solid var(--trip-accent);
+  border-radius: .25rem .8rem .8rem .25rem;
+  background: rgb(87 181 246 / .08);
+  color: var(--trip-muted);
+  line-height: 1.5;
+}
+.trip-reservation { border-left-color: var(--trip-success); }
+.trip-reservation strong { color: var(--trip-ink); }
+
+.trip-empty { padding: 1.5rem; border: 1px dashed var(--trip-line); border-radius: 1rem; color: var(--trip-muted); }
+
+@media (max-width: 36rem) {
+  .structured-trip { width: min(100% - 1rem, 62rem); padding-top: 1.35rem; }
+  .trip-day-header, .trip-day-body { padding-left: 1rem; padding-right: 1rem; }
+  .trip-activity { grid-template-columns: 1fr; gap: .25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
