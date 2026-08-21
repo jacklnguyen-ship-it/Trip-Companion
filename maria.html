@@ -342,11 +342,17 @@ body:has(.page:target) #page-home:target{display:block}
   .topbar{ display:flex; }
   .shell{ grid-template-columns: 1fr; }
   .sidebar{
-    position:fixed; left:0; top:0; height:100vh; width:78vw; max-width:320px;
+    position:fixed; left:0; top:0; height:100dvh; width:78vw; max-width:320px;
     transform:translateX(-100%);
     transition:transform .28s ease;
     z-index:2000;
+    overscroll-behavior-y:contain;
+    -webkit-overflow-scrolling:touch;
   }
+  html.mobile-menu-open,body.mobile-menu-open{overflow:hidden;overscroll-behavior:none;}
+  body.mobile-menu-open{touch-action:none;}
+  body.mobile-menu-open .sidebar{touch-action:pan-y;}
+  body.mobile-menu-open .scrim{touch-action:none;overscroll-behavior:contain;}
   .menu-toggle-checkbox:checked ~ .shell .sidebar{ transform:translateX(0); }
   .menu-toggle-checkbox:checked ~ .shell .scrim{ display:block; }
   .content-wrap{ padding:2.2rem 5vw 5rem; }
@@ -3928,7 +3934,7 @@ Thursday, Sept 10 at 5:30pm for 2; à la carte and marked as pre-event. A river/
     if(!menuBox) return;
     document.addEventListener('click', function(e){
       var link = e.target.closest ? e.target.closest('a.navlink, a.page-link') : null;
-      if(link){ menuBox.checked = false; }
+      if(link&&menuBox.checked){ menuBox.dataset.closeReason = 'navigation'; menuBox.checked = false; menuBox.dispatchEvent(new Event('change')); }
     }, false);
   })();
 </script>
@@ -3999,7 +4005,7 @@ if('serviceWorker' in navigator){
 <script src="claim-organizer.js?v=20260729-1"></script>
 <script src="floating-shortcuts.js?v=20260730-7"></script>
 <script src="private-vault.js?v=20260815-ticket-viewer-1"></script>
-<script src="final-polish.js?v=20260728-1"></script>
+<script src="final-polish.js?v=20260821-menu-lock-5"></script>
 <script src="french-audio-v2.js?v=20260821-2"></script>
 <script src="picnic-companion.js?v=20260821-6"></script>
 <script src="daily-transit.js?v=20260815-wimbledon-3"></script>

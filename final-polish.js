@@ -1,9 +1,21 @@
 (function(){
   var menu=document.getElementById('menu-toggle'),toggle=document.querySelector('.hamburger');
   if(menu&&toggle){
-    function sync(){toggle.setAttribute('aria-expanded',menu.checked?'true':'false');toggle.setAttribute('aria-label',menu.checked?'Close menu':'Open menu')}
+    var menuLocked=false,menuScrollY=0;
+    function lockMenuScroll(){
+      if(menuLocked||!matchMedia('(max-width: 860px)').matches)return;
+      menuScrollY=window.scrollY;menuLocked=true;document.documentElement.classList.add('mobile-menu-open');
+      document.body.classList.add('mobile-menu-open');
+    }
+    function unlockMenuScroll(restore){
+      if(!menuLocked)return;
+      document.documentElement.classList.remove('mobile-menu-open');document.body.classList.remove('mobile-menu-open');menuLocked=false;
+      if(restore!==false){var targetY=menuScrollY;setTimeout(function(){if(!menu.checked)window.scrollTo(0,targetY)},0)}
+    }
+    function sync(){var navigationClose=menu.dataset.closeReason==='navigation';delete menu.dataset.closeReason;toggle.setAttribute('aria-expanded',menu.checked?'true':'false');toggle.setAttribute('aria-label',menu.checked?'Close menu':'Open menu');if(menu.checked)lockMenuScroll();else unlockMenuScroll(!navigationClose)}
     toggle.addEventListener('keydown',function(event){if(event.key==='Enter'||event.key===' '){event.preventDefault();menu.checked=!menu.checked;menu.dispatchEvent(new Event('change'))}});
     menu.addEventListener('change',sync);sync();
+    addEventListener('resize',function(){if(!matchMedia('(max-width: 860px)').matches&&menuLocked){menu.checked=false;sync()}});
   }
   function syncCurrent(){
     var hash=location.hash||'#page-home';
