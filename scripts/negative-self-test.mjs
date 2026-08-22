@@ -34,6 +34,7 @@ const fixtureFiles = [
   "picnic-companion.js",
   "versailles-expanded-audio.css",
   "versailles-expanded-audio.js",
+  "chatsworth-exhibit-audio.js",
   "daily-transit.css",
   "daily-transit.js",
   "packing-checklist.css",
